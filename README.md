@@ -64,7 +64,7 @@ Os arquivos das imagens estão na pasta imagens.
 
 ###### Documentação
 
-https://app.swaggerhub.com/api/andre.salla/alodjinha_api/1.0.0
+https://alodjinha.herokuapp.com/swagger-ui.html
 
 ## CONCLUSÃO
 
