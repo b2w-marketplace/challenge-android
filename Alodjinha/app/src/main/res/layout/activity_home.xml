@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_home"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    tools:context="br.com.lodjinha.alodjinha.HomeActivity">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:layout_width="wrap_content"
+        android:id="@+id/indicator"
+        android:layout_height="50dp"
+        android:elevation="25dp"
+        android:layout_alignBottom="@id/pager"
+        android:layout_centerHorizontal="true"
+        app:ci_drawable="@drawable/custom_circleindicator_viewpager"
+        >
+
+    </me.relex.circleindicator.CircleIndicator>
+
+    <View
+        android:layout_below="@id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="1.5dp"
+        android:background="@drawable/custom_shadow_viewpager"
+        android:elevation="5dp"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/colCategorias"
+        android:layout_below="@id/pager"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/Preto"
+        android:textSize="20sp"
+        android:text="Categorias"/>
+
+    <View
+        android:id="@+id/hrCima"
+        android:layout_marginTop="10dp"
+        android:background="#d5d5d5"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@id/hrCima"
+            android:id="@+id/horizontalView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_below="@id/horizontalView"
+        android:id="@+id/hrBaixo"
+        android:background="#d5d5d5"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_below="@id/colCategorias"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/Preto"
+        android:textSize="20sp"
+        android:id="@+id/txtMaisVendidos"
+        android:text="Mais Vendidos"/>
+
+    <View
+        android:layout_below="@id/txtMaisVendidos"
+        android:background="#d5d5d5"
+        android:layout_marginTop="10dp"
+        android:id="@+id/hrBaixoTxtMaisVendidos"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"/>
+
+
+    <LinearLayout
+        android:layout_below="@id/hrBaixoTxtMaisVendidos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/lista_customizada_home"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/progressbar_custom"></include>
+
+
+</RelativeLayout>
