@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 import br.com.lodjinha.alodjinha.R;
 import br.com.lodjinha.alodjinha.model.Produto;
 
-
+//
 public class ListViewAdapterCategoria extends ArrayAdapter<Produto> implements View.OnClickListener {
 
     private ArrayList<Produto> dataSet;
