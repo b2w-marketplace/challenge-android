@@ -1,6 +1,7 @@
 package br.com.lodjinha.alodjinha.model;
 
 import android.graphics.Bitmap;
+import android.text.Spanned;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Produto implements Serializable {
 
     private String urlImagem;
 
-    private String descricao;
+    private Spanned descricao;
 
     private double precoDe;
 
@@ -51,11 +52,11 @@ public class Produto implements Serializable {
         this.urlImagem = urlImagem;
     }
 
-    public String getDescricao() {
+    public Spanned getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(Spanned descricao) {
         this.descricao = descricao;
     }
 

@@ -6,13 +6,24 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
-    tools:context="br.com.lodjinha.alodjinha.HomeActivity">
+    tools:context="br.com.lodjinha.alodjinha.controller.HomeActivity">
 
+    <include layout="@layout/toolbar_home" android:id="@+id/tooo"></include>
+
+    <include layout="@layout/progressbar_custom"></include>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/tooo"
+        android:visibility="invisible"
+        android:id="@+id/subLayoutHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         />
 
     <me.relex.circleindicator.CircleIndicator
@@ -110,7 +121,7 @@
 
     </LinearLayout>
 
-    <include layout="@layout/progressbar_custom"></include>
+    </RelativeLayout>
 
 
 </RelativeLayout>

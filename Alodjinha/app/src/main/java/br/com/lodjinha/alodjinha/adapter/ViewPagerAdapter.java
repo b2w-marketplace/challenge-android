@@ -1,21 +1,19 @@
 package br.com.lodjinha.alodjinha.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
-import br.com.lodjinha.alodjinha.HomeActivity;
+import br.com.lodjinha.alodjinha.controller.HomeActivity;
 import br.com.lodjinha.alodjinha.R;
+import br.com.lodjinha.alodjinha.model.Banner;
 
 /**
  * Created by douglasromano on 13/02/2017.
@@ -23,12 +21,12 @@ import br.com.lodjinha.alodjinha.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
 
-    ArrayList<Bitmap> image;
+    ArrayList<Banner> image;
     LayoutInflater inflater;
     Context context;
 
 
-    public ViewPagerAdapter(HomeActivity activity, ArrayList<Bitmap> img){
+    public ViewPagerAdapter(HomeActivity activity, ArrayList<Banner> img){
         this.context = activity;
         this.image = img;
     }
@@ -51,7 +49,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemview = inflater.inflate(R.layout.item_viewpager, container, false);
         bannerimg = (ImageView) itemview.findViewById(R.id.bannerimg);
-        bannerimg.setImageBitmap(image.get(position));
+        bannerimg.setImageBitmap(image.get(position).getImgs());
 
 
         ((ViewPager)container).addView(itemview);

@@ -1,10 +1,8 @@
-package br.com.lodjinha.alodjinha;
+package br.com.lodjinha.alodjinha.controller;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v4.view.PagerAdapter;
@@ -13,38 +11,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import br.com.lodjinha.alodjinha.R;
 import br.com.lodjinha.alodjinha.adapter.ListViewAdapterHome;
 import br.com.lodjinha.alodjinha.adapter.ViewPagerAdapter;
 import br.com.lodjinha.alodjinha.interfaceapi.IRecuperaCategoria;
 import br.com.lodjinha.alodjinha.interfaceapi.IRecuperaImagemDownload;
 import br.com.lodjinha.alodjinha.interfaceapi.IRecuperaImgBanner;
 import br.com.lodjinha.alodjinha.interfaceapi.IRecuperaMaisVendidos;
+import br.com.lodjinha.alodjinha.model.Banner;
 import br.com.lodjinha.alodjinha.model.Categoria;
 import br.com.lodjinha.alodjinha.model.Imagem;
 import br.com.lodjinha.alodjinha.model.Produto;
@@ -60,10 +56,10 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     private ArrayList<String> horizontalList;
     private HorizontalAdapter horizontalAdapter;
     private ArrayList<Categoria> categorias = new ArrayList<>();
+    private ArrayList<Banner> banners = new ArrayList<>();
 
     private ViewPager viewPager;
     private PagerAdapter adapter;
-    ArrayList<Bitmap> banners = null;
     private static int paginaAtual = 0;
     private static int numeroDePaginas = 0;
     private CircleIndicator circleIndicator;
@@ -74,6 +70,8 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     RecuperaCategoriaApi apiCategoria = new RecuperaCategoriaApi(this);
     RecuperaMaisVendidosApi apiMaisVendidos = new RecuperaMaisVendidosApi(this);
     RelativeLayout progresso;
+    RelativeLayout subLayoutHome;
+    Banner banner;
 
     ArrayList<Produto> produtos = new ArrayList<>();
     ListView listViewAdapter;
@@ -84,15 +82,25 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        TextView tx = (TextView) findViewById(R.id.txtTituloHome);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+
+        tx.setTypeface(custom_font);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarHome);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setIcon(R.drawable.logo_navbar);
+
+        subLayoutHome = (RelativeLayout) findViewById(R.id.subLayoutHome);
 
         progresso = (RelativeLayout) findViewById(R.id.progressBarLayout);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         progresso.setVisibility(View.VISIBLE);
 
         new Thread(new Runnable() {
@@ -173,6 +181,8 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
 
     }
 
+
+
     @Override
     public void preencheBanner(String retorno) {
 
@@ -183,31 +193,27 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
 
             URL url = null;
             Bitmap imgConvertBanner = null;
+            final ArrayList<String> st = new ArrayList<>();;
 
-            banners = new ArrayList<Bitmap>();
 
             for (int i = 0; i < bannerArray.length(); i++) {
-
-                url = new URL(bannerArray.getJSONObject(i).getString("urlImagem"));
-                imgConvertBanner = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-
-                banners.add(imgConvertBanner);
+                banner = new Banner();
+                st.add(bannerArray.getJSONObject(i).getString("urlImagem"));
+                banner.setUrlImagem(bannerArray.getJSONObject(i).getString("urlImagem"));
+                banners.add(banner);
             }
 
-            adapter = new ViewPagerAdapter(HomeActivity.this, banners);
-            viewPager.setAdapter(adapter);
-            circleIndicator.setViewPager(viewPager);
+            Imagem img = new Imagem();
+            img.setTipo("banner");
+            imagapi = new DownloadImagemApi(st, img);
+            imagapi.delegate = HomeActivity.this;
+            imagapi.execute();
+
 
         } catch (JSONException e) {
             e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
-
 
     @Override
     public void preencheCategoria(String retorno) {
@@ -223,6 +229,7 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
 
             for (int i = 0; i < categoriaArray.length(); i++) {
                 categoria = new Categoria();
+                categoria.setId(categoriaArray.getJSONObject(i).getInt("id"));
                 categoria.setDescricao(categoriaArray.getJSONObject(i).getString("descricao"));
                 categoria.setUrlImagem(categoriaArray.getJSONObject(i).getString("urlImagem"));
                 st.add(categoriaArray.getJSONObject(i).getString("urlImagem"));
@@ -243,8 +250,6 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     @Override
     public void preencheImagenss(Imagem imgs) {
         int count = 0;
-
-
         if(imgs.getTipo().equals("Categoria")) {
             for (Categoria c : categorias) {
                 c.setImgs(imgs.getBmps().get(count++));
@@ -265,9 +270,19 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
 
             listViewAdapter.setAdapter(listAdapter);
 
+            subLayoutHome.setVisibility(View.VISIBLE);
             progresso.setVisibility(View.INVISIBLE);
+            //getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        } else if (imgs.getTipo().equals("banner")){
+            count = 0;
+            for(Banner b : banners){
+                b.setImgs(imgs.getBmps().get(count++));
+            }
 
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            adapter = new ViewPagerAdapter(HomeActivity.this, banners);
+            viewPager.setAdapter(adapter);
+            circleIndicator.setViewPager(viewPager);
+
         }
     }
 
@@ -286,7 +301,9 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
             for (int i = 0; i < produtoArray.length(); i++) {
                 produto = new Produto();
                 produto.setNome(produtoArray.getJSONObject(i).getString("nome"));
-                produto.setDescricao(produtoArray.getJSONObject(i).getString("descricao"));
+                String descricao = produtoArray.getJSONObject(i).getString("descricao");
+                Spanned formatHtmlDescricao = Html.fromHtml(descricao);
+                produto.setDescricao(formatHtmlDescricao);
                 produto.setUrlImagem(produtoArray.getJSONObject(i).getString("urlImagem"));
                 produto.setPrecoDe(produtoArray.getJSONObject(i).getDouble("precoDe"));
                 produto.setPrecoPor(produtoArray.getJSONObject(i).getDouble("precoPor"));
@@ -342,7 +359,10 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
             holder.txtView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(HomeActivity.this,holder.txtView.getText().toString(),Toast.LENGTH_SHORT).show();
+
+                    Intent it = new Intent(HomeActivity.this, CategoriaActivity.class);
+                    it.putExtra("idCategoria", horizontalList.get(position).getId());
+                    startActivity(it);
                 }
             });
         }

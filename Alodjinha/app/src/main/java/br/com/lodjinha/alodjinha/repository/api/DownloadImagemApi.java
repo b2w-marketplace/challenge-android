@@ -2,6 +2,7 @@ package br.com.lodjinha.alodjinha.repository.api;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 

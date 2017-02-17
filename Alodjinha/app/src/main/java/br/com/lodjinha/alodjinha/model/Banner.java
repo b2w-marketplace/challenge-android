@@ -3,20 +3,19 @@ package br.com.lodjinha.alodjinha.model;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
- * Created by douglasromano on 14/02/2017.
+ * Created by douglasromano on 15/02/2017.
  */
 
-public class Categoria implements Serializable {
+public class Banner implements Serializable {
 
     private String descricao;
 
     private String urlImagem;
 
     private Bitmap imgs;
-
-    private int id;
 
     public String getDescricao() {
         return descricao;
@@ -40,13 +39,5 @@ public class Categoria implements Serializable {
 
     public void setImgs(Bitmap imgs) {
         this.imgs = imgs;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
