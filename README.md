@@ -1,4 +1,4 @@
-# a Lodjinha
+# o Lodjinha
 
 Minimo SDK: API 15</br>
 Linguagem: Java</br>
