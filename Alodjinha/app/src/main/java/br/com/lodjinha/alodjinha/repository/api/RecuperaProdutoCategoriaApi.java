@@ -21,7 +21,8 @@ public class RecuperaProdutoCategoriaApi extends AsyncTask<String, Void, String>
     private Activity activity;
     private int id;
     public IRecuperaProdutoCategoria delegate = null;
-    private static int limite;
+    private int limite;
+    private int limiteProd;
 
     public RecuperaProdutoCategoriaApi(Activity activity, int id, int limite){
         this.activity = activity;
@@ -33,7 +34,7 @@ public class RecuperaProdutoCategoriaApi extends AsyncTask<String, Void, String>
     protected String doInBackground(String... strings) {
         URL url = null;
         try {
-            int limiteProd = 20+limite;
+            limiteProd = 20+limite;
             url = new URL("https://alodjinha.herokuapp.com/produto?limit="+limiteProd+"&categoriaId="+id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");

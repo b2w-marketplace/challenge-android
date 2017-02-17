@@ -128,14 +128,9 @@ public class CategoriaActivity extends AppCompatActivity implements IRecuperaPro
                     getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                     produtos.clear();
 
-                    limites.add(5);
-                    int ll = limites.get(0) + 10;
-                    limites.clear();
-                    limites.add(ll);
-
                     progressoUpList.setVisibility(View.VISIBLE);
 
-                    produtoCatApi = new RecuperaProdutoCategoriaApi(CategoriaActivity.this, idCategoria, limites.get(0));
+                    produtoCatApi = new RecuperaProdutoCategoriaApi(CategoriaActivity.this, idCategoria, 10);
 
                     produtoCatApi.delegate = CategoriaActivity.this;
                     produtoCatApi.execute();

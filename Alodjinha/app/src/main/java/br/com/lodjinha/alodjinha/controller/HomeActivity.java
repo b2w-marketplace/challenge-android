@@ -124,7 +124,20 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
                 Produto produto = produtos.get(position);
+
+                Intent it = new Intent(HomeActivity.this, DescricaoProdutoActivity.class);
+
+                String desc = String.valueOf(produto.getDescricao());
+
+                it.putExtra("NomeProduto", produto.getNome());
+                it.putExtra("DescProduto", desc);
+                it.putExtra("PrecoDe", produto.getPrecoDe());
+                it.putExtra("PrecoPor", produto.getPrecoPor());
+                it.putExtra("ImgProduto", produto.getUrlImagem());
+                it.putExtra("IdProduto", produto.getId());
+                startActivity(it);
 
             }
         });
@@ -300,6 +313,7 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
 
             for (int i = 0; i < produtoArray.length(); i++) {
                 produto = new Produto();
+                produto.setId(produtoArray.getJSONObject(i).getInt("id"));
                 produto.setNome(produtoArray.getJSONObject(i).getString("nome"));
                 String descricao = produtoArray.getJSONObject(i).getString("descricao");
                 Spanned formatHtmlDescricao = Html.fromHtml(descricao);
@@ -356,15 +370,17 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
           holder.txtView.setText(horizontalList.get(position).getDescricao());
           holder.imgHorizontal.setImageBitmap(horizontalList.get(position).getImgs());
 
-            holder.txtView.setOnClickListener(new View.OnClickListener() {
+
+            holder.imgHorizontal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Intent it = new Intent(HomeActivity.this, CategoriaActivity.class);
                     it.putExtra("idCategoria", horizontalList.get(position).getId());
                     startActivity(it);
                 }
             });
+
+
         }
 
         @Override
