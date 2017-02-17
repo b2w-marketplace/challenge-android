@@ -28,12 +28,25 @@ public class ReservaProdutoApi  extends AsyncTask<String, Void, String>{
     private String json = "";
     private int id;
     private AlertDialog alerta;
+    private ProgressDialog progressDialog;
 
     public ReservaProdutoApi(Activity activity, int id){
         this.activity = activity;
         this.id = id;
     }
 
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+        progressDialog = new ProgressDialog(activity);
+
+        progressDialog.setTitle("Aguarde");
+        progressDialog.setMessage("Carregando...");
+
+        progressDialog.show();
+    }
 
     @Override
     protected String doInBackground(String... params) {
@@ -69,6 +82,7 @@ public class ReservaProdutoApi  extends AsyncTask<String, Void, String>{
     protected void onPostExecute(String json) {
 
         try {
+            progressDialog.dismiss();
             JSONObject result = new JSONObject(json);
             final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setTitle("");
