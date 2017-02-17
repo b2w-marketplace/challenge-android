@@ -191,19 +191,23 @@ public class CategoriaActivity extends AppCompatActivity implements IRecuperaPro
     @Override
     public void preencheImagenss(Imagem bmps) {
         int count = 0;
-        if(bmps.getTipo().equals("Categoria")){
-            count = 0;
-            for(Produto p : produtos){
-                p.setImgProduto(bmps.getBmps().get(count++));
-            }
-            listAdapter = new ListViewAdapterCategoria(produtos, getApplicationContext());
+        switch (bmps.getTipo().toString()){
+            case "Categoria":
+                count = 0;
+                for(Produto p : produtos){
+                    p.setImgProduto(bmps.getBmps().get(count++));
+                }
+                listAdapter = new ListViewAdapterCategoria(produtos, getApplicationContext());
 
-            listViewAdapter.setAdapter(listAdapter);
-            progresso.setVisibility(View.INVISIBLE);
-            if(progressoUpList != null) {
-                progressoUpList.setVisibility(View.INVISIBLE);
-            }
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                listViewAdapter.setAdapter(listAdapter);
+                progresso.setVisibility(View.INVISIBLE);
+                if(progressoUpList != null) {
+                    progressoUpList.setVisibility(View.INVISIBLE);
+                }
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                break;
+            default:
+                break;
         }
     }
 }

@@ -5,8 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,10 +19,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -50,7 +56,7 @@ import br.com.lodjinha.alodjinha.repository.api.RecuperaImgBannerApi;
 import br.com.lodjinha.alodjinha.repository.api.RecuperaMaisVendidosApi;
 import me.relex.circleindicator.CircleIndicator;
 
-public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanner,IRecuperaCategoria, IRecuperaImagemDownload, IRecuperaMaisVendidos {
+public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanner,IRecuperaCategoria, IRecuperaImagemDownload, IRecuperaMaisVendidos, NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView horizontalView;
     private ArrayList<String> horizontalList;
@@ -72,6 +78,7 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     RelativeLayout progresso;
     RelativeLayout subLayoutHome;
     Banner banner;
+    Typeface custom_font;
 
     ArrayList<Produto> produtos = new ArrayList<>();
     ListView listViewAdapter;
@@ -80,22 +87,30 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        TextView tx = (TextView) findViewById(R.id.txtTituloHome);
-
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
-
-        tx.setTypeface(custom_font);
+        setContentView(R.layout.activity_menu);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarHome);
         setSupportActionBar(toolbar);
         getSupportActionBar().setIcon(R.drawable.logo_navbar);
+
+        TextView tx = (TextView) findViewById(R.id.txtTituloHome);
+
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+
+        tx.setTypeface(custom_font);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         subLayoutHome = (RelativeLayout) findViewById(R.id.subLayoutHome);
 
@@ -263,39 +278,44 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
     @Override
     public void preencheImagenss(Imagem imgs) {
         int count = 0;
-        if(imgs.getTipo().equals("Categoria")) {
-            for (Categoria c : categorias) {
-                c.setImgs(imgs.getBmps().get(count++));
-            }
+        switch (imgs.getTipo().toString()){
+            case "Categoria":
+                for (Categoria c : categorias) {
+                    c.setImgs(imgs.getBmps().get(count++));
+                }
 
-            horizontalAdapter = new HorizontalAdapter(categorias);
+                horizontalAdapter = new HorizontalAdapter(categorias);
 
-            LinearLayoutManager horizontalLayoutManagaer = new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, false);
-            horizontalView.setLayoutManager(horizontalLayoutManagaer);
+                LinearLayoutManager horizontalLayoutManagaer = new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, false);
+                horizontalView.setLayoutManager(horizontalLayoutManagaer);
 
-            horizontalView.setAdapter(horizontalAdapter);
-        } else if(imgs.getTipo().equals("MaisVendido")){
-            count = 0;
-            for(Produto p : produtos){
-                p.setImgProduto(imgs.getBmps().get(count++));
-            }
-            listAdapter = new ListViewAdapterHome(produtos, getApplicationContext());
+                horizontalView.setAdapter(horizontalAdapter);
+                break;
+            case "MaisVendido":
+                count = 0;
+                for(Produto p : produtos){
+                    p.setImgProduto(imgs.getBmps().get(count++));
+                }
+                listAdapter = new ListViewAdapterHome(produtos, getApplicationContext());
 
-            listViewAdapter.setAdapter(listAdapter);
+                listViewAdapter.setAdapter(listAdapter);
 
-            subLayoutHome.setVisibility(View.VISIBLE);
-            progresso.setVisibility(View.INVISIBLE);
-            //getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        } else if (imgs.getTipo().equals("banner")){
-            count = 0;
-            for(Banner b : banners){
-                b.setImgs(imgs.getBmps().get(count++));
-            }
+                subLayoutHome.setVisibility(View.VISIBLE);
+                progresso.setVisibility(View.INVISIBLE);
+                //getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                break;
+            case "banner":
+                count = 0;
+                for(Banner b : banners){
+                    b.setImgs(imgs.getBmps().get(count++));
+                }
 
-            adapter = new ViewPagerAdapter(HomeActivity.this, banners);
-            viewPager.setAdapter(adapter);
-            circleIndicator.setViewPager(viewPager);
-
+                adapter = new ViewPagerAdapter(HomeActivity.this, banners);
+                viewPager.setAdapter(adapter);
+                circleIndicator.setViewPager(viewPager);
+                break;
+            default:
+                break;
         }
     }
 
@@ -316,7 +336,8 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
                 produto.setId(produtoArray.getJSONObject(i).getInt("id"));
                 produto.setNome(produtoArray.getJSONObject(i).getString("nome"));
                 String descricao = produtoArray.getJSONObject(i).getString("descricao");
-                Spanned formatHtmlDescricao = Html.fromHtml(descricao);
+
+                Spanned formatHtmlDescricao = fromHtml(descricao);
                 produto.setDescricao(formatHtmlDescricao);
                 produto.setUrlImagem(produtoArray.getJSONObject(i).getString("urlImagem"));
                 produto.setPrecoDe(produtoArray.getJSONObject(i).getDouble("precoDe"));
@@ -388,6 +409,45 @@ public class HomeActivity extends AppCompatActivity implements IRecuperaImgBanne
             return horizontalList.size();
         }
     }
+
+    @SuppressWarnings("deprecation")
+    public static Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.sobre_menu) {
+            Intent it = new Intent(this, SobreActivity.class);
+            startActivity(it);
+            overridePendingTransition(android.R.anim.slide_in_left,0);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 
 
 }
