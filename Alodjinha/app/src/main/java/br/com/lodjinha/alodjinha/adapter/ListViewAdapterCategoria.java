@@ -66,10 +66,8 @@ public class ListViewAdapterCategoria extends ArrayAdapter<Produto> implements V
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
         Produto produto = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        ListViewAdapterCategoria.ViewHolder viewHolder; // view lookup cache stored in tag
+        ListViewAdapterCategoria.ViewHolder viewHolder;
 
         final View result;
 
@@ -94,8 +92,6 @@ public class ListViewAdapterCategoria extends ArrayAdapter<Produto> implements V
             result = convertView;
         }
 
-        //Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-        //result.startAnimation(animation);
         lastPosition = position;
 
 
