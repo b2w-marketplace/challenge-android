@@ -64,10 +64,8 @@ public class ListViewAdapterHome extends ArrayAdapter<Produto> implements View.O
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
         Produto produto = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        ViewHolder viewHolder;
 
         final View result;
 
@@ -91,9 +89,6 @@ public class ListViewAdapterHome extends ArrayAdapter<Produto> implements View.O
             viewHolder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
-
-        //Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-        //result.startAnimation(animation);
         lastPosition = position;
 
 
