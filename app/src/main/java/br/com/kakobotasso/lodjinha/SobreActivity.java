@@ -1,22 +1,20 @@
 package br.com.kakobotasso.lodjinha;
 
-import android.os.Bundle;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import br.com.kakobotasso.lodjinha.utils.Fontes;
 import br.com.kakobotasso.lodjinha.utils.Navegacao;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class SobreActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private NavigationView navigationView;
@@ -24,11 +22,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sobre);
 
         preparaToolbar();
         preparaNavigationDrawer();
         preparaNaviationView();
+        personalizaTexto();
     }
 
     @Override
@@ -61,13 +60,7 @@ public class MainActivity extends AppCompatActivity
 
     private void preparaToolbar(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        personalizaToolbar();
         setSupportActionBar(toolbar);
-    }
-
-    private void personalizaToolbar(){
-        TextView titulo = (TextView) toolbar.findViewById(R.id.toolbar_titulo);
-        Fontes.aplicaEstilo(this, titulo);
     }
 
     private void preparaNavigationDrawer(){
@@ -89,5 +82,10 @@ public class MainActivity extends AppCompatActivity
         View headerView =  navigationView.getHeaderView(0);
         TextView test = (TextView) headerView.findViewById(R.id.nav_titulo_menu);
         Fontes.aplicaEstilo(this, test);
+    }
+
+    private void personalizaTexto(){
+        TextView titulo = (TextView) findViewById(R.id.titulo_sobre);
+        Fontes.aplicaEstilo(this, titulo);
     }
 }
