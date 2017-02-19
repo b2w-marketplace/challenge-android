@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Lodjinha</string>
+    <string name="app_name">a Lodjinha</string>
+
+    <!-- NAVIGATION MENU -->
+    <string name="nav_home">Home</string>
+    <string name="nav_sobre">Sobre o aplicativo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
