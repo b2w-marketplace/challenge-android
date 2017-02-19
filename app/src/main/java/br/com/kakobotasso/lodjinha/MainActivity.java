@@ -1,6 +1,9 @@
 package br.com.kakobotasso.lodjinha;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,8 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.List;
+
+import br.com.kakobotasso.lodjinha.adapters.BannersAdapter;
+import br.com.kakobotasso.lodjinha.api.BannerService;
+import br.com.kakobotasso.lodjinha.models.Banner;
+import br.com.kakobotasso.lodjinha.models.DataBannerContainer;
 import br.com.kakobotasso.lodjinha.utils.Fontes;
 import br.com.kakobotasso.lodjinha.utils.Navegacao;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         preparaToolbar();
         preparaNavigationDrawer();
         preparaNaviationView();
+
+        carregaBanners();
     }
 
     @Override
@@ -89,5 +103,29 @@ public class MainActivity extends AppCompatActivity
         View headerView =  navigationView.getHeaderView(0);
         TextView test = (TextView) headerView.findViewById(R.id.nav_titulo_menu);
         Fontes.aplicaEstilo(this, test);
+    }
+
+    private void carregaBanners(){
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.banners_list);
+
+        BannerService bannerService = BannerService.retrofit.create(BannerService.class);
+        Call<DataBannerContainer> call = bannerService.getBanners();
+        call.enqueue(new Callback<DataBannerContainer>() {
+            @Override
+            public void onResponse(Call<DataBannerContainer> call, Response<DataBannerContainer> response) {
+                List<Banner> bannerList = response.body().getDataModelList();
+                BannersAdapter adapter = new BannersAdapter(bannerList, MainActivity.this);
+                recyclerView.setAdapter(adapter);
+                RecyclerView.LayoutManager layout = new LinearLayoutManager(MainActivity.this,
+                        LinearLayoutManager.HORIZONTAL, false);
+
+                recyclerView.setLayoutManager(layout);
+            }
+
+            @Override
+            public void onFailure(Call<DataBannerContainer> call, Throwable t) {
+
+            }
+        });
     }
 }
