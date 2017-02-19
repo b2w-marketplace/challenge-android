@@ -20,12 +20,9 @@
 
     <TextView
         android:id="@+id/nav_titulo_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/TituloMenu"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/app_name"
-        android:textSize="24sp"
         android:gravity="right"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        />
 
 </LinearLayout>
