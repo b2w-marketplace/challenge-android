@@ -28,7 +28,8 @@ def junit = "4.12"
 def espresso = "2.2.2"
 def retrofit = "2.1.0"
 def eventbus = "3.0.0"
-def viewPager = "1.0.2"
+def carouselview = "0.0.10"
+def picasso = "2.5.2"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -51,11 +52,10 @@ dependencies {
 
     //EventBus
     compile "org.greenrobot:eventbus:$eventbus"
-    compile 'com.android.support:support-v4:25.1.1'
 
     //CarouselView
-    compile 'com.synnapps:carouselview:0.0.10'
+    compile "com.synnapps:carouselview:$carouselview"
 
     //Picasso
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile "com.squareup.picasso:picasso:$picasso"
 }

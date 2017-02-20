@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             if (count > 1){
                 getSupportFragmentManager().popBackStack();
             }else {
-                super.onBackPressed();
+               finish();
             }
         }
     }
