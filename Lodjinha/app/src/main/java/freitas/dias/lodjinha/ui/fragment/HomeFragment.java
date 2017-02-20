@@ -28,8 +28,11 @@ import freitas.dias.lodjinha.R;
 import freitas.dias.lodjinha.adapter.CategoriesAdapter;
 import freitas.dias.lodjinha.adapter.ProductsAdapter;
 import freitas.dias.lodjinha.api.model.Banner;
+import freitas.dias.lodjinha.api.model.Banners;
+import freitas.dias.lodjinha.api.model.Categories;
 import freitas.dias.lodjinha.api.model.Category;
 import freitas.dias.lodjinha.api.model.Product;
+import freitas.dias.lodjinha.api.model.Products;
 import freitas.dias.lodjinha.controller.BannerController;
 import freitas.dias.lodjinha.controller.CategoriesController;
 import freitas.dias.lodjinha.controller.ProductsSoldController;
@@ -71,7 +74,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         BannerController bannerController = new BannerController();
         bannerController.getListBanners();
 
-        CategoriesController categoriesController = new CategoriesController();
+       CategoriesController categoriesController = new CategoriesController();
         categoriesController.getListCategories();
 
         ProductsSoldController productsSoldController = new ProductsSoldController();
@@ -79,57 +82,59 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEventBanner(List<Banner> banners) {
-        if(banners != null && banners.size() > 0){
-            if(banners.get(0) != null){
-                Banner banner = banners.get(0);
-                if(banner instanceof Banner){
-                    final List<Banner> bannerList = banners;
+    public void onMessageEventBanner(Banners banners) {
 
-                    linearLayoutLoadingViewPager.setVisibility(View.GONE);
-                    linearLayoutViewPager.setVisibility(View.VISIBLE);
+        if(banners != null){
+            final List<Banner> bannerList = banners.getBanners();
 
-                    final ImageListener imageListener = new ImageListener() {
-                        @Override
-                        public void setImageForPosition(int position, ImageView imageView) {
-                            Picasso.with(getActivity())
-                                    .load(bannerList.get(position).getUrlImage())
-                                    .into(imageView);
-                            imageView.setTag(bannerList.get(position).getLinkImage());
-                            imageView.setOnClickListener(HomeFragment.this);
-                        }
-                    };
+            linearLayoutLoadingViewPager.setVisibility(View.GONE);
+            linearLayoutViewPager.setVisibility(View.VISIBLE);
 
-                    carouselView.setImageListener(imageListener);
-                    carouselView.setPageCount(banners.size());
+            final ImageListener imageListener = new ImageListener() {
+                @Override
+                public void setImageForPosition(int position, ImageView imageView) {
+                    Picasso.with(getActivity())
+                            .load(bannerList.get(position).getUrlImage())
+                            .into(imageView);
+                    imageView.setTag(bannerList.get(position).getLinkImage());
+                    imageView.setOnClickListener(HomeFragment.this);
                 }
-            }
+            };
+
+            carouselView.setImageListener(imageListener);
+            carouselView.setPageCount(bannerList.size());
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEventCategory(List<Category> categories) {
+    public void onMessageEventCategory(Categories categories) {
 
-        if(categories.get(0) instanceof Category){
+        if(categories != null){
+
+            List<Category> categoryList = categories.getCategories();
+
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
             recyclerViewCategories.setHasFixedSize(true);
             recyclerViewCategories.setLayoutManager(layoutManager);
             recyclerViewCategories.setItemAnimator(new DefaultItemAnimator());
 
-            CategoriesAdapter categoriesAdapter = new CategoriesAdapter(getActivity(), categories);
+            CategoriesAdapter categoriesAdapter = new CategoriesAdapter(getActivity(), categoryList);
             recyclerViewCategories.setAdapter(categoriesAdapter);
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEventProduct(List<Product> products) {
-        if(products.get(0) instanceof Product){
+    public void onMessageEventProduct(Products products) {
+        if(products != null){
+
+            List<Product> productList = products.getProducts();
+
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             recyclerViewProducts.setHasFixedSize(true);
             recyclerViewProducts.setLayoutManager(layoutManager);
             recyclerViewProducts.setItemAnimator(new DefaultItemAnimator());
 
-            ProductsAdapter categoriesAdapter = new ProductsAdapter(getActivity(), products);
+            ProductsAdapter categoriesAdapter = new ProductsAdapter(getActivity(), productList);
             recyclerViewProducts.setAdapter(categoriesAdapter);
         }
     }

@@ -1,9 +1,6 @@
 package freitas.dias.lodjinha.controller;
 
 
-import java.util.List;
-
-import freitas.dias.lodjinha.api.model.Product;
 import freitas.dias.lodjinha.api.model.Products;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,8 +13,8 @@ public class ProductsSoldController extends BaseController {
         call.enqueue(new Callback<Products>() {
             @Override
             public void onResponse(Call<Products> call, Response<Products> response) {
-                List<Product> categoryList = response.body().getProducts();
-                post(categoryList);
+                Products products = response.body();
+                post(products);
             }
 
             @Override

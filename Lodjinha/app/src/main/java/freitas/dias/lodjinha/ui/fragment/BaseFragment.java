@@ -22,4 +22,14 @@ public class BaseFragment extends Fragment {
             super.onStop();
         }
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            EventBus.getDefault().unregister(this);
+        } finally {
+            super.onStop();
+        }
+    }
 }

@@ -1,9 +1,6 @@
 package freitas.dias.lodjinha.controller;
 
 
-import java.util.List;
-
-import freitas.dias.lodjinha.api.model.Banner;
 import freitas.dias.lodjinha.api.model.Banners;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,7 +13,7 @@ public class BannerController extends BaseController{
         call.enqueue(new Callback<Banners>() {
             @Override
             public void onResponse(Call<Banners> call, Response<Banners> response) {
-                List<Banner> banners = response.body().getBanners();
+                Banners banners = response.body();
                 post(banners);
             }
 
