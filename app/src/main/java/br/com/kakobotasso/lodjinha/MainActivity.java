@@ -1,6 +1,7 @@
 package br.com.kakobotasso.lodjinha;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,9 +18,13 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.kakobotasso.lodjinha.adapters.BannersAdapter;
+import br.com.kakobotasso.lodjinha.adapters.CategoriasAdapter;
 import br.com.kakobotasso.lodjinha.api.BannerService;
+import br.com.kakobotasso.lodjinha.api.CategoriaService;
 import br.com.kakobotasso.lodjinha.models.Banner;
+import br.com.kakobotasso.lodjinha.models.Categoria;
 import br.com.kakobotasso.lodjinha.models.DataBannerContainer;
+import br.com.kakobotasso.lodjinha.models.DataCategoriaContainer;
 import br.com.kakobotasso.lodjinha.utils.Fontes;
 import br.com.kakobotasso.lodjinha.utils.Navegacao;
 import retrofit2.Call;
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity
         preparaNaviationView();
 
         carregaBanners();
+        carregaCategorias();
     }
 
     @Override
@@ -124,6 +130,29 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onFailure(Call<DataBannerContainer> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void carregaCategorias(){
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.categorias_list);
+
+        CategoriaService categoriaService = CategoriaService.retrofit.create(CategoriaService.class);
+        Call<DataCategoriaContainer> call = categoriaService.getCategorias();
+        call.enqueue(new Callback<DataCategoriaContainer>() {
+            @Override
+            public void onResponse(Call<DataCategoriaContainer> call, Response<DataCategoriaContainer> response) {
+                List<Categoria> categoriaList = response.body().getDataModelList();
+                CategoriasAdapter adapter = new CategoriasAdapter(categoriaList, MainActivity.this);
+                recyclerView.setAdapter(adapter);
+                RecyclerView.LayoutManager layout = new LinearLayoutManager(MainActivity.this,
+                        LinearLayoutManager.HORIZONTAL, false);
+                recyclerView.setLayoutManager(layout);
+            }
+
+            @Override
+            public void onFailure(Call<DataCategoriaContainer> call, Throwable t) {
 
             }
         });

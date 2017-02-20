@@ -16,4 +16,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categorias"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greyishBrown"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/categorias_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greyishBrown"
+        />
+
 </LinearLayout>
