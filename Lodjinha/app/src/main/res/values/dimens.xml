@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="design_navigation_icon_size" tools:override="true">30dp</dimen>
+
+    <dimen name="default_text_8_sp">8sp</dimen>
+    <dimen name="default_text_10_sp">10sp</dimen>
+    <dimen name="default_text_11_sp">11sp</dimen>
+    <dimen name="default_text_12_sp">12sp</dimen>
+    <dimen name="default_text_13_sp">13sp</dimen>
+    <dimen name="default_text_14_sp">14sp</dimen>
+    <dimen name="default_text_16_sp">16sp</dimen>
+    <dimen name="default_text_18_sp">18sp</dimen>
+    <dimen name="default_text_19_sp">19sp</dimen>
+    <dimen name="default_text_20_sp">20sp</dimen>
+    <dimen name="default_text_22_sp">22sp</dimen>
+    <dimen name="default_text_24_sp">22sp</dimen>
+    <dimen name="default_text_25_sp">25sp</dimen>
+    <dimen name="default_text_28_sp">28sp</dimen>
+    <dimen name="default_text_36_sp">36sp</dimen>
+    <dimen name="default_text_64_sp">64sp</dimen>
+
+    <dimen name="default_margin_1_dp">1dp</dimen>
+    <dimen name="default_margin_2_dp">2dp</dimen>
+    <dimen name="default_margin_4_dp">4dp</dimen>
+    <dimen name="default_margin_5_dp">5dp</dimen>
+    <dimen name="default_margin_tiny">6dp</dimen>
+    <dimen name="default_margin_8_dp">8dp</dimen>
+    <dimen name="default_margin_10_dp">10dp</dimen>
+    <dimen name="default_margin_12_dp">12dp</dimen>
+    <dimen name="default_margin_13_dp">13dp</dimen>
+    <dimen name="default_margin_14_dp">14dp</dimen>
+    <dimen name="default_margin_15_dp">15dp</dimen>
+    <dimen name="default_margin_16_dp">16dp</dimen>
+    <dimen name="default_margin_17_dp">17dp</dimen>
+    <dimen name="default_margin_20_dp">20dp</dimen>
+    <dimen name="default_text_64_dp">36sp</dimen>
+</resources>

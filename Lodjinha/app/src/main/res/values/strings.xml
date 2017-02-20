@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Lodjinha</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_about">Sobre o Aplicativo</string>
+    <string name="name_header_app">A Lodjinha</string>
+    <string name="name_header_app_toolbar">a Lodjinha</string>
+    <string name="name_about_desen">Renan Dias de Freitas</string>
+    <string name="date_desenv">19/02/2017</string>
+    <string name="font_pacifico">pacifico.ttf</string>
+    <string name="font_roboto_light">roboto-light.ttf</string>
+    <string name="font_roboto_medium">roboto-medium.ttf</string>
+    <string name="open">abrir</string>
+    <string name="close">fechar</string>
+    <string name="failure">Falha ao carregar</string>
+    <string name="name_categories">Categorias</string>
+    <string name="font_roboto_regular">roboto-regular.ttf</string>
+
+
+</resources>
