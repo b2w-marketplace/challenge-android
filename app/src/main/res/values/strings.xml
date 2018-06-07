@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">ALojinha</string>
+    <string name="app_name">a Lodjinha</string>
+    <string name="menu_sobre">Sobre o aplicativo</string>
+    <string name="menu_home">Home</string>
+    <string name="nav_header_name">a Lodjinha</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">closed</string>
+    <string name="sobre">Sobre</string>
+    <string name="categories">Categorias</string>
 </resources>
