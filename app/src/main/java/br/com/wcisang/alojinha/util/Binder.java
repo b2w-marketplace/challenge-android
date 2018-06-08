@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
  */
 public class Binder {
 
-    @BindingAdapter({"bind:urlImagem"})
+    @BindingAdapter({"app:urlImagem"})
     public static void loadImage(ImageView view, String url) {
         if (url == null || url.isEmpty())
             url = "http://www.physiotherapyns.ca/images/default_news.png";

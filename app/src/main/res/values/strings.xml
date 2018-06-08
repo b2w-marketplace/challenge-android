@@ -7,4 +7,6 @@
     <string name="navigation_drawer_close">closed</string>
     <string name="sobre">Sobre</string>
     <string name="categories">Categorias</string>
+    <string name="best_sellers">Mais vendidos</string>
+    <string name="descricao">Descrição</string>
 </resources>

@@ -1,9 +1,11 @@
 package br.com.wcisang.alojinha.model;
 
+import java.io.Serializable;
+
 /**
  * Created by WCisang on 07/06/2018.
  */
-public class Product {
+public class Product implements Serializable {
 
     private int id;
     private String descricao;
