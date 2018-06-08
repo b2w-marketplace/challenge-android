@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextViewDeveloperName" parent="TextViewBase">
+        <item name="android:textSize">@dimen/developer_name_text_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextViewDateDevelopment" parent="TextViewBase">
+        <item name="android:textSize">@dimen/development_date_text_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+</resources>
