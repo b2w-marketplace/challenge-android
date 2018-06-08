@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">a Lodjinha</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_home">Home</string>
+    <string name="menu_about">Sobre o aplicativo</string>
+
+    <!-- Drawer Strings -->
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
 </resources>

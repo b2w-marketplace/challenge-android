@@ -10,6 +10,7 @@
 
     <style name="TextViewMenuLogo" parent="TextViewBase">
         <item name="android:textSize">@dimen/menu_text_size</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <style name="TextViewPriceFrom" parent="TextViewBase">

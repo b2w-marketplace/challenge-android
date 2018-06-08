@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_header"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@drawable/menu_pattern"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/nav_header_imageView"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@color/colorTomato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_header_imageView"
+        app:layout_constraintEnd_toEndOf="@+id/nav_header_imageView"
+        app:layout_constraintStart_toStartOf="@+id/nav_header_imageView"
+        app:layout_constraintTop_toTopOf="@+id/nav_header_imageView" />
+
+    <TextView
+        android:id="@+id/nav_header_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextViewMenuLogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
