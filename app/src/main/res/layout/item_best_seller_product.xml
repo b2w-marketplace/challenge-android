@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -13,7 +14,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:id="@+id/product_image"
@@ -36,6 +38,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@{product.nome}"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@id/img_next"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/product_image"
@@ -43,12 +47,16 @@
 
         <TextView
             android:id="@+id/product_precode"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="@{String.valueOf(product.precoDe)}"
+            android:text="@{@string/de + (String.valueOf(product.precoDe))}"
+            android:textColor="@color/greyish_brown"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/product_image"
             app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
@@ -56,11 +64,17 @@
             android:id="@+id/product_precopor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
-            android:text="@{String.valueOf(product.precoPor)}"
-            app:layout_constraintStart_toEndOf="@+id/product_precode"
+            android:gravity="right|end"
+            android:text="@{@string/por + (String.valueOf(product.precoPor))}"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/img_next"
             app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
         <ImageView

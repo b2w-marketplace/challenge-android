@@ -9,4 +9,6 @@
     <string name="categories">Categorias</string>
     <string name="best_sellers">Mais vendidos</string>
     <string name="descricao">Descrição</string>
+    <string name="de">De: \u0020</string>
+    <string name="por">Por\u0020</string>
 </resources>
