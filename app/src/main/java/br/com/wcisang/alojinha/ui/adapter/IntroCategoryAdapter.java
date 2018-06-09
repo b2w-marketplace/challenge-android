@@ -3,6 +3,7 @@ package br.com.wcisang.alojinha.ui.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -16,9 +17,15 @@ import br.com.wcisang.alojinha.model.Category;
 public class IntroCategoryAdapter extends RecyclerView.Adapter<IntroCategoryAdapter.CategoryViewHolder> {
 
     List<Category> categories;
+    CategoryListener listener;
 
-    public IntroCategoryAdapter(List<Category> categories) {
+    public IntroCategoryAdapter(List<Category> categories, CategoryListener categoryListener) {
         this.categories = categories;
+        this.listener = categoryListener;
+    }
+
+    public interface CategoryListener {
+        void onCategoryClick(Category category);
     }
 
     @NonNull
@@ -50,6 +57,7 @@ public class IntroCategoryAdapter extends RecyclerView.Adapter<IntroCategoryAdap
 
         public void bind(Category category){
             binding.setCategory(category);
+            itemView.setOnClickListener((View v) -> listener.onCategoryClick(category));
             binding.executePendingBindings();
         }
     }

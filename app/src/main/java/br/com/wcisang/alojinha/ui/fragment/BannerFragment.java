@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -34,6 +35,9 @@ public class BannerFragment extends Fragment {
     @BindView(R.id.indicator)
     CircleIndicator indicator;
 
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,19 +54,17 @@ public class BannerFragment extends Fragment {
         viewModel.init();
     }
 
+    private Observer<List<Banner>> getListObserver(){
+        return banners -> {
+            if (banners != null)
+                setupViewPager(banners);
+        };
+    }
+
     private void setupViewPager(List<Banner> banners) {
+        progressBar.setVisibility(View.GONE);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity(), banners);
         viewPager.setAdapter(adapter);
         indicator.setViewPager(viewPager);
-    }
-
-    private Observer<List<Banner>> getListObserver(){
-        return new Observer<List<Banner>>() {
-            @Override
-            public void onChanged(@Nullable List<Banner> banners) {
-                if (banners != null)
-                    setupViewPager(banners);
-            }
-        };
     }
 }

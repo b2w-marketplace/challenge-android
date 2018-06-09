@@ -21,4 +21,13 @@ public class MainFragment extends Fragment {
         View v = inflater.inflate(R.layout.main_fragment, container, false);
         return v;
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getChildFragmentManager()
+                .beginTransaction()
+                .add(R.id.banner_fragment, new BannerFragment())
+                .commit();
+    }
 }

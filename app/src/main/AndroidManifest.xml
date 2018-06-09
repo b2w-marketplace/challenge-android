@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.ProductDetailActivity" android:parentActivityName=".ui.activity.MainActivity"/>
+        <activity android:name=".ui.activity.CategoryListActivity" android:parentActivityName=".ui.activity.MainActivity" />
     </application>
 
 </manifest>

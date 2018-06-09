@@ -12,8 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.wcisang.alojinha.R;
@@ -36,6 +38,9 @@ public class BestSellersFragment extends Fragment {
     @BindView(R.id.recyclerview_product)
     RecyclerView recyclerView;
 
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,15 +58,11 @@ public class BestSellersFragment extends Fragment {
     }
 
     private Observer<List<Product>> getBestSellersObserver() {
-        return new Observer<List<Product>>() {
-            @Override
-            public void onChanged(@Nullable List<Product> products) {
-                setupList(products);
-            }
-        };
+        return this::setupList;
     }
 
     private void setupList(List<Product> products){
+        progressBar.setVisibility(View.GONE);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(manager);
         ProductAdapter adapter = new ProductAdapter(products, this::callDetail);

@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/banner_fragment"
-        android:name="br.com.wcisang.alojinha.ui.fragment.BannerFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.7"/>
+        android:layout_weight="0.8"
+        android:clipToPadding="false"
+        android:paddingTop="?attr/actionBarSize"/>
 
     <fragment
         android:id="@+id/category_fragment"
