@@ -64,6 +64,11 @@ public class MainActivityTest {
 
     @Test
     public void checkBestSellersVisibility(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.recyclerview_product)).check(matches(isDisplayed()));
     }
 
@@ -111,6 +116,12 @@ public class MainActivityTest {
                 result = new Instrumentation.ActivityResult(Activity.RESULT_OK, null);
 
         intending(matcher).respondWith(result);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         onView(withId(R.id.recyclerview_product)).perform(actionOnItemAtPosition(0, click()));
 

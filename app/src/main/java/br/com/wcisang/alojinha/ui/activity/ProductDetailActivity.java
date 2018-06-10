@@ -2,6 +2,7 @@ package br.com.wcisang.alojinha.ui.activity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -97,21 +98,28 @@ public class ProductDetailActivity extends AppCompatActivity {
     private void showSuccessMessage() {
         fab.clearAnimation();
         fab.hide();
-        showAlertDialog(getString(R.string.success_reservation));
+        showAlertDialog(getString(R.string.success_reservation), true);
     }
 
     private void showFailedMessage() {
         fab.clearAnimation();
         fab.setEnabled(true);
-        showAlertDialog(getString(R.string.failed_success));
+        showAlertDialog(getString(R.string.failed_success), false);
     }
 
-    private void showAlertDialog(String message){
+    private void showAlertDialog(String message, boolean success){
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setMessage(message);
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-                (dialog, which) -> dialog.dismiss());
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> {
+            if (success) finish(); else dialog.dismiss();
+        });
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }

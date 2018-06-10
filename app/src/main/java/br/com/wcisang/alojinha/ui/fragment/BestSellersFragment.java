@@ -2,6 +2,7 @@ package br.com.wcisang.alojinha.ui.fragment;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,6 +67,14 @@ public class BestSellersFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ProductAdapter adapter = new ProductAdapter(products, this::callDetail);
         recyclerView.setAdapter(adapter);
+        getView().getLayoutParams().height = dpToPx(94) * products.size();
+    }
+
+    public int dpToPx(int dp) {
+        float density = getResources()
+                .getDisplayMetrics()
+                .density;
+        return Math.round((float) dp * density);
     }
 
     private void callDetail(Product product){
