@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/container"
-        android:name="br.com.wcisang.alojinha.ui.fragment.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

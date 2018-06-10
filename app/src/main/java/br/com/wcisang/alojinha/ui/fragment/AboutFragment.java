@@ -11,15 +11,14 @@ import android.view.ViewGroup;
 import br.com.wcisang.alojinha.R;
 
 /**
- * Created by WCisang on 07/06/2018.
+ * Created by WCisang on 09/06/2018.
  */
-public class MainFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.main_fragment, container, false);
+        View v = inflater.inflate(R.layout.about_fragment, container, false);
         return v;
     }
-
 }

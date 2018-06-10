@@ -13,4 +13,6 @@
     <string name="por">Por\u0020</string>
     <string name="dev_name">William Zischang Cisang</string>
     <string name="date">09 de junho de 2018</string>
+    <string name="success_reservation">Produto reservado com sucesso</string>
+    <string name="failed_success">Não foi possível reservar. Tente novamente mais tarde</string>
 </resources>

@@ -29,50 +29,32 @@
 
         <TextView
             android:id="@+id/product_name"
+            style="@style/CustomProductNameTextView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@{product.nome}"
-            android:textColor="@color/primaryText"
-            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@id/img_next"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/product_image"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <br.com.wcisang.alojinha.ui.customview.StrikeTextView
             android:id="@+id/product_precode"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            style="@style/CustomPrecoDeTextView"
             android:text="@{@string/de + (String.valueOf(product.precoDe))}"
-            android:textColor="@color/greyish_brown"
-            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/product_image"
             app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
         <TextView
             android:id="@+id/product_precopor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            style="@style/CustomPrecoPorTextView"
             android:layout_marginLeft="6dp"
-            android:layout_marginRight="16dp"
             android:layout_marginStart="6dp"
-            android:layout_marginTop="8dp"
             android:gravity="right|end"
             android:text="@{@string/por + (String.valueOf(product.precoPor))}"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/divider"
             app:layout_constraintEnd_toStartOf="@+id/img_next"
             app:layout_constraintTop_toBottomOf="@+id/product_name" />
@@ -96,10 +78,8 @@
 
         <View
             android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
+            style="@style/CustomDivider"
             android:layout_marginTop="16dp"
-            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_image" />

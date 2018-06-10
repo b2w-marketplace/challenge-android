@@ -5,7 +5,8 @@
     <data>
 
         <import type="android.view.View" />
-        <import type="android.text.Html"/>
+
+        <import type="android.text.Html" />
 
         <variable
             name="product"
@@ -18,15 +19,12 @@
 
         <TextView
             android:id="@+id/product_name"
+            style="@style/CustomProductNameTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:text="@{product.nome}"
-            android:textColor="@color/primaryText"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/first_divider"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -34,27 +32,19 @@
 
         <View
             android:id="@+id/first_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/secundaryText"
+            style="@style/CustomDivider"
             app:layout_constraintBottom_toTopOf="@+id/product_precode"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_name" />
 
-        <TextView
+        <br.com.wcisang.alojinha.ui.customview.StrikeTextView
             android:id="@+id/product_precode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/CustomPrecoDeTextView"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:text="@{@string/de +(String.valueOf(product.precoDe))}"
-            android:textColor="@color/greyish_brown"
-            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/second_divider"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,16 +52,9 @@
 
         <TextView
             android:id="@+id/product_precopor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/CustomPrecoPorTextView"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
             android:text="@{@string/por + (String.valueOf(product.precoPor))}"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/second_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.96"
@@ -80,10 +63,8 @@
 
         <View
             android:id="@+id/second_divider"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
+            style="@style/CustomDivider"
             android:layout_marginBottom="16dp"
-            android:background="@color/secundaryText"
             app:layout_constraintBottom_toTopOf="@+id/desc_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -91,17 +72,13 @@
 
         <TextView
             android:id="@+id/desc_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/CustomTitleTextView"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:text="@string/descricao"
-            android:textColor="@color/primaryText"
-            android:textSize="17sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/nested_scrollview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,14 +96,12 @@
 
             <TextView
                 android:id="@+id/desc"
+                style="@style/CustomProductNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="@{Html.fromHtml(product.descricao)}"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/primaryText"
-                android:textSize="18sp" />
+                android:fontFamily="sans-serif"
+                android:text="@{Html.fromHtml(product.descricao)}" />
         </android.support.v4.widget.NestedScrollView>
 
     </android.support.constraint.ConstraintLayout>

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
-import java.util.function.Function;
 
 import br.com.wcisang.alojinha.R;
 import br.com.wcisang.alojinha.databinding.ItemBestSellerProductBinding;

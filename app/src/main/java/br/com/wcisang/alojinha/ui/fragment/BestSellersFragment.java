@@ -13,15 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.wcisang.alojinha.R;
 import br.com.wcisang.alojinha.model.Product;
 import br.com.wcisang.alojinha.ui.activity.ProductDetailActivity;
-import br.com.wcisang.alojinha.ui.adapter.IntroCategoryAdapter;
 import br.com.wcisang.alojinha.ui.adapter.ProductAdapter;
 import br.com.wcisang.alojinha.viewmodel.BestSellersFragmentViewModel;
 import butterknife.BindView;
@@ -63,8 +60,8 @@ public class BestSellersFragment extends Fragment {
 
     private void setupList(List<Product> products){
         progressBar.setVisibility(View.GONE);
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ProductAdapter adapter = new ProductAdapter(products, this::callDetail);
         recyclerView.setAdapter(adapter);
     }

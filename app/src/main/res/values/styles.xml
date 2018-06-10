@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -15,5 +15,49 @@
     <style name="AppTheme.NavDrawer" parent="BaseAppTheme" />
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomPrecoDeTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">@color/secundaryText</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-medium</item>
+    </style>
+
+    <style name="CustomPrecoPorTextView" parent="CustomPrecoDeTextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginEnd" tools:targetApi="jelly_bean_mr1">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="CustomProductNameTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">16dp</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-medium"</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CustomTitleTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryText</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/secundaryText</item>
+    </style>
 
 </resources>

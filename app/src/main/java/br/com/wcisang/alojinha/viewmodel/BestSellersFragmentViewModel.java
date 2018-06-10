@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import br.com.wcisang.alojinha.model.Product;
-import br.com.wcisang.alojinha.service.CategoryService;
 import br.com.wcisang.alojinha.service.ProductService;
-import br.com.wcisang.alojinha.service.response.CategoryResponse;
 import br.com.wcisang.alojinha.service.response.ProductResponse;
 import br.com.wcisang.alojinha.util.LocalConstants;
 import okhttp3.OkHttpClient;

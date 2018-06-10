@@ -4,27 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <fragment
         android:id="@+id/banner_fragment"
+        android:name="br.com.wcisang.alojinha.ui.fragment.BannerFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_height="150dp"
         android:clipToPadding="false"
-        android:paddingTop="?attr/actionBarSize"/>
+        android:layout_marginTop="?attr/actionBarSize"/>
 
     <fragment
         android:id="@+id/category_fragment"
         android:name="br.com.wcisang.alojinha.ui.fragment.CategoryFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.6" />
+        android:layout_height="150dp" />
 
 
     <fragment
         android:id="@+id/sellers_fragment"
         android:name="br.com.wcisang.alojinha.ui.fragment.BestSellersFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
