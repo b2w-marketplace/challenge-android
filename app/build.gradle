@@ -19,6 +19,12 @@ android {
     dataBinding {
         enabled = true
     }
+
+    sourceSets {
+        androidTest {
+            setRoot('src/androidTest')
+        }
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -41,5 +47,15 @@ dependencies {
     implementation 'me.relex:circleindicator:1.2.2@aar'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.0.2"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:3.0.2") {
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'design'
+    }
+    androidTestImplementation "com.android.support.test.uiautomator:uiautomator-v18:2.1.3"
 }

@@ -95,6 +95,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void showSuccessMessage() {
+        fab.clearAnimation();
         fab.hide();
         showAlertDialog(getString(R.string.success_reservation));
     }
