@@ -49,6 +49,7 @@ public class BannerFragmentViewModel extends ViewModel {
             @Override
             public void onFailure(Call<BannerResponse> call, Throwable t) {
                 listMutableLiveData.setValue(null);
+                startService(service);
             }
         });
     }

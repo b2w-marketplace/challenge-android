@@ -59,6 +59,8 @@ public class BestSellersFragment extends Fragment {
     }
 
     private void setupList(List<Product> products){
+        if (products == null)
+            return;
         progressBar.setVisibility(View.GONE);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -49,6 +49,7 @@ public class BestSellersFragmentViewModel extends ViewModel {
             @Override
             public void onFailure(Call<ProductResponse> call, Throwable t) {
                 listMutableLiveData.setValue(null);
+                startService(service);
             }
         });
     }

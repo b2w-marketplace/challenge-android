@@ -26,10 +26,6 @@ public class ProductDetailViewModel extends ViewModel {
         return mutableLiveData;
     }
 
-    public void setMutableLiveData(MutableLiveData<ReservationResponse> mutableLiveData) {
-        this.mutableLiveData = mutableLiveData;
-    }
-
     public void sendReservation(String id) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(LocalConstants.API_URL)

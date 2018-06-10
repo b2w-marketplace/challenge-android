@@ -49,6 +49,7 @@ public class CategoryFragmentViewModel extends ViewModel {
             @Override
             public void onFailure(Call<CategoryResponse> call, Throwable t) {
                 listMutableLiveData.setValue(null);
+                startService(service);
             }
         });
     }
