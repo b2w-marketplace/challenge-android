@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">a Lodjinha</string>
+    <string name="developer_name">André Ricardo de Souza Guedes</string>
+    <string name="date_development">10 de Junho de 2018</string>
 
     <!-- Menu Strings -->
     <string name="menu_home">Home</string>

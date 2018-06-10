@@ -7,6 +7,7 @@ import android.view.View
 abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun initUI()
+    abstract fun addListeners()
 
     protected lateinit var toolbar: Toolbar
 
