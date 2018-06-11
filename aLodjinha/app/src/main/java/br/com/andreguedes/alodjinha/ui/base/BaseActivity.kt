@@ -1,4 +1,4 @@
-package br.com.andreguedes.alodjinha.ui
+package br.com.andreguedes.alodjinha.ui.base
 
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar

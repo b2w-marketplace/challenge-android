@@ -7,13 +7,11 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import br.com.andreguedes.alodjinha.R
-import br.com.andreguedes.alodjinha.ui.BaseActivity
+import br.com.andreguedes.alodjinha.ui.base.BaseActivity
 import br.com.andreguedes.alodjinha.ui.main.about.AboutFragment
 import br.com.andreguedes.alodjinha.ui.main.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import android.support.annotation.NonNull
 import android.view.Menu
-
 
 class MainActivity : BaseActivity(), MainContract.View {
 
@@ -37,7 +35,7 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun initUI() {
         presenter = MainPresenter(this)
-        presenter.initHomeFragment()
+        presenter.start()
 
         toggle = ActionBarDrawerToggle(
                 this,

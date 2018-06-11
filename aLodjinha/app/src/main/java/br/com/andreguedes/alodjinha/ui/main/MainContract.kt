@@ -1,8 +1,8 @@
 package br.com.andreguedes.alodjinha.ui.main
 
 import android.support.v4.app.Fragment
-import br.com.andreguedes.alodjinha.ui.BasePresenter
-import br.com.andreguedes.alodjinha.ui.BaseView
+import br.com.andreguedes.alodjinha.ui.base.BasePresenter
+import br.com.andreguedes.alodjinha.ui.base.BaseView
 
 interface MainContract {
 
