@@ -20,5 +20,9 @@ class RetrofitService {
         fun getBannerService(): BannerService {
             return instance().create(BannerService::class.java)
         }
+
+        fun getCategorieService(): CategoriesService {
+            return instance().create(CategoriesService::class.java)
+        }
     }
 }
