@@ -9,6 +9,8 @@ import br.com.andreguedes.alodjinha.ui.base.BaseView
 interface HomeContract {
 
     interface View : BaseView<Presenter> {
+        fun setupView()
+        fun addListeners()
         fun setBanners(banners: List<Banner>)
         fun setCategories(categories: List<Category>)
         fun setProductsBestSellers(productsBestSellers: List<Product>)

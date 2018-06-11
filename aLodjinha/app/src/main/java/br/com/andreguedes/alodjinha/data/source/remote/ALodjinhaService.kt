@@ -5,7 +5,7 @@ import br.com.andreguedes.alodjinha.data.source.RetrofitClient
 class ALodjinhaService {
 
     fun getService(): ALodjinhaAPI {
-        return RetrofitClient.getClient().create(ALodjinhaAPI::class.java)
+        return RetrofitClient.getClient()
     }
 
 }

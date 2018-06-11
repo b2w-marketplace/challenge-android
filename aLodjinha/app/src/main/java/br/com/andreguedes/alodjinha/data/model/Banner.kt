@@ -7,3 +7,7 @@ data class Banner(
         @field:SerializedName("urlImagem") val urlImagem: String? = null,
         @field:SerializedName("linkUrl") val linkUrl: String? = null
 )
+
+data class BannerResponse(
+        @field:SerializedName("data") val bannerList: List<Banner>? = null
+)

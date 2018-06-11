@@ -35,7 +35,7 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun initUI() {
         presenter = MainPresenter(this)
-        presenter.start()
+        presenter.subscribe()
 
         toggle = ActionBarDrawerToggle(
                 this,

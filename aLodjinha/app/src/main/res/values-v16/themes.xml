@@ -48,6 +48,7 @@
     <style name="TextViewCategoryName" parent="TextViewBase">
         <item name="android:textSize">@dimen/category_name_text_size</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="TextViewDateDevelopment" parent="TextViewBase">

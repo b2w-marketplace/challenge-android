@@ -1,19 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.home.HomeFragment">
 
-    <TextView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_banner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:clickable="false"
+        android:scrollbars="horizontal" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/banner_indicator"
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:ci_drawable="@drawable/bg_indicator"
+        app:layout_constraintBottom_toBottomOf="@+id/pager_banner"
+        app:layout_constraintEnd_toEndOf="@+id/pager_banner"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progress_banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
+        app:layout_constraintBottom_toBottomOf="@+id/banner_indicator"
+        app:layout_constraintEnd_toEndOf="@+id/pager_banner"
+        app:layout_constraintStart_toStartOf="@+id/pager_banner"
+        app:layout_constraintTop_toTopOf="@+id/pager_banner" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/TextViewProductDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/categories"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pager_banner" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGreyish"
+        app:layout_constraintBottom_toTopOf="@+id/categories_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/categories_list"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="8dp"
+        android:fadeScrollbars="false"
+        android:orientation="horizontal"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:listitem="@layout/item_category" />
+
+    <ProgressBar
+        android:id="@+id/progress_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/categories_list"
+        app:layout_constraintStart_toStartOf="@+id/categories_list"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGreyish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories_list" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/TextViewProductDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/best_sellers"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGreyish"
+        app:layout_constraintBottom_toTopOf="@+id/best_sellers_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/best_sellers_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <ProgressBar
+        android:id="@+id/progress_best_sellers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/best_sellers_list"
+        app:layout_constraintEnd_toEndOf="@+id/best_sellers_list"
+        app:layout_constraintStart_toStartOf="@+id/best_sellers_list"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 </android.support.constraint.ConstraintLayout>
