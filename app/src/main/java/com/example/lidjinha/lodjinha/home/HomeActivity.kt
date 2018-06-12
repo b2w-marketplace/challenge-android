@@ -11,8 +11,10 @@ import android.view.View
 import com.example.lidjinha.lodjinha.R
 import com.example.lidjinha.lodjinha.data.usecase.BannerUseCase
 import com.example.lidjinha.lodjinha.data.usecase.CategoriesUseCase
+import com.example.lidjinha.lodjinha.data.usecase.ProductsUseCase
 import com.example.lidjinha.lodjinha.model.Banner
 import com.example.lidjinha.lodjinha.model.Categorie
+import com.example.lidjinha.lodjinha.model.Product
 import com.example.lidjinha.lodjinha.util.widgets.DynamicViewPager
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -28,9 +30,12 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
 
         val bannerUseCase = BannerUseCase()
         val categorieUseCase = CategoriesUseCase()
-        val presenter = HomePresenter(this, bannerUseCase, categorieUseCase)
+        val productsUseCase = ProductsUseCase()
+
+        val presenter = HomePresenter(this, bannerUseCase, categorieUseCase, productsUseCase)
         presenter.getBanners()
         presenter.getCategories()
+        presenter.getBestSellers()
 
         setupToolbar()
     }
@@ -48,6 +53,14 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         val categoriesAdapter = CategoriesAdapter(categories, this)
         categoriesList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         categoriesList.adapter = categoriesAdapter
+    }
+
+    override fun setupBestSellers(bestSellers: List<Product>) {
+        val bestSellersList = rv_best_sellers_list
+        val bestSellersAdapter = BestSellersAdapter(bestSellers, this)
+        bestSellersList.layoutManager = LinearLayoutManager(this)
+        bestSellersList.isNestedScrollingEnabled = false
+        bestSellersList.adapter = bestSellersAdapter
     }
 
     private fun setupToolbar() {

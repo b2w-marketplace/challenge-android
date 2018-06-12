@@ -21,12 +21,14 @@ android {
             buildConfigField 'String', 'base_url', '"https://alodjinha.herokuapp.com/"'
             buildConfigField 'String', 'banner_url', '"banner"'
             buildConfigField 'String', 'categories_url', '"categoria"'
+            buildConfigField 'String', 'best_sellers_url', '"produto/maisvendidos"'
         }
 
         debug {
             buildConfigField 'String', 'base_url', '"https://alodjinha.herokuapp.com/"'
             buildConfigField 'String', 'banner_url', '"banner"'
             buildConfigField 'String', 'categories_url', '"categoria"'
+            buildConfigField 'String', 'best_sellers_url', '"produto/maisvendidos"'
         }
     }
 }

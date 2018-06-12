@@ -2,6 +2,7 @@ package com.example.lidjinha.lodjinha.home
 
 import com.example.lidjinha.lodjinha.model.Banner
 import com.example.lidjinha.lodjinha.model.Categorie
+import com.example.lidjinha.lodjinha.model.Product
 
 interface HomeContract {
 
@@ -11,6 +12,8 @@ interface HomeContract {
 
         fun setupCategories(categories: List<Categorie>)
 
+        fun setupBestSellers(bestSellers: List<Product>)
+
     }
 
     interface Presenter {
@@ -18,6 +21,8 @@ interface HomeContract {
         fun getBanners()
 
         fun getCategories()
+
+        fun getBestSellers()
 
     }
 
