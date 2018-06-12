@@ -5,10 +5,12 @@ import com.example.lidjinha.lodjinha.data.usecase.ProductsUseCase
 class ProductPresenter(val view: ProductContract.View, val useCase: ProductsUseCase) : ProductContract.Presenter {
 
     override fun getReserve(productId: kotlin.Int) {
+        view.showProgress()
         useCase.getReserve(this::onReserveFinalized, productId)
     }
 
     private fun onReserveFinalized(resId: kotlin.Int) {
         view.showReserveMessage(resId)
+        view.hideProgress()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.lidjinha.lodjinha.ui.product
 
+import android.app.ProgressDialog
 import android.graphics.Paint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -20,6 +21,7 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
 
     private val FOR_VALUE = "Por "
     private val BY_VALUE = "De: "
+    lateinit var progress: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +64,14 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
 
     override fun showReserveMessage(text: Int) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showProgress() {
+        progress = ProgressDialog.show(this, getString(R.string.wait_please), getString(R.string.searching_informations))
+    }
+
+    override fun hideProgress() {
+        progress.dismiss()
     }
 
     private fun setupToolbar(title: String) {

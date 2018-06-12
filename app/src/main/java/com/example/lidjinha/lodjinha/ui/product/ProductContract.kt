@@ -6,6 +6,10 @@ interface ProductContract {
 
         fun showReserveMessage(text: Int)
 
+        fun showProgress()
+
+        fun hideProgress()
+
     }
 
     interface Presenter {
