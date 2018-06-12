@@ -33,9 +33,11 @@ class HomePresenter(private val view: HomeContract.View,
 
     override fun getBestSellers() {
         productsUseCase.getBestSellers(this::onBestSellersRetrieved)
+        view.showProgress()
     }
 
     private fun onBestSellersRetrieved(bestSellers: List<Product>) {
         view.setupBestSellers(bestSellers)
+        view.hideProgress()
     }
 }

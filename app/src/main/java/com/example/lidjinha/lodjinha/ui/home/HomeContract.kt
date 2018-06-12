@@ -14,6 +14,10 @@ interface HomeContract {
 
         fun setupBestSellers(bestSellers: List<Product>)
 
+        fun showProgress()
+
+        fun hideProgress()
+
     }
 
     interface Presenter {

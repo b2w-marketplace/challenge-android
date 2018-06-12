@@ -1,5 +1,6 @@
 package com.example.lidjinha.lodjinha.ui.home
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -23,6 +24,7 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
 
     lateinit var banners: List<Banner>
     lateinit var offerBanners: DynamicViewPager
+    lateinit var progress: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +63,14 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         bestSellersList.layoutManager = LinearLayoutManager(this)
         bestSellersList.isNestedScrollingEnabled = false
         bestSellersList.adapter = bestSellersAdapter
+    }
+
+    override fun showProgress() {
+        progress = ProgressDialog.show(this, getString(R.string.wait_please), getString(R.string.searching_informations))
+    }
+
+    override fun hideProgress() {
+        progress.dismiss()
     }
 
     private fun setupToolbar() {

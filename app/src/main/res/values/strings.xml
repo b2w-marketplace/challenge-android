@@ -95,4 +95,6 @@
     </string>
     <string name="success">Sucesso!</string>
     <string name="error_try_again">Ocorreu um erro. Tente novamente mais tarde!</string>
+    <string name="wait_please">Aguarde por favor!</string>
+    <string name="searching_informations">Estamos buscando suas informações!</string>
 </resources>
