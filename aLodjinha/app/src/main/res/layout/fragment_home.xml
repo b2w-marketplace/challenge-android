@@ -64,7 +64,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/categories_list"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="110dp"
         android:layout_marginBottom="8dp"
         android:fadeScrollbars="false"
         android:orientation="horizontal"
@@ -127,7 +127,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/view3"
+        tools:listitem="@layout/item_product" />
 
     <ProgressBar
         android:id="@+id/progress_best_sellers"

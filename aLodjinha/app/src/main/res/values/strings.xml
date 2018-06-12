@@ -14,4 +14,8 @@
     <!-- HomeFragment Strings -->
     <string name="categories">Categorias</string>
     <string name="best_sellers">Mais vendidos</string>
+
+    <!-- Product Strings -->
+    <string name="price_from">De: %s</string>
+    <string name="price_to">Por: %s</string>
 </resources>

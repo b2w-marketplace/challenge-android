@@ -7,3 +7,7 @@ data class Category(
         @field:SerializedName("descricao") val descricao: String? = null,
         @field:SerializedName("urlImagem") val urlImagem: String? = null
 )
+
+data class CategoryResponse(
+        @field:SerializedName("data") val categoryList: List<Category>? = null
+)

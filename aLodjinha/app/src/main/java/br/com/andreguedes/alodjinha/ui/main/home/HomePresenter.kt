@@ -23,7 +23,7 @@ class HomePresenter(
         addDisposable(repository.getBanners()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe ({
+                .subscribe({
                     view.setBanners(it.bannerList!!)
                 }, {
                     Log.e(TAG, it.message)
@@ -31,11 +31,25 @@ class HomePresenter(
     }
 
     override fun getCategories() {
-
+        addDisposable(repository.getCategories()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.setCategories(it.categoryList!!)
+                }, {
+                    Log.e(TAG, it.message)
+                }))
     }
 
     override fun getProductsBestSellers() {
-
+        addDisposable(repository.getProductsBestSellers()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.setProductsBestSellers(it.productList!!)
+                }, {
+                    Log.e(TAG, it.message)
+                }))
     }
 
 }

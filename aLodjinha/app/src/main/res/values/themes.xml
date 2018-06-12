@@ -15,11 +15,13 @@
 
     <style name="TextViewPriceFrom" parent="TextViewBase">
         <item name="android:textSize">@dimen/price_from_text_size</item>
+        <item name="android:textColor">@color/colorGreyish</item>
     </style>
 
     <style name="TextViewPriceTo" parent="TextViewBase">
         <item name="android:textSize">@dimen/price_to_text_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTomato</item>
     </style>
 
     <style name="TextViewProductDescription" parent="TextViewBase">

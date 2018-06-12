@@ -1,9 +1,13 @@
 package br.com.andreguedes.alodjinha.ui.main.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,20 +23,24 @@ import java.util.*
  * A simple [Fragment] subclass.
  *
  */
-class HomeFragment : Fragment(), HomeContract.View, HomeBannerPagerAdapter.OnHomeBannerSelectedListener {
+class HomeFragment : Fragment(), HomeContract.View,
+        HomeBannerPagerAdapter.OnHomeBannerSelectedListener,
+        HomeCategoriesAdapter.OnCategoryItemSelected,
+        HomeBestSellerProductsAdapter.OnBestSellerProductSelected{
 
     override lateinit var presenter: HomeContract.Presenter
 
     private lateinit var bannerAdapter : HomeBannerPagerAdapter
+    private var categoriesAdapter = HomeCategoriesAdapter(this)
+    private val bestSellerProductsAdapter = HomeBestSellerProductsAdapter(this)
+
     private var currentBanner = 0
 
     private lateinit var timer : Timer
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        var view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        return view
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onResume() {
@@ -71,6 +79,14 @@ class HomeFragment : Fragment(), HomeContract.View, HomeBannerPagerAdapter.OnHom
         }
         timer = Timer()
         timer.schedule(timerTask, 3000, 3000)
+
+        categories_list.itemAnimator = DefaultItemAnimator()
+        categories_list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        categories_list.adapter = categoriesAdapter
+
+        best_sellers_list.itemAnimator = DefaultItemAnimator()
+        best_sellers_list.layoutManager = LinearLayoutManager(context)
+        best_sellers_list.adapter = bestSellerProductsAdapter
     }
 
     override fun addListeners() {
@@ -86,7 +102,15 @@ class HomeFragment : Fragment(), HomeContract.View, HomeBannerPagerAdapter.OnHom
     }
 
     override fun bannerSelected(linkUrl: String) {
-        // TODO Open browser to link
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(linkUrl)))
+    }
+
+    override fun categorySelected(category: Category) {
+        //TODO Show all products from selected category
+    }
+
+    override fun bestSellerProductSelected(product: Product) {
+        //TODO Show product detail
     }
 
     override fun setBanners(banners: List<Banner>) {
@@ -95,11 +119,13 @@ class HomeFragment : Fragment(), HomeContract.View, HomeBannerPagerAdapter.OnHom
     }
 
     override fun setCategories(categories: List<Category>) {
-
+        progress_categories.visibility = View.GONE
+        categoriesAdapter.setCategories(categories)
     }
 
     override fun setProductsBestSellers(productsBestSellers: List<Product>) {
-
+        progress_best_sellers.visibility = View.GONE
+        bestSellerProductsAdapter.setBestSellerProducts(productsBestSellers)
     }
 
 }

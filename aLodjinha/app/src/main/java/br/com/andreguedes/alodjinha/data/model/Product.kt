@@ -11,3 +11,7 @@ data class Product(
         @field:SerializedName("precoPor") val precoPor: Double? = null,
         @field:SerializedName("categoria") val categoria: Category? = null
 )
+
+data class ProductResponse(
+        @field:SerializedName("data") val productList: List<Product>? = null
+)

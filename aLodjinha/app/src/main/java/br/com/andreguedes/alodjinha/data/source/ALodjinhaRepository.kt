@@ -1,8 +1,9 @@
 package br.com.andreguedes.alodjinha.data.source
 
 import br.com.andreguedes.alodjinha.data.model.BannerResponse
-import br.com.andreguedes.alodjinha.data.model.Category
+import br.com.andreguedes.alodjinha.data.model.CategoryResponse
 import br.com.andreguedes.alodjinha.data.model.Product
+import br.com.andreguedes.alodjinha.data.model.ProductResponse
 import br.com.andreguedes.alodjinha.data.source.remote.ALodjinhaAPI
 import br.com.andreguedes.alodjinha.data.source.remote.ALodjinhaService
 import io.reactivex.Observable
@@ -15,7 +16,7 @@ class ALodjinhaRepository: ALodjinhaAPI {
         return aLodjinhaService.getService().getBanners()
     }
 
-    override fun getCategories(): Observable<List<Category>> {
+    override fun getCategories(): Observable<CategoryResponse> {
         return aLodjinhaService.getService().getCategories()
     }
 
@@ -23,7 +24,7 @@ class ALodjinhaRepository: ALodjinhaAPI {
         return aLodjinhaService.getService().getProducts(offset, limit, categoriaId)
     }
 
-    override fun getProductsBestSellers(): Observable<List<Product>> {
+    override fun getProductsBestSellers(): Observable<ProductResponse> {
         return aLodjinhaService.getService().getProductsBestSellers()
     }
 

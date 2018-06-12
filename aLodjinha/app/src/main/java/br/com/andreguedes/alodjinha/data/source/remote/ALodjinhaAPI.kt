@@ -1,8 +1,9 @@
 package br.com.andreguedes.alodjinha.data.source.remote
 
 import br.com.andreguedes.alodjinha.data.model.BannerResponse
-import br.com.andreguedes.alodjinha.data.model.Category
+import br.com.andreguedes.alodjinha.data.model.CategoryResponse
 import br.com.andreguedes.alodjinha.data.model.Product
+import br.com.andreguedes.alodjinha.data.model.ProductResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -15,7 +16,7 @@ interface ALodjinhaAPI {
     fun getBanners(): Observable<BannerResponse>
 
     @GET("/categoria")
-    fun getCategories(): Observable<List<Category>>
+    fun getCategories(): Observable<CategoryResponse>
 
     @GET("/produto")
     fun getProducts(
@@ -25,7 +26,7 @@ interface ALodjinhaAPI {
     ): Observable<List<Product>>
 
     @GET("/produto/maisvendidos")
-    fun getProductsBestSellers(): Observable<List<Product>>
+    fun getProductsBestSellers(): Observable<ProductResponse>
 
     @GET("/produto/{produtoId}")
     fun getProduct(
