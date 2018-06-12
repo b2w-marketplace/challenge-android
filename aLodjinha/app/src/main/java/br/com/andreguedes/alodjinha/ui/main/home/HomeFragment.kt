@@ -11,11 +11,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import br.com.andreguedes.alodjinha.R
 import br.com.andreguedes.alodjinha.data.model.Banner
 import br.com.andreguedes.alodjinha.data.model.Category
 import br.com.andreguedes.alodjinha.data.model.Product
+import br.com.andreguedes.alodjinha.ui.category_products.CategoryProductsActivity
+import br.com.andreguedes.alodjinha.ui.category_products.OnItemClickListener
+import br.com.andreguedes.alodjinha.ui.product.ProductsAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
@@ -26,13 +30,13 @@ import java.util.*
 class HomeFragment : Fragment(), HomeContract.View,
         HomeBannerPagerAdapter.OnHomeBannerSelectedListener,
         HomeCategoriesAdapter.OnCategoryItemSelected,
-        HomeBestSellerProductsAdapter.OnBestSellerProductSelected{
+        OnItemClickListener{
 
     override lateinit var presenter: HomeContract.Presenter
 
     private lateinit var bannerAdapter : HomeBannerPagerAdapter
     private var categoriesAdapter = HomeCategoriesAdapter(this)
-    private val bestSellerProductsAdapter = HomeBestSellerProductsAdapter(this)
+    private val bestSellerProductsAdapter = ProductsAdapter(this)
 
     private var currentBanner = 0
 
@@ -106,11 +110,14 @@ class HomeFragment : Fragment(), HomeContract.View,
     }
 
     override fun categorySelected(category: Category) {
-        //TODO Show all products from selected category
+        startActivity(CategoryProductsActivity.getStartIntent(context!!, category))
     }
 
-    override fun bestSellerProductSelected(product: Product) {
-        //TODO Show product detail
+    override fun onItemClick(view: View, o: Any?) {
+        if (o is Product) {
+            //TODO Show product detail
+            Toast.makeText(context, o.nome, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun setBanners(banners: List<Banner>) {
@@ -125,7 +132,7 @@ class HomeFragment : Fragment(), HomeContract.View,
 
     override fun setProductsBestSellers(productsBestSellers: List<Product>) {
         progress_best_sellers.visibility = View.GONE
-        bestSellerProductsAdapter.setBestSellerProducts(productsBestSellers)
+        bestSellerProductsAdapter.setProducts(productsBestSellers)
     }
 
 }

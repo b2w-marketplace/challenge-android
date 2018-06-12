@@ -20,9 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "END_POINT", "\"https://alodjinha.herokuapp.com\""
+            buildConfigField "Integer", "LIMIT_OFFSET", "20"
         }
         debug {
             buildConfigField "String", "END_POINT", "\"https://alodjinha.herokuapp.com\""
+            buildConfigField "Integer", "LIMIT_OFFSET", "20"
         }
     }
 }

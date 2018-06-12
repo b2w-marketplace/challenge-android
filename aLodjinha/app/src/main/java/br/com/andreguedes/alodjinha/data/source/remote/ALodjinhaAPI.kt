@@ -23,7 +23,7 @@ interface ALodjinhaAPI {
             @Query("offset") offset: Int,
             @Query("limit") limit: Int,
             @Query("categoriaId") categoriaId: Int
-    ): Observable<List<Product>>
+    ): Observable<ProductResponse>
 
     @GET("/produto/maisvendidos")
     fun getProductsBestSellers(): Observable<ProductResponse>

@@ -20,7 +20,7 @@ class ALodjinhaRepository: ALodjinhaAPI {
         return aLodjinhaService.getService().getCategories()
     }
 
-    override fun getProducts(offset: Int, limit: Int, categoriaId: Int): Observable<List<Product>> {
+    override fun getProducts(offset: Int, limit: Int, categoriaId: Int): Observable<ProductResponse> {
         return aLodjinhaService.getService().getProducts(offset, limit, categoriaId)
     }
 
