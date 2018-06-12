@@ -7,6 +7,7 @@ import br.com.andreguedes.alodjinha.data.model.ProductResponse
 import br.com.andreguedes.alodjinha.data.source.remote.ALodjinhaAPI
 import br.com.andreguedes.alodjinha.data.source.remote.ALodjinhaService
 import io.reactivex.Observable
+import retrofit2.Response
 
 class ALodjinhaRepository: ALodjinhaAPI {
 
@@ -32,7 +33,7 @@ class ALodjinhaRepository: ALodjinhaAPI {
         return aLodjinhaService.getService().getProduct(produtoId)
     }
 
-    override fun reserveProduct(produtoId: Int): Observable<Void> {
+    override fun reserveProduct(produtoId: Int): Observable<Response<Void>> {
         return aLodjinhaService.getService().reserveProduct(produtoId)
     }
 

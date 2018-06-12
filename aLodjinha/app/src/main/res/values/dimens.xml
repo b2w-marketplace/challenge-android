@@ -13,6 +13,7 @@
     <dimen name="category_name_text_size">13sp</dimen>
 
     <dimen name="margin_start_default">16dp</dimen>
+    <dimen name="margin_fab">10dp</dimen>
     <dimen name="margin_default">24dp</dimen>
 
 </resources>

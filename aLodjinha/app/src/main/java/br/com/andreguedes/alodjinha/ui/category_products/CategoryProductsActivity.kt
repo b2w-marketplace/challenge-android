@@ -8,12 +8,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import br.com.andreguedes.alodjinha.BuildConfig
 import br.com.andreguedes.alodjinha.R
 import br.com.andreguedes.alodjinha.data.model.Category
 import br.com.andreguedes.alodjinha.data.model.Product
 import br.com.andreguedes.alodjinha.ui.base.BaseActivity
+import br.com.andreguedes.alodjinha.ui.product.detail.ProductDetailActivity
 import kotlinx.android.synthetic.main.activity_category_products.*
 
 class CategoryProductsActivity : BaseActivity(), CategoryProductsContract.View, OnItemClickListener {
@@ -59,6 +59,12 @@ class CategoryProductsActivity : BaseActivity(), CategoryProductsContract.View, 
         supportActionBar!!.title = category.descricao
     }
 
+    override fun onPause() {
+        super.onPause()
+
+        presenter.unsubscribe()
+    }
+
     override fun initUI() {
         presenter = CategoryProductsPresenter(this, category.id!!)
         presenter.getProductsFromCategory(offset)
@@ -93,7 +99,7 @@ class CategoryProductsActivity : BaseActivity(), CategoryProductsContract.View, 
 
     override fun onItemClick(view: View, o: Any?) {
         if (o is Product) {
-            Toast.makeText(this, o.nome, Toast.LENGTH_SHORT).show()
+            startActivity(ProductDetailActivity.getStartIntent(this, o))
         }
     }
 

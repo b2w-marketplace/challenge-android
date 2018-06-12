@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 
 import br.com.andreguedes.alodjinha.R
 import br.com.andreguedes.alodjinha.data.model.Banner
@@ -20,6 +19,7 @@ import br.com.andreguedes.alodjinha.data.model.Product
 import br.com.andreguedes.alodjinha.ui.category_products.CategoryProductsActivity
 import br.com.andreguedes.alodjinha.ui.category_products.OnItemClickListener
 import br.com.andreguedes.alodjinha.ui.product.ProductsAdapter
+import br.com.andreguedes.alodjinha.ui.product.detail.ProductDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
@@ -115,8 +115,7 @@ class HomeFragment : Fragment(), HomeContract.View,
 
     override fun onItemClick(view: View, o: Any?) {
         if (o is Product) {
-            //TODO Show product detail
-            Toast.makeText(context, o.nome, Toast.LENGTH_SHORT).show()
+            startActivity(ProductDetailActivity.getStartIntent(context!!, o))
         }
     }
 

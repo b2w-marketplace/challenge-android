@@ -20,4 +20,7 @@
     <string name="price_to">Por: %s</string>
 
     <string name="no_products">Não há produtos nesta categoria</string>
+    
+    <string name="reserved_product">Produto reservado com sucesso</string>
+    <string name="OK">OK</string>
 </resources>

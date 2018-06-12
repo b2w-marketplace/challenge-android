@@ -27,6 +27,9 @@
         <activity
             android:name=".ui.category_products.CategoryProductsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.product.detail.ProductDetailActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

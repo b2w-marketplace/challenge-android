@@ -5,6 +5,7 @@ import br.com.andreguedes.alodjinha.data.model.CategoryResponse
 import br.com.andreguedes.alodjinha.data.model.Product
 import br.com.andreguedes.alodjinha.data.model.ProductResponse
 import io.reactivex.Observable
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -36,6 +37,6 @@ interface ALodjinhaAPI {
     @POST("/produto/{produtoId}")
     fun reserveProduct(
             @Path("produtoId") produtoId: Int
-    ) : Observable<Void>
+    ) : Observable<Response<Void>>
 
 }
