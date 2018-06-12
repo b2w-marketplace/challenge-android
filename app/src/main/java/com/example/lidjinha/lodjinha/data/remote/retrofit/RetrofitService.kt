@@ -28,5 +28,9 @@ class RetrofitService {
         fun getBestSellers(): ProductService {
             return instance().create(ProductService::class.java)
         }
+
+        fun getReserve(): ProductService {
+            return instance().create(ProductService::class.java)
+        }
     }
 }

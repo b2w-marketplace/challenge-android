@@ -9,4 +9,8 @@ class ProductsUseCase : ProductsUseCaseContract {
     override fun getBestSellers(onBestSellersRetrieved: KFunction1<List<Product>, Unit>) {
         ProductsRepository.instance.getBestSellers(onBestSellersRetrieved)
     }
+
+    override fun getReserve(onReserveFinalized: KFunction1<Int, Unit>, productId: kotlin.Int) {
+        ProductsRepository.instance.getReserve(onReserveFinalized, productId)
+    }
 }

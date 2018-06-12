@@ -2,6 +2,7 @@ package com.example.lidjinha.lodjinha.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.lidjinha.lodjinha.R
 import com.example.lidjinha.lodjinha.model.Product
+import com.example.lidjinha.lodjinha.ui.product.ProductActivity
 import com.squareup.picasso.Picasso
 
 
@@ -20,7 +22,6 @@ class BestSellersAdapter(private val products: List<Product>,
 
     private val FOR_VALUE = "Por "
     private val BY_VALUE = "De: "
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_best_sellers_list, parent, false))
@@ -33,6 +34,15 @@ class BestSellersAdapter(private val products: List<Product>,
         holder.fullPrice.text = BY_VALUE + String.format("%.2f", products[position].fullPrice).replace(".", ".")
         holder.fullPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         holder.salePrice.text = FOR_VALUE + String.format("%.2f", products[position].salePrice).replace(".", ".")
+        holder.itemView.setOnClickListener(onItemClicked(position))
+    }
+
+    private fun onItemClicked(position: Int): View.OnClickListener? {
+        return View.OnClickListener {
+            val intent = Intent(context, ProductActivity::class.java)
+            intent.putExtra(ProductActivity.EXTRA_PRODUCT, products[position])
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
