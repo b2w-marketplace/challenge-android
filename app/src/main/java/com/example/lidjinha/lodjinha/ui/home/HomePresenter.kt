@@ -1,4 +1,4 @@
-package com.example.lidjinha.lodjinha.home
+package com.example.lidjinha.lodjinha.ui.home
 
 import com.example.lidjinha.lodjinha.data.usecase.BannerUseCaseContract
 import com.example.lidjinha.lodjinha.data.usecase.CategoriesUseCase

@@ -1,4 +1,4 @@
-package com.example.lidjinha.lodjinha.home
+package com.example.lidjinha.lodjinha.ui.home
 
 import com.example.lidjinha.lodjinha.model.Banner
 import com.example.lidjinha.lodjinha.model.Categorie

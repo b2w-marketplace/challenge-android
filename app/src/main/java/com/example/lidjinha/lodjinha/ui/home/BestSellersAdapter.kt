@@ -1,16 +1,12 @@
-package com.example.lidjinha.lodjinha.home
+package com.example.lidjinha.lodjinha.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Paint
-import android.os.Build
-import android.support.annotation.RequiresApi
 import android.support.v7.widget.RecyclerView
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.lidjinha.lodjinha.R
@@ -47,7 +43,6 @@ class BestSellersAdapter(private val products: List<Product>,
 
         val image: ImageView = itemView.findViewById(R.id.iv_product)
         val name: TextView = itemView.findViewById(R.id.tv_product_name)
-        val description: TextView = itemView.findViewById(R.id.tv_description)
         val fullPrice: TextView = itemView.findViewById(R.id.tv_full_price)
         val salePrice: TextView = itemView.findViewById(R.id.tv_sale_price)
 

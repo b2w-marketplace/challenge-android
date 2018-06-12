@@ -1,4 +1,4 @@
-package com.example.lidjinha.lodjinha.home
+package com.example.lidjinha.lodjinha.ui.home
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
