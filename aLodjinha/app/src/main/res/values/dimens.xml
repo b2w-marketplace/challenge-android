@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="logo_text_size">64sp</dimen>
+    <dimen name="menu_text_size">24sp</dimen>
+    <dimen name="price_from_text_size">12sp</dimen>
+    <dimen name="price_to_text_size">20sp</dimen>
+    <dimen name="product_description_text_size">18sp</dimen>
+    <dimen name="product_description_detail_text_size">17sp</dimen>
+    <dimen name="item_menu_text_size">14sp</dimen>
+    <dimen name="developer_name_text_size">13sp</dimen>
+    <dimen name="development_date_text_size">12sp</dimen>
+    <dimen name="category_name_text_size">13sp</dimen>
+
+    <dimen name="margin_start_default">16dp</dimen>
+    <dimen name="margin_fab">10dp</dimen>
+    <dimen name="margin_default">24dp</dimen>
+
+</resources>

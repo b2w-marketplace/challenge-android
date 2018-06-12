@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="developer_name">André Ricardo de Souza Guedes</string>
+    <string name="date_development">10 de Junho de 2018</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_home">Home</string>
+    <string name="menu_about">Sobre o aplicativo</string>
+
+    <!-- Drawer Strings -->
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
+    <!-- HomeFragment Strings -->
+    <string name="categories">Categorias</string>
+    <string name="best_sellers">Mais vendidos</string>
+
+    <!-- Product Strings -->
+    <string name="price_from">De: %s</string>
+    <string name="price_to">Por: %s</string>
+
+    <string name="no_products">Não há produtos nesta categoria</string>
+    
+    <string name="reserved_product">Produto reservado com sucesso</string>
+    <string name="OK">OK</string>
+</resources>
