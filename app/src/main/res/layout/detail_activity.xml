@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        tools:context=".ui.detail.DetailActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@android:color/transparent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <!-- app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:background="@android:color/transparent"
+                app:titleTextColor="@color/Whitetwo"
+                app:titleEnabled="false" -->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    app:layout_collapseMode="parallax"
+                    tools:srcCompat="@drawable/logo_sobre"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:titleTextColor="@color/Whitetwo"
+                    app:titleEnabled="false"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/DescriçãoProdutoBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Nome do produto com uma descrição grandona"/>
+
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/Greyish"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+                <TextView
+                    android:id="@+id/preco_original"
+                    style="@style/PreçoDe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/produto_preco_de"
+                    app:layout_constraintBottom_toTopOf="@+id/separator2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separator1"
+                    tools:text="De: 9999,99"/>
+
+                <TextView
+                    android:id="@+id/preco_final"
+                    style="@style/PreçoPor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/produto_preco_por"
+                    app:layout_constraintBottom_toTopOf="@+id/separator2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separator1"
+                    tools:text="Por 9999,98"/>
+
+                <View
+                    android:id="@+id/separator2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="48dp"
+                    android:background="@color/Greyish"
+                    app:layout_constraintTop_toBottomOf="@+id/separator1"/>
+
+                <TextView
+                    android:id="@+id/nome"
+                    style="@style/DescriçãoProdutoBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separator2"
+                    tools:text="Lorem Ipsum"/>
+
+                <TextView
+                    android:id="@+id/descricao"
+                    style="@style/DescriçãoProduto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nome"
+                    tools:text="Big text"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:scaleType="center"
+            app:backgroundTint="@color/Warmpurple"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/check_button"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

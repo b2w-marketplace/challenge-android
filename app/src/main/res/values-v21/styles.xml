@@ -3,6 +3,52 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
+
+    <style name="LogoSobre" parent="TextAppearance.AppCompat">
+        <!--<item name="app:fontFamily">@font/Pacifico-Regular</item>-->
+        <item name="android:textColor">@color/Dark</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:letterSpacing">-0.034</item>
+    </style>
+
+    <style name="LogoMenu" parent="TextAppearance.AppCompat">
+        <!--<item name="app:fontFamily">@font/Pacifico-Regular</item>-->
+        <item name="android:textColor">@color/Whitetwo</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">-0.037</item>
+    </style>
+
+    <style name="DescriçãoProdutoBold" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/Dark</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.025</item>
+    </style>
+
+    <style name="MenuItem" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/Dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.019</item>
+    </style>
+
+    <style name="NomeDesenvolvedor" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/Dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.019</item>
+    </style>
+
+    <style name="DataDesenvolvimento" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/Dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">-0.019</item>
+    </style>
+
 </resources>

@@ -1,9 +1,28 @@
 <resources>
-    <string name="app_name">Lodjinha</string>
+
+    <string name="app_name">a Lodjinha</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+
+    <string name="nav_header_title">@string/app_name</string>
+    <string name="nav_header_desc">@string/app_name</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_about">Sobre o aplicativo</string>
+
+    <string name="main_categorias">Categorias</string>
+    <string name="main_maisvendido">Mais vendidos</string>
+
+    <string name="about_desenvolvedor">Júlio Cézar M Menezes</string>
+    <string name="about_data">18 de Junho de 2018</string>
+
+    <string name="produto_preco_de">De: %1$s</string>
+    <string name="produto_preco_por">Por: %1$s</string>
+
+    <string name="detail_title_activity">DetailActivity</string>
+    <string name="detail_reservar_sucesso">Produto reservado com sucesso</string>
+    <string name="detail_reservar_falha">Falha a reservar produto</string>
+    <string name="detail_reservar_ok">OK</string>
+    <string name="detail_reservar_result_success">success</string>
+
 </resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/descricao"
+            style="@style/DescriçãoProduto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:lines="2"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/disclosure_button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nome do produto com uma descrição grandona"/>
+
+        <TextView
+            android:id="@+id/preco_original"
+            style="@style/PreçoDe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/produto_preco_de"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/descricao"
+            tools:text="De: 9999,99"/>
+
+        <TextView
+            android:id="@+id/preco_final"
+            style="@style/PreçoPor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/produto_preco_por"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/disclosure_button"
+            app:layout_constraintTop_toBottomOf="@+id/descricao"
+            tools:text="Por 9999,98"/>
+
+        <ImageView
+            android:id="@+id/disclosure_button"
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/disclosure_indicator"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/Greyish"
+            app:layout_constraintTop_toBottomOf="@+id/icon"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
