@@ -5,8 +5,12 @@ import kotlin.reflect.KFunction1
 
 interface ProductsUseCaseContract {
 
-    fun getBestSellers(onCategoriesRetrieved: KFunction1<List<Product>, Unit>)
+    fun getBestSellers(onBestSellersRetrieved: KFunction1<List<Product>, Unit>)
 
-    fun getReserve(kFunction1: KFunction1<Int, Unit>, productId: kotlin.Int)
+    fun getReserve(onReserveFinalized: KFunction1<Int, Unit>, productId: kotlin.Int)
+
+    fun getProductsCategory(onProductsRetrieved: KFunction1<List<Product>, Unit>, categoryId: kotlin.Int)
+
+    fun clearProductsCategoryPage()
 
 }

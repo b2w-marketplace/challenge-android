@@ -21,6 +21,7 @@ class ProductActivity : AppCompatActivity(), ProductContract.View {
 
     private val FOR_VALUE = "Por "
     private val BY_VALUE = "De: "
+
     lateinit var progress: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,6 +1,5 @@
-package com.example.lidjinha.lodjinha.ui.home
+package com.example.lidjinha.lodjinha.ui.productscategory
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
@@ -14,20 +13,29 @@ import com.example.lidjinha.lodjinha.R
 import com.example.lidjinha.lodjinha.model.Product
 import com.example.lidjinha.lodjinha.ui.product.ProductActivity
 import com.squareup.picasso.Picasso
+import kotlin.reflect.KFunction0
 
-
-class BestSellersAdapter(private val products: List<Product>,
-                         private val context: Context) :
-        RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
+class ProductsCategoryAdapter(private val context: Context,
+                              private val getMoreProducts: KFunction0<Unit>) :
+        RecyclerView.Adapter<ProductsCategoryAdapter.ViewHolder>() {
 
     private val FOR_VALUE = "Por "
     private val BY_VALUE = "De: "
+    val products: MutableList<Product> = arrayListOf()
+
+    fun addProducts(products: MutableList<Product>) {
+        this.products.addAll(products)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_products, parent, false))
     }
 
-    @SuppressLint("SetTextI18n")
+    override fun getItemCount(): Int {
+        return products.size
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Picasso.with(context).load(products[position].urlImage).into(holder.image)
         holder.name.text = products[position].name
@@ -35,6 +43,9 @@ class BestSellersAdapter(private val products: List<Product>,
         holder.fullPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
         holder.salePrice.text = FOR_VALUE + String.format("%.2f", products[position].salePrice).replace(".", ".")
         holder.itemView.setOnClickListener(onItemClicked(position))
+        if (position == products.size - 8) {
+            getMoreProducts()
+        }
     }
 
     private fun onItemClicked(position: Int): View.OnClickListener? {
@@ -45,16 +56,12 @@ class BestSellersAdapter(private val products: List<Product>,
         }
     }
 
-    override fun getItemCount(): Int {
-        return products.size
-    }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val image: ImageView = itemView.findViewById(R.id.iv_product)
         val name: TextView = itemView.findViewById(R.id.tv_product_name)
         val fullPrice: TextView = itemView.findViewById(R.id.tv_full_price)
         val salePrice: TextView = itemView.findViewById(R.id.tv_sale_price)
-
     }
+
 }

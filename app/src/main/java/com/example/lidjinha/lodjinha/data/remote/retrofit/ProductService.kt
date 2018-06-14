@@ -6,10 +6,7 @@ import com.example.lidjinha.lodjinha.data.model.WSResponse
 import com.example.lidjinha.lodjinha.model.Product
 import org.json.JSONObject
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ProductService {
 
@@ -19,4 +16,6 @@ interface ProductService {
     @POST(BuildConfig.reserve_url + "{productId}")
     fun reserve(@Body emptyJson: JSONObject, @Path("productId") productId: kotlin.Int): Call<WSReserveResponse>
 
+    @GET(BuildConfig.products_category_url )
+    fun productsCategory(@Query("offset") offset: Int, @Query("limit") limit: Int, @Query("categoriaId") categoriaId: Int): Call<WSResponse<List<Product>>>
 }
