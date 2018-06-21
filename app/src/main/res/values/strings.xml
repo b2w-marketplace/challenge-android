@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sucess_book_product">Produto reservado com sucesso</string>
+    <string name="ok">OK</string>
+    <string name="about">sobre</string>
+</resources>

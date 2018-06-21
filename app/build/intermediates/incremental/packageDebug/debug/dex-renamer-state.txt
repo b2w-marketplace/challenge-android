@@ -1,4 +1,4 @@
-#Thu Jun 21 12:15:34 BRT 2018
+#Thu Jun 21 12:39:56 BRT 2018
 base.0=C\:\\Bitbucket\\challenge-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
