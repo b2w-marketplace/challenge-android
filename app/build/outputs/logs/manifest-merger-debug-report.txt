@@ -1,0 +1,155 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\0a7d19554fc3691b7c0faf3a3be76ef4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:2:1-15:12
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\d5df30d7ba2ca835b2338df09b01ec38\AndroidManifest.xml:6:1-16:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\c69b542a7c11ab405b8a95be41834d72\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\e4954c5098c64b3f2f534adfbbb67dc1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5dbd91beaa41219db9d7b4120998d093\AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\79da9c33177d085cacbcdc88126afc08\AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\5d9673dcc08b05eccf2f86afe2559f32\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\e7b8cc8eb425c4acf233e5caa7e6b3a0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\483de71ab6976bdb52cfabdad9253fda\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\aead616c961af163fb0ee0c5b48a82d6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\baf706921a89cd64449d242b5f890b0c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\1d4f1cebd4f5ce5104764f8c3c03d509\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\28559999e3fd37522fdf25553d14186d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d81b2ee44e397a3bf6ebd6942474e761\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\19a9b0f5c919fb3f43d49f0337901be2\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ab75dcb330ca845180e2aaef44000cb0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\291015a4857d3cdf107c9cc3f996eb03\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a96bb281c9dd69553b2922c85ba0775a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\446fe2f923f387201b03c2f0d1c1b798\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+	package
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:3:5-48
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:1-37:12
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:5:22-64
+application
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:7:5-35:19
+MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:13:5-20
+MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:13:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\e4954c5098c64b3f2f534adfbbb67dc1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\e4954c5098c64b3f2f534adfbbb67dc1\AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:10:9-41
+	android:roundIcon
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:11:9-54
+	android:icon
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:9:9-43
+	android:allowBackup
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:8:9-35
+	android:theme
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:13:9-40
+activity#com.olodjinha.guilherme.alodjinha.activity.MainActivity
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:14:9-22:20
+	android:theme
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:16:13-56
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:15:13-83
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:17:13-21:29
+action#android.intent.action.MAIN
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:20:27-74
+activity#com.olodjinha.guilherme.alodjinha.activity.ListProductByCategoryActivity
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:24:9-26:59
+	android:theme
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:26:13-56
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:25:13-100
+activity#com.olodjinha.guilherme.alodjinha.activity.DescriptionProductActivity
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:28:9-30:59
+	android:theme
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:30:13-56
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:29:13-97
+meta-data#preloaded_fonts
+ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:32:9-34:57
+	android:resource
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:34:13-54
+	android:name
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml:33:13-43
+uses-sdk
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\0a7d19554fc3691b7c0faf3a3be76ef4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\0a7d19554fc3691b7c0faf3a3be76ef4\AndroidManifest.xml:20:5-44
+MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:8:5-11:75
+MERGED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:8:5-11:75
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\d5df30d7ba2ca835b2338df09b01ec38\AndroidManifest.xml:12:5-14:41
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\library-1.4.2.aar\d5df30d7ba2ca835b2338df09b01ec38\AndroidManifest.xml:12:5-14:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\c69b542a7c11ab405b8a95be41834d72\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\c69b542a7c11ab405b8a95be41834d72\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\e4954c5098c64b3f2f534adfbbb67dc1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\e4954c5098c64b3f2f534adfbbb67dc1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5dbd91beaa41219db9d7b4120998d093\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5dbd91beaa41219db9d7b4120998d093\AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\79da9c33177d085cacbcdc88126afc08\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\79da9c33177d085cacbcdc88126afc08\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\5d9673dcc08b05eccf2f86afe2559f32\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\5d9673dcc08b05eccf2f86afe2559f32\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\e7b8cc8eb425c4acf233e5caa7e6b3a0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\e7b8cc8eb425c4acf233e5caa7e6b3a0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\483de71ab6976bdb52cfabdad9253fda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\483de71ab6976bdb52cfabdad9253fda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\aead616c961af163fb0ee0c5b48a82d6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\aead616c961af163fb0ee0c5b48a82d6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\baf706921a89cd64449d242b5f890b0c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\baf706921a89cd64449d242b5f890b0c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\1d4f1cebd4f5ce5104764f8c3c03d509\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\1d4f1cebd4f5ce5104764f8c3c03d509\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\28559999e3fd37522fdf25553d14186d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\28559999e3fd37522fdf25553d14186d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d81b2ee44e397a3bf6ebd6942474e761\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d81b2ee44e397a3bf6ebd6942474e761\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\19a9b0f5c919fb3f43d49f0337901be2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\19a9b0f5c919fb3f43d49f0337901be2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ab75dcb330ca845180e2aaef44000cb0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ab75dcb330ca845180e2aaef44000cb0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\291015a4857d3cdf107c9cc3f996eb03\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\291015a4857d3cdf107c9cc3f996eb03\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a96bb281c9dd69553b2922c85ba0775a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a96bb281c9dd69553b2922c85ba0775a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\446fe2f923f387201b03c2f0d1c1b798\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\446fe2f923f387201b03c2f0d1c1b798\AndroidManifest.xml:20:5-44
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.afollestad.material-dialogs:core:0.9.6.0] C:\Users\Guilherme\.gradle\caches\transforms-1\files-1.1\core-0.9.6.0.aar\1b514a519a4bf53184fac414a0bebb0d\AndroidManifest.xml:11:9-72
+	android:targetSdkVersion
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Bitbucket\challenge-android\app\src\main\AndroidManifest.xml
