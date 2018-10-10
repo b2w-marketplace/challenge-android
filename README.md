@@ -1,7 +1,7 @@
 # o Lodjinha
 
 Minimo SDK: API 15</br>
-Linguagem: Java</br>
+Linguagem: Java ou Kotlin</br>
 
 Serão consideradas funcionalidades completas se:</br>
 - O descritivo da funcionalidade for implementado completamente.</br>
