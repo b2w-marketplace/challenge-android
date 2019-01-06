@@ -8,6 +8,9 @@
     <color name="white">#d5d5d5</color>
     <color name="white_two">#fcfcfc</color>
 
+    <color name="transparent">#00ffffff</color>
+    <color name="black">#000000</color>
+
     <color name="colorPrimary">@color/warm_purple</color>
     <color name="colorAccent">@color/warm_purple</color>
     <color name="colorPrimaryDark">#3d1c55</color>

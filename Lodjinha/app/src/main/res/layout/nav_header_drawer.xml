@@ -24,9 +24,8 @@
                 android:id="@+id/imageView"/>
     </RelativeLayout>
 
-
     <TextView
-            android:textSize="24sp"
+            android:textSize="@dimen/app_bar_logo_size"
             android:id="@+id/txt_logo"
             android:textColor="@color/white_two"
             android:layout_alignParentBottom="true"
