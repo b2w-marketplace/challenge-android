@@ -1,3 +1,5 @@
+package br.com.android.seiji.cache
+
 import br.com.android.seiji.cache.db.CacheDatabase
 import br.com.android.seiji.cache.mapper.CachedBannerMapper
 import br.com.android.seiji.cache.model.CacheConfig
