@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/view_product_container"
+        android:padding="@dimen/margin_default"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/view_product_image"
+            android:layout_width="80dp"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/logo_menu"
+            android:layout_height="80dp"/>
+
+    <TextView
+            style="@style/RobotoFontMedium"
+            app:layout_constraintEnd_toStartOf="@+id/view_product_arrow"
+            android:id="@+id/view_product_description"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_default"
+            app:layout_constraintStart_toEndOf="@+id/view_product_image"
+            android:layout_width="0dp"
+            android:lines="2"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            tools:text="@string/categories"/>
+
+    <TextView
+            style="@style/RobotoFontMedium"
+            android:id="@+id/view_product_from_price"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_width="0dp"
+            android:textSize="@dimen/thirteen"
+            app:layout_constraintBottom_toBottomOf="@+id/view_product_to_price"
+            app:layout_constraintTop_toTopOf="@+id/view_product_to_price"
+            app:layout_constraintTop_toBottomOf="@+id/view_product_description"
+            app:layout_constraintStart_toEndOf="@+id/view_product_image"
+            android:layout_height="wrap_content"
+            tools:text="@string/categories"/>
+
+    <ImageView
+            android:id="@+id/view_product_arrow"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@null"
+            android:src="@drawable/disclosure_indicator"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            style="@style/RobotoFontBold"
+            android:textColor="@color/tomato"
+            android:id="@+id/view_product_to_price"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_width="0dp"
+            android:textSize="@dimen/eighteen"
+            app:layout_constraintTop_toBottomOf="@+id/view_product_arrow"
+            app:layout_constraintEnd_toStartOf="@+id/view_product_arrow"
+            android:layout_height="wrap_content"
+            tools:text="@string/categories"/>
+
+</android.support.constraint.ConstraintLayout>

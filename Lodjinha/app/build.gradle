@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+androidExtensions {
+    experimental = true
+}
+
+def cfg = rootProject.ext.configuration
+def libs = rootProject.ext.libraries
+def testLibs = rootProject.ext.testingLibraries
+
+android {
+    compileSdkVersion cfg.compileVersion
+    defaultConfig {
+        applicationId "com.b2w.lodjinha"
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'BASE_URL', '"https://alodjinha.herokuapp.com/"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:$cfg.buildToolsVersion"
+    implementation "com.android.support:design:$cfg.buildToolsVersion"
+    implementation "com.android.support.constraint:constraint-layout:$libs.constraintlayout"
+
+    //Retrofit
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$libs.retrofitRx"
+    implementation "com.squareup.retrofit2:converter-moshi:$libs.retrofit"
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$libs.rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$libs.rxandroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$libs.rxkotlin"
+
+    //Arch Lifecycle
+    implementation "android.arch.lifecycle:runtime:$libs.arch"
+    implementation "android.arch.lifecycle:extensions:$libs.arch"
+    kapt "android.arch.lifecycle:compiler:$libs.arch"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:$libs.timber"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$libs.picasso"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$libs.okhttp"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$libs.okhttpUrlconnection"
+    implementation "com.squareup.okhttp3:logging-interceptor:$libs.loggingInterceptor"
+
+    //ViewPagerIndicator
+    implementation "it.xabaras.android:viewpagerindicator:$libs.viewPagerIndicator"
+
+    //Recyclerview
+    implementation "com.android.support:recyclerview-v7:$libs.recyclerview"
+
+    //Test
+    testImplementation "junit:junit:$testLibs.junit"
+    androidTestImplementation "com.android.support.test:runner:$testLibs.runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$testLibs.espresso"
+}

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Lodjinha</string>
+
+    <!-- Menu -->
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_about">Sobre o aplicativo</string>
+
+    <!-- Errors -->
+    <string name="default_error_title">Algo deu errado</string>
+    <string name="default_error_message">Tente novamente mais tarde</string>
+    <string name="default_unauthorized_error_title">@string/default_error_title</string>
+    <string name="default_unauthorized_error_message">Você não está autorizado a completar esta ação.</string>
+    <string name="default_expectation_forbidden_error_title">@string/default_error_title</string>
+    <string name="default_expectation_forbidden_error_message">A ação não pôde ser completada.</string>
+    <string name="default_internet_not_found_error_title">@string/default_error_title</string>
+    <string name="default_internet_not_found_error_message">Conteúdo não encontrado.</string>
+
+    <!-- Categories -->
+    <string name="categories">Categorias</string>
+
+    <!-- Products -->
+    <string name="product_from_price">De %s</string>
+    <string name="product_to_price">Por %s</string>
+
+    <!-- Reservations -->
+    <string name="product_reservation_success">Produto reservado com sucesso.</string>
+
+    <!-- BestSelling -->
+    <string name="product_bestselling">Mais vendidos</string>
+    
+    <!-- About -->
+    <string name="about_dev_name">Bruna Esteves</string>
+    <string name="about_dev_date">7 de janeiro de 2019</string>
+</resources>

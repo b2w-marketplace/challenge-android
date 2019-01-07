@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.product.ProductActivity"
+        tools:showIn="@layout/activity_product">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                style="@style/RobotoFontMedium"
+                android:id="@+id/product_from_price"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:layout_width="0dp"
+                app:layout_constraintTop_toTopOf="@+id/product_to_price"
+                app:layout_constraintBottom_toBottomOf="@+id/product_to_price"
+                android:textSize="@dimen/thirteen"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default"
+                tools:text="De R$"/>
+
+        <TextView
+                style="@style/RobotoFontBold"
+                android:textColor="@color/tomato"
+                android:padding="@dimen/margin_default"
+                android:id="@+id/product_to_price"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/eighteen"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Por "/>
+
+        <View android:id="@+id/view_divider_bottom"
+              android:layout_width="0dp"
+              android:layout_height="1dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/product_to_price"
+              android:background="@drawable/divider"/>
+
+        <TextView
+                android:id="@+id/product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/margin_default"
+                android:paddingStart="@dimen/margin_default"
+                android:paddingRight="@dimen/margin_default"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider_bottom"
+                android:paddingEnd="@dimen/margin_default"
+                android:layout_margin="@dimen/margin_default"
+                tools:text="Large Text"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

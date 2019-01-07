@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="menu_height">160dp</dimen>
+    <dimen name="menu_img_size">60dp</dimen>
+    <dimen name="menu_img_margin_top">30dp</dimen>
+    <dimen name="menu_img_logo_width">90dp</dimen>
+    <dimen name="menu_img_logo_height">60dp</dimen>
+    <dimen name="banner_height">120dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="twelve">12sp</dimen>
+    <dimen name="thirteen">13sp</dimen>
+    <dimen name="fourteen">14sp</dimen>
+    <dimen name="seventeen">17sp</dimen>
+    <dimen name="eighteen">18sp</dimen>
+    <dimen name="twenty_four">24sp</dimen>
+    <dimen name="sixty_four">64sp</dimen>
+</resources>
