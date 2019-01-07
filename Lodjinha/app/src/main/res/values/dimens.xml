@@ -6,4 +6,10 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_logo_margin">12dp</dimen>
     <dimen name="app_bar_logo_size">24sp</dimen>
+
+    <dimen name="banner_height">112dp</dimen>
+    <dimen name="banner_indicator_radius">4dp</dimen>
+    <dimen name="banner_indicator_margin_vertical">4dp</dimen>
+    <dimen name="banner_indicator_margin_horizontal">4dp</dimen>
+
 </resources>

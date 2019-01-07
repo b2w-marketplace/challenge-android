@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:attrs="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
         tools:context=".MainActivity">
 
+    <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_banners"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height"/>
 
-    <TextView
-            android:layout_marginTop="24dp"
-            android:text="HOME"
+    <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            app:piv_animationType="scale"
+            app:piv_viewPager="@id/view_pager_banners"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/banner_indicator_margin_vertical"
+            android:layout_alignBottom="@+id/view_pager_banners"
+            app:piv_selectedColor="@color/indicator_selected"
+            app:piv_unselectedColor="@color/indicator"
+            attrs:piv_padding="@dimen/banner_indicator_margin_horizontal"
+            attrs:piv_radius="@dimen/banner_indicator_radius"/>
 
-
-</LinearLayout>
+</RelativeLayout>
