@@ -12,8 +12,4 @@ object DataFactory {
     fun randomInt(): Int {
         return ThreadLocalRandom.current().nextInt(0, 1000 + 1)
     }
-
-    fun randomDouble(): Double {
-        return randomDouble()
-    }
 }

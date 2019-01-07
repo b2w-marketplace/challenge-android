@@ -1,10 +1,9 @@
-package br.com.android.seiji.data.test.factory
+package br.com.android.seiji.remote.test.factory
 
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 
 object DataFactory {
-
     fun randomString(): String {
         return UUID.randomUUID().toString()
     }
