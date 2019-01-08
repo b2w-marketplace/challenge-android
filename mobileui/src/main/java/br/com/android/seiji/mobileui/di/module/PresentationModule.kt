@@ -18,6 +18,6 @@ abstract class PresentationModule {
     abstract fun bindGetBannersViewModel(viewModel: GetBannersViewModel): ViewModel
 
     @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
 }

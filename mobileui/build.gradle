@@ -12,6 +12,7 @@ android {
         minSdkVersion globalConfigurations["androidMinSdkVersion"]
         targetSdkVersion globalConfigurations["androidTargetSdkVersion"]
         testInstrumentationRunner "br.com.android.seiji.mobileui.test.TestRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {

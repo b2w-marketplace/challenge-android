@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">mobileui</string>
+    <string name="app_name">aLodjinha</string>
+
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_about">Sobre o aplicativo</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
