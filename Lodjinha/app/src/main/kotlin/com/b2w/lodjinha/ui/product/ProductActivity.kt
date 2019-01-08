@@ -106,6 +106,7 @@ class ProductActivity : BaseActivity() {
             dialog.setTitle(R.string.product_reservation_success)
             dialog.setPositiveButton(android.R.string.ok) { alert, id ->
                 alert.dismiss()
+                internProgress.visibility = View.GONE
             }
 
             val alert = dialog.create()

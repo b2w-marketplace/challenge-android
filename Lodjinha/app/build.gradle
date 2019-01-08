@@ -44,6 +44,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:$cfg.buildToolsVersion"
     implementation "com.android.support:design:$cfg.buildToolsVersion"
     implementation "com.android.support.constraint:constraint-layout:$libs.constraintlayout"
@@ -83,4 +84,7 @@ dependencies {
     testImplementation "junit:junit:$testLibs.junit"
     androidTestImplementation "com.android.support.test:runner:$testLibs.runner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$testLibs.espresso"
+    androidTestImplementation "com.android.support.test:rules:$testLibs.runner"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$testLibs.mockwebserver"
+    androidTestImplementation "br.com.concretesolutions:requestmatcher:$testLibs.requestMatcher"
 }
