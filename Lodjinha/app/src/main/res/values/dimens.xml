@@ -12,4 +12,6 @@
     <dimen name="banner_indicator_margin_vertical">4dp</dimen>
     <dimen name="banner_indicator_margin_horizontal">4dp</dimen>
 
+    <dimen name="home_item_size">100dp</dimen>
+
 </resources>

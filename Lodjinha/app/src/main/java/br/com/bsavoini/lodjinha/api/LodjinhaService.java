@@ -13,7 +13,7 @@ public interface LodjinhaService {
     Call<BannersResponse> requestBanner();
 
     @GET("categoria")
-    Call<CategoriesResponse> requestCategory();
+    Call<CategoriesResponse> requestCategories();
 
     @GET("produto")
     Call<ProductsResponse> requestProducts(@Query("offset") int offset, @Query("limit") int limit, @Query("categoriaId") int categoryId);
