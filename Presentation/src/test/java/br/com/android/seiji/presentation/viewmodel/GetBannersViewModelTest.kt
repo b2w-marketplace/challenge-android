@@ -1,7 +1,7 @@
 package br.com.android.seiji.presentation.viewmodel
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import br.com.android.seiji.domain.interactor.browse.GetBanners
+import br.com.android.seiji.domain.interactor.banner.GetBanners
 import br.com.android.seiji.domain.model.Banner
 import br.com.android.seiji.presentation.GetBannersViewModel
 import br.com.android.seiji.presentation.mapper.BannerViewMapper

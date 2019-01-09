@@ -1,7 +1,7 @@
 package br.com.android.android.seiji.domain.interactor
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
-import br.com.android.seiji.domain.interactor.browse.GetBanners
+import br.com.android.seiji.domain.interactor.banner.GetBanners
 import br.com.android.seiji.domain.model.Banner
 import br.com.android.seiji.domain.repository.BannerRepository
 import com.nhaarman.mockito_kotlin.whenever

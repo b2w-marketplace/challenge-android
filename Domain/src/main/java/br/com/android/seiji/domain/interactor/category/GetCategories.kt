@@ -1,4 +1,4 @@
-package br.com.android.seiji.domain.interactor.browse
+package br.com.android.seiji.domain.interactor.category
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
 import br.com.android.seiji.domain.interactor.SingleUseCase
@@ -12,7 +12,7 @@ open class GetCategories @Inject constructor(
     postExecutionThread: PostExecutionThread
 ) : SingleUseCase<List<Category>, Nothing?>(postExecutionThread) {
 
-    public override fun buildUseCaseObservable(param: Nothing?): Observable<List<Category>> {
+    public override fun buildUseCaseObservable(params: Nothing?): Observable<List<Category>> {
         return categoryRepository.getCategories()
     }
 }

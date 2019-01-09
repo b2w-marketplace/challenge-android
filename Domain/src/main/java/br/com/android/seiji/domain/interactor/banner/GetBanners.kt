@@ -1,4 +1,4 @@
-package br.com.android.seiji.domain.interactor.browse
+package br.com.android.seiji.domain.interactor.banner
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
 import br.com.android.seiji.domain.interactor.SingleUseCase
@@ -12,7 +12,7 @@ open class GetBanners @Inject constructor(
     postExecutionThread: PostExecutionThread
 ) : SingleUseCase<List<Banner>, Nothing?>(postExecutionThread) {
 
-    public override fun buildUseCaseObservable(param: Nothing?): Observable<List<Banner>> {
+    public override fun buildUseCaseObservable(params: Nothing?): Observable<List<Banner>> {
         return bannerRepository.getBanners()
     }
 }

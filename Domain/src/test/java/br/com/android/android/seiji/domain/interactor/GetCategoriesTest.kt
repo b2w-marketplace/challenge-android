@@ -1,7 +1,7 @@
 package br.com.android.android.seiji.domain.interactor
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
-import br.com.android.seiji.domain.interactor.browse.GetCategories
+import br.com.android.seiji.domain.interactor.category.GetCategories
 import br.com.android.seiji.domain.model.Category
 import br.com.android.seiji.domain.repository.CategoryRepository
 import com.nhaarman.mockito_kotlin.whenever
@@ -25,7 +25,8 @@ class GetCategoriesTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getCategories = GetCategories(categoryRepository, postExecutionThread)
+        getCategories =
+                GetCategories(categoryRepository, postExecutionThread)
     }
 
     @Test
