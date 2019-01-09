@@ -1,9 +1,9 @@
 package br.com.android.android.seiji.domain.interactor
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
-import br.com.android.seiji.domain.interactor.browse.GetCategorias
-import br.com.android.seiji.domain.model.Categoria
-import br.com.android.seiji.domain.repository.CategoriasRepository
+import br.com.android.seiji.domain.interactor.browse.GetCategories
+import br.com.android.seiji.domain.model.Category
+import br.com.android.seiji.domain.repository.CategoryRepository
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Observable
 import org.junit.Before
@@ -12,12 +12,12 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import test.CategoriaFactory
 
-class GetCategoriasTest {
+class GetCategoriesTest {
 
-    private lateinit var getCategorias: GetCategorias
+    private lateinit var getCategories: GetCategories
 
     @Mock
-    lateinit var categoriasRepository: CategoriasRepository
+    lateinit var categoryRepository: CategoryRepository
 
     @Mock
     lateinit var postExecutionThread: PostExecutionThread
@@ -25,13 +25,13 @@ class GetCategoriasTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getCategorias = GetCategorias(categoriasRepository, postExecutionThread)
+        getCategories = GetCategories(categoryRepository, postExecutionThread)
     }
 
     @Test
     fun getCategoriasCompletes() {
         stubGetCategorias(Observable.just(CategoriaFactory.makeCategoriaList(5)))
-        val testObserver = getCategorias.buildUseCaseObservable().test()
+        val testObserver = getCategories.buildUseCaseObservable().test()
         testObserver.assertComplete()
     }
 
@@ -39,12 +39,12 @@ class GetCategoriasTest {
     fun getCategoriasReturnsData() {
         val categoriasList = CategoriaFactory.makeCategoriaList(5)
         stubGetCategorias(Observable.just(categoriasList))
-        val testObserver = getCategorias.buildUseCaseObservable().test()
+        val testObserver = getCategories.buildUseCaseObservable().test()
         testObserver.assertValue(categoriasList)
     }
 
-    private fun stubGetCategorias(observable: Observable<List<Categoria>>) {
-        whenever(categoriasRepository.getCategorias())
+    private fun stubGetCategorias(observable: Observable<List<Category>>) {
+        whenever(categoryRepository.getCategories())
             .thenReturn(observable)
     }
 }

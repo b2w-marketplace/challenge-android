@@ -1,17 +1,17 @@
 package test
 
-import br.com.android.seiji.domain.model.Categoria
+import br.com.android.seiji.domain.model.Category
 
 object CategoriaFactory {
 
-    fun makeCategoria(): Categoria {
-        return Categoria(
+    fun makeCategoria(): Category {
+        return Category(
             DataFactory.randomString(), DataFactory.randomInt(), DataFactory.randomString()
         )
     }
 
-    fun makeCategoriaList(count: Int): List<Categoria> {
-        val categoriasList = mutableListOf<Categoria>()
+    fun makeCategoriaList(count: Int): List<Category> {
+        val categoriasList = mutableListOf<Category>()
         repeat(count) {
             categoriasList.add(makeCategoria())
         }
