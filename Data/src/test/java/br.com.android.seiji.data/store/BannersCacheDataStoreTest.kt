@@ -1,7 +1,8 @@
 package br.com.android.seiji.data.store
 
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersCache
+import br.com.android.seiji.data.repository.banners.BannersCache
+import br.com.android.seiji.data.store.banners.BannersCacheDataStore
 import br.com.android.seiji.data.test.factory.BannerFactory
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
@@ -17,7 +18,7 @@ import org.junit.runners.JUnit4
 class BannersCacheDataStoreTest {
 
     private val cache = mock<BannersCache>()
-    private val store = BannerCacheDataStore(cache)
+    private val store = BannersCacheDataStore(cache)
 
     @Test
     fun getBannersCompletes() {

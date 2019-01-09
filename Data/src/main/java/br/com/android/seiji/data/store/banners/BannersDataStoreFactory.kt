@@ -1,11 +1,11 @@
-package br.com.android.seiji.data.store
+package br.com.android.seiji.data.store.banners
 
-import br.com.android.seiji.data.repository.BannersDataStore
+import br.com.android.seiji.data.repository.banners.BannersDataStore
 import javax.inject.Inject
 
 class BannersDataStoreFactory @Inject constructor(
-    private val bannersCacheDataStore: BannerCacheDataStore,
-    private val bannersRemoteDataStore: BannerRemoteDataStore
+    private val bannersCacheDataStore: BannersCacheDataStore,
+    private val bannersRemoteDataStore: BannersRemoteDataStore
 ) {
 
     open fun getDataStore(bannersCached: Boolean, cacheExpired: Boolean): BannersDataStore {

@@ -1,7 +1,8 @@
 package br.com.android.seiji.data.store
 
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersRemote
+import br.com.android.seiji.data.repository.banners.BannersRemote
+import br.com.android.seiji.data.store.banners.BannersRemoteDataStore
 import br.com.android.seiji.data.test.factory.BannerFactory
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
@@ -14,7 +15,7 @@ import org.junit.runners.JUnit4
 class BannersRemoteDataStoreTest {
 
     private val remote = mock<BannersRemote>()
-    private val store = BannerRemoteDataStore(remote)
+    private val store = BannersRemoteDataStore(remote)
 
     @Test
     fun getBannersCompletes() {

@@ -1,8 +1,7 @@
-package br.com.android.seiji.data
+package br.com.android.seiji.data.store.banners
 
 import br.com.android.seiji.data.mapper.BannerMapper
-import br.com.android.seiji.data.repository.BannersCache
-import br.com.android.seiji.data.store.BannersDataStoreFactory
+import br.com.android.seiji.data.repository.banners.BannersCache
 import br.com.android.seiji.domain.model.Banner
 import br.com.android.seiji.domain.repository.BannerRepository
 import io.reactivex.Observable
@@ -22,7 +21,8 @@ class BannersDataRepository @Inject constructor(
                 Pair(areCached, isExpired)
             })
             .flatMap {
-                factory.getDataStore(it.first, it.second).getBanners().toObservable().distinctUntilChanged()
+                factory.getDataStore(it.first, it.second).getBanners()
+                    .toObservable().distinctUntilChanged()
             }
             .flatMap { banners ->
                 factory.getCacheDataStore()

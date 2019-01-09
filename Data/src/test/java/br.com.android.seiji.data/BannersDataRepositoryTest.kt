@@ -2,9 +2,10 @@ package br.com.android.seiji.data
 
 import br.com.android.seiji.data.mapper.BannerMapper
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersCache
-import br.com.android.seiji.data.repository.BannersDataStore
-import br.com.android.seiji.data.store.BannersDataStoreFactory
+import br.com.android.seiji.data.repository.banners.BannersCache
+import br.com.android.seiji.data.repository.banners.BannersDataStore
+import br.com.android.seiji.data.store.banners.BannersDataRepository
+import br.com.android.seiji.data.store.banners.BannersDataStoreFactory
 import br.com.android.seiji.data.test.factory.BannerFactory
 import br.com.android.seiji.domain.model.Banner
 import com.nhaarman.mockito_kotlin.any

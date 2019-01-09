@@ -1,6 +1,6 @@
 package br.com.android.seiji.mobileui.di.module
 
-import br.com.android.seiji.data.repository.BannersRemote
+import br.com.android.seiji.data.repository.banners.BannersRemote
 import br.com.android.seiji.mobileui.BuildConfig
 import br.com.android.seiji.remote.BannersRemoteImpl
 import br.com.android.seiji.remote.service.BannerService
