@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#5E2A84</color>
+    <color name="colorPrimaryDark">#45116B</color>
+    <color name="colorAccent">@color/tomato</color>
+
+    <color name="white_D5D5D5">#D5D5D5</color>
+    <color name="white_FCFCFC">#FCFCFC</color>
+
+    <color name="greyish_AAAAAA">#AAAAAA</color>
+    <color name="greyish_4A4A4A">#4A4A4A</color>
+
+    <color name="tomato">#F15025</color>
+    <color name="dark_2D3142">#2D3142</color>
 </resources>

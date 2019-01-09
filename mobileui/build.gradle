@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
@@ -13,6 +14,14 @@ android {
         targetSdkVersion globalConfigurations["androidTargetSdkVersion"]
         testInstrumentationRunner "br.com.android.seiji.mobileui.test.TestRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -28,11 +37,14 @@ android {
     }
 }
 
+androidExtensions {
+    experimental = true
+}
+
 dependencies {
     def mobileUiDependencies = rootProject.ext.mobileUiDependencies
     def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     compile project(':Presentation')
     compile project(':Data')
     compile project(':Remote')
@@ -54,10 +66,12 @@ dependencies {
     implementation mobileUiDependencies.glide
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
+    implementation mobileUiDependencies.constraintLayout
+    implementation mobileUiDependencies.multiDex
+    implementation mobileUiDependencies.roomRxJava
 
-    compile presentationDependencies.archRuntime
-    compile presentationDependencies.archExtensions
-    compile "android.arch.persistence.room:rxjava2:1.0.0"
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
     kapt presentationDependencies.archCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit

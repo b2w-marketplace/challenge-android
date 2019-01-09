@@ -1,4 +1,4 @@
-package br.com.android.seiji.mobileui
+package br.com.android.seiji.mobileui.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

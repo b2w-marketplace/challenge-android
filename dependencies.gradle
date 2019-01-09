@@ -27,6 +27,8 @@ ext {
     glassfishAnnotationVersion = '10.0-b28'
     archCompVersion = '1.1.1'
     roomVersion = '1.0.0'
+    constraintLayoutVersion = '1.1.0'
+    multiDexVersion = '1.0.3'
 
     //Testing
     jUnitVersion = '4.12'
@@ -160,6 +162,9 @@ ext {
             roomRuntime        : "android.arch.persistence.room:runtime:${archCompVersion}",
             roomCompiler       : "android.arch.persistence.room:compiler:${archCompVersion}",
             roomRxJava         : "android.arch.persistence.room:rxjava2:${archCompVersion}",
+            constraintLayout   : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            multiDex           : "com.android.support:multidex:${multiDexVersion}"
+
     ]
 
     mobileUiTestDependencies = [

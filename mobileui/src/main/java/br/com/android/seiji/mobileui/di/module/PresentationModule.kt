@@ -2,7 +2,7 @@ package br.com.android.seiji.mobileui.di.module
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import br.com.android.seiji.mobileui.ViewModelFactory
+import br.com.android.seiji.mobileui.di.ViewModelFactory
 import br.com.android.seiji.mobileui.di.qualifiers.ViewModelKey
 import br.com.android.seiji.presentation.GetBannersViewModel
 import dagger.Binds

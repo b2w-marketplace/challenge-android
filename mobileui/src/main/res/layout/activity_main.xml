@@ -19,7 +19,7 @@
             app:menu="@menu/activity_main_drawer"/>
 
     <include
-            layout="@layout/app_bar_main"
+            layout="@layout/content_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
