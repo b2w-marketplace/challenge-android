@@ -9,14 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
     private List<ProductModel> productsArr;
-    private RequestManager glideRequest;
+    private Picasso picassoInstance;
 
     public ProductsAdapter(List<ProductModel> productsArr) {
         this.productsArr = productsArr;
@@ -25,7 +24,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     @NonNull
     @Override
     public ProductsAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        glideRequest = Glide.with(viewGroup.getContext());
+        picassoInstance = Picasso.with(viewGroup.getContext());
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_product, viewGroup, false);
         return new ProductsAdapter.ProductViewHolder(view);
     }
@@ -34,7 +33,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     public void onBindViewHolder(@NonNull ProductsAdapter.ProductViewHolder viewHolder, int i) {
         ProductModel productModel = productsArr.get(viewHolder.getAdapterPosition());
 
-        glideRequest.load(productModel.getImageURL()).into(viewHolder.productImg);
+        picassoInstance.load(productModel.getImageURL())
+                .placeholder(R.drawable.logo_navbar)
+                .into(viewHolder.productImg);
 
         viewHolder.nameTxt.setText(productModel.getName());
         viewHolder.originalPriceTxt.setText("De: " + productModel.getOriginalPrice());

@@ -7,13 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.BannerModel;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class BannerPagerAdapter extends PagerAdapter {
     private List<BannerModel> banners;
-    private RequestManager glideRequest;
 
     public BannerPagerAdapter(List<BannerModel> banners) {
         this.banners = banners;
@@ -37,8 +36,10 @@ public class BannerPagerAdapter extends PagerAdapter {
 
         ImageView imgBanner = view.findViewById(R.id.img_banner);
 
-        glideRequest = Glide.with(container.getContext());
-        glideRequest.load(banners.get(position).getImageURL()).into(imgBanner);
+        Picasso.with(container.getContext())
+                .load(banners.get(position).getImageURL())
+                .placeholder(R.drawable.menu_pattern)
+                .into(imgBanner);
 
         return view;
     }

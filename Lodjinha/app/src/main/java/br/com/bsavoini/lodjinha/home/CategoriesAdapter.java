@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.CategoryModel;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
+import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder> {
     private List<CategoryModel> categoriesArr;
-    private RequestManager glideRequest;
+    private Picasso picassoInstance;
 
     public CategoriesAdapter(List<CategoryModel> categoriesArr) {
         this.categoriesArr = categoriesArr;
@@ -25,7 +25,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        glideRequest = Glide.with(viewGroup.getContext());
+        picassoInstance = Picasso.with(viewGroup.getContext());
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_category, viewGroup, false);
         return new CategoryViewHolder(view);
     }
@@ -35,9 +35,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         CategoryModel categoryModel = categoriesArr.get(viewHolder.getAdapterPosition());
         viewHolder.categoryTxt.setText(categoryModel.getDescription());
 
-        glideRequest
-                .load(categoryModel.getImageURL())
+        picassoInstance.load(categoryModel.getImageURL())
+                .placeholder(R.drawable.logo_navbar)
                 .into(viewHolder.categoryImg);
+
     }
 
     @Override
