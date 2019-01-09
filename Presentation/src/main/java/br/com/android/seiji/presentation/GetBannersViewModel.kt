@@ -3,7 +3,7 @@ package br.com.android.seiji.presentation
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import br.com.android.seiji.domain.interactor.browse.GetBanners
+import br.com.android.seiji.domain.interactor.banner.GetBanners
 import br.com.android.seiji.domain.model.Banner
 import br.com.android.seiji.presentation.mapper.BannerViewMapper
 import br.com.android.seiji.presentation.model.BannerView
