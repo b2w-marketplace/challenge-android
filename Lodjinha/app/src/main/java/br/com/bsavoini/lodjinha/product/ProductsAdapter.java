@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.home;
+package br.com.bsavoini.lodjinha.product;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
 import com.squareup.picasso.Picasso;
@@ -48,7 +49,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         return productsArr.size();
     }
 
-    class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView productImg;
         private TextView nameTxt;
         private TextView originalPriceTxt;
@@ -60,6 +61,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
             nameTxt = itemView.findViewById(R.id.txt_name);
             originalPriceTxt = itemView.findViewById(R.id.txt_original_price);
             currentPriceTxt = itemView.findViewById(R.id.txt_current_price);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), "OI: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
         }
     }
 }

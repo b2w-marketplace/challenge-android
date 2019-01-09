@@ -1,9 +1,9 @@
 package br.com.bsavoini.lodjinha.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,16 +11,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import br.com.bsavoini.lodjinha.MainActivity;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.RetrofitInstance;
 import br.com.bsavoini.lodjinha.api.model.BannersResponse;
 import br.com.bsavoini.lodjinha.api.model.CategoriesResponse;
 import br.com.bsavoini.lodjinha.api.model.ProductsResponse;
+import br.com.bsavoini.lodjinha.catalog.CatalogActivity;
+import br.com.bsavoini.lodjinha.product.ProductsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements CategorySelectionInterface {
     private ViewPager bannersViewPager;
     RecyclerView categoriesRecycler;
     RecyclerView bestSellersRecycler;
@@ -77,7 +80,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<CategoriesResponse> call, Response<CategoriesResponse> response) {
 
-                categoriesRecycler.setAdapter(new CategoriesAdapter(response.body().getCategoriesArr()));
+                categoriesRecycler.setAdapter(new CategoriesAdapter(response.body().getCategoriesArr(), HomeFragment.this));
 
             }
 
@@ -101,5 +104,13 @@ public class HomeFragment extends Fragment {
             public void onFailure(Call<ProductsResponse> call, Throwable t) {
             }
         });
+    }
+
+    @Override
+    public void onClickCategory(String categoryName, int categoryId) {
+        Intent intent = new Intent(getActivity(), CatalogActivity.class);
+        intent.putExtra("categoryName", categoryName);
+        intent.putExtra("categoryId", categoryId);
+        getActivity().startActivity(intent);
     }
 }
