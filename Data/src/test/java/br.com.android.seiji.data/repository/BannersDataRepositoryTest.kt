@@ -1,4 +1,4 @@
-package br.com.android.seiji.data
+package br.com.android.seiji.data.repository
 
 import br.com.android.seiji.data.mapper.BannerMapper
 import br.com.android.seiji.data.model.BannerEntity
