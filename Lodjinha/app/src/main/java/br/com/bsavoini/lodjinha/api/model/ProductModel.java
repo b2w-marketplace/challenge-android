@@ -2,7 +2,9 @@ package br.com.bsavoini.lodjinha.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ProductModel {
+import java.io.Serializable;
+
+public class ProductModel implements Serializable {
     @SerializedName("id")
     private int id;
 

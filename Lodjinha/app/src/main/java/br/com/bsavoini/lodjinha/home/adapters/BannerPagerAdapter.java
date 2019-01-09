@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.home;
+package br.com.bsavoini.lodjinha.home.adapters;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
@@ -7,15 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.BannerModel;
+import br.com.bsavoini.lodjinha.home.interfaces.BannerClickCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class BannerPagerAdapter extends PagerAdapter {
     private List<BannerModel> banners;
+    private BannerClickCallback bannerClickCallback;
 
-    public BannerPagerAdapter(List<BannerModel> banners) {
+    public BannerPagerAdapter(List<BannerModel> banners, BannerClickCallback bannerClickCallback) {
         this.banners = banners;
+        this.bannerClickCallback = bannerClickCallback;
     }
 
     @Override
@@ -36,10 +39,18 @@ public class BannerPagerAdapter extends PagerAdapter {
 
         ImageView imgBanner = view.findViewById(R.id.img_banner);
 
+        final BannerModel bannerModel = banners.get(position);
         Picasso.with(container.getContext())
-                .load(banners.get(position).getImageURL())
+                .load(bannerModel.getImageURL())
                 .placeholder(R.drawable.menu_pattern)
                 .into(imgBanner);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bannerClickCallback.onClickBanner(bannerModel.getLinkURL());
+            }
+        });
 
         return view;
     }

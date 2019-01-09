@@ -10,14 +10,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.RetrofitInstance;
+import br.com.bsavoini.lodjinha.api.model.ProductModel;
 import br.com.bsavoini.lodjinha.api.model.ProductsResponse;
+import br.com.bsavoini.lodjinha.product.ProductActivity;
+import br.com.bsavoini.lodjinha.product.ProductClickCallback;
 import br.com.bsavoini.lodjinha.product.ProductsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CatalogActivity extends AppCompatActivity {
-    private  RecyclerView productsRecycler;
+public class CatalogActivity extends AppCompatActivity implements ProductClickCallback {
+    private RecyclerView productsRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class CatalogActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ProductsResponse> call, Response<ProductsResponse> response) {
 
-                productsRecycler.setAdapter(new ProductsAdapter(response.body().getProductsArr()));
+                productsRecycler.setAdapter(new ProductsAdapter(response.body().getProductsArr(), CatalogActivity.this));
             }
 
             @Override
@@ -71,5 +74,12 @@ public class CatalogActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+    }
+
+    @Override
+    public void onClickProduct(ProductModel productModel) {
+        Intent intent = new Intent(this, ProductActivity.class);
+        intent.putExtra("product", productModel);
+        startActivity(intent);
     }
 }

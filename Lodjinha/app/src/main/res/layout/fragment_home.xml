@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        <include layout="@layout/divider"/>
+        <include layout="@layout/divider_layout"/>
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyler_categories"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"/>
 
 
-        <include layout="@layout/divider"/>
+        <include layout="@layout/divider_layout"/>
 
         <TextView
                 android:layout_margin="10dp"
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        <include layout="@layout/divider"/>
+        <include layout="@layout/divider_layout"/>
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyler_best_sellers"

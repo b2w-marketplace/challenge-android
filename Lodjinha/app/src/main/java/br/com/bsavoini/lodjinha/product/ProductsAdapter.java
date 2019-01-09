@@ -17,9 +17,11 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
     private List<ProductModel> productsArr;
     private Picasso picassoInstance;
+    private ProductClickCallback productClickCallback;
 
-    public ProductsAdapter(List<ProductModel> productsArr) {
+    public ProductsAdapter(List<ProductModel> productsArr, ProductClickCallback productClickCallback) {
         this.productsArr = productsArr;
+        this.productClickCallback = productClickCallback;
     }
 
     @NonNull
@@ -66,7 +68,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), "OI: "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            ProductModel productModel = productsArr.get(getAdapterPosition());
+            productClickCallback.onClickProduct(productModel);
         }
     }
 }

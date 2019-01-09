@@ -1,6 +1,5 @@
-package br.com.bsavoini.lodjinha.home;
+package br.com.bsavoini.lodjinha.home.adapters;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.CategoryModel;
+import br.com.bsavoini.lodjinha.home.interfaces.CategoryClickCallback;
 import com.squareup.picasso.Picasso;
 
 
@@ -19,11 +18,11 @@ import java.util.List;
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder> {
     private List<CategoryModel> categoriesArr;
     private Picasso picassoInstance;
-    private CategorySelectionInterface categorySelectionInterface;
+    private CategoryClickCallback categoryClickCallback;
 
-    public CategoriesAdapter(List<CategoryModel> categoriesArr, CategorySelectionInterface categorySelectionInterface) {
+    public CategoriesAdapter(List<CategoryModel> categoriesArr, CategoryClickCallback categoryClickCallback) {
         this.categoriesArr = categoriesArr;
-        this.categorySelectionInterface = categorySelectionInterface;
+        this.categoryClickCallback = categoryClickCallback;
     }
 
     @NonNull
@@ -66,7 +65,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
             CategoryModel categoryModel = categoriesArr.get(getAdapterPosition());
             String categoryName = categoryModel.getDescription();
             int categoryId = categoryModel.getId();
-            categorySelectionInterface.onClickCategory(categoryName, categoryId);
+            categoryClickCallback.onClickCategory(categoryName, categoryId);
         }
     }
 }

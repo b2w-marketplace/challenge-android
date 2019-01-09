@@ -1,6 +1,7 @@
 package br.com.bsavoini.lodjinha.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -11,19 +12,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import br.com.bsavoini.lodjinha.MainActivity;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.RetrofitInstance;
 import br.com.bsavoini.lodjinha.api.model.BannersResponse;
 import br.com.bsavoini.lodjinha.api.model.CategoriesResponse;
+import br.com.bsavoini.lodjinha.api.model.ProductModel;
 import br.com.bsavoini.lodjinha.api.model.ProductsResponse;
 import br.com.bsavoini.lodjinha.catalog.CatalogActivity;
+import br.com.bsavoini.lodjinha.home.adapters.BannerPagerAdapter;
+import br.com.bsavoini.lodjinha.home.adapters.CategoriesAdapter;
+import br.com.bsavoini.lodjinha.home.interfaces.BannerClickCallback;
+import br.com.bsavoini.lodjinha.home.interfaces.CategoryClickCallback;
+import br.com.bsavoini.lodjinha.product.ProductActivity;
+import br.com.bsavoini.lodjinha.product.ProductClickCallback;
 import br.com.bsavoini.lodjinha.product.ProductsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeFragment extends Fragment implements CategorySelectionInterface {
+public class HomeFragment extends Fragment implements BannerClickCallback , CategoryClickCallback, ProductClickCallback {
     private ViewPager bannersViewPager;
     RecyclerView categoriesRecycler;
     RecyclerView bestSellersRecycler;
@@ -63,7 +70,7 @@ public class HomeFragment extends Fragment implements CategorySelectionInterface
             @Override
             public void onResponse(Call<BannersResponse> call, Response<BannersResponse> response) {
 
-                bannersViewPager.setAdapter(new BannerPagerAdapter(response.body().getBannersArr()));
+                bannersViewPager.setAdapter(new BannerPagerAdapter(response.body().getBannersArr(), HomeFragment.this));
 
             }
 
@@ -97,7 +104,7 @@ public class HomeFragment extends Fragment implements CategorySelectionInterface
             @Override
             public void onResponse(Call<ProductsResponse> call, Response<ProductsResponse> response) {
 
-                bestSellersRecycler.setAdapter(new ProductsAdapter(response.body().getProductsArr()));
+                bestSellersRecycler.setAdapter(new ProductsAdapter(response.body().getProductsArr(), HomeFragment.this));
             }
 
             @Override
@@ -107,10 +114,24 @@ public class HomeFragment extends Fragment implements CategorySelectionInterface
     }
 
     @Override
+    public void onClickBanner(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        getActivity().startActivity(intent);
+    }
+
+    @Override
     public void onClickCategory(String categoryName, int categoryId) {
         Intent intent = new Intent(getActivity(), CatalogActivity.class);
         intent.putExtra("categoryName", categoryName);
         intent.putExtra("categoryId", categoryId);
         getActivity().startActivity(intent);
+    }
+
+    @Override
+    public void onClickProduct(ProductModel productModel) {
+        Intent intent = new Intent(getActivity(), ProductActivity.class);
+        intent.putExtra("product", productModel);
+        startActivity(intent);
     }
 }
