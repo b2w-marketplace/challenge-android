@@ -1,0 +1,1 @@
+include ':app', ':viewmodel', ':view', ':model', ':repository'
