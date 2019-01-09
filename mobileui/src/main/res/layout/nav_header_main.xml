@@ -26,9 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
+        android:fontFamily="@font/pacifico"
         android:gravity="bottom|end"
+        android:lineSpacingExtra="-0.6sp"
         android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
 
 </RelativeLayout>
