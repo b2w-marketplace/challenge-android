@@ -10,7 +10,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
-import test.CategoriaFactory
+import test.CategoryFactory
 
 class GetCategoriesTest {
 
@@ -25,26 +25,25 @@ class GetCategoriesTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getCategories =
-                GetCategories(categoryRepository, postExecutionThread)
+        getCategories = GetCategories(categoryRepository, postExecutionThread)
     }
 
     @Test
-    fun getCategoriasCompletes() {
-        stubGetCategorias(Observable.just(CategoriaFactory.makeCategoriaList(5)))
+    fun getCategoriesCompletes() {
+        stubGetCategories(Observable.just(CategoryFactory.makeCategoryList(5)))
         val testObserver = getCategories.buildUseCaseObservable().test()
         testObserver.assertComplete()
     }
 
     @Test
-    fun getCategoriasReturnsData() {
-        val categoriasList = CategoriaFactory.makeCategoriaList(5)
-        stubGetCategorias(Observable.just(categoriasList))
+    fun getCategoriesReturnsData() {
+        val categoriesList = CategoryFactory.makeCategoryList(5)
+        stubGetCategories(Observable.just(categoriesList))
         val testObserver = getCategories.buildUseCaseObservable().test()
-        testObserver.assertValue(categoriasList)
+        testObserver.assertValue(categoriesList)
     }
 
-    private fun stubGetCategorias(observable: Observable<List<Category>>) {
+    private fun stubGetCategories(observable: Observable<List<Category>>) {
         whenever(categoryRepository.getCategories())
             .thenReturn(observable)
     }

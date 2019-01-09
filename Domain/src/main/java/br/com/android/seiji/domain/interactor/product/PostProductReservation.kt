@@ -11,7 +11,7 @@ open class PostProductReservation @Inject constructor(
     postExecutionThread: PostExecutionThread
 ) : CompletableUseCase<PostProductReservation.Params>(postExecutionThread) {
 
-    override fun buildUseCaseCompletable(params: Params?): Completable {
+    public override fun buildUseCaseCompletable(params: Params?): Completable {
         if (params == null) throw IllegalArgumentException("Params can't be null!")
         return productRepository.doProductReservation(params.productId)
     }
