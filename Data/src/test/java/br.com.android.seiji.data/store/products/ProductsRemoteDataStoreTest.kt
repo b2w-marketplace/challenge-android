@@ -84,7 +84,7 @@ class ProductsRemoteDataStoreTest {
     }
 
     private fun stubDoProductReservation(completable: Completable) {
-        whenever(remote.doProductReservation(any()))
+        whenever(remote.postProductReservation(any()))
             .thenReturn(completable)
     }
 }

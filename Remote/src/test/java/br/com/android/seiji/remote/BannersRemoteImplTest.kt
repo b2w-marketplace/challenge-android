@@ -4,7 +4,7 @@ import br.com.android.seiji.data.model.BannerEntity
 import br.com.android.seiji.remote.mapper.BannersResponseModelMapper
 import br.com.android.seiji.remote.model.BannerModel
 import br.com.android.seiji.remote.model.BannerResponseModel
-import br.com.android.seiji.remote.service.BannerService
+import br.com.android.seiji.remote.service.LodjinhaService
 import br.com.android.seiji.remote.test.factory.BannerFactory
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
@@ -15,10 +15,10 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-class BannerRemoteImplTest {
+class BannersRemoteImplTest {
 
     private val mapper = mock<BannersResponseModelMapper>()
-    private val service = mock<BannerService>()
+    private val service = mock<LodjinhaService>()
     private val remote = BannersRemoteImpl(service, mapper)
 
     @Test

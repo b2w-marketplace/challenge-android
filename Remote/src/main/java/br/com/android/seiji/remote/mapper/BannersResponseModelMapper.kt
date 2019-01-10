@@ -8,7 +8,7 @@ class BannersResponseModelMapper @Inject constructor() : ModelMapper<BannerModel
 
     override fun mapFromModel(model: BannerModel): BannerEntity {
         return BannerEntity(
-            model.id, model.urlImagem, model.linkUrl
+                model.id, model.urlImagem, model.linkUrl
         )
     }
 }
