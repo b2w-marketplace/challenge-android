@@ -12,7 +12,7 @@ class BannersCacheDataStore @Inject constructor(
 ) : BannersDataStore {
 
     override fun cleanBanners(): Completable {
-        return bannersCache.cleanBanners()
+        return bannersCache.clearBanners()
     }
 
     override fun saveBanners(banners: List<BannerEntity>): Completable {

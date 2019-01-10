@@ -1,8 +1,7 @@
-package br.com.android.seiji.data.store
+package br.com.android.seiji.data.store.banners
 
 import br.com.android.seiji.data.model.BannerEntity
 import br.com.android.seiji.data.repository.banners.BannersCache
-import br.com.android.seiji.data.store.banners.BannersCacheDataStore
 import br.com.android.seiji.data.test.factory.BannerFactory
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
@@ -78,7 +77,7 @@ class BannersCacheDataStoreTest {
         stubBannersClearBanners(Completable.complete())
 
         store.cleanBanners().test()
-        verify(cache).cleanBanners()
+        verify(cache).clearBanners()
     }
 
     private fun stubBannersCacheGetBanners(observable: Flowable<List<BannerEntity>>) {
@@ -97,7 +96,7 @@ class BannersCacheDataStoreTest {
     }
 
     private fun stubBannersClearBanners(completable: Completable) {
-        whenever(cache.cleanBanners())
+        whenever(cache.clearBanners())
             .thenReturn(completable)
     }
 }

@@ -15,7 +15,7 @@ class BannersCacheImpl @Inject constructor(
     private val mapper: CachedBannerMapper
 ) : BannersCache {
 
-    override fun cleanBanners(): Completable {
+    override fun clearBanners(): Completable {
         return Completable.defer {
             database.cachedBannerDao().deleteBanners()
             Completable.complete()

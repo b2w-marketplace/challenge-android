@@ -35,7 +35,7 @@ class BannersCacheImplTest {
 
     @Test
     fun clearBannersCompletes() {
-        val testObserver = cache.cleanBanners().test()
+        val testObserver = cache.clearBanners().test()
         testObserver.assertComplete()
     }
 

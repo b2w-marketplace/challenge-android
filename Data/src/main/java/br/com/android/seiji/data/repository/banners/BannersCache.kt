@@ -7,7 +7,7 @@ import io.reactivex.Single
 
 interface BannersCache {
 
-    fun cleanBanners(): Completable
+    fun clearBanners(): Completable
 
     fun saveBanners(banners: List<BannerEntity>): Completable
 
