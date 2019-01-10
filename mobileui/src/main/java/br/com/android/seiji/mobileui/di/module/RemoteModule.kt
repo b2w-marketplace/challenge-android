@@ -3,8 +3,8 @@ package br.com.android.seiji.mobileui.di.module
 import br.com.android.seiji.data.repository.banners.BannersRemote
 import br.com.android.seiji.mobileui.BuildConfig
 import br.com.android.seiji.remote.BannersRemoteImpl
-import br.com.android.seiji.remote.service.BannerService
-import br.com.android.seiji.remote.service.BannerServiceFactory
+import br.com.android.seiji.remote.service.LodjinhaService
+import br.com.android.seiji.remote.service.LodjinhaServiceFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -16,8 +16,8 @@ abstract class RemoteModule {
     companion object {
         @Provides
         @JvmStatic
-        fun provideBannerService(): BannerService {
-            return BannerServiceFactory.makeBannerService(BuildConfig.DEBUG)
+        fun provideBannerService(): LodjinhaService {
+            return LodjinhaServiceFactory.makeLodjinhaService(BuildConfig.DEBUG)
         }
     }
 

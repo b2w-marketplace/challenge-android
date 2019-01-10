@@ -8,28 +8,28 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object BannerServiceFactory {
+object LodjinhaServiceFactory {
 
-    open fun makeBannerService(isDebug: Boolean): BannerService {
+    open fun makeLodjinhaService(isDebug: Boolean): LodjinhaService {
         val okHttpClient = makeOkHttpClient(makeLoggingInterceptor(isDebug))
-        return makeBannerService(okHttpClient, Gson())
+        return makeLodjinhaService(okHttpClient, Gson())
     }
 
-    private fun makeBannerService(okHttpClient: OkHttpClient, gson: Gson): BannerService {
+    private fun makeLodjinhaService(okHttpClient: OkHttpClient, gson: Gson): LodjinhaService {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://alodjinha.herokuapp.com/")
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-        return retrofit.create(BannerService::class.java)
+        return retrofit.create(LodjinhaService::class.java)
     }
 
     private fun makeOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build()
     }
 
