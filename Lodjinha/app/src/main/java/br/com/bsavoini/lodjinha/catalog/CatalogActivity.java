@@ -1,66 +1,29 @@
 package br.com.bsavoini.lodjinha.catalog;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import br.com.bsavoini.lodjinha.R;
-import br.com.bsavoini.lodjinha.api.RetrofitInstance;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
-import br.com.bsavoini.lodjinha.api.model.ProductsResponse;
 import br.com.bsavoini.lodjinha.product.ProductActivity;
 import br.com.bsavoini.lodjinha.product.ProductClickCallback;
-import br.com.bsavoini.lodjinha.product.ProductsAdapter;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class CatalogActivity extends AppCompatActivity implements ProductClickCallback {
+import java.util.List;
+
+public class CatalogActivity extends AppCompatActivity implements CatalogContract.CatalogView, ProductClickCallback {
     private RecyclerView productsRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
-        showToolbarBackButton();
-
-
-        String category = getIntent().getStringExtra("categoryName");
-        setTitle(category.toLowerCase());
-
-        productsRecycler = findViewById(R.id.recyler_products);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        productsRecycler.setLayoutManager(linearLayoutManager);
-
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider));
-        productsRecycler.addItemDecoration(dividerItemDecoration);
-
-        int categoryId = getIntent().getIntExtra("categoryId", 0);
-        requestProducts(categoryId);
-
-    }
-
-    //TODO call request from interactor
-    private void requestProducts(int categoryId) {
-        Call<ProductsResponse> productsResponseCall =
-                RetrofitInstance.getLodjinhaService().requestProducts(0, 20, categoryId);
-
-        productsResponseCall.enqueue(new Callback<ProductsResponse>() {
-            @Override
-            public void onResponse(Call<ProductsResponse> call, Response<ProductsResponse> response) {
-
-                productsRecycler.setAdapter(new ProductsAdapter(response.body().getProductsArr(), CatalogActivity.this));
-            }
-
-            @Override
-            public void onFailure(Call<ProductsResponse> call, Throwable t) {
-            }
-        });
+        CatalogContract.CatalogPresenter presenter = new CatalogPresenterImpl(this, new CatalogInteractorImpl());
+        presenter.initViews();
+        presenter.requestProducts();
     }
 
     @Override
@@ -69,11 +32,26 @@ public class CatalogActivity extends AppCompatActivity implements ProductClickCa
         return true;
     }
 
-    public void showToolbarBackButton() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+    @Override
+    public void initErrorMessageView() {
+
+    }
+
+    @Override
+    public void setTollbarTitleWithCategory() {
+        String category = getIntent().getStringExtra("categoryName");
+        setTitle(category.toLowerCase());
+    }
+
+    @Override
+    public void initRecyclerView() {
+        productsRecycler = findViewById(R.id.recyler_products);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        productsRecycler.setLayoutManager(linearLayoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider));
+        productsRecycler.addItemDecoration(dividerItemDecoration);
     }
 
     @Override
@@ -81,5 +59,43 @@ public class CatalogActivity extends AppCompatActivity implements ProductClickCa
         Intent intent = new Intent(this, ProductActivity.class);
         intent.putExtra("product", productModel);
         startActivity(intent);
+    }
+
+    @Override
+    public void enableToolbarBackButton() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    @Override
+    public int retrieveCategoryId() {
+        return getIntent().getIntExtra("categoryId", 0);
+    }
+
+    @Override
+    public void updateAdapter(List<ProductModel> productsArr) {
+        productsRecycler.setAdapter(new ProductsAdapter(productsArr, this));
+    }
+
+    @Override
+    public void hideErrorMsg() {
+
+    }
+
+    @Override
+    public void showErrorMsg() {
+
+    }
+
+    @Override
+    public void showProgressBar() {
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+
     }
 }

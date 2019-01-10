@@ -25,7 +25,7 @@ import br.com.bsavoini.lodjinha.home.interfaces.BannerClickCallback;
 import br.com.bsavoini.lodjinha.home.interfaces.CategoryClickCallback;
 import br.com.bsavoini.lodjinha.product.ProductActivity;
 import br.com.bsavoini.lodjinha.product.ProductClickCallback;
-import br.com.bsavoini.lodjinha.product.ProductsAdapter;
+import br.com.bsavoini.lodjinha.catalog.ProductsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

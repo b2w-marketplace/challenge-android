@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.product;
+package br.com.bsavoini.lodjinha.catalog;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
+import br.com.bsavoini.lodjinha.product.ProductClickCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
