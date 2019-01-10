@@ -31,7 +31,7 @@ class ProductsRemoteImpl @Inject constructor(
             }
     }
 
-    override fun doProductReservation(productId: Int): Completable {
+    override fun postProductReservation(productId: Int): Completable {
         return service.postProductReservation(productId)
     }
 

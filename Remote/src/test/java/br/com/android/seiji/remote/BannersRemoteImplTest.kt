@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-class BannerRemoteImplTest {
+class BannersRemoteImplTest {
 
     private val mapper = mock<BannersResponseModelMapper>()
     private val service = mock<LodjinhaService>()

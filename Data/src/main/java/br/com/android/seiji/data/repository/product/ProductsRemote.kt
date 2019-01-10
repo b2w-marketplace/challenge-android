@@ -8,6 +8,6 @@ interface ProductsRemote {
 
     fun getBestSellerProducts(): Flowable<List<ProductEntity>>
     fun getProductsByCategoryId(categoryId: Int, offset: Int, limit: Int): Flowable<List<ProductEntity>>
-    fun doProductReservation(productId: Int): Completable
+    fun postProductReservation(productId: Int): Completable
 
 }

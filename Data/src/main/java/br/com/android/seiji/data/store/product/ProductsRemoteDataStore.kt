@@ -20,7 +20,7 @@ class ProductsRemoteDataStore @Inject constructor(
     }
 
     override fun postProductReservation(productId: Int): Completable {
-        return productsRemote.doProductReservation(productId)
+        return productsRemote.postProductReservation(productId)
     }
 
     override fun saveBestSellerProducts(bestSellerProducts: List<ProductEntity>): Completable {
