@@ -79,7 +79,7 @@ class CategoriesDataRepositoryTest {
     }
 
     private fun stubIsCacheExpired(single: Single<Boolean>) {
-        whenever(cache.isCategoriesCacheExpired())
+        whenever(cache.isCacheExpired())
             .thenReturn(single)
     }
 

@@ -92,7 +92,7 @@ class CategoriesCacheDataStoreTest {
     }
 
     private fun stubSetLastCacheTime(completable: Completable) {
-        whenever(cache.setLastCategoriesCacheTime(any()))
+        whenever(cache.setLastCacheTime(any()))
             .thenReturn(completable)
     }
 

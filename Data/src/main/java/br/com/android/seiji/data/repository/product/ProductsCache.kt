@@ -12,6 +12,6 @@ interface ProductsCache {
     fun clearBestSellerProducts(): Completable
 
     fun areProductsCached(): Single<Boolean>
-    fun setLastProductsCacheTime(lastCache: Long): Completable
-    fun isProductsCacheExpired(): Single<Boolean>
+    fun setLastCacheTime(lastCache: Long): Completable
+    fun isCacheExpired(): Single<Boolean>
 }

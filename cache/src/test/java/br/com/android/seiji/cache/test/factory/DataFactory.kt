@@ -17,4 +17,8 @@ object DataFactory {
         return randomInt().toLong()
     }
 
+    fun randomDouble(): Double {
+        return randomInt().toDouble()
+    }
+
 }

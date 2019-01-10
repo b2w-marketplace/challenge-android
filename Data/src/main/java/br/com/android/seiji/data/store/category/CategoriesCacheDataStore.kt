@@ -17,7 +17,7 @@ class CategoriesCacheDataStore @Inject constructor(
 
     override fun saveCategories(categories: List<CategoryEntity>): Completable {
         return categoriesCache.saveCategories(categories)
-            .andThen(categoriesCache.setLastCategoriesCacheTime(System.currentTimeMillis()))
+            .andThen(categoriesCache.setLastCacheTime(System.currentTimeMillis()))
     }
 
     override fun clearCategories(): Completable {

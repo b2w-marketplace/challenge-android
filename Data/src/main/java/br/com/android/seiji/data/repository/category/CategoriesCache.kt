@@ -12,6 +12,6 @@ interface CategoriesCache {
 
     fun clearCategories(): Completable
     fun areCategoriesCached(): Single<Boolean>
-    fun setLastCategoriesCacheTime(lastCache: Long): Completable
-    fun isCategoriesCacheExpired(): Single<Boolean>
+    fun setLastCacheTime(lastCache: Long): Completable
+    fun isCacheExpired(): Single<Boolean>
 }

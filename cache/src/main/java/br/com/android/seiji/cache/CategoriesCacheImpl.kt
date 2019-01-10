@@ -45,15 +45,14 @@ class CategoriesCacheImpl @Inject constructor(
     }
 
 
-    override fun setLastCategoriesCacheTime(lastCache: Long): Completable {
+    override fun setLastCacheTime(lastCache: Long): Completable {
         return Completable.defer {
             database.cacheConfigDao().insertCacheConfig(CacheConfig(lastCacheTime = lastCache))
             Completable.complete()
         }
     }
 
-
-    override fun isCategoriesCacheExpired(): Single<Boolean> {
+    override fun isCacheExpired(): Single<Boolean> {
 
         val currentTime = System.currentTimeMillis()
         val expirationTime = (60 * 10 * 1000).toLong()
