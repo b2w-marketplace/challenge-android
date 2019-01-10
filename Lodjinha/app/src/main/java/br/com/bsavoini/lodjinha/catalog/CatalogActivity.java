@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import br.com.bsavoini.lodjinha.R;
+import br.com.bsavoini.lodjinha.adapters.ProductsAdapter;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
 import br.com.bsavoini.lodjinha.product.ProductActivity;
 import br.com.bsavoini.lodjinha.product.ProductClickCallback;
@@ -81,21 +82,21 @@ public class CatalogActivity extends AppCompatActivity implements CatalogContrac
 
     @Override
     public void hideErrorMsg() {
-
+        //todo hideErrorMsg
     }
 
     @Override
     public void showErrorMsg() {
-
+        //todo showErrorMsg
     }
 
     @Override
     public void showProgressBar() {
-
+        //todo showProgressBar
     }
 
     @Override
     public void hideProgressBar() {
-
+        //todo hideProgressBar
     }
 }

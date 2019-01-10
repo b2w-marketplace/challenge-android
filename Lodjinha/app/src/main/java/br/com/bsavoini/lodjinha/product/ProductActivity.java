@@ -158,11 +158,11 @@ public class ProductActivity extends AppCompatActivity implements ProductContrac
 
     @Override
     public void showProgressBar() {
-
+        //todo showProgressBar
     }
 
     @Override
     public void hideProgressBar() {
-
+        //todo hideProgressBar
     }
 }

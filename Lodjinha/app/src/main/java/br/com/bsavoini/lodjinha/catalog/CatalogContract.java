@@ -31,6 +31,8 @@ public interface CatalogContract {
 
         void showProgressBar();
         void hideProgressBar();
+
+        //todo implement infinite loading
     }
 
     interface CatalogPresenter {

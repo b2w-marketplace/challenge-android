@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.home.adapters;
+package br.com.bsavoini.lodjinha.adapters;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
