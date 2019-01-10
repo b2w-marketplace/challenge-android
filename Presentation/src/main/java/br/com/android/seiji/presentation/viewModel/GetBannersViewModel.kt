@@ -1,4 +1,4 @@
-package br.com.android.seiji.presentation
+package br.com.android.seiji.presentation.viewModel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -13,14 +13,14 @@ import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 class GetBannersViewModel @Inject constructor(
-    private val getBanners: GetBanners,
-    private val mapper: BannerViewMapper
+        private val getBanners: GetBanners,
+        private val mapper: BannerViewMapper
 ) : ViewModel() {
 
     private val liveData: MutableLiveData<Resource<List<BannerView>>> = MutableLiveData()
 
     override fun onCleared() {
-        getBanners.dispose()
+        getBanners.disposable()
         super.onCleared()
     }
 
@@ -38,10 +38,10 @@ class GetBannersViewModel @Inject constructor(
 
         override fun onNext(t: List<Banner>) {
             liveData.postValue(
-                Resource(
-                    ResourceState.SUCCESS,
-                    t.map { mapper.mapToView(it) }, null
-                )
+                    Resource(
+                            ResourceState.SUCCESS,
+                            t.map { mapper.mapToView(it) }, null
+                    )
             )
         }
 

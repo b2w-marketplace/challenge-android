@@ -7,8 +7,8 @@ import io.reactivex.Completable
 import javax.inject.Inject
 
 open class PostProductReservation @Inject constructor(
-    private val productRepository: ProductRepository,
-    postExecutionThread: PostExecutionThread
+        private val productRepository: ProductRepository,
+        postExecutionThread: PostExecutionThread
 ) : CompletableUseCase<PostProductReservation.Params>(postExecutionThread) {
 
     public override fun buildUseCaseCompletable(params: Params?): Completable {

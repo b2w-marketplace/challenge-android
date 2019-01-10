@@ -19,7 +19,7 @@ import br.com.android.seiji.mobileui.extensions.visible
 import br.com.android.seiji.mobileui.mapper.BannerViewMapper
 import br.com.android.seiji.mobileui.ui.ClickListener
 import br.com.android.seiji.mobileui.ui.home.adapter.BannerAdapter
-import br.com.android.seiji.presentation.GetBannersViewModel
+import br.com.android.seiji.presentation.viewModel.GetBannersViewModel
 import br.com.android.seiji.presentation.model.BannerView
 import br.com.android.seiji.presentation.state.Resource
 import br.com.android.seiji.presentation.state.ResourceState

@@ -1,7 +1,7 @@
 package br.com.android.android.seiji.domain.interactor
 
 import br.com.android.seiji.domain.executor.PostExecutionThread
-import br.com.android.seiji.domain.interactor.product.GetProductsById
+import br.com.android.seiji.domain.interactor.product.GetProductsByCategoryId
 import br.com.android.seiji.domain.model.Product
 import br.com.android.seiji.domain.repository.ProductRepository
 import com.nhaarman.mockito_kotlin.any
@@ -14,9 +14,9 @@ import org.mockito.MockitoAnnotations
 import test.DataFactory
 import test.ProductFactory
 
-class GetProductsByIdTest {
+class GetProductsByCategoryIdTest {
 
-    private lateinit var getProductsById: GetProductsById
+    private lateinit var getProductsByCategoryId: GetProductsByCategoryId
 
     @Mock
     lateinit var productsRepository: ProductRepository
@@ -27,14 +27,14 @@ class GetProductsByIdTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        getProductsById = GetProductsById(productsRepository, postExecutionThread)
+        getProductsByCategoryId = GetProductsByCategoryId(productsRepository, postExecutionThread)
     }
 
     @Test
     fun getProductsByIdCompletes() {
         stubProductsById(Observable.just(ProductFactory.makeProductList(5)))
-        val testObserver = getProductsById.buildUseCaseObservable(
-            GetProductsById.Params.forProduct(DataFactory.randomInt(), DataFactory.randomInt(), DataFactory.randomInt())
+        val testObserver = getProductsByCategoryId.buildUseCaseObservable(
+            GetProductsByCategoryId.Params.forProduct(DataFactory.randomInt(), DataFactory.randomInt(), DataFactory.randomInt())
         ).test()
         testObserver.assertComplete()
     }
@@ -43,15 +43,15 @@ class GetProductsByIdTest {
     fun getProductsByIdReturnsData() {
         val productsList = ProductFactory.makeProductList(5)
         stubProductsById(Observable.just(productsList))
-        val testObserver = getProductsById.buildUseCaseObservable(
-            GetProductsById.Params.forProduct(DataFactory.randomInt(), DataFactory.randomInt(), DataFactory.randomInt())
+        val testObserver = getProductsByCategoryId.buildUseCaseObservable(
+            GetProductsByCategoryId.Params.forProduct(DataFactory.randomInt(), DataFactory.randomInt(), DataFactory.randomInt())
         ).test()
         testObserver.assertValue(productsList)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun getProductsByIdThrowsException() {
-        getProductsById.buildUseCaseObservable().test()
+        getProductsByCategoryId.buildUseCaseObservable().test()
     }
 
     private fun stubProductsById(observable: Observable<List<Product>>) {
