@@ -4,7 +4,7 @@ import br.com.android.seiji.cache.db.CacheDatabase
 import br.com.android.seiji.cache.mapper.CachedBannerMapper
 import br.com.android.seiji.cache.model.CacheConfig
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersCache
+import br.com.android.seiji.data.repository.banners.BannersCache
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
@@ -15,7 +15,7 @@ class BannersCacheImpl @Inject constructor(
     private val mapper: CachedBannerMapper
 ) : BannersCache {
 
-    override fun cleanBanners(): Completable {
+    override fun clearBanners(): Completable {
         return Completable.defer {
             database.cachedBannerDao().deleteBanners()
             Completable.complete()

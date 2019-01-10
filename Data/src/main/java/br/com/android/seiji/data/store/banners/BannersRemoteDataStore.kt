@@ -1,13 +1,13 @@
-package br.com.android.seiji.data.store
+package br.com.android.seiji.data.store.banners
 
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersDataStore
-import br.com.android.seiji.data.repository.BannersRemote
+import br.com.android.seiji.data.repository.banners.BannersDataStore
+import br.com.android.seiji.data.repository.banners.BannersRemote
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class BannerRemoteDataStore @Inject constructor(
+class BannersRemoteDataStore @Inject constructor(
     private val bannersRemote: BannersRemote
 ) : BannersDataStore {
     override fun cleanBanners(): Completable {

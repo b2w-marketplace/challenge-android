@@ -6,7 +6,7 @@ object CategoryFactory {
 
     fun makeCategory(): Category {
         return Category(
-            DataFactory.randomString(), DataFactory.randomInt(), DataFactory.randomString()
+            DataFactory.randomInt(), DataFactory.randomString(), DataFactory.randomString()
         )
     }
 

@@ -1,4 +1,4 @@
-package br.com.android.seiji.data.repository
+package br.com.android.seiji.data.repository.banners
 
 import br.com.android.seiji.data.model.BannerEntity
 import io.reactivex.Completable
@@ -7,7 +7,7 @@ import io.reactivex.Single
 
 interface BannersCache {
 
-    fun cleanBanners(): Completable
+    fun clearBanners(): Completable
 
     fun saveBanners(banners: List<BannerEntity>): Completable
 

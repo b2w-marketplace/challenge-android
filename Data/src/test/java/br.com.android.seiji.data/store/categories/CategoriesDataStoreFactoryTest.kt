@@ -1,14 +1,17 @@
-package br.com.android.seiji.data.store
+package br.com.android.seiji.data.store.categories
 
+import br.com.android.seiji.data.store.category.CategoriesCacheDataStore
+import br.com.android.seiji.data.store.category.CategoriesDataStoreFactory
+import br.com.android.seiji.data.store.category.CategoriesRemoteDataStore
 import com.nhaarman.mockito_kotlin.mock
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class BannersDataStoreFactoryTest {
+class CategoriesDataStoreFactoryTest {
 
-    private val cacheStore = mock<BannerCacheDataStore>()
-    private val remoteStore = mock<BannerRemoteDataStore>()
-    private val factory = BannersDataStoreFactory(cacheStore, remoteStore)
+    private val cacheStore = mock<CategoriesCacheDataStore>()
+    private val remoteStore = mock<CategoriesRemoteDataStore>()
+    private val factory = CategoriesDataStoreFactory(cacheStore, remoteStore)
 
     @Test
     fun getDataStoreReturnsRemoteStoreWhenCacheExpired() {

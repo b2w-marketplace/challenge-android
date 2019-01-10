@@ -3,7 +3,7 @@ package br.com.android.seiji.mobileui.di.module
 import android.app.Application
 import br.com.android.seiji.cache.BannersCacheImpl
 import br.com.android.seiji.cache.db.CacheDatabase
-import br.com.android.seiji.data.repository.BannersCache
+import br.com.android.seiji.data.repository.banners.BannersCache
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

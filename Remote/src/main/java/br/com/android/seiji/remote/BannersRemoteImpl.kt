@@ -1,7 +1,7 @@
 package br.com.android.seiji.remote
 
 import br.com.android.seiji.data.model.BannerEntity
-import br.com.android.seiji.data.repository.BannersRemote
+import br.com.android.seiji.data.repository.banners.BannersRemote
 import br.com.android.seiji.remote.mapper.BannersResponseModelMapper
 import br.com.android.seiji.remote.service.BannerService
 import io.reactivex.Flowable
