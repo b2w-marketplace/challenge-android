@@ -16,7 +16,7 @@ class CategoriesDataRepository @Inject constructor(
 
     override fun getCategories(): Observable<List<Category>> {
         return Observable.zip(cache.areCategoriesCached().toObservable(),
-            cache.isCategoriesCacheExpired().toObservable(),
+            cache.isCacheExpired().toObservable(),
             BiFunction<Boolean, Boolean, Pair<Boolean, Boolean>> { areCached, isExpired ->
                 Pair(areCached, isExpired)
             })

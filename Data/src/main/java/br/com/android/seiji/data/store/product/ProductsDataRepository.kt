@@ -17,7 +17,7 @@ class ProductsDataRepository @Inject constructor(
 
     override fun getBestSellerProducts(): Observable<List<Product>> {
         return Observable.zip(cache.areProductsCached().toObservable(),
-            cache.isProductsCacheExpired().toObservable(),
+            cache.isCacheExpired().toObservable(),
             BiFunction<Boolean, Boolean, Pair<Boolean, Boolean>> { areCached, isExpired ->
                 Pair(areCached, isExpired)
             })

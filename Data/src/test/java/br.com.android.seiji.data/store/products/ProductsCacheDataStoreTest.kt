@@ -107,7 +107,7 @@ class ProductsCacheDataStoreTest {
     }
 
     private fun stubBestSellerProductsSetLastCacheTime(completable: Completable) {
-        whenever(cache.setLastProductsCacheTime(any()))
+        whenever(cache.setLastCacheTime(any()))
             .thenReturn(completable)
     }
 

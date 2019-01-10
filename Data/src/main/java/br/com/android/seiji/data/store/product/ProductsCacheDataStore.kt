@@ -17,7 +17,7 @@ class ProductsCacheDataStore @Inject constructor(
 
     override fun saveBestSellerProducts(bestSellerProducts: List<ProductEntity>): Completable {
         return productsCache.saveBestSellerProducts(bestSellerProducts)
-            .andThen(productsCache.setLastProductsCacheTime(System.currentTimeMillis()))
+            .andThen(productsCache.setLastCacheTime(System.currentTimeMillis()))
     }
 
     override fun clearBestSellerProducts(): Completable {

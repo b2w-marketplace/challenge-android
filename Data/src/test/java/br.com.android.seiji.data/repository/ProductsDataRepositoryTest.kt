@@ -130,7 +130,7 @@ class ProductsDataRepositoryTest {
     }
 
     private fun stubIsCacheExpired(single: Single<Boolean>) {
-        whenever(cache.isProductsCacheExpired())
+        whenever(cache.isCacheExpired())
             .thenReturn(single)
     }
 
