@@ -3,7 +3,7 @@ package br.com.android.seiji.presentation.viewmodel
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.android.seiji.domain.interactor.banner.GetBanners
 import br.com.android.seiji.domain.model.Banner
-import br.com.android.seiji.presentation.GetBannersViewModel
+import br.com.android.seiji.presentation.viewModel.GetBannersViewModel
 import br.com.android.seiji.presentation.mapper.BannerViewMapper
 import br.com.android.seiji.presentation.model.BannerView
 import br.com.android.seiji.presentation.state.ResourceState
@@ -28,7 +28,7 @@ class GetBannersViewModelTest {
     var getBanners = mock<GetBanners>()
     var bannerViewMapper = mock<BannerViewMapper>()
     var getBannersViewModel = GetBannersViewModel(
-        getBanners, bannerViewMapper
+            getBanners, bannerViewMapper
     )
 
     @Captor

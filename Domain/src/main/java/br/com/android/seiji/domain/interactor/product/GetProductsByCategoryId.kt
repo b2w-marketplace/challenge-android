@@ -7,10 +7,10 @@ import br.com.android.seiji.domain.repository.ProductRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-open class GetProductsById @Inject constructor(
-    private val productRepository: ProductRepository,
-    postExecutionThread: PostExecutionThread
-) : SingleUseCase<List<Product>, GetProductsById.Params>(postExecutionThread) {
+open class GetProductsByCategoryId @Inject constructor(
+        private val productRepository: ProductRepository,
+        postExecutionThread: PostExecutionThread
+) : SingleUseCase<List<Product>, GetProductsByCategoryId.Params>(postExecutionThread) {
 
     public override fun buildUseCaseObservable(params: Params?): Observable<List<Product>> {
         if (params == null) throw IllegalArgumentException("Params can't be null!")

@@ -9,7 +9,7 @@ import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 
 abstract class CompletableUseCase<in Params> constructor(
-    private val postExecutionThread: PostExecutionThread
+        private val postExecutionThread: PostExecutionThread
 ) {
 
     private val disposables = CompositeDisposable()
@@ -18,8 +18,8 @@ abstract class CompletableUseCase<in Params> constructor(
 
     open fun execute(observer: DisposableCompletableObserver, params: Params? = null) {
         val completable = this.buildUseCaseCompletable(params)
-            .subscribeOn(Schedulers.io())
-            .observeOn(postExecutionThread.scheduler)
+                .subscribeOn(Schedulers.io())
+                .observeOn(postExecutionThread.scheduler)
         addDisposable(completable.subscribeWith(observer))
     }
 

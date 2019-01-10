@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import br.com.android.seiji.mobileui.di.ViewModelFactory
 import br.com.android.seiji.mobileui.di.qualifiers.ViewModelKey
-import br.com.android.seiji.presentation.GetBannersViewModel
+import br.com.android.seiji.presentation.viewModel.GetBannersViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
