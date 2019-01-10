@@ -1,0 +1,22 @@
+package br.com.android.seiji.cache.dao
+
+import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Insert
+import android.arch.persistence.room.OnConflictStrategy
+import android.arch.persistence.room.Query
+import br.com.android.seiji.cache.db.ProductsConstants
+import br.com.android.seiji.cache.model.CachedProduct
+import io.reactivex.Flowable
+
+@Dao
+abstract class CachedProductDao {
+
+    @Query(ProductsConstants.QUERY_PRODUCTS)
+    abstract fun getProducts(): Flowable<List<CachedProduct>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insertProducts(products: List<CachedProduct>)
+
+    @Query(ProductsConstants.DELETE_PRODUCTS)
+    abstract fun deleteProducts()
+}
