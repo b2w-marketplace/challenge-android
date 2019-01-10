@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,69 +27,106 @@ import retrofit2.Response;
 
 import java.lang.reflect.Type;
 
-public class ProductActivity extends AppCompatActivity {
+public class ProductActivity extends AppCompatActivity implements ProductContract.ProductView {
+    private ProductContract.ProductPresenter presenter;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-        showToolbarBackButton();
 
-        final ProductModel productModel = (ProductModel) getIntent().getSerializableExtra("product");
-        setTitle(productModel.getName());
+        presenter = new ProductPresenterImpl(ProductActivity.this, new ProductInteractorImpl());
+        presenter.initViews();
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void enableToolbarBackButton() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    @Override
+    public ProductModel retrieveProductModel() {
+        return (ProductModel) getIntent().getSerializableExtra("product");
+    }
+
+    @Override
+    public void bindTollbarTitleWithProduct(String name) {
+        setTitle(name);
+    }
+
+    @Override
+    public void bindProductImageView(String imageUrl) {
         ImageView productImg = findViewById(R.id.img_product);
 
         Picasso.with(this)
-                .load(productModel.getImageURL())
+                .load(imageUrl)
                 .placeholder(R.drawable.tag_menu)
                 .into(productImg);
+    }
 
+    @Override
+    public void bindProductNameTextView(String name) {
         TextView txtName = findViewById(R.id.txt_name);
-        txtName.setText(productModel.getName());
+        txtName.setText(name);
+    }
 
+    @Override
+    public void bindOriginalPriceTextView(String price) {
         TextView txtOriginalPrice = findViewById(R.id.txt_original_price);
-        txtOriginalPrice.setText("R$" + productModel.getOriginalPrice());
+        txtOriginalPrice.setText(price);
+    }
 
+    @Override
+    public void bindCurrentPriceTextView(String price) {
         TextView txtCurrentPrice = findViewById(R.id.txt_current_price);
-        txtCurrentPrice.setText("R$" + productModel.getCurrentPrice());
+        txtCurrentPrice.setText(price);
+    }
 
+    @Override
+    public void bindProductDescriptionTextView(String description) {
         TextView txtDescription = findViewById(R.id.txt_description);
-        Spanned formatedHtmlStr = Html.fromHtml(productModel.getDescription());
+        Spanned formatedHtmlStr = Html.fromHtml(description);
         txtDescription.setText(formatedHtmlStr);
+    }
 
-        FloatingActionButton fab = findViewById(R.id.fab_reserve);
+    @Override
+    public void initFab(final int productId) {
+        fab = findViewById(R.id.fab_reserve);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reserveProduct(productModel.getId());
+                presenter.requestProductReservation(productId);
             }
         });
     }
 
-    //TODO call request from interactor
-    private void reserveProduct(int productId) {
-        Call<ReservationResponse> productsResponseCall = RetrofitInstance.getLodjinhaService().requestProductReservation(productId);
+    @Override
+    public void disableFabClick() {
+        fab.setEnabled(false);
+    }
 
-        productsResponseCall.enqueue(new Callback<ReservationResponse>() {
-            @Override
-            public void onResponse(Call<ReservationResponse> call, Response<ReservationResponse> response) {
-
-                showDialog(response.body().getResult());
-
-            }
-
-            @Override
-            public void onFailure(Call<ReservationResponse> call, Throwable t) {
-            }
-        });
+    @Override
+    public void enableFabClick() {
+        fab.setEnabled(true);
     }
 
     //TODO     android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@8432922 is not valid; is your activity running?
-    private void showDialog(String str) {
+    @Override
+    public void showSucessDialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage(str)
+        builder.setMessage(message)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -102,19 +140,29 @@ public class ProductActivity extends AppCompatActivity {
                     }
                 })
                 .show();
-
     }
 
-    public void showToolbarBackButton() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+    //TODO     android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@8432922 is not valid; is your activity running?
+    @Override
+    public void showErrorDialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .show();
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+    public void showProgressBar() {
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+
     }
 }
