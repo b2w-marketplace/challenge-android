@@ -38,7 +38,7 @@
                         android:id="@+id/title"
                         android:textColor="@color/white_two"
                         android:text="@string/app_name"
-                        android:textSize="@dimen/app_bar_logo_size"
+                        android:textSize="@dimen/font_logo_menu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 

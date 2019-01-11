@@ -22,6 +22,8 @@
             android:layout_height="match_parent">
 
         <TextView
+                android:textColor="@color/dark"
+                android:textSize="@dimen/font_product_name"
                 android:id="@+id/txt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,6 +37,8 @@
                 android:orientation="horizontal">
 
             <TextView
+                    android:textColor="@color/greyish"
+                    android:textSize="@dimen/font_original_price"
                     android:id="@+id/txt_original_price"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -43,6 +47,9 @@
             />
 
             <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/tomato"
+                    android:textSize="@dimen/font_current_price"
                     android:id="@+id/txt_current_price"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -57,10 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginRight="5dp"
             android:layout_marginLeft="7dp"
-            android:layout_marginStart="7dp"
+
     />
 
 </LinearLayout>

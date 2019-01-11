@@ -14,4 +14,20 @@
 
     <dimen name="home_item_size">100dp</dimen>
 
+    <dimen name="font_logo_about">64sp</dimen>
+    <dimen name="font_logo_menu">24sp</dimen>
+    <dimen name="font_current_price">20sp</dimen>
+    <dimen name="font_product_description">18sp</dimen>
+    <dimen name="font_product_name">17sp</dimen>
+    <dimen name="font_menu_item">14sp</dimen>
+    <dimen name="font_developer">14sp</dimen>
+    <dimen name="font_category">13sp</dimen>
+    <dimen name="font_original_price">12sp</dimen>
+    <dimen name="font_date">12sp</dimen>
+
+    <dimen name="product_left_right_margin">18dp</dimen>
+
+
+
+
 </resources>

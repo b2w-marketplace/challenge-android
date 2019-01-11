@@ -11,8 +11,11 @@
             android:layout_height="120dp"/>
 
     <TextView
+            android:textColor="@color/dark"
+            android:gravity="center"
             android:id="@+id/txt_category"
             android:layout_width="120dp"
+            android:textSize="@dimen/font_category"
             android:layout_height="wrap_content"/>
 
 </LinearLayout>
