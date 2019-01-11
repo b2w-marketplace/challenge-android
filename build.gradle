@@ -7,20 +7,16 @@ ext {
 
     rxJavaVersion = "2.1.6"
     rxAndroidVersion = "2.0.1"
-    kodeinVersion = "5.3.0"
-    kotlinVersion = '1.2.70'
-    gsonVersion = '2.8.2'
-    retrofitVersion = '2.1.0'
-    rxRetrofitAdapterVersion = '2.2.0'
-    okHttpVersion = '3.6.0'
+    kotlinVersion = "1.2.70"
+    gsonVersion = "2.8.2"
+    retrofitVersion = "2.1.0"
+    rxRetrofitAdapterVersion = "2.2.0"
+    okHttpVersion = "3.6.0"
+    sliderVersion = "1.0"
 
     rx = [
             rx : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             rxAndroid    : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-    ]
-    kodein = [
-            kodein : "org.kodein.di:kodein-di-generic-jvm:${kodeinVersion}",
-            kodeinAndroid : "org.kodein.di:kodein-di-framework-android-core:${kodeinVersion}"
     ]
     gson = [
             gson : "com.google.code.gson:gson:$gsonVersion"
@@ -33,6 +29,8 @@ ext {
             okhttp : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
             okhttp_logging : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
     ]
+
+    slider = "com.github.ApendIr:slider:$sliderVersion"
 }
 
 buildscript {
@@ -54,6 +52,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 

@@ -30,7 +30,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    rootProject.kodein.values().each { implementation it }
 
     implementation project(path: ':view')
     implementation project(path: ':viewmodel')
