@@ -63,7 +63,7 @@ dependencies {
     implementation mobileUiDependencies.supportDesign
     implementation mobileUiDependencies.timber
     implementation mobileUiDependencies.rxAndroid
-    implementation mobileUiDependencies.glide
+    implementation mobileUiDependencies.picasso
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
     implementation mobileUiDependencies.constraintLayout

@@ -22,7 +22,7 @@ ext {
     retrofitVersion = '2.3.0'
     supportLibraryVersion = '26.1.0'
     timberVersion = '4.5.1'
-    glideVersion = '4.0.0'
+    picassoVersion = '2.71828'
     daggerVersion = '2.11'
     glassfishAnnotationVersion = '10.0-b28'
     archCompVersion = '1.1.1'
@@ -145,7 +145,7 @@ ext {
             dagger             : "com.google.dagger:dagger:${daggerVersion}",
             rxKotlin           : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid          : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            glide              : "com.github.bumptech.glide:glide:${glideVersion}",
+            picasso            : "com.squareup.picasso:picasso:${picassoVersion}",
             kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject        : "javax.inject:javax.inject:${javaxInjectVersion}",
