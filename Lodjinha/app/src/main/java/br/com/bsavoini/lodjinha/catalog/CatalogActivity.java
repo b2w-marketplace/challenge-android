@@ -11,7 +11,7 @@ import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.adapters.ProductsAdapter;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
 import br.com.bsavoini.lodjinha.product.ProductActivity;
-import br.com.bsavoini.lodjinha.product.ProductClickCallback;
+import br.com.bsavoini.lodjinha.callbacks.ProductClickCallback;
 
 import java.util.List;
 

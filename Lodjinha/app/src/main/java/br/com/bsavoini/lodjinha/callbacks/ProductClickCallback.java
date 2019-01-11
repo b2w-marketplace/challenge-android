@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.product;
+package br.com.bsavoini.lodjinha.callbacks;
 
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
 

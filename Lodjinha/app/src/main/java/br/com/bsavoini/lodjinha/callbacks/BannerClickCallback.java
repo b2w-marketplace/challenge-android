@@ -1,4 +1,4 @@
-package br.com.bsavoini.lodjinha.home.interfaces;
+package br.com.bsavoini.lodjinha.callbacks;
 
 public interface BannerClickCallback {
     void onClickBanner(String url);

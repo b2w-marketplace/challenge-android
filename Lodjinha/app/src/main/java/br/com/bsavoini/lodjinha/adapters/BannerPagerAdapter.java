@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.BannerModel;
-import br.com.bsavoini.lodjinha.home.interfaces.BannerClickCallback;
+import br.com.bsavoini.lodjinha.callbacks.BannerClickCallback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

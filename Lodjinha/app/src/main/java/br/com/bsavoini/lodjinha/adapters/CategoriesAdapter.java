@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.api.model.CategoryModel;
-import br.com.bsavoini.lodjinha.home.interfaces.CategoryClickCallback;
+import br.com.bsavoini.lodjinha.callbacks.CategoryClickCallback;
 import com.squareup.picasso.Picasso;
 
 
