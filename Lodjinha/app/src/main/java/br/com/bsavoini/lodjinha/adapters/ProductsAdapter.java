@@ -24,6 +24,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         this.productClickCallback = productClickCallback;
     }
 
+    public void setPopularMoviesList(List<ProductModel> productsArr) {
+        this.productsArr.addAll(productsArr);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ProductsAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

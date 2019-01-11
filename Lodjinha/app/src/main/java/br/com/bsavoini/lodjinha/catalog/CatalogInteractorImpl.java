@@ -9,14 +9,14 @@ import retrofit2.Response;
 public class CatalogInteractorImpl implements CatalogContract.CatalogInteractor {
 
     @Override
-    public void requestProducts(int categoryId, final ProductsRequestListener listener) {
-        Call<ProductsResponse> productsResponseCall = RetrofitInstance.getLodjinhaService().requestProducts(0, 20, categoryId);
+    public void requestProducts(int categoryId, int offset, int limit, final ProductsRequestListener listener) {
+        Call<ProductsResponse> productsResponseCall = RetrofitInstance.getLodjinhaService().requestProducts(offset, limit, categoryId);
 
         productsResponseCall.enqueue(new Callback<ProductsResponse>() {
             @Override
             public void onResponse(Call<ProductsResponse> call, Response<ProductsResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    listener.onProductRequestSuccessful(response.body().getProductsArr());
+                    listener.onProductRequestSuccessful(response.body().getTotal(), response.body().getProductsArr());
                 } else {
                     listener.onProductRequestFail();
                 }

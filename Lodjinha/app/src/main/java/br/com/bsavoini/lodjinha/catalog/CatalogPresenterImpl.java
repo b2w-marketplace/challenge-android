@@ -9,14 +9,22 @@ public class CatalogPresenterImpl implements CatalogContract.CatalogPresenter,
 
     private CatalogContract.CatalogView view;
     private CatalogContract.CatalogInteractor interactor;
+    private int categoryId;
+
+    private int currentOffset;
+    private int maxPagination;
+    final private int pagination = 20;
 
     public CatalogPresenterImpl(CatalogContract.CatalogView view, CatalogContract.CatalogInteractor interactor) {
         this.view = view;
         this.interactor = interactor;
+        this.currentOffset = 0;
     }
 
     @Override
     public void initViews() {
+        categoryId = view.retrieveCategoryId();
+        view.initProgressBar();
         view.initErrorMessageView();
         view.hideErrorMsg();
         view.enableToolbarBackButton();
@@ -26,13 +34,16 @@ public class CatalogPresenterImpl implements CatalogContract.CatalogPresenter,
 
     @Override
     public void requestProducts() {
-        int categoryId = view.retrieveCategoryId();
-        view.showProgressBar();
-        interactor.requestProducts(categoryId, this);
+        if (currentOffset <= maxPagination) {
+            view.showProgressBar();
+            interactor.requestProducts(categoryId, currentOffset, currentOffset + pagination, this);
+            currentOffset += pagination;
+        }
     }
 
     @Override
-    public void onProductRequestSuccessful(List<ProductModel> productsArr) {
+    public void onProductRequestSuccessful(int total, List<ProductModel> productsArr) {
+        this.maxPagination = total;
         view.hideProgressBar();
         view.updateAdapter(productsArr);
     }

@@ -7,15 +7,16 @@ import java.util.List;
 public interface CatalogContract {
 
     interface CatalogInteractor {
-        void requestProducts(int categoryId, ProductsRequestListener productsRequestListener);
+        void requestProducts(int categoryId, int offset, int limit, ProductsRequestListener productsRequestListener);
 
         interface ProductsRequestListener {
-            void onProductRequestSuccessful(List<ProductModel> productsArr);
+            void onProductRequestSuccessful(int total, List<ProductModel> productsArr);
             void onProductRequestFail();
         }
     }
 
     interface CatalogView {
+        void initProgressBar();
         void initErrorMessageView();
 
         void hideErrorMsg();
@@ -32,7 +33,6 @@ public interface CatalogContract {
         void showProgressBar();
         void hideProgressBar();
 
-        //todo implement infinite loading
     }
 
     interface CatalogPresenter {
