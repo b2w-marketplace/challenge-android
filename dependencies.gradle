@@ -29,6 +29,8 @@ ext {
     roomVersion = '1.0.0'
     constraintLayoutVersion = '1.1.0'
     multiDexVersion = '1.0.3'
+    infiniteViewPagerVersion = '1.0.0'
+    circleIndicatorVersion = '1.2.2'
 
     //Testing
     jUnitVersion = '4.12'
@@ -163,8 +165,9 @@ ext {
             roomCompiler       : "android.arch.persistence.room:compiler:${archCompVersion}",
             roomRxJava         : "android.arch.persistence.room:rxjava2:${archCompVersion}",
             constraintLayout   : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
-            multiDex           : "com.android.support:multidex:${multiDexVersion}"
-
+            multiDex           : "com.android.support:multidex:${multiDexVersion}",
+            infiniteViewPager  : "com.antonyt.infiniteviewpager:library:${infiniteViewPagerVersion}",
+            circleIndicator    : "me.relex:circleindicator:${circleIndicatorVersion}"
     ]
 
     mobileUiTestDependencies = [
