@@ -1,5 +1,6 @@
 package br.com.bsavoini.lodjinha;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,19 +25,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView txtTitle;
     private ImageView imgLogo;
 
+
     private final String HOME_TAG = "HOME";
     private final String ABOUT_TAG = "ABOUT";
 
-    // TODO: 06/01/2019  implement font styles
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Typeface tf = Typeface.createFromAsset(getAssets(), "pacifico.ttf");
+
         txtTitle = findViewById(R.id.title);
+        txtTitle.setTypeface(tf);
+
         imgLogo = findViewById(R.id.logo);
 
-        // TODO: 06/01/2019  change title typeface
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView txtLogo = headerView.findViewById(R.id.txt_logo);
+        txtLogo.setTypeface(tf);
 
         showHomeContent();
     }

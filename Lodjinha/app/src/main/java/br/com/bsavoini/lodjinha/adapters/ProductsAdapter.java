@@ -1,5 +1,6 @@
 package br.com.bsavoini.lodjinha.adapters;
 
+import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -47,6 +48,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
         viewHolder.nameTxt.setText(productModel.getName());
         viewHolder.originalPriceTxt.setText("De: " + productModel.getOriginalPrice());
+        viewHolder.originalPriceTxt.setPaintFlags(viewHolder.originalPriceTxt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         viewHolder.currentPriceTxt.setText("Por: " + productModel.getCurrentPrice());
 
     }

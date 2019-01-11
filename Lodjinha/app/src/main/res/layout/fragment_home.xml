@@ -43,6 +43,13 @@
                         attrs:piv_padding="@dimen/banner_indicator_margin_horizontal"
                         attrs:piv_radius="@dimen/banner_indicator_radius"/>
 
+                <ProgressBar
+                        android:layout_centerInParent="true"
+                        android:id="@+id/progress_bar"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"/>
+
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 

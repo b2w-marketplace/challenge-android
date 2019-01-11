@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.adapters.BannerPagerAdapter;
 import br.com.bsavoini.lodjinha.adapters.CategoriesAdapter;
@@ -36,6 +38,7 @@ public class HomeFragment extends Fragment implements HomeContract.HomeView,
     private ViewPager bannersViewPager;
     private RecyclerView categoriesRecycler;
     private RecyclerView bestSellersRecycler;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,6 +83,7 @@ public class HomeFragment extends Fragment implements HomeContract.HomeView,
     @Override
     public void initViewPager() {
         bannersViewPager = viewCreated.findViewById(R.id.view_pager_banners);
+        progressBar = viewCreated.findViewById(R.id.progress_bar);
     }
 
     @Override
@@ -114,16 +118,16 @@ public class HomeFragment extends Fragment implements HomeContract.HomeView,
 
     @Override
     public void showErrorMsg() {
-
+        Toast.makeText(getActivity(), "Ops! Sem conexão. Tente novamente", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showProgressBar() {
-
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar() {
-
+        progressBar.setVisibility(View.GONE);
     }
 }

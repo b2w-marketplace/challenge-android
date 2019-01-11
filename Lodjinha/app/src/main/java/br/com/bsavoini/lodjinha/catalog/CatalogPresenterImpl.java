@@ -26,7 +26,6 @@ public class CatalogPresenterImpl implements CatalogContract.CatalogPresenter,
         categoryId = view.retrieveCategoryId();
         view.initProgressBar();
         view.initErrorMessageView();
-        view.hideErrorMsg();
         view.enableToolbarBackButton();
         view.setTollbarTitleWithCategory();
         view.initRecyclerView();

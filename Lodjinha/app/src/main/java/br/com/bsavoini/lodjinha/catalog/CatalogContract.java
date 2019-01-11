@@ -19,7 +19,6 @@ public interface CatalogContract {
         void initProgressBar();
         void initErrorMessageView();
 
-        void hideErrorMsg();
         void showErrorMsg();
 
         void setTollbarTitleWithCategory();

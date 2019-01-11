@@ -1,6 +1,8 @@
 package br.com.bsavoini.lodjinha.product;
 
 import android.content.DialogInterface;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,7 @@ import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
@@ -30,11 +33,14 @@ import java.lang.reflect.Type;
 public class ProductActivity extends AppCompatActivity implements ProductContract.ProductView {
     private ProductContract.ProductPresenter presenter;
     private FloatingActionButton fab;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+
+        progressBar = findViewById(R.id.progress_bar);
 
         presenter = new ProductPresenterImpl(ProductActivity.this, new ProductInteractorImpl());
         presenter.initViews();
@@ -85,6 +91,8 @@ public class ProductActivity extends AppCompatActivity implements ProductContrac
     public void bindOriginalPriceTextView(String price) {
         TextView txtOriginalPrice = findViewById(R.id.txt_original_price);
         txtOriginalPrice.setText(price);
+        txtOriginalPrice.setPaintFlags(txtOriginalPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
     }
 
     @Override
@@ -121,48 +129,51 @@ public class ProductActivity extends AppCompatActivity implements ProductContrac
         fab.setEnabled(true);
     }
 
-    //TODO     android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@8432922 is not valid; is your activity running?
+
     @Override
     public void showSucessDialog(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (!this.isFinishing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ProductActivity.this.finish();
-                    }
-                })
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        ProductActivity.this.finish();
-                    }
-                })
-                .show();
+            builder.setMessage(message)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ProductActivity.this.finish();
+                        }
+                    })
+                    .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            ProductActivity.this.finish();
+                        }
+                    })
+                    .show();
+        }
     }
 
-    //TODO     android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@8432922 is not valid; is your activity running?
     @Override
     public void showErrorDialog(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (!this.isFinishing()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                })
-                .show();
+            builder.setMessage(message)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .show();
+        }
     }
 
     @Override
     public void showProgressBar() {
-        //todo showProgressBar
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar() {
-        //todo hideProgressBar
+        progressBar.setVisibility(View.GONE);
     }
 }

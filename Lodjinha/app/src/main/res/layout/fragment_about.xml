@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"/>
 
     <TextView
-            android:fontFamily="Roboto"
+            android:textColor="@color/greyish_brown"
+            android:id="@+id/txt_logo"
             android:layout_marginTop="40dp"
             android:text="@string/app_name"
             android:textSize="@dimen/font_logo_about"

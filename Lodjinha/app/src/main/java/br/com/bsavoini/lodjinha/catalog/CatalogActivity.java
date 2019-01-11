@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import br.com.bsavoini.lodjinha.R;
 import br.com.bsavoini.lodjinha.adapters.ProductsAdapter;
 import br.com.bsavoini.lodjinha.api.model.ProductModel;
@@ -94,13 +95,8 @@ public class CatalogActivity extends AppCompatActivity implements CatalogContrac
     }
 
     @Override
-    public void hideErrorMsg() {
-        //todo hideErrorMsg
-    }
-
-    @Override
     public void showErrorMsg() {
-        //todo showErrorMsg
+        Toast.makeText(this, "Ops! Sem conexão. Tente novamente", Toast.LENGTH_LONG).show();
     }
 
     @Override
