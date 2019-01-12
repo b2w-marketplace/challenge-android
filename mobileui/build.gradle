@@ -13,7 +13,7 @@ android {
         applicationId "br.com.b2w.lodjinha"
         minSdkVersion globalConfigurations["androidMinSdkVersion"]
         targetSdkVersion globalConfigurations["androidTargetSdkVersion"]
-        testInstrumentationRunner "br.com.android.seiji.mobileui.test.TestRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 
