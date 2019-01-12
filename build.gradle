@@ -25,3 +25,25 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task runDomainUnitTests(dependsOn: [':Domain:test']) {
+    description 'Run unit tests for the domain layer.'
+}
+
+task runDataUnitTests(dependsOn: [':Data:test']) {
+    description 'Run unit tests for the data layer.'
+}
+
+task runCacheUnitTests(dependsOn: [':cache:test']) {
+    description 'Run unit tests for the cache layer.'
+}
+
+task runRemoteUnitTests(dependsOn: [':Remote:test']) {
+    description 'Run unit tests for the remote layer.'
+}
+
+task runPresentationUnitTests(dependsOn: [':Presentation:test']) {
+    description 'Run unit tests for the presentation layer.'
+}
+
+task runUniTests(dependsOn: ['clean', 'runDomainUnitTests', 'runDataUnitTests', 'runCacheUnitTests', 'runRemoteUnitTests', 'runPresentationUnitTests'])

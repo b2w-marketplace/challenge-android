@@ -1,12 +1,36 @@
 # Detalhamento do projeto:
 
-Pasta APK com o apk para testes 
-"mobileui-debug.apk"
+Pasta APK com o apk para testes</br>
+<b>"mobileui-debug.apk"</b>
 
-Caso queira rodar e instalar o projeto, a partir da pasta do projeto:
-./gradlew installDebug 
+Caso queira rodar e instalar o projeto, a partir da pasta do projeto:</br>
+<b>./gradlew installDebug<b> 
 
-Todos os módulos contém testes unitários
+Os módulos que contém teste unitário são:</br>
+-Cache
+-Data
+-Domain
+-Presentation
+-Remote
+
+Caso queira rodar os testes unitários, seguir os seguintes comandos:</br>
+<b>./gradlew clean<b>
+<b>./gradlew runUnitTests<b>
+
+Arquitetura utilizada:
+
+Clean architecture
+-----------------
+![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](https://github.com/android10/Sample-Data/blob/master/Android-CleanArchitecture/clean_architecture.png)
+
+Architectural approach
+-----------------
+![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](https://github.com/android10/Sample-Data/blob/master/Android-CleanArchitecture/clean_architecture_layers.png)
+
+Architectural reactive approach
+-----------------
+![http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/](https://github.com/android10/Sample-Data/blob/master/Android-CleanArchitecture/clean_architecture_layers_details.png)
+
 
 # o Lodjinha
 
