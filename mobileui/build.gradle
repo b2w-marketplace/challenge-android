@@ -10,6 +10,7 @@ android {
     buildToolsVersion globalConfigurations["androidBuildToolsVersion"]
 
     defaultConfig {
+        applicationId "br.com.b2w.lodjinha"
         minSdkVersion globalConfigurations["androidMinSdkVersion"]
         targetSdkVersion globalConfigurations["androidTargetSdkVersion"]
         testInstrumentationRunner "br.com.android.seiji.mobileui.test.TestRunner"
@@ -34,6 +35,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2g"
     }
 }
 
@@ -69,6 +74,8 @@ dependencies {
     implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.multiDex
     implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.infiniteViewPager
+    implementation mobileUiDependencies.bubblePagerIndicat
 
     implementation presentationDependencies.archRuntime
     implementation presentationDependencies.archExtensions

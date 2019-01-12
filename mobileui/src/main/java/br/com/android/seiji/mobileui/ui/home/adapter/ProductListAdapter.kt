@@ -42,7 +42,9 @@ class ProductListAdapter(
         private val textProductCurrentPrice = view.findViewById<TextView>(R.id.textProductCurrentPrice)
 
         open fun bind(product: Product, listener: (View) -> Unit) {
-            Picasso.get().load(product.urlImagem)
+            Picasso.get()
+                .load(product.urlImagem)
+                .error(R.drawable.img_not_found_primary)
                 .into(imageProduct)
 
             textProductName.text = product.nome

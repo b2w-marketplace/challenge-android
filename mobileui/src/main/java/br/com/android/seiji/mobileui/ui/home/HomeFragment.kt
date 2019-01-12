@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import br.com.android.seiji.domain.model.Banner
 import br.com.android.seiji.domain.model.Category
 import br.com.android.seiji.domain.model.Product
@@ -27,6 +26,10 @@ import br.com.android.seiji.mobileui.mapper.ProductViewMapper
 import br.com.android.seiji.mobileui.ui.home.adapter.BannerListAdapter
 import br.com.android.seiji.mobileui.ui.home.adapter.CategoryListAdapter
 import br.com.android.seiji.mobileui.ui.home.adapter.ProductListAdapter
+import br.com.android.seiji.mobileui.ui.productDetail.ProductDetailActivity
+import br.com.android.seiji.mobileui.ui.productDetail.ProductDetailActivity.Companion.EXTRA_PRODUCT
+import br.com.android.seiji.mobileui.ui.productsByCategory.ProductsByCategoryListActivity
+import br.com.android.seiji.mobileui.ui.productsByCategory.ProductsByCategoryListActivity.Companion.EXTRA_CATEGORY
 import br.com.android.seiji.presentation.model.BannerView
 import br.com.android.seiji.presentation.model.CategoryView
 import br.com.android.seiji.presentation.model.ProductView
@@ -35,6 +38,7 @@ import br.com.android.seiji.presentation.state.ResourceState
 import br.com.android.seiji.presentation.viewModel.GetBannersViewModel
 import br.com.android.seiji.presentation.viewModel.GetBestSellerProductsViewModel
 import br.com.android.seiji.presentation.viewModel.GetCategoriesViewModel
+import com.antonyt.infiniteviewpager.InfinitePagerAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_component_banners.*
@@ -42,6 +46,7 @@ import kotlinx.android.synthetic.main.view_component_best_sellers.*
 import kotlinx.android.synthetic.main.view_component_categories.*
 import timber.log.Timber
 import javax.inject.Inject
+
 
 class HomeFragment : Fragment() {
 
@@ -51,13 +56,10 @@ class HomeFragment : Fragment() {
 
     @Inject
     lateinit var bannerMapper: BannerViewMapper
-
     @Inject
     lateinit var categoryMapper: CategoryViewMapper
-
     @Inject
     lateinit var productMapper: ProductViewMapper
-
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
@@ -150,8 +152,13 @@ class HomeFragment : Fragment() {
 
     private fun setBannerSuccess(banners: List<Banner>?) {
         banners?.let {
-            viewpager.adapter = BannerListAdapter(it, bannerOnClickListener)
-//            layoutComponentBanners.visible()
+            val bannerListAdapter = BannerListAdapter(it, bannerOnClickListener)
+            val wrappedAdapter = InfinitePagerAdapter(bannerListAdapter)
+            viewPagerBanner.offscreenPageLimit = 3
+            viewPagerBanner.adapter = wrappedAdapter
+            viewPagerCircleIndicator.setOnSurfaceCount(3)
+            viewPagerCircleIndicator.setRisingCount(0)
+            viewPagerCircleIndicator.setViewPager(viewPagerBanner)
         }
 
     }
@@ -164,7 +171,6 @@ class HomeFragment : Fragment() {
             recyclerViewCategories.setHasFixedSize(true)
             recyclerViewCategories.isNestedScrollingEnabled = false
             recyclerViewCategories.adapter = CategoryListAdapter(it, categoryOnClickListener)
-//            layoutComponentCategories.visible()
         }
     }
 
@@ -204,16 +210,14 @@ class HomeFragment : Fragment() {
     }
 
     private val categoryOnClickListener = { item: List<Category>, position: Int, _: View ->
-        Toast.makeText(activity, item[position].descricao, Toast.LENGTH_SHORT).show()
-//        val intent = Intent(this.activity, ProductsListActivity::class.java)
-//        intent.putExtra(EXTRA_PRODUCT_CATEGORY, list[position])
-//        startActivity(intent)
+        val intent = Intent(this.activity, ProductsByCategoryListActivity::class.java)
+        intent.putExtra(EXTRA_CATEGORY, item[position])
+        startActivity(intent)
     }
 
     private val productOnClickListener = { item: List<Product>, position: Int, _: View ->
-        Toast.makeText(activity, item[position].nome, Toast.LENGTH_SHORT).show()
-//        val intent = Intent(this.activity, ProductsListActivity::class.java)
-//        intent.putExtra(EXTRA_PRODUCT_CATEGORY, list[position])
-//        startActivity(intent)
+        val intent = Intent(this.activity, ProductDetailActivity::class.java)
+        intent.putExtra(EXTRA_PRODUCT, item[position])
+        startActivity(intent)
     }
 }

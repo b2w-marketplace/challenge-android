@@ -8,9 +8,11 @@ import javax.inject.Inject
 class ProductViewMapper @Inject constructor() : ViewMapper<ProductView, Product> {
     override fun mapToView(presentation: ProductView): Product {
         return Product(
-                presentation.id, presentation.nome, presentation.descricao, presentation.precoDe,
-                presentation.precoPor, presentation.urlImagem, Category(presentation.category.id,
-                presentation.category.descricao, presentation.category.urlImagem)
+            presentation.id, presentation.nome, presentation.descricao, presentation.precoDe,
+            presentation.precoPor, presentation.urlImagem, Category(
+                presentation.category.id,
+                presentation.category.descricao, presentation.category.urlImagem
+            )
         )
     }
 }

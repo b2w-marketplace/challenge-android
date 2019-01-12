@@ -6,21 +6,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+    <com.antonyt.infiniteviewpager.InfiniteViewPager
+            android:id="@+id/viewPagerBanner"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-    <!--<it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator-->
-    <!--android:id="@+id/viewPagerIndicator"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="@dimen/margin_default"-->
-    <!--app:defaultIndicatorTheme="light"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toBottomOf="@+id/viewpager" />-->
+    <com.shuhart.bubblepagerindicator.BubblePageIndicator
+            android:id="@+id/viewPagerCircleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:bpi_fillColor="@android:color/white"
+            app:bpi_pageColor="@color/greyish_AAAAAA"
+            app:bpi_radius="4dp"
+            app:bpi_marginBetweenCircles="10dp"
+            app:bpi_onSurfaceCount="@integer/default_bubble_indicator_on_surface_count"
+            app:bpi_risingCount="@integer/default_bubble_indicator_rising_count" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

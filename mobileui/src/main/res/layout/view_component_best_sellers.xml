@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/greyish_4A4A4A"
             android:fontFamily="@font/robotobold"
             android:text="@string/best_sellers"
             app:layout_constraintStart_toStartOf="parent"/>

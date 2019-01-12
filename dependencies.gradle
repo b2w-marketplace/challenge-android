@@ -1,7 +1,7 @@
 ext {
 
     //Android
-    androidBuildToolsVersion = "27.0.3"
+    androidBuildToolsVersion = "28.0.3"
     androidMinSdkVersion = 16
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
@@ -30,7 +30,7 @@ ext {
     constraintLayoutVersion = '1.1.0'
     multiDexVersion = '1.0.3'
     infiniteViewPagerVersion = '1.0.0'
-    circleIndicatorVersion = '1.2.2'
+    bubblePagerIndicatorVersion = '1.1.2'
 
     //Testing
     jUnitVersion = '4.12'
@@ -166,8 +166,8 @@ ext {
             roomRxJava         : "android.arch.persistence.room:rxjava2:${archCompVersion}",
             constraintLayout   : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             multiDex           : "com.android.support:multidex:${multiDexVersion}",
-            infiniteViewPager  : "com.antonyt.infiniteviewpager:library:${infiniteViewPagerVersion}",
-            circleIndicator    : "me.relex:circleindicator:${circleIndicatorVersion}"
+            infiniteViewPager  : "com.github.antonyt:InfiniteViewPager:${infiniteViewPagerVersion}",
+            bubblePagerIndicat : "com.shuhart.bubblepagerindicator:bubblepagerindicator:${bubblePagerIndicatorVersion}"
     ]
 
     mobileUiTestDependencies = [

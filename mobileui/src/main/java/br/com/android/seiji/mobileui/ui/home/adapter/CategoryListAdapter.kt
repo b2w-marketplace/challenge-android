@@ -42,6 +42,7 @@ class CategoryListAdapter(
 
             Picasso.get()
                 .load(category.urlImagem)
+                .error(R.drawable.img_not_found_primary)
                 .into(imageCategory)
 
             itemLayoutContainer.setOnClickListener { listener(itemLayoutContainer) }

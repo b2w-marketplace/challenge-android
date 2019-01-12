@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         AndroidInjection.inject(this)
-        setSupportActionBar(toolbar)
-        setNavigationView()
+        setToolbarName(resources.getString(R.string.app_name))
 
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment.newInstance())
@@ -39,9 +38,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
+                setToolbarName(resources.getString(R.string.app_name))
                 replaceFragment(HomeFragment.newInstance())
             }
             R.id.nav_about -> {
+                setToolbarName(resources.getString(R.string.toolbar_about_title))
                 replaceFragment(AboutFragment.newInstance())
             }
             else -> false
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun setToolbarName(toolbarTitle: String) {
+        toolbar.title = toolbarTitle
+        setSupportActionBar(toolbar)
+        setNavigationView()
     }
 
     private fun setNavigationView() {

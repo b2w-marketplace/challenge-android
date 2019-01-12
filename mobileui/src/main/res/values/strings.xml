@@ -16,4 +16,6 @@
     <string name="product_previous_price">De %s</string>
     <string name="product_current_price">Por %s</string>
 
+    <string name="product_reservation_success">Produto reservado com sucesso.</string>
+    <string name="toolbar_about_title">Sobre</string>
 </resources>
