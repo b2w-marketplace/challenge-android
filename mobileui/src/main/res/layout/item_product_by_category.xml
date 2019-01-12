@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layoutItemProductByCategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+    <ImageView
+            android:id="@+id/imageProductByCategory"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@tools:sample/avatars"
+    />
+
+    <TextView
+            android:id="@+id/textProductByCategoryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:lines="2"
+            android:fontFamily="@font/robotomedium"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@+id/imageProductByCategory"
+            app:layout_constraintEnd_toStartOf="@+id/imageProductByCategoryRightArrow"
+            tools:text="@tools:sample/lorem"/>
+
+    <TextView
+            android:id="@+id/textProductByCategoryPreviousPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/robotomedium"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textProductByCategoryCurrentPrice"
+            app:layout_constraintTop_toTopOf="@+id/textProductByCategoryCurrentPrice"
+            app:layout_constraintTop_toBottomOf="@+id/textProductByCategoryName"
+            app:layout_constraintStart_toEndOf="@+id/imageProductByCategory"
+            tools:text="@string/categories"/>
+
+    <ImageView
+            android:id="@+id/imageProductByCategoryRightArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_right_arrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
+
+    <TextView
+            android:id="@+id/textProductByCategoryCurrentPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotobold"
+            android:textColor="@color/tomato"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/imageProductByCategoryRightArrow"
+            app:layout_constraintEnd_toStartOf="@+id/imageProductByCategoryRightArrow"
+            tools:text="@tools:sample/lorem"
+    />
+
+</android.support.constraint.ConstraintLayout>

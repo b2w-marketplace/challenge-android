@@ -1,7 +1,7 @@
 ext {
 
     //Android
-    androidBuildToolsVersion = "27.0.3"
+    androidBuildToolsVersion = "28.0.3"
     androidMinSdkVersion = 16
     androidTargetSdkVersion = 26
     androidCompileSdkVersion = 26
@@ -22,13 +22,15 @@ ext {
     retrofitVersion = '2.3.0'
     supportLibraryVersion = '26.1.0'
     timberVersion = '4.5.1'
-    glideVersion = '4.0.0'
+    picassoVersion = '2.71828'
     daggerVersion = '2.11'
     glassfishAnnotationVersion = '10.0-b28'
     archCompVersion = '1.1.1'
     roomVersion = '1.0.0'
     constraintLayoutVersion = '1.1.0'
     multiDexVersion = '1.0.3'
+    infiniteViewPagerVersion = '1.0.0'
+    bubblePagerIndicatorVersion = '1.1.2'
 
     //Testing
     jUnitVersion = '4.12'
@@ -145,7 +147,7 @@ ext {
             dagger             : "com.google.dagger:dagger:${daggerVersion}",
             rxKotlin           : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
             rxAndroid          : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            glide              : "com.github.bumptech.glide:glide:${glideVersion}",
+            picasso            : "com.squareup.picasso:picasso:${picassoVersion}",
             kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject        : "javax.inject:javax.inject:${javaxInjectVersion}",
@@ -163,8 +165,9 @@ ext {
             roomCompiler       : "android.arch.persistence.room:compiler:${archCompVersion}",
             roomRxJava         : "android.arch.persistence.room:rxjava2:${archCompVersion}",
             constraintLayout   : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
-            multiDex           : "com.android.support:multidex:${multiDexVersion}"
-
+            multiDex           : "com.android.support:multidex:${multiDexVersion}",
+            infiniteViewPager  : "com.github.antonyt:InfiniteViewPager:${infiniteViewPagerVersion}",
+            bubblePagerIndicat : "com.shuhart.bubblepagerindicator:bubblepagerindicator:${bubblePagerIndicatorVersion}"
     ]
 
     mobileUiTestDependencies = [

@@ -8,8 +8,8 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 open class GetBestSellerProducts @Inject constructor(
-    private val productRepository: ProductRepository,
-    postExecutionThread: PostExecutionThread
+        private val productRepository: ProductRepository,
+        postExecutionThread: PostExecutionThread
 ) : SingleUseCase<List<Product>, Nothing?>(postExecutionThread) {
 
     public override fun buildUseCaseObservable(param: Nothing?): Observable<List<Product>> {

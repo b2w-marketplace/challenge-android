@@ -7,4 +7,15 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
 
+    <string name="developer_name">Seiji Fukuoka</string>
+    <string name="develop_date">11 de janeiro de 2019</string>
+
+    <string name="categories">Categorias</string>
+
+    <string name="best_sellers">Mais vendidos</string>
+    <string name="product_previous_price">De %s</string>
+    <string name="product_current_price">Por %s</string>
+
+    <string name="product_reservation_success">Produto reservado com sucesso.</string>
+    <string name="toolbar_about_title">Sobre</string>
 </resources>

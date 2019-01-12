@@ -28,16 +28,16 @@ dependencies {
 
     compile project(':Domain')
 
-    compile presentationDependencies.kotlin
-    compile presentationDependencies.javaxInject
-    compile presentationDependencies.rxKotlin
-    compile presentationDependencies.archRuntime
-    compile presentationDependencies.archExtensions
+    implementation presentationDependencies.kotlin
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.rxKotlin
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
     kapt presentationDependencies.archCompiler
 
-    testCompile presentationTestDependencies.junit
-    testCompile presentationTestDependencies.mockito
-    testCompile presentationTestDependencies.assertj
-    testCompile presentationTestDependencies.robolectric
-    testCompile presentationTestDependencies.archTesting
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.mockito
+    testImplementation presentationTestDependencies.assertj
+    testImplementation presentationTestDependencies.robolectric
+    testImplementation presentationTestDependencies.archTesting
 }

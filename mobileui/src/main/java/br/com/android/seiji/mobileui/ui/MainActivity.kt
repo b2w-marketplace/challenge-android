@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import br.com.android.seiji.mobileui.R
+import br.com.android.seiji.mobileui.ui.about.AboutFragment
 import br.com.android.seiji.mobileui.ui.home.HomeFragment
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,8 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         AndroidInjection.inject(this)
-        setSupportActionBar(toolbar)
-        setNavigationView()
+        setToolbarName(resources.getString(R.string.app_name))
 
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment.newInstance())
@@ -38,34 +38,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
+                setToolbarName(resources.getString(R.string.app_name))
+                replaceFragment(HomeFragment.newInstance())
             }
             R.id.nav_about -> {
-
+                setToolbarName(resources.getString(R.string.toolbar_about_title))
+                replaceFragment(AboutFragment.newInstance())
             }
+            else -> false
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
+    private fun setToolbarName(toolbarTitle: String) {
+        toolbar.title = toolbarTitle
+        setSupportActionBar(toolbar)
+        setNavigationView()
+    }
+
     private fun setNavigationView() {
         val toggle = ActionBarDrawerToggle(
-                this,
-                drawer_layout,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
+        nav_view.itemIconTintList = null
 
         nav_view.setNavigationItemSelectedListener(this)
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-                .replace(R.id.mainActivityFragmentHost, fragment)
-                .commit()
-
+            .replace(R.id.mainActivityFragmentHost, fragment)
+            .commit()
     }
 }

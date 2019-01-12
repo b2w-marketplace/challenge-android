@@ -10,9 +10,10 @@ android {
     buildToolsVersion globalConfigurations["androidBuildToolsVersion"]
 
     defaultConfig {
+        applicationId "br.com.b2w.lodjinha"
         minSdkVersion globalConfigurations["androidMinSdkVersion"]
         targetSdkVersion globalConfigurations["androidTargetSdkVersion"]
-        testInstrumentationRunner "br.com.android.seiji.mobileui.test.TestRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 
@@ -34,6 +35,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2g"
     }
 }
 
@@ -63,12 +68,14 @@ dependencies {
     implementation mobileUiDependencies.supportDesign
     implementation mobileUiDependencies.timber
     implementation mobileUiDependencies.rxAndroid
-    implementation mobileUiDependencies.glide
+    implementation mobileUiDependencies.picasso
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
     implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.multiDex
     implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.infiniteViewPager
+    implementation mobileUiDependencies.bubblePagerIndicat
 
     implementation presentationDependencies.archRuntime
     implementation presentationDependencies.archExtensions
