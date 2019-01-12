@@ -1,3 +1,13 @@
+# Detalhamento do projeto:
+
+Pasta APK com o apk para testes 
+"mobileui-debug.apk"
+
+Caso queira rodar e instalar o projeto, a partir da pasta do projeto:
+./gradlew installDebug 
+
+Todos os módulos contém testes unitários
+
 # o Lodjinha
 
 Minimo SDK: API 15</br>
