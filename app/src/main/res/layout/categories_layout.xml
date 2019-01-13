@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <View
+        android:id="@+id/separator_1"
+        android:layout_width="wrap_content"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:background="@color/greyish"
+        app:layout_constraintTop_toBottomOf="@id/textview_categories_label"/>
+
+    <TextView
+        android:id="@+id/textview_categories_label"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_4"
+        style="@style/roboto_bold_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"
+        android:text="@string/category"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_4"
+        app:layout_constraintTop_toBottomOf="@id/textview_categories_label"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0.5dp"
+        android:background="@color/greyish"
+        android:layout_marginTop="@dimen/spacing_4"
+        app:layout_constraintTop_toBottomOf="@id/recyclerview_categories"/>
+
+</android.support.constraint.ConstraintLayout>

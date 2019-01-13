@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="textview.price.with.discount" parent="roboto_bold_20">
+        <item name="android:textColor">@color/tomato</item>
+    </style>
+
+    <style name="roboto_medium_12">
+        <item name="android:textSize">@dimen/font_12</item>
+        <item name="fontFamily">@string/font_fontFamily_medium</item>
+    </style>
+
+    <style name="roboto_light_12">
+        <item name="android:textSize">@dimen/font_12</item>
+        <item name="fontFamily">@string/font_fontFamily_light</item>
+    </style>
+
+    <style name="roboto_medium_14">
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="fontFamily">@string/font_fontFamily_medium</item>
+    </style>
+
+    <style name="roboto_medium_18">
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="fontFamily">@string/font_fontFamily_medium</item>
+    </style>
+
+    <style name="roboto_regular_13">
+        <item name="android:textSize">@dimen/font_13</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@string/font_fontFamily_regular</item>
+    </style>
+
+    <style name="roboto_bold_20">
+        <item name="android:textSize">@dimen/font_20</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="pacifico_regular_24">
+        <item name="android:textSize">@dimen/font_24</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+    </style>
+
+    <style name="pacifico_regular_64">
+        <item name="android:textSize">@dimen/font_64</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+    </style>
+
+    <style name="font_pacifico_regular">
+        <item name="fontFamily">@font/pacificoregular</item>
+    </style>
+
+    <style name="font_roboto_medium">
+        <item name="fontFamily">@string/font_fontFamily_medium</item>
+    </style>
+
+</resources>

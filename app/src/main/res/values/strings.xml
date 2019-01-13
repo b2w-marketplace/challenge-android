@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Font -->
+    <string name="font_fontFamily_medium">sans-serif-medium</string>
+    <string name="font_fontFamily_light">sans-serif-light</string>
+    <string name="font_fontFamily_regular">sans-serif</string>
+
+    <!-- Product -->
+    <string name="product_detail_reserved_successfully">Reservado com sucesso</string>
+    <string name="product_detail_ok">OK</string>
+
+    <!-- General -->
+    <string name="general_loading">Carregando...</string>
+    <string name="category">Categorias</string>
+    <string name="best_sellers">Mais Vendidos</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_about">Sobre o aplicativo</string>
+    <string name="developer_name">Carlos Vaccari</string>
+    <string name="development_date">13 de janeiro 2019</string>
+
+    <!-- Screen Title -->
+    <string name="about">Sobre</string>
+    <string name="home">A Lodjinha</string>
+
+</resources>

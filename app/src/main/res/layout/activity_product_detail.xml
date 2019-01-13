@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageview_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_16"
+                android:src="@drawable/ic_back"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imageview_product_image"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_back"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/textview_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_product_image"/>
+
+            <View
+                android:id="@+id/separator_1"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:background="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/textview_name"/>
+
+            <TextView
+                android:id="@+id/textview_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textview_price_with_discount"
+                app:layout_constraintTop_toBottomOf="@id/separator_1"/>
+
+            <TextView
+                android:id="@+id/textview_price_with_discount"
+                android:layout_width="0dp"
+                style="@style/textview.price.with.discount"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/textview_price"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separator_1"/>
+
+            <View
+                android:id="@+id/separator_2"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:background="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/textview_price_with_discount"/>
+
+            <TextView
+                android:id="@+id/textview_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separator_2"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_button_reserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/check_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

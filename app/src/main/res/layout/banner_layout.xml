@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_banner"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="0dp"
+        android:background="@drawable/shadow_effect"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabDots"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        tools:visibility="visible"
+        android:layout_marginBottom="@dimen/spacing_4"
+        app:layout_constraintBottom_toBottomOf="@+id/viewPager_banner"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
+
+</android.support.constraint.ConstraintLayout>
