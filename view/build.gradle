@@ -43,6 +43,7 @@ dependencies {
     implementation "com.android.support:design:$designVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
     implementation project(path: ':viewmodel')
+    implementation project(path: ':model')
 
     implementation rootProject.slider
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

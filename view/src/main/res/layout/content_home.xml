@@ -12,10 +12,31 @@
     <ir.apend.slider.ui.Slider
             android:id="@+id/slider"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             app:animateIndicators="true"
             app:indicatorSize="8dp"
             app:loopSlides="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    
+    <TextView
+            android:id="@+id/tvCategories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/categories"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/slider"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="jelly_bean"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvCategories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvCategories"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

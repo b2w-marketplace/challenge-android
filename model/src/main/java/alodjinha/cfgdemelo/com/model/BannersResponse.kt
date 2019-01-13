@@ -2,16 +2,16 @@ package alodjinha.cfgdemelo.com.model
 
 import com.google.gson.annotations.SerializedName
 
-object BannersResponse {
+data class BannersResponse (
     @SerializedName("data")
-    var banners: Array<BannerContent>? = null
-}
+    var banners: List<BannerContent>
+)
 
-object BannerContent {
+data class BannerContent (
     @SerializedName("id")
-    var id: Int? = null
-    @SerializedName("urlImagem")
-    var urlImagem: String? = null
+    var id: Int,
     @SerializedName("linkUrl")
-    var linkUrl: String? = null
-}
+    var linkUrl: String,
+    @SerializedName("urlImagem")
+    var imageUrl: String
+)
