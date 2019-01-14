@@ -13,4 +13,8 @@ public class ProductsWrapper implements Serializable {
     public List<ProductDTO> getData() {
         return mData;
     }
+
+    public void setData(List<ProductDTO> data) {
+        mData = data;
+    }
 }

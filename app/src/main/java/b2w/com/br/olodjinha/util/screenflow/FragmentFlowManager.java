@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import b2w.com.br.olodjinha.R;
-import b2w.com.br.olodjinha.main.MainActivity;
+import b2w.com.br.olodjinha.MainActivity;
 
 public class FragmentFlowManager {
 

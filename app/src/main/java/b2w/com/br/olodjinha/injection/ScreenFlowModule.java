@@ -1,6 +1,6 @@
 package b2w.com.br.olodjinha.injection;
 
-import b2w.com.br.olodjinha.screenflow.ChangeActivityHandler;
+import b2w.com.br.olodjinha.util.screenflow.ChangeActivityHandler;
 import b2w.com.br.olodjinha.util.screenflow.FragmentFlowManager;
 import dagger.Module;
 import dagger.Provides;

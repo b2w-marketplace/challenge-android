@@ -26,4 +26,8 @@ public class CategoryDTO implements Serializable {
     public String getUrl() {
         return mUrl;
     }
+
+    public void setId(Integer id) {
+        mId = id;
+    }
 }

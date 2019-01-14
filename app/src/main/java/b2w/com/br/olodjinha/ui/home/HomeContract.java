@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha.ui.home;
 
 import com.hannesdorfmann.mosby.mvp.MvpView;
 
@@ -15,4 +15,6 @@ public interface HomeContract extends MvpView {
     void showCategories(List<CategoryDTO> data);
 
     void showBestSellers(List<ProductDTO> data);
+
+    void showError();
 }

@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.request.RequestOptions;
 
-import b2w.com.br.olodjinha.GlideApp;
 import b2w.com.br.olodjinha.R;
 
 public class GlideUtil {

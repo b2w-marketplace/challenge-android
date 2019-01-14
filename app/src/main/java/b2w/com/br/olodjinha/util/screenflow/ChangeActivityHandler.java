@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.screenflow;
+package b2w.com.br.olodjinha.util.screenflow;
 
 import android.app.Activity;
 import android.content.Intent;

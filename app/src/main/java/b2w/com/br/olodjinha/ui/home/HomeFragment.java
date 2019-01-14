@@ -1,5 +1,6 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha.ui.home;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -21,8 +22,13 @@ import java.util.TimerTask;
 
 import javax.inject.Inject;
 
-import b2w.com.br.olodjinha.productdetail.ProductDetailActivity;
-import b2w.com.br.olodjinha.queryresult.ResultActivity;
+import b2w.com.br.olodjinha.MainActivity;
+import b2w.com.br.olodjinha.injection.NetworkModule;
+import b2w.com.br.olodjinha.ui.home.adapters.BannerAdapter;
+import b2w.com.br.olodjinha.ui.home.adapters.CategoriesAdapter;
+import b2w.com.br.olodjinha.ui.home.adapters.ProductsAdapter;
+import b2w.com.br.olodjinha.ui.productdetail.ProductDetailActivity;
+import b2w.com.br.olodjinha.ui.queryresult.ResultActivity;
 import b2w.com.br.olodjinha.R;
 import b2w.com.br.olodjinha.data.models.BannerDTO;
 import b2w.com.br.olodjinha.data.models.CategoryDTO;
@@ -30,7 +36,8 @@ import b2w.com.br.olodjinha.data.models.ProductDTO;
 import b2w.com.br.olodjinha.injection.DaggerHomeComponent;
 import b2w.com.br.olodjinha.injection.HomeComponent;
 import b2w.com.br.olodjinha.injection.ScreenFlowModule;
-import b2w.com.br.olodjinha.screenflow.ChangeActivityHandler;
+import b2w.com.br.olodjinha.util.UIFeedback.UIFeedback;
+import b2w.com.br.olodjinha.util.screenflow.ChangeActivityHandler;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -51,12 +58,16 @@ public class HomeFragment extends MvpFragment<HomeContract, HomePresenter> imple
     @BindView(R.id.tabDots)
     TabLayout mTabDots;
 
+    @BindView(R.id.container)
+    View mContainer;
+
     @Inject
     ChangeActivityHandler mChangeActivityHandler;
 
     int bannerCurrentPage = 0;
     final long DELAY_MS = 500;
     final long PERIOD_MS = 3000;
+    private ProgressDialog mProgressDialog;
 
     public static Fragment getInstance() {
         return new HomeFragment();
@@ -67,6 +78,7 @@ public class HomeFragment extends MvpFragment<HomeContract, HomePresenter> imple
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mInjector = DaggerHomeComponent.builder()
                 .screenFlowModule(new ScreenFlowModule())
+                .networkModule(new NetworkModule())
                 .build();
         mInjector.inject(this);
         View rootview = inflater.inflate(R.layout.fragment_home, container, false);
@@ -74,7 +86,19 @@ public class HomeFragment extends MvpFragment<HomeContract, HomePresenter> imple
 
         initActionBar();
 
+        mProgressDialog = new ProgressDialog(getContext());
+        mProgressDialog.setMessage("Carregando...");
+        showProgress(true);
+
         return rootview;
+    }
+
+    private void showProgress(boolean show) {
+        if(show) {
+            mProgressDialog.show();
+        } else {
+            mProgressDialog.dismiss();
+        }
     }
 
     private void initActionBar() {
@@ -127,9 +151,10 @@ public class HomeFragment extends MvpFragment<HomeContract, HomePresenter> imple
 
     @Override
     public void showBestSellers(List<ProductDTO> data) {
+        showProgress(false);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        BestSellersAdapter mBestSellersAdapter = new BestSellersAdapter(getContext(), data,
+        ProductsAdapter mBestSellersAdapter = new ProductsAdapter(getContext(), data,
                 serializable -> mChangeActivityHandler.startActivityWithExtra(getActivity(), ProductDetailActivity.class, serializable));
 
         mBestSellersRecyclerView.setLayoutManager(layoutManager);
@@ -142,5 +167,14 @@ public class HomeFragment extends MvpFragment<HomeContract, HomePresenter> imple
     @Override
     public HomePresenter createPresenter() {
         return mInjector.presenter();
+    }
+
+    @Override
+    public void showError() {
+        UIFeedback.getAlertDialog(getContext(),
+                getString(R.string.error),
+                (dialogInterface, i) -> {
+                    dialogInterface.dismiss();
+                }).show();
     }
 }

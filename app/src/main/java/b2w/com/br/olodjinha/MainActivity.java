@@ -1,9 +1,7 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,8 +15,9 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import b2w.com.br.olodjinha.AboutFragment;
-import b2w.com.br.olodjinha.R;
+import b2w.com.br.olodjinha.injection.NetworkModule;
+import b2w.com.br.olodjinha.ui.about.AboutFragment;
+import b2w.com.br.olodjinha.ui.home.HomeFragment;
 import b2w.com.br.olodjinha.injection.DaggerMainComponent;
 import b2w.com.br.olodjinha.injection.MainComponent;
 import b2w.com.br.olodjinha.injection.ScreenFlowModule;

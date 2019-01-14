@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha.ui.home.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,11 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.request.RequestOptions;
-
 import java.util.List;
 
-import b2w.com.br.olodjinha.GlideApp;
 import b2w.com.br.olodjinha.R;
 import b2w.com.br.olodjinha.data.models.CategoryDTO;
 import b2w.com.br.olodjinha.listener.OnItemSelected;

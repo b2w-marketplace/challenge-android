@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              android:layout_width="match_parent"
+                                             android:background="@android:color/white"
+                                             android:clickable="true"
+                                             android:focusable="true"
+                                             android:id="@+id/container"
                                              android:layout_height="match_parent"
                                              xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -12,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <include layout="@layout/toolbar_product_details" />
+        <include layout="@layout/toolbar_custom" />
 
     </android.support.design.widget.AppBarLayout>
 

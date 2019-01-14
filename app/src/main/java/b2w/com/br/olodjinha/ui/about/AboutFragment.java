@@ -1,14 +1,14 @@
-package b2w.com.br.olodjinha;
+package b2w.com.br.olodjinha.ui.about;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import b2w.com.br.olodjinha.main.MainActivity;
+import b2w.com.br.olodjinha.R;
+import b2w.com.br.olodjinha.MainActivity;
 
 public class AboutFragment extends Fragment {
 

@@ -13,4 +13,8 @@ public class BannerWrapper implements Serializable{
     public List<BannerDTO> getData() {
         return mData;
     }
+
+    public void setData(List<BannerDTO> data) {
+        mData = data;
+    }
 }

@@ -13,4 +13,8 @@ public class CategoryWrapper implements Serializable {
     public List<CategoryDTO> getData() {
         return mData;
     }
+
+    public void setData(List<CategoryDTO> data) {
+        mData = data;
+    }
 }

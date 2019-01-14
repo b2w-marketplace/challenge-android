@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.productdetail;
+package b2w.com.br.olodjinha.ui.productdetail;
 
 import com.hannesdorfmann.mosby.mvp.MvpView;
 
@@ -11,4 +11,6 @@ public interface ProductDetailContract extends MvpView {
     void showSuccessfulReservation();
 
     void showProgress(boolean show);
+
+    void showError();
 }

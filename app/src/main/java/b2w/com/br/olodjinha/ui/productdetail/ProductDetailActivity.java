@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.productdetail;
+package b2w.com.br.olodjinha.ui.productdetail;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -20,6 +20,7 @@ import b2w.com.br.olodjinha.injection.DaggerProductDetailComponent;
 import b2w.com.br.olodjinha.injection.ProductDetailComponent;
 import b2w.com.br.olodjinha.util.CurrencyUtil;
 import b2w.com.br.olodjinha.util.GlideUtil;
+import b2w.com.br.olodjinha.util.UIFeedback.UIFeedback;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -72,11 +73,21 @@ public class ProductDetailActivity extends MvpActivity<ProductDetailContract, Pr
 
     @Override
     public void showProgress(boolean show) {
-        if(show) {
+        if (show) {
             mProgressDialog.show();
         } else {
             mProgressDialog.dismiss();
         }
+    }
+
+    @Override
+    public void showError() {
+        UIFeedback.getAlertDialog(this,
+                getString(R.string.error),
+                (dialogInterface, i) -> {
+                    dialogInterface.dismiss();
+                    finish();
+                }).show();
     }
 
     @NonNull
@@ -97,14 +108,12 @@ public class ProductDetailActivity extends MvpActivity<ProductDetailContract, Pr
 
     @Override
     public void showSuccessfulReservation() {
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setMessage(R.string.product_detail_reserved_successfully)
-                .setPositiveButton(R.string.product_detail_ok, (dialogInterface, i) -> {
+        UIFeedback.getAlertDialog(this,
+                getString(R.string.product_detail_reserved_successfully),
+                (dialogInterface, i) -> {
                     dialogInterface.dismiss();
                     finish();
-                }).create();
-
-        alertDialog.show();
+                }).show();
     }
 
     @OnClick(R.id.imageview_back)

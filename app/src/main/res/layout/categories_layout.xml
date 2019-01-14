@@ -19,6 +19,7 @@
         android:layout_marginLeft="@dimen/spacing_8"
         android:layout_marginTop="@dimen/spacing_4"
         style="@style/roboto_bold_20"
+        android:textColor="@color/greyish_brown"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_height="wrap_content"

@@ -15,6 +15,9 @@
     <!-- Product -->
     <string name="product_detail_reserved_successfully">Reservado com sucesso</string>
     <string name="product_detail_ok">OK</string>
+    <string name="product_price">De %1$s</string>
+    <string name="product_price_with_discount">Por %1$s</string>
+
 
     <!-- General -->
     <string name="general_loading">Carregando...</string>
@@ -28,5 +31,8 @@
     <!-- Screen Title -->
     <string name="about">Sobre</string>
     <string name="home">A Lodjinha</string>
+
+    <!-- Error -->
+    <string name="error">Algo deu errado. Tente novamente mais tarde</string>
 
 </resources>

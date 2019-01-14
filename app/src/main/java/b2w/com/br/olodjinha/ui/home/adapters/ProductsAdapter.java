@@ -1,6 +1,7 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha.ui.home.adapters;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -21,12 +22,12 @@ import b2w.com.br.olodjinha.util.GlideUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BestSellersAdapter extends RecyclerView.Adapter {
+public class ProductsAdapter extends RecyclerView.Adapter {
     private final List<ProductDTO> mProducts;
     private final Context mContext;
     private final OnItemSelected mListener;
 
-    public BestSellersAdapter(Context context, List<ProductDTO> data, OnItemSelected onItemSelected) {
+    public ProductsAdapter(Context context, List<ProductDTO> data, OnItemSelected onItemSelected) {
         mProducts = data;
         mContext = context;
         mListener = onItemSelected;
@@ -51,18 +52,13 @@ public class BestSellersAdapter extends RecyclerView.Adapter {
 
         holder.getProductDescription().setText(mProducts.get(adapterPosition).getName());
 
-        SpannableString spannableString = new SpannableString(CurrencyUtil.formatBigDecimalToCurrency(mProducts.get(adapterPosition).getPrice()));
-        spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 0);
-        holder.getPrice().setText(spannableString);
+        holder.getPrice().setText(mContext.getString(R.string.product_price,
+                CurrencyUtil.formatBigDecimalToCurrency(mProducts.get(adapterPosition).getPrice())));
+        holder.getPrice().setPaintFlags(holder.getPrice().getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.getPriceWithDiscount().setText(mContext.getString(R.string.product_price_with_discount,
+                CurrencyUtil.formatBigDecimalToCurrency(mProducts.get(adapterPosition).getPriceWithDiscount())));
 
-        holder.getPriceWithDiscount().setText(CurrencyUtil.formatBigDecimalToCurrency(mProducts.get(adapterPosition).getPriceWithDiscount()));
-
-        holder.getContainer().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.onItemSelected(mProducts.get(adapterPosition));
-            }
-        });
+        holder.getContainer().setOnClickListener(v -> mListener.onItemSelected(mProducts.get(adapterPosition)));
     }
 
     @Override

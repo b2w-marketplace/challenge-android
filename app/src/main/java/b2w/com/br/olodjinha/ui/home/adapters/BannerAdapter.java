@@ -1,4 +1,4 @@
-package b2w.com.br.olodjinha.main;
+package b2w.com.br.olodjinha.ui.home.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,14 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-
 import java.util.List;
 
-import b2w.com.br.olodjinha.GlideApp;
 import b2w.com.br.olodjinha.R;
-import b2w.com.br.olodjinha.data.api.RetrofitClient;
 import b2w.com.br.olodjinha.data.models.BannerDTO;
 import b2w.com.br.olodjinha.util.GlideUtil;
 

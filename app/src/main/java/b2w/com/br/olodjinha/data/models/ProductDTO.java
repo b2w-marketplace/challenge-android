@@ -55,4 +55,8 @@ public class ProductDTO implements Serializable {
     public CategoryDTO getCategoryDTO() {
         return mCategoryDTO;
     }
+
+    public void setId(int id) {
+        mId = id;
+    }
 }
