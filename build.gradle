@@ -13,6 +13,7 @@ ext {
     rxRetrofitAdapterVersion = "2.2.0"
     okHttpVersion = "3.6.0"
     sliderVersion = "1.0"
+    picasso_version = "2.5.2"
 
     rx = [
             rx : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
@@ -31,6 +32,8 @@ ext {
     ]
 
     slider = "com.github.ApendIr:slider:$sliderVersion"
+
+    picasso = "com.squareup.picasso:picasso:${picasso_version}"
 }
 
 buildscript {

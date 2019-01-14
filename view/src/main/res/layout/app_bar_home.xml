@@ -20,7 +20,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
-
+    
     <include
             android:id="@+id/includeHome"
             layout="@layout/content_home"/>

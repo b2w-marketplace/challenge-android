@@ -9,9 +9,11 @@
     <string name="action_settings">Settings</string>
     <string name="home">Home</string>
     <string name="aboutApp">Sobre o aplicativo</string>
+    <string name="about">About</string>
     <string name="aLodjinha">a Lodjinha</string>
     <string name="devName">Caio Felipe Garcia de Melo</string>
     <string name="devDate">10 de Janeiro de 2019</string>
     <string name="tryAgainLater">Tente novamente mais tarde</string>
-    <string name="categories">Categories</string>
+    <string name="categories">Categorias</string>
+    <string name="bestSellers">Mais vendidos</string>
 </resources>

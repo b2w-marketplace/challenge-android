@@ -1,6 +1,7 @@
 package alodjinha.cfgdemelo.com.repository.api
 
 import alodjinha.cfgdemelo.com.model.BannersResponse
+import alodjinha.cfgdemelo.com.model.BestSellersResponse
 import alodjinha.cfgdemelo.com.model.CategoriesResponse
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -26,4 +27,5 @@ open class LodjinhaApi {
 
     open fun getBanners(): Single<BannersResponse> = apiInterface.getBanners()
     open fun getCategories(): Single<CategoriesResponse> = apiInterface.getCategories()
+    open fun getBestSellers(): Single<BestSellersResponse> = apiInterface.getBestSellers()
 }
