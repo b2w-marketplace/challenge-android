@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--Navbar-->
+    <string name="home_text">Home</string>
+    <string name="about_text">Sobre o aplicativo</string>
+
+    <!--Sobre-->
+    <string name="about">sobre</string>
+    <string name="title_activity_about">About</string>
+    <string name="development_day">14 de janeiro de 2019</string>
+    <string name="developer_name">Caio Fernandes Araújo</string>
+
+    <!--Product-->
+    <string name="from_text">De: </string>
+    <string name="for_text">Por </string>
+    <string name="success_text">success</string>
+    <string name="success_message">Produto reservado com sucesso.</string>
+    <string name="fail_message">Erro ao reservar o produto.</string>
+
+    <!--Home-->
+    <string name="categories_text">Categorias</string>
+    <string name="most_sold_text">Mais Vendidos</string>
+
+    <!--Async-->
+    <string name="loading_text">Carregando</string>
+    <string name="please_wait_text">Por favor, aguarde#8230</string>
+
+    <!--Baner Adapter-->
+    <string name="submarino_url">https://www.submarino.com.br/</string>
+    <string name="americanas_url">https://www.americanas.com.br/</string>
+    <string name="shoptime_url">https://www.shoptime.com.br/</string>
+
+
+</resources>
