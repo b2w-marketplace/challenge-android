@@ -47,6 +47,7 @@ class ProductActivity : AppCompatActivity() {
             .into(ivProduct)
 
         fabReserve.setOnClickListener {
+            fabReserve.isClickable = false
             Thread {
                 productViewModel.bookProduct(productId)
             }.start()
@@ -90,15 +91,19 @@ class ProductActivity : AppCompatActivity() {
     private fun startBookingObservable() {
         productViewModel.bookingObservable.subscribe {
             runOnUiThread {
+                val listener = DialogInterface.OnClickListener { _, _ ->
+                    finish()
+                }
                 val dialog = AlertDialog.Builder(this)
                 dialog.setCancelable(false)
-                dialog.setPositiveButton(R.string.ok, null)
+                dialog.setPositiveButton(R.string.ok, listener)
                 if (it) {
                     dialog.setMessage(R.string.bookingProductSuccess)
                 } else {
                     dialog.setMessage(R.string.bookingProductFail)
                 }
                 dialog.create().show()
+                fabReserve.isClickable = true
             }
         }.let { compositeDisposable.add(it) }
     }
