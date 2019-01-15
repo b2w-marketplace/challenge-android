@@ -1,10 +1,9 @@
-package alodjinha.cfgdemelo.com.viewmodel
+package alodjinha.cfgdemelo.com.viewmodel.home
 
 import alodjinha.cfgdemelo.com.model.BannersResponse
-import alodjinha.cfgdemelo.com.model.BestSellersResponse
+import alodjinha.cfgdemelo.com.model.ProductsResponse
 import alodjinha.cfgdemelo.com.model.CategoriesResponse
 import alodjinha.cfgdemelo.com.repository.home.HomeRepository
-import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
@@ -15,7 +14,7 @@ class HomeViewModel {
     private val homeRepository by lazy { HomeRepository() }
     val bannersObservable: PublishSubject<BannersResponse> = PublishSubject.create()
     val categoriesObservable: PublishSubject<CategoriesResponse> = PublishSubject.create()
-    val bestSellersObservable: PublishSubject<BestSellersResponse> = PublishSubject.create()
+    val productsObservable: PublishSubject<ProductsResponse> = PublishSubject.create()
     val errorObservable: PublishSubject<Boolean> = PublishSubject.create()
 
     fun getBanners()  {
@@ -44,7 +43,7 @@ class HomeViewModel {
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
             .subscribe({
-                bestSellersObservable.onNext(it)
+                productsObservable.onNext(it)
             }, {
                 errorObservable.onNext(true)
             }).let { compositeDisposable.add(it) }

@@ -15,5 +15,5 @@
     <string name="devDate">10 de Janeiro de 2019</string>
     <string name="tryAgainLater">Tente novamente mais tarde</string>
     <string name="categories">Categorias</string>
-    <string name="bestSellers">Mais vendidos</string>
+    <string name="products">Mais vendidos</string>
 </resources>

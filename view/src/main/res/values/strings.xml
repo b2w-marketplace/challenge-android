@@ -15,5 +15,5 @@
     <string name="devDate">January 10th, 2019</string>
     <string name="tryAgainLater">Try again later</string>
     <string name="categories">Categories</string>
-    <string name="bestSellers">Best Sellers</string>
+    <string name="products">Best Sellers</string>
 </resources>

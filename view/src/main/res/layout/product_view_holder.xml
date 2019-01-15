@@ -10,7 +10,7 @@
             android:id="@+id/ivProductPhoto"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:contentDescription="@string/bestSellers"
+            android:contentDescription="@string/products"
             android:src="@android:drawable/ic_menu_report_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -56,7 +56,7 @@
             android:id="@+id/ivDisclosureIndicator"
             android:layout_width="15dp"
             android:layout_height="0dp"
-            android:contentDescription="@string/bestSellers"
+            android:contentDescription="@string/products"
             android:src="@drawable/disclosure_indicator"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"

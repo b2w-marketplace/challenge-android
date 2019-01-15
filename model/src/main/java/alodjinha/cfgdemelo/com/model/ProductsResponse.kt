@@ -2,14 +2,14 @@ package alodjinha.cfgdemelo.com.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BestSellersResponse(
+data class ProductsResponse(
     @SerializedName("data")
-    val bestSellers: List<BestSeller>
+    val products: List<Product>
 )
 
-data class BestSeller(
+data class Product(
     @SerializedName("categoria")
-    val category: BestSellersCategory,
+    val category: ProductsCategory,
     @SerializedName("descricao")
     val description: String,
     @SerializedName("id")
@@ -24,7 +24,7 @@ data class BestSeller(
     val imageUrl: String
 )
 
-data class BestSellersCategory(
+data class ProductsCategory(
     @SerializedName("descricao")
     val description: String,
     @SerializedName("id")

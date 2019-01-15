@@ -57,7 +57,7 @@
             android:id="@+id/tvBestSellers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/bestSellers"
+            android:text="@string/products"
             android:layout_margin="20dp"
             android:fontFamily="@font/roboto_bold"
             android:textSize="18sp"
