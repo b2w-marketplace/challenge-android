@@ -1,13 +1,8 @@
 package alodjinha.cfgdemelo.com.repository.api
 
-import alodjinha.cfgdemelo.com.model.BannersResponse
-import alodjinha.cfgdemelo.com.model.ProductsResponse
-import alodjinha.cfgdemelo.com.model.CategoriesResponse
+import alodjinha.cfgdemelo.com.model.*
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface LodjinhaApiInterface {
 
@@ -30,4 +25,12 @@ interface LodjinhaApiInterface {
         @Query("limit") limit: Int,
         @Query("categoriaId") id: Int
     ): Single<ProductsResponse>
+
+    @Headers("Accept: application/json")
+    @GET("produto/{produtoId}")
+    fun getProductById(@Path("produtoId") id: Int): Single<Product>
+
+    @Headers("Accept: application/json")
+    @POST("produto/{produtoId}")
+    fun bookProductById(@Path("produtoId") id: Int): Single<BookingResponse>
 }

@@ -3,6 +3,7 @@ package alodjinha.cfgdemelo.com.view.category
 import alodjinha.cfgdemelo.com.model.Product
 import alodjinha.cfgdemelo.com.view.R
 import alodjinha.cfgdemelo.com.view.adapter.ProductsAdapter
+import alodjinha.cfgdemelo.com.view.product.ProductActivity
 import alodjinha.cfgdemelo.com.viewmodel.category.CategoryViewModel
 import android.content.Context
 import android.content.Intent
@@ -88,7 +89,7 @@ class CategoryActivity : AppCompatActivity(), ProductsAdapter.ProductClickListen
     }
 
     override fun getProduct(context: Context, product: Product) {
-        Toast.makeText(this, "Você clicou em: ${product.name}", Toast.LENGTH_SHORT).show()
+        startActivity(ProductActivity.getActivityIntent(this, product.id, product.imageUrl))
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

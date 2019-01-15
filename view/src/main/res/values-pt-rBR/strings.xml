@@ -16,4 +16,8 @@
     <string name="tryAgainLater">Tente novamente mais tarde</string>
     <string name="categories">Categorias</string>
     <string name="products">Mais vendidos</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="bookingProductSuccess">Produto Reservado com Sucesso</string>
+    <string name="bookingProductFail">Falha ao Reservar Produto, tente novamente mais tarde</string>
+    <string name="ok">Ok</string>
 </resources>

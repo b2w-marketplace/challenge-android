@@ -5,6 +5,8 @@
     <application>
         <activity android:name=".category.CategoryActivity">
         </activity>
+        <activity android:name=".product.ProductActivity">
+        </activity>
     </application>
 
 </manifest>

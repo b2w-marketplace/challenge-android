@@ -16,4 +16,8 @@
     <string name="tryAgainLater">Try again later</string>
     <string name="categories">Categories</string>
     <string name="products">Best Sellers</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="bookingProductSuccess">Product Booked Successfully</string>
+    <string name="bookingProductFail">Fail on Product Booking, try again later</string>
+    <string name="ok">Ok</string>
 </resources>

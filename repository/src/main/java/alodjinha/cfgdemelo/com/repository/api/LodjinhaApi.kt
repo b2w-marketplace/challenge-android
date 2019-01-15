@@ -1,8 +1,6 @@
 package alodjinha.cfgdemelo.com.repository.api
 
-import alodjinha.cfgdemelo.com.model.BannersResponse
-import alodjinha.cfgdemelo.com.model.ProductsResponse
-import alodjinha.cfgdemelo.com.model.CategoriesResponse
+import alodjinha.cfgdemelo.com.model.*
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,4 +28,6 @@ open class LodjinhaApi {
     open fun getBestSellers(): Single<ProductsResponse> = apiInterface.getBestSellers()
     open fun getProductsByCategoryId(offset: Int, limit: Int, id: Int): Single<ProductsResponse> =
         apiInterface.getProductsByCategoryId(offset, limit, id)
+    open fun getProductById(id: Int): Single<Product> = apiInterface.getProductById(id)
+    open fun bookProduct(id: Int): Single<BookingResponse> = apiInterface.bookProductById(id)
 }

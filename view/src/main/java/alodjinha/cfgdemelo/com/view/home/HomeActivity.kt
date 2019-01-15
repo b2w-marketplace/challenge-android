@@ -7,12 +7,14 @@ import alodjinha.cfgdemelo.com.view.R
 import alodjinha.cfgdemelo.com.view.adapter.ProductsAdapter
 import alodjinha.cfgdemelo.com.view.adapter.CategoriesAdapter
 import alodjinha.cfgdemelo.com.view.category.CategoryActivity
+import alodjinha.cfgdemelo.com.view.product.ProductActivity
 import alodjinha.cfgdemelo.com.viewmodel.home.HomeViewModel
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -120,7 +122,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun initErrorObservable() {
         homeViewModel.errorObservable.subscribe {
-//            Toast.makeText(this, getString(alodjinha.cfgdemelo.com.viewmodel.R.string.tryAgainLater), Toast.LENGTH_SHORT).show()
+            Snackbar.make(nav_view, getString(R.string.tryAgainLater), Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }.let { compositeDisposable.add(it) }
     }
 
@@ -141,6 +144,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun getProduct(context: Context, product: Product) {
-        Toast.makeText(this, "Você clicou em: ${product.name}", Toast.LENGTH_SHORT).show()
+        startActivity(ProductActivity.getActivityIntent(this, product.id, product.imageUrl))
     }
 }
