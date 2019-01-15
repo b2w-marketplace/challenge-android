@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="alodjinha.cfgdemelo.com.view">
-    
+
     <application>
-        <activity android:name=".category.CategoryActivity">
+        <activity
+                android:name=".category.CategoryActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
-        <activity android:name=".product.ProductActivity">
+        <activity
+                android:name=".product.ProductActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
     </application>
 
