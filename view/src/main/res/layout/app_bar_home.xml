@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +8,7 @@
         tools:context=".home.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
+            android:id="@+id/ablToolbar"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,13 +21,19 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
-    
-    <include
-            android:id="@+id/includeHome"
-            layout="@layout/content_home"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/ablToolbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <include
+                android:id="@+id/includeHome"
+                layout="@layout/content_home"/>
+    </ScrollView>
     <include
             android:id="@+id/includeAbout"
             android:visibility="gone"
             layout="@layout/content_about"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>

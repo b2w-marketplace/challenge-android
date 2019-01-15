@@ -58,13 +58,13 @@ class ProductsAdapter(val context: Context, val products: List<Product>, private
 }
 
 fun Int.toMoney(): String {
-    val formatter = DecimalFormat("##,###")
+    val formatter = DecimalFormat("#,##0.00")
     val numberFormatted = formatter.format(this.toDouble())
     return "R$$numberFormatted"
 }
 
 fun Double.toMoney(): String {
-    val formatter = DecimalFormat("##,###")
+    val formatter = DecimalFormat("#,##0.00")
     val numberFormatted = formatter.format(this)
     return "R$$numberFormatted"
 }
