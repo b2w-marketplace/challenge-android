@@ -8,7 +8,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_home"
         tools:context=".home.HomeActivity">
-    
+
     <ir.apend.slider.ui.Slider
             android:id="@+id/slider"
             android:layout_width="0dp"
@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-    
+
     <TextView
             android:id="@+id/tvCategories"
             android:layout_width="0dp"
@@ -31,12 +31,13 @@
             app:layout_constraintTop_toBottomOf="@id/slider"
             app:layout_constraintStart_toStartOf="parent"
             tools:targetApi="jelly_bean"/>
-    
-    
+
+
     <android.support.constraint.ConstraintLayout
             android:id="@+id/clCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/tvCategories"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -44,7 +45,7 @@
                 android:id="@+id/pbCategories"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-        
+
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvCategories"
                 android:layout_width="0dp"
@@ -53,7 +54,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
     </android.support.constraint.ConstraintLayout>
-    
+
     <TextView
             android:id="@+id/tvBestSellers"
             android:layout_width="0dp"
@@ -65,16 +66,16 @@
             app:layout_constraintTop_toBottomOf="@id/clCategories"
             app:layout_constraintStart_toStartOf="parent"
             tools:targetApi="jelly_bean"/>
-    
+
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/tvBestSellers">
         <ProgressBar
                 android:id="@+id/pbBestSellers"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"/>
-        
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvBestSellers"
                 android:layout_width="0dp"
