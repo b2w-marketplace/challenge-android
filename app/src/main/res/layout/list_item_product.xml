@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.cemobile.lodjinha.ui.product.list.ProductViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/eight_dips"
+        android:paddingBottom="@dimen/eight_dips"
+        android:background="?android:attr/selectableItemBackground">
+
+        <!-- Imagem do produto -->
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/eighty_dips"
+            android:layout_height="@dimen/eighty_dips"
+            android:layout_marginLeft="@dimen/eight_dips"
+            android:layout_marginStart="@dimen/eight_dips"
+            android:layout_marginRight="@dimen/eight_dips"
+            android:layout_marginEnd="@dimen/eight_dips"
+            android:contentDescription="@string/product_image"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:imageFromUrl="@{viewModel.imageUrl}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <!-- Nome do produto -->
+        <TextView
+            android:id="@+id/productNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/four_dips"
+            android:paddingBottom="@dimen/four_dips"
+            android:paddingLeft="@dimen/eight_dips"
+            android:paddingStart="@dimen/eight_dips"
+            android:paddingRight="@dimen/eight_dips"
+            android:paddingEnd="@dimen/eight_dips"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{viewModel.name}"
+            android:textSize="@dimen/seventeen_sips"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintTop_toTopOf="@+id/productImage"
+            app:layout_constraintBottom_toTopOf="@+id/fromProductPriceText"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintEnd_toStartOf="@+id/nextImage"
+            tools:text="@sample/produto.json/data/nome" />
+
+        <!-- Icone de detalhes -->
+        <ImageView
+            android:id="@+id/nextImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/eight_dips"
+            android:paddingStart="@dimen/eight_dips"
+            android:paddingRight="@dimen/eight_dips"
+            android:paddingEnd="@dimen/eight_dips"
+            android:contentDescription="@string/see_details"
+            app:srcCompat="@drawable/ic_next"
+            app:layout_constraintTop_toTopOf="@+id/productNameText"
+            app:layout_constraintBottom_toBottomOf="@+id/productImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0" />
+
+        <!-- Label preco de -->
+        <TextView
+            android:id="@+id/fromProductPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/four_dips"
+            android:paddingBottom="@dimen/four_dips"
+            android:paddingLeft="@dimen/eight_dips"
+            android:paddingStart="@dimen/eight_dips"
+            android:paddingRight="@dimen/eight_dips"
+            android:paddingEnd="@dimen/eight_dips"
+            android:gravity="center_vertical"
+            android:text="@{viewModel.fromPrice}"
+            android:textSize="@dimen/twelve_sips"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintTop_toBottomOf="@+id/productNameText"
+            app:layout_constraintBottom_toBottomOf="@+id/productImage"
+            app:layout_constraintStart_toStartOf="@+id/productNameText"
+            app:layout_constraintEnd_toStartOf="@+id/byProductPriceText"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            tools:text="@sample/produto.json/data/precoDe" />
+
+        <!-- Label preco por -->
+        <TextView
+            android:id="@+id/byProductPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/four_dips"
+            android:paddingBottom="@dimen/four_dips"
+            android:paddingLeft="@dimen/eight_dips"
+            android:paddingStart="@dimen/eight_dips"
+            android:paddingRight="@dimen/eight_dips"
+            android:paddingEnd="@dimen/eight_dips"
+            android:text="@{viewModel.byPrice}"
+            android:textSize="@dimen/twenty_sips"
+            android:textColor="@color/tomato"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/fromProductPriceText"
+            app:layout_constraintEnd_toEndOf="@+id/productNameText"
+            app:layout_constraintStart_toEndOf="@+id/fromProductPriceText"
+            app:layout_constraintTop_toTopOf="@+id/fromProductPriceText"
+            tools:text="@sample/produto.json/data/precoPor" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

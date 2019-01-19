@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.com.cemobile.domain.model.Status" />
+
+        <variable
+            name="resource"
+            type="br.com.cemobile.domain.model.Resource" />
+
+        <variable
+            name="viewModel"
+            type="br.com.cemobile.lodjinha.ui.home.HomeViewModel" />
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- Layout de home -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/rootLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/carouselCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <!-- Carrossel dos banners -->
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_hundred_fifty_dips"
+                    app:fillColor="@color/white_two"
+                    app:pageColor="@color/white"
+                    app:slideInterval="3000" />
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Label de categorias -->
+            <TextView
+                android:id="@+id/categoriesText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingTop="@dimen/eight_dips"
+                android:paddingBottom="@dimen/eight_dips"
+                android:paddingLeft="@dimen/sixteen_dips"
+                android:paddingStart="@dimen/sixteen_dips"
+                android:paddingRight="@dimen/sixteen_dips"
+                android:paddingEnd="@dimen/sixteen_dips"
+                android:text="@string/categories"
+                android:textColor="@color/black"
+                android:textSize="@dimen/eighteen_sips"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintTop_toBottomOf="@+id/carouselCardView"
+                app:layout_constraintStart_toStartOf="@+id/carouselCardView"
+                app:layout_constraintEnd_toEndOf="@+id/carouselCardView" />
+
+            <!-- Top divider de categorias  -->
+            <View
+                android:id="@+id/categoriesTopDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dip"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesText"
+                app:layout_constraintStart_toStartOf="@+id/categoriesText"
+                app:layout_constraintEnd_toEndOf="@+id/categoriesText" />
+
+            <!-- Lista de categorias  -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/categoriesRecycler"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_hundred_ten_dips"
+                android:orientation="horizontal"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesTopDivider"
+                app:layout_constraintStart_toStartOf="@+id/categoriesTopDivider"
+                app:layout_constraintEnd_toEndOf="@+id/categoriesTopDivider"
+                tools:listitem="@layout/list_item_category" />
+
+            <!-- Bottom divider de categorias  -->
+            <View
+                android:id="@+id/categoriesBottomDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dip"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesRecycler"
+                app:layout_constraintStart_toStartOf="@+id/categoriesRecycler"
+                app:layout_constraintEnd_toEndOf="@+id/categoriesRecycler" />
+
+            <!-- Label de mais vendidos  -->
+            <TextView
+                android:id="@+id/bestSellingProductsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingTop="@dimen/eight_dips"
+                android:paddingBottom="@dimen/eight_dips"
+                android:paddingLeft="@dimen/sixteen_dips"
+                android:paddingStart="@dimen/sixteen_dips"
+                android:paddingRight="@dimen/sixteen_dips"
+                android:paddingEnd="@dimen/sixteen_dips"
+                android:text="@string/best_selling"
+                android:textColor="@color/black"
+                android:textSize="@dimen/eighteen_sips"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesBottomDivider"
+                app:layout_constraintStart_toStartOf="@+id/categoriesBottomDivider"
+                app:layout_constraintEnd_toEndOf="@+id/categoriesBottomDivider" />
+
+            <!-- Divider de mais vendidos  -->
+            <View
+                android:id="@+id/bestSellingDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dip"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/bestSellingProductsText"
+                app:layout_constraintStart_toStartOf="@+id/bestSellingProductsText"
+                app:layout_constraintEnd_toEndOf="@+id/bestSellingProductsText" />
+
+            <!-- Lista de mais vendidos  -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/productsRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/bestSellingDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/bestSellingDivider"
+                app:layout_constraintEnd_toEndOf="@+id/bestSellingDivider"
+                app:layout_constraintVertical_bias="0.0"
+                tools:listitem="@layout/list_item_product" />
+
+            <android.support.constraint.Group
+                android:id="@+id/homeDataViewsGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="carouselCardView,categoriesText,categoriesTopDivider,categoriesRecycler,categoriesBottomDivider,bestSellingProductsText,bestSellingDivider,productsRecycler"
+                app:visible="@{resource.status == Status.SUCCESS &amp;&amp; !resource.isEmpty}"
+                tools:visibility="gone" />
+
+            <!-- layout de loading -->
+            <include
+                layout="@layout/view_loading"
+                android:id="@+id/progressLayout"
+                app:visible="@{resource.status == Status.LOADING &amp;&amp; resource.status != Status.ERROR}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Layout de erro -->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/errorContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:visible="@{resource.status == Status.ERROR}">
+
+                <ImageView
+                    android:id="@+id/errorImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/error_unknown"
+                    app:srcCompat="@drawable/ic_broken_robot"
+                    app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineTop"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/errorMessageText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/sixteen_dips"
+                    android:layout_marginBottom="@dimen/sixteen_dips"
+                    android:layout_marginStart="@dimen/eight_dips"
+                    android:layout_marginEnd="@dimen/eight_dips"
+                    app:resourceText="@{resource}"
+                    app:visible="@{resource == null || ((resource.isEmpty || resource.status == Status.ERROR) &amp;&amp; resource.status != Status.LOADING)}"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    app:layout_constraintBottom_toTopOf="@+id/backButton"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalGuidelineTop" />
+
+                <Button
+                    android:id="@+id/tryAgainButton"
+                    style="@style/AppTheme.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/twenty_four_dips"
+                    android:paddingStart="@dimen/twenty_four_dips"
+                    android:paddingRight="@dimen/twenty_four_dips"
+                    android:paddingEnd="@dimen/twenty_four_dips"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="@string/try_again"
+                    android:onClick="@{()-> viewModel.onTryAgainClicked()}"
+                    app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineBottom"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft" />
+
+                <Button
+                    android:id="@+id/backButton"
+                    style="@style/AppTheme.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/twenty_four_dips"
+                    android:paddingStart="@dimen/twenty_four_dips"
+                    android:paddingRight="@dimen/twenty_four_dips"
+                    android:paddingEnd="@dimen/twenty_four_dips"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="@string/back"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineBottom"
+                    app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/horizontalGuidelineTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/horizontalGuidelineBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/verticalGuidelineLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/twenty_four_dips" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/verticalGuidelineRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/twenty_four_dips" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

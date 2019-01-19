@@ -1,0 +1,23 @@
+apply from: "../android-module.gradle"
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    def libs = rootProject.ext
+
+    implementation libs.gson
+    implementation libs.paging
+    implementation libs.room
+    kapt libs.roomCompiler
+
+    libs.koinRelated.each { implementation it }
+    libs.retrofitRelated.each { implementation it }
+    libs.coroutinesRelated.each { implementation it }
+//    libs.unitTestingAndroidRelated.each { testImplementation it }
+}

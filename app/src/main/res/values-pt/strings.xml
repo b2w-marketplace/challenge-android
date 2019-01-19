@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Configurações</string>
+    <string name="about_the_app">Sobre o aplicativo</string>
+    <string name="logo_image_description">Imagem de logotipo</string>
+    <string name="development_date">18 de Janeiro de 2019</string>
+    <string name="about">Sobre</string>
+    <string name="categories">Categorias</string>
+    <string name="best_selling">Mais vendidos</string>
+    <string name="from_price">De: %1$s</string>
+    <string name="by_price">Por %1$s</string>
+    <string name="product_image">Imagem do produto</string>
+    <string name="see_details">Ver detalhes</string>
+    <string name="product_reserved_with_success">Produto reservado com sucesso</string>
+    <string name="empty_products_list">Não há produtos para esta categoria</string>
+    <string name="error_unknown">Oh, não! Algo saiu errado.</string>
+    <string name="error_connection_unavailable">Internet indisponível</string>
+    <string name="error_connection_timeout">Sem comunicação com o servidor</string>
+    <string name="error_reservation">Ocorreu um erro durante a reserva</string>
+    <string name="back">Voltar</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="something_got_wrong">Ops! Algo saiu errado! :(</string>
+</resources>

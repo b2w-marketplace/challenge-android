@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.cemobile.lodjinha.ui.home.CategoryViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/eight_dips">
+
+        <ImageView
+            android:id="@+id/categoryImage"
+            android:layout_width="@dimen/eighty_dips"
+            android:layout_height="@dimen/fifty_six_dips"
+            android:contentDescription="@string/categories"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:imageFromUrl="@{viewModel.imageUrl}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/categoryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/categoryText"
+            android:layout_width="@dimen/eighty_dips"
+            android:layout_height="@dimen/fourty_dips"
+            android:gravity="center"
+            android:padding="@dimen/four_dips"
+            android:textSize="@dimen/thirteen_sips"
+            android:text="@{viewModel.description}"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="@sample/categoria.json/data/descricao" />
+
+        <View
+            android:id="@+id/rootLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

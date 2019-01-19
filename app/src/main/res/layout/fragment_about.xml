@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- imagem de logo -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="@dimen/one_hundred_fifty_dips"
+            android:layout_height="@dimen/one_hundred_fifty_dips"
+            android:contentDescription="@string/logo_image_description"
+            android:src="@drawable/logo_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <!-- nome do app -->
+        <TextView
+            android:id="@+id/appNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textSize="@dimen/sixty_four_sips"
+            android:textColor="@color/black"
+            app:fontFamily="@font/pacifico"
+            app:layout_constraintTop_toBottomOf="@+id/logoImage"
+            app:layout_constraintBottom_toTopOf="@+id/developerNameText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"/>
+
+        <!-- nome do desenvolvedor -->
+        <TextView
+            android:id="@+id/developerNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/eight_dips"
+            android:text="@string/developer_name"
+            android:textSize="@dimen/fourteen_sips"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintTop_toBottomOf="@+id/appNameText"
+            app:layout_constraintBottom_toTopOf="@+id/developmentDateText"
+            app:layout_constraintStart_toStartOf="@+id/appNameText"
+            app:layout_constraintEnd_toEndOf="@+id/appNameText" />
+
+        <!-- data -->
+        <TextView
+            android:id="@+id/developmentDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/eight_dips"
+            android:paddingStart="@dimen/eight_dips"
+            android:paddingRight="@dimen/eight_dips"
+            android:paddingEnd="@dimen/eight_dips"
+            android:layout_marginBottom="@dimen/sixteen_dips"
+            android:text="@string/development_date"
+            android:textSize="@dimen/twelve_sips"
+            app:fontFamily="@font/roboto_light"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/developerNameText"
+            app:layout_constraintEnd_toEndOf="@+id/developerNameText"
+            app:layout_constraintVertical_bias="1.0"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

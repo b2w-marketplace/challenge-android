@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/warm_purple</color>
+    <color name="colorPrimaryDark">@color/warm_purple_dark</color>
+    <color name="colorAccent">@color/warm_purple</color>
+
+    <color name="dark">#2D3142</color>
+    <color name="greyish">#AAAAAA</color>
+    <color name="greyish_brown">#4A4A4A</color>
+    <color name="warm_purple">#5E2A84</color>
+    <color name="warm_purple_dark">#3C0862</color>
+    <color name="tomato">#F15025</color>
+    <color name="white">#D5D5D5</color>
+    <color name="white_two">#FCFCFC</color>
+    <color name="black">#000000</color>
+
+    <color name="color_preloader_center">#440056</color>
+    <color name="color_preloader_end">#a200bf</color>
+    <color name="color_preloader_start">#440056</color>
+
+</resources>

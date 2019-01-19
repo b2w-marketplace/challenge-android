@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSDK"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
+        applicationId "br.com.cemobile.lodjinha"
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+
+    def libs = rootProject.ext
+
+    implementation project(':data')
+    implementation project(':domain')
+
+    debugImplementation libs.stetho
+    implementation libs.anko
+    implementation libs.gson
+    implementation libs.hawk
+    implementation libs.timber
+    implementation libs.carouselView
+    implementation libs.paging
+
+    implementation libs.room
+    kapt libs.roomCompiler
+
+    implementation libs.glide
+    kapt libs.glideCompiler
+
+    libs.koinRelated.each { implementation it }
+    libs.kotlinRelated.each { implementation it }
+    libs.retrofitRelated.each { implementation it }
+    libs.archComponentsRelated.each { implementation it }
+    libs.mobileUiRelated.each { implementation it }
+    libs.coroutinesRelated.each { implementation it }
+
+    implementation libs.espressoIdlingResource
+    libs.unitTestingRelated.each { testImplementation it }
+    libs.instrumentationTestingRelated.each { androidTestImplementation it }
+}
+
+configurations.all {
+    resolutionStrategy {
+        def libs = rootProject.ext
+        libs.toBeForced.each { force it}
+    }
+}

@@ -1,0 +1,37 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="one_dip">1dp</dimen>
+    <dimen name="two_dips">2dp</dimen>
+    <dimen name="four_dips">4dp</dimen>
+    <dimen name="eight_dips">8dp</dimen>
+    <dimen name="sixteen_dips">16dp</dimen>
+    <dimen name="twenty_four_dips">24dp</dimen>
+    <dimen name="fourty_dips">40dp</dimen>
+    <dimen name="fourty_eight_dips">48dp</dimen>
+    <dimen name="fifty_six_dips">56dp</dimen>
+    <dimen name="sixty_four_dips">64dp</dimen>
+    <dimen name="eighty_dips">80dp</dimen>
+    <dimen name="one_hundred_ten_dips">110dp</dimen>
+    <dimen name="one_hundred_fifty_dips">150dp</dimen>
+    <dimen name="one_hundred_seventy_six_dips">176dp</dimen>
+    <dimen name="two_hundred_dips">200dp</dimen>
+    <dimen name="three_hundred_dips">300dp</dimen>
+
+    <!-- font sizes -->
+    <dimen name="twelve_sips">12sp</dimen>
+    <dimen name="thirteen_sips">13sp</dimen>
+    <dimen name="fourteen_sips">14sp</dimen>
+    <dimen name="seventeen_sips">17sp</dimen>
+    <dimen name="eighteen_sips">18sp</dimen>
+    <dimen name="twenty_sips">20sp</dimen>
+    <dimen name="twenty_four_sips">24sp</dimen>
+    <dimen name="sixty_four_sips">64sp</dimen>
+
+    <!-- letter spacings -->
+    <dimen name="logo_about_letter_spacing">-1.5sp</dimen>
+    <dimen name="menu_item_letter_spacing">-0.3sp</dimen>
+    <dimen name="logo_menu_letter_spacing">-0.6sp</dimen>
+    <dimen name="product_description_letter_spacing">-0.4sp</dimen>
+
+
+</resources>

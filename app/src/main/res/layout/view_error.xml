@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.cemobile.lodjinha.ui.home.HomeViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/errorContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/errorImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/error_unknown"
+            app:srcCompat="@drawable/ic_broken_robot"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineTop"
+            app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+            app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/errorMessageText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/sixteen_dips"
+            android:layout_marginBottom="@dimen/sixteen_dips"
+            android:layout_marginStart="@dimen/eight_dips"
+            android:layout_marginEnd="@dimen/eight_dips"
+            android:textAlignment="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintBottom_toTopOf="@+id/backButton"
+            app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+            app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalGuidelineTop" />
+
+        <Button
+            android:id="@+id/tryAgainButton"
+            style="@style/AppTheme.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/twenty_four_dips"
+            android:paddingStart="@dimen/twenty_four_dips"
+            android:paddingRight="@dimen/twenty_four_dips"
+            android:paddingEnd="@dimen/twenty_four_dips"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/try_again"
+            android:onClick="@{()-> viewModel.onTryAgainClicked()}"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineBottom"
+            app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+            app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft" />
+
+        <Button
+            android:id="@+id/backButton"
+            style="@style/AppTheme.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/twenty_four_dips"
+            android:paddingStart="@dimen/twenty_four_dips"
+            android:paddingRight="@dimen/twenty_four_dips"
+            android:paddingEnd="@dimen/twenty_four_dips"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/back"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalGuidelineBottom"
+            app:layout_constraintEnd_toStartOf="@+id/verticalGuidelineRight"
+            app:layout_constraintStart_toStartOf="@+id/verticalGuidelineLeft" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/horizontalGuidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/horizontalGuidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/verticalGuidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/twenty_four_dips" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/verticalGuidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/twenty_four_dips" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
