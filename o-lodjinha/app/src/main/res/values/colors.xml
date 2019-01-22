@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="warmPurple">#5e2a84</color>
+    <color name="tomato">#f15025</color>
+    <color name="greyish">#aaaaaa</color>
+    <color name="dark">#2d3142</color>
+    <color name="greyishBrown">#4a4a4a</color>
+    <color name="white">#d5d5d5</color>
+    <color name="whiteTwo">#fcfcfc</color>
 </resources>
