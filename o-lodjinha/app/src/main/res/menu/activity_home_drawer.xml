@@ -6,16 +6,11 @@
 
     <item
         android:id="@+id/nav_home"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_menu_home"
+        android:icon="@drawable/home_menu"
         android:title="Home" />
     <item
         android:id="@+id/nav_sobre"
-        android:icon="@drawable/ic_menu_tag"
-        app:showAsAction="ifRoom"
+        android:icon="@drawable/tag_menu"
         android:title="Sobre o aplicativo" />
 
-    <group android:checkableBehavior="single">
-
-    </group>
 </menu>

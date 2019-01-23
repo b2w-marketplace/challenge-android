@@ -7,5 +7,19 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="title_name">a Lodjinha</string>
+    <!--Activities-->
+    <!--Home-->
+    <string name="home_title_name">a Lodjinha</string>
+
+    <!--Sobre-->
+    <string name="about_title_name">Sobre</string>
+    <string name="devName">Eduardo Alves Sumiya</string>
+    <string name="devDate">26 de janeiro de 2018</string>
+
+    <!--Fragments-->
+    <!--Categorias-->
+    <string name="categories_title_fragment">Categorias</string>
+
+    <!--Mais Vendidos-->
+    <string name="best_sellers_title_fragment">Mais Vendidos</string>
 </resources>

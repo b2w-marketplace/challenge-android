@@ -1,4 +1,3 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <item name="ic_menu_home" type="drawable">@drawable/home_menu</item>
-    <item name="ic_menu_tag" type="drawable">@drawable/tag_menu</item>
+
 </resources>
