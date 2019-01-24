@@ -2,10 +2,10 @@ package com.sumiya.olodjinha.UI.Activities
 
 import android.os.Bundle
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.UI.Activities.Base.BaseActivity
+import com.sumiya.olodjinha.UI.Activities.Base.BaseDrawerActivity
 import kotlinx.android.synthetic.main.app_bar_home.*
 
-class AboutActivity : BaseActivity() {
+class AboutActivity : BaseDrawerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

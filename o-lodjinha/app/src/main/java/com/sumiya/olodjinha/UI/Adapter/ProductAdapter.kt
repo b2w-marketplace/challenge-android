@@ -12,19 +12,14 @@ import com.sumiya.olodjinha.R
 import kotlinx.android.synthetic.main.view_product.view.*
 import java.text.NumberFormat
 import java.util.*
-import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 
 
-
-class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
+class ProductAdapter(private val products: ProductDataModel, val clickListener: (ProductModel) -> Unit) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         val product = products.data[p1]
 
-        p0?.let {
-            it.bindView(product)
-        }
-
+        p0.bindView(product,clickListener)
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -38,8 +33,7 @@ class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        fun bindView(product: ProductModel) {
+        fun bindView(product: ProductModel, clickListener: (ProductModel) -> Unit) {
             val productDescription = itemView.descriptionLabel
             val productImage = itemView.productImage
             val oldPrice = itemView.oldPriceLabel
@@ -57,6 +51,8 @@ class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.
             priceLabel.text = "Por $precoPor"
 
             Glide.with(itemView).load(product.urlImagem).into(productImage)
+
+            itemView.setOnClickListener { clickListener(product) }
         }
     }
 }

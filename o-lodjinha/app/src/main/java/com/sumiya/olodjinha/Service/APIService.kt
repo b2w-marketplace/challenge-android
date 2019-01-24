@@ -14,9 +14,12 @@ class APIService {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+//    Banners
     fun banners() = retrofit.create(APIBanner::class.java)
 
+//    Categorias
     fun categories() = retrofit.create(APICategory::class.java)
 
+//    Produtos
     fun product() = retrofit.create(APIProduct::class.java)
 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sumiya.olodjinha.Model.CategoryDataModel
+import com.sumiya.olodjinha.Model.CategoryModel
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.Service.APIService
 import com.sumiya.olodjinha.UI.Adapter.CategoryAdapter
@@ -20,7 +21,7 @@ import retrofit2.Response
 
 class CategoryFragment : Fragment() {
 
-    private var listener: OnFragmentInteractionListener? = null
+    private var listener: CategoryListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -30,10 +31,10 @@ class CategoryFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is CategoryListener) {
             listener = context
         } else {
-//            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement CategoryListener")
         }
     }
 
@@ -58,11 +59,19 @@ class CategoryFragment : Fragment() {
                 if (response != null) {
                     print(response.body())
                     val categories = response.body()!!
-                    categoriesRecycler.adapter = CategoryAdapter(categories)
+                    categoriesRecycler.adapter = CategoryAdapter(
+                            categories,
+                            { category : CategoryModel -> categoryClicked(category) }
+                    )
+
                     categoriesRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 }
             }
         })
+    }
+
+    private fun categoryClicked(category: CategoryModel) {
+        listener!!.requestProductList(category)
     }
 
     /**
@@ -76,9 +85,8 @@ class CategoryFragment : Fragment() {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+    interface CategoryListener {
+        fun requestProductList(category: CategoryModel)
     }
 
 }

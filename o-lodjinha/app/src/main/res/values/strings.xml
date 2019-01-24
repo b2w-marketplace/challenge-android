@@ -22,4 +22,5 @@
 
     <!--Mais Vendidos-->
     <string name="best_sellers_title_fragment">Mais Vendidos</string>
+    <string name="title_activity_product_detail">ProductDetailActivity</string>
 </resources>

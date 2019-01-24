@@ -1,6 +1,5 @@
 package com.sumiya.olodjinha.UI.Fragments
 
-import android.app.Service
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -13,18 +12,18 @@ import android.view.ViewGroup
 import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Adapter.BestSellersAdapter
+import com.sumiya.olodjinha.UI.Adapter.ProductAdapter
 import kotlinx.android.synthetic.main.fragment_best_sellers.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.support.v7.widget.DividerItemDecoration
-
+import com.sumiya.olodjinha.Model.ProductModel
 
 
 class BestSellersFragment : Fragment() {
 
-    private var listener: OnFragmentInteractionListener? = null
+    private var listener: BestSellersListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,10 +33,10 @@ class BestSellersFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is BestSellersListener) {
             listener = context
         } else {
-//            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement BestSellersListener")
         }
     }
 
@@ -60,30 +59,26 @@ class BestSellersFragment : Fragment() {
 
             override fun onResponse(call: Call<ProductDataModel>?, response: Response<ProductDataModel>?) {
                 if (response != null) {
-                    print(response.body())
                     val products = response.body()!!
-                    bestSellersRecycler.adapter = BestSellersAdapter(products)
+
+                    bestSellersRecycler.adapter = ProductAdapter(
+                            products,
+                            { product : ProductModel -> productClicked(product) }
+                    )
+
                     bestSellersRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-                   // ViewCompat.setNestedScrollingEnabled(bestSellersRecycler, false)
+                    ViewCompat.setNestedScrollingEnabled(bestSellersRecycler, false)
                     bestSellersRecycler.addItemDecoration(DividerItemDecoration(context!!, LinearLayoutManager.VERTICAL))
                 }
             }
         })
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+    private fun productClicked(product: ProductModel) {
+        listener!!.openProductdetail(product)
+    }
+
+    interface BestSellersListener {
+        fun openProductdetail(product: ProductModel)
     }
 }
