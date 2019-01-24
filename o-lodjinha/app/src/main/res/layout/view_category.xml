@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/categoryImage"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,6 @@
             android:id="@+id/categoryNameLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:text="TextView"
             android:textSize="13sp"

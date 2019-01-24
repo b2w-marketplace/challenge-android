@@ -1,16 +1,20 @@
 package com.sumiya.olodjinha.UI.Adapter
 
+import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.sumiya.olodjinha.Model.CategoryDataModel
-import com.sumiya.olodjinha.Model.CategoryModel
 import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
-import kotlinx.android.synthetic.main.view_category.view.*
+import kotlinx.android.synthetic.main.view_product.view.*
+import java.text.NumberFormat
+import java.util.*
+import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
+
+
 
 class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
 
@@ -24,7 +28,7 @@ class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.view_category, p0, false)
+        val view = LayoutInflater.from(p0.context).inflate(R.layout.view_product, p0, false)
 
         return ViewHolder(view)
     }
@@ -35,13 +39,24 @@ class BestSellersAdapter(private val products: ProductDataModel) : RecyclerView.
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(category: ProductModel) {
-            val categoryTitle = itemView.categoryNameLabel
-            val categoryImage = itemView.categoryImage
+        fun bindView(product: ProductModel) {
+            val productDescription = itemView.descriptionLabel
+            val productImage = itemView.productImage
+            val oldPrice = itemView.oldPriceLabel
+            val priceLabel = itemView.priceLabel
 
-            categoryTitle.text = category.descricao
+            productDescription.text = product.nome
 
-            Glide.with(itemView).load(category.urlImagem).into(categoryImage)
+            val format = NumberFormat.getCurrencyInstance(Locale("pt","BR"))
+            val precoDe = format.format(product.precoDe)
+            val precoPor = format.format(product.precoPor)
+
+            oldPrice.text = "De $precoDe"
+            oldPrice.setPaintFlags(oldPrice.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
+
+            priceLabel.text = "Por $precoPor"
+
+            Glide.with(itemView).load(product.urlImagem).into(productImage)
         }
     }
 }

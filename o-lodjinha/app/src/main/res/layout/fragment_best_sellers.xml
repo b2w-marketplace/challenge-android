@@ -10,6 +10,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/greyish" />
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
@@ -19,8 +25,14 @@
             android:text="@string/best_sellers_title_fragment"
             android:textSize="17sp"
             android:textStyle="bold" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/greyish" />
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/bestSellersRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

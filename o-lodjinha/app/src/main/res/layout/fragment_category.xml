@@ -21,6 +21,11 @@
             android:text="@string/categories_title_fragment"
             android:textSize="17sp"
             android:textStyle="bold" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/greyish" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/categoriesRecycler"

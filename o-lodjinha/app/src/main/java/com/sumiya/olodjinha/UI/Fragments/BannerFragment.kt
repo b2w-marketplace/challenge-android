@@ -7,9 +7,12 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.sumiya.olodjinha.Model.BannerDataModel
+import com.sumiya.olodjinha.Model.BannerModel
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.Service.APIService
+import kotlinx.android.synthetic.main.fragment_banner.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,10 +20,10 @@ import retrofit2.Response
 class BannerFragment : Fragment() {
 
     private var listener: OnFragmentInteractionListener? = null
+    lateinit var banner: BannerModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_banner, container, false)
     }
 
@@ -31,23 +34,12 @@ class BannerFragment : Fragment() {
         } else {
 //            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
+    }
 
-        val call = APIService().banners().list()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-        call.enqueue(object : Callback<BannerDataModel?> {
-            override fun onFailure(call: Call<BannerDataModel?>?, t: Throwable?) {
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
-            }
-
-            override fun onResponse(call: Call<BannerDataModel?>?, response: Response<BannerDataModel?>?) {
-                if (response != null) {
-                    print(response.body())
-                }
-
-            }
-        })
+        Glide.with(this).load(banner.urlImagem).into(bannerImage)
     }
 
     override fun onDetach() {
