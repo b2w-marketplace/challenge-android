@@ -13,10 +13,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.b2w.R
-import com.example.b2w.activity.CategoryActivity
+import com.example.b2w.activity.DetailCategoryActivity
 import com.example.b2w.adapter.ProductAdapter
 import com.example.b2w.model.Product
-import com.example.b2w.util.BUNDLE_CATEGORY
+import com.example.b2w.util.BUNDLE_PRODUCT
 import com.example.b2w.util.URL_PRODUCT
 import com.example.b2w.util.mountProducts
 import com.example.b2w.util.showToast
@@ -37,8 +37,8 @@ class ProductFragment : Fragment() {
 
     fun itemClicked(position: Int){
         startActivity(
-            Intent(activity!!, CategoryActivity::class.java)
-                .putExtra(BUNDLE_CATEGORY, products[position].categoria?.descricao))
+            Intent(activity!!, DetailCategoryActivity::class.java)
+                .putExtra(BUNDLE_PRODUCT, products[position]))
     }
 
     private fun retrieveProducts(){
