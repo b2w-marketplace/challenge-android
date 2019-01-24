@@ -9,12 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.b2w.R
-import com.example.b2w.fragment.ProductFragment
+import com.example.b2w.activity.CategoryActivity
 import com.example.b2w.model.Product
 import kotlinx.android.synthetic.main.adapter_product.view.*
 
-class ProductAdapter(private val activity: FragmentActivity, private val products: MutableList<Product>) :
-    RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ListAdapter(private val activity: FragmentActivity, private val products: MutableList<Product>) :
+    RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_product, parent, false))
     }
@@ -30,7 +30,7 @@ class ProductAdapter(private val activity: FragmentActivity, private val product
         holder.txtProductAfterPrice.text = "Por ${products[position].precoPor.toString()}"
 
         holder.itemView.setOnClickListener {
-            (activity.supportFragmentManager.fragments[2] as ProductFragment).itemClicked(position)
+            (activity as CategoryActivity).itemClicked(position)
         }
     }
 

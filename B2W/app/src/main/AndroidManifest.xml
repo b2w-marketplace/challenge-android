@@ -18,11 +18,19 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
+                android:name=".activity.DetailCategoryActivity"
+                android:parentActivityName=".activity.CategoryActivity"
+                android:theme="@style/Theme.AppCompat.Light"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activity.CategoryActivity"
+                android:parentActivityName=".activity.MainActivity"
+                android:screenOrientation="portrait"/>
+        <activity
                 android:name=".activity.AboutActivity"
                 android:label="@string/title_activity_about"
-                android:theme="@style/AppTheme.NoActionBar"
                 android:screenOrientation="portrait"
-        />
+                android:theme="@style/AppTheme.NoActionBar"/>
         <activity
                 android:name=".activity.MainActivity"
                 android:label="@string/app_name"
@@ -35,4 +43,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
