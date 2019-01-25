@@ -25,7 +25,8 @@
         <activity
                 android:name=".activity.CategoryActivity"
                 android:parentActivityName=".activity.MainActivity"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme4"/>
         <activity
                 android:name=".activity.AboutActivity"
                 android:label="@string/title_activity_about"

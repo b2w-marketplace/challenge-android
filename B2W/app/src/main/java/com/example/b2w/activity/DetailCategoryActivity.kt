@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
+import android.view.MenuItem
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.b2w.R
@@ -25,6 +26,16 @@ class DetailCategoryActivity : AppCompatActivity() {
         product = intent.getParcelableExtra(BUNDLE_PRODUCT)
 
         initView()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            android.R.id.home ->{
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initView(){
