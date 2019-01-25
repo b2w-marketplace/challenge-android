@@ -3,47 +3,60 @@ package com.sumiya.olodjinha.UI.Activities
 import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.app.AlertDialog
 import android.text.Html
 import com.bumptech.glide.Glide
-import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
+import com.sumiya.olodjinha.Model.ReservationModel
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Adapter.ProductAdapter
-
+import com.sumiya.olodjinha.UI.Activities.Base.BaseActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
-import kotlinx.android.synthetic.main.activity_products.*
 import kotlinx.android.synthetic.main.content_product_detail.*
-import kotlinx.android.synthetic.main.view_product.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
-class ProductDetailActivity : AppCompatActivity() {
+class ProductDetailActivity : BaseActivity() {
 
     lateinit var product: ProductModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
-        setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            val call = APIService().product().post(product.id)
+
+            call.enqueue(object : Callback<ReservationModel> {
+                override fun onFailure(call: Call<ReservationModel>?, t: Throwable?) {
+                    if (t != null) {
+                        print(t.localizedMessage)
+                    }
+                }
+
+                override fun onResponse(call: Call<ReservationModel>?, response: Response<ReservationModel>?) {
+                    if (response != null) {
+                        val builder = AlertDialog.Builder(this@ProductDetailActivity)
+                        builder.setMessage("Produto reservado com sucesso")
+                                .setCancelable(false)
+                                .setPositiveButton("OK") { dialog, id ->
+                                    finish()
+                                }
+                        val alert = builder.create()
+                        alert.show()
+                    }
+                }
+            })
         }
 
         product = (intent.extras.getSerializable("produto") as? ProductModel)!!
 
-        title = product.categoria.descricao
-
         configureData()
+
+        setupToolbar(product.categoria.descricao)
     }
 
 
@@ -84,6 +97,15 @@ class ProductDetailActivity : AppCompatActivity() {
         } else {
             productDescriptionLabel.text = Html.fromHtml(productDetail.descricao)
         }
-
+//
+//        val toolbar = findViewById<View>(R.id.prod_toolbar) as Toolbar
+//        setSupportActionBar(toolbar)
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar!!.setDisplayShowHomeEnabled(true)
+//        toolbar.setNavigationOnClickListener(object : View.OnClickListener {
+//            override fun onClick(v: View) {
+//                finish()
+//            }
+//        })
     }
 }

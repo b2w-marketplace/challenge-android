@@ -2,7 +2,6 @@ package com.sumiya.olodjinha.UI.Activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import com.sumiya.olodjinha.Model.CategoryModel
@@ -10,13 +9,14 @@ import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.Service.APIService
+import com.sumiya.olodjinha.UI.Activities.Base.BaseActivity
 import com.sumiya.olodjinha.UI.Adapter.ProductAdapter
-import kotlinx.android.synthetic.main.activity_products.*
+import kotlinx.android.synthetic.main.content_products.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductsActivity : AppCompatActivity() {
+class ProductsActivity : BaseActivity() {
     lateinit var category: CategoryModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +25,9 @@ class ProductsActivity : AppCompatActivity() {
 
         category = (intent.extras.getSerializable("category") as? CategoryModel)!!
 
-        title = category.descricao
-
         configureData()
+
+        setupToolbar(category.descricao)
     }
 
     fun configureUI() {

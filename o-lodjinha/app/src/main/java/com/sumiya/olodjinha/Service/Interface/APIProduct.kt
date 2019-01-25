@@ -2,6 +2,8 @@ package com.sumiya.olodjinha.Service.Interface
 
 import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
+import com.sumiya.olodjinha.Model.ReservationModel
+
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -21,5 +23,5 @@ interface APIProduct {
     fun get(@Path("produtoId") produtoId: Int): Call<ProductModel>
 
     @POST("produto/{produtoId}")
-    fun post(@Path("produtoId") produtoId: Int): Call<String>
+    fun post(@Path("produtoId") produtoId: Int): Call<ReservationModel>
 }

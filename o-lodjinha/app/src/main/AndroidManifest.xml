@@ -24,20 +24,24 @@
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".UI.Activities.AboutActivity"
             android:label="@string/about_title_name"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".UI.Activities.ProductsActivity" />
+
+        <activity
+            android:name=".UI.Activities.ProductsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".UI.Activities.ProductDetailActivity"
             android:label="@string/title_activity_product_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
