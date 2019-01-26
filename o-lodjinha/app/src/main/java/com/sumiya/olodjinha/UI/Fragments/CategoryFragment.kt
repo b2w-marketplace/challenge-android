@@ -1,19 +1,17 @@
-package com.sumiya.olodjinha.UI.Fragments
+package com.sumiya.olodjinha.ui.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sumiya.olodjinha.Model.CategoryDataModel
-import com.sumiya.olodjinha.Model.CategoryModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Adapter.CategoryAdapter
+import com.sumiya.olodjinha.ui.adapter.CategoryAdapter
+import com.sumiya.olodjinha.model.CategoryDataModel
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.service.APIService
 import kotlinx.android.synthetic.main.fragment_category.*
 import retrofit2.Call
 import retrofit2.Callback

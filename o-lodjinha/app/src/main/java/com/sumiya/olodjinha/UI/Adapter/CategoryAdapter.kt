@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Adapter
+package com.sumiya.olodjinha.ui.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.sumiya.olodjinha.Model.CategoryDataModel
-import com.sumiya.olodjinha.Model.CategoryModel
+import com.sumiya.olodjinha.model.CategoryDataModel
+import com.sumiya.olodjinha.model.CategoryModel
 import com.sumiya.olodjinha.R
 import kotlinx.android.synthetic.main.view_category.view.*
 

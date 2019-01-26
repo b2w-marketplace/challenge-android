@@ -1,9 +1,9 @@
-package com.sumiya.olodjinha.Service.Interface
+package com.sumiya.olodjinha.service.`interface`
 
-import com.sumiya.olodjinha.Constants.APIConstants
-import com.sumiya.olodjinha.Model.ProductDataModel
-import com.sumiya.olodjinha.Model.ProductModel
-import com.sumiya.olodjinha.Model.ReservationModel
+import com.sumiya.olodjinha.constants.APIConstants
+import com.sumiya.olodjinha.model.ProductDataModel
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.model.ReservationModel
 
 import retrofit2.Call
 import retrofit2.http.GET

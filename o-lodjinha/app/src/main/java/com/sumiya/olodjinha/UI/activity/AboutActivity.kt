@@ -1,8 +1,8 @@
-package com.sumiya.olodjinha.UI.Activities
+package com.sumiya.olodjinha.ui.activity
 
 import android.os.Bundle
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.UI.Activities.Base.BaseDrawerActivity
+import com.sumiya.olodjinha.ui.activity.base.BaseDrawerActivity
 import kotlinx.android.synthetic.main.app_bar_home.*
 
 class AboutActivity : BaseDrawerActivity() {

@@ -1,10 +1,10 @@
-package com.sumiya.olodjinha.UI.Adapter
+package com.sumiya.olodjinha.ui.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import com.sumiya.olodjinha.Model.BannerDataModel
-import com.sumiya.olodjinha.UI.Fragments.BannerFragment
+import com.sumiya.olodjinha.model.BannerDataModel
+import com.sumiya.olodjinha.ui.fragments.BannerFragment
 
 class BannerPagerAdapter(fragmentManager: FragmentManager, private val banners: BannerDataModel) :
         FragmentStatePagerAdapter(fragmentManager) {

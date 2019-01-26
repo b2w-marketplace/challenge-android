@@ -1,10 +1,10 @@
-package com.sumiya.olodjinha.DataSource
+package com.sumiya.olodjinha.dataSource
 
 import android.arch.paging.PageKeyedDataSource
-import com.sumiya.olodjinha.Model.CategoryModel
-import com.sumiya.olodjinha.Model.ProductDataModel
-import com.sumiya.olodjinha.Model.ProductModel
-import com.sumiya.olodjinha.Service.APIService
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.model.ProductDataModel
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.service.APIService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

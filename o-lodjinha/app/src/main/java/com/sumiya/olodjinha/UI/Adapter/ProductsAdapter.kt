@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Adapter
+package com.sumiya.olodjinha.ui.adapter
 
 import android.arch.paging.PagedListAdapter
 import android.graphics.Paint
@@ -9,13 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.sumiya.olodjinha.Model.ProductDataModel
-import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
+import com.sumiya.olodjinha.model.ProductModel
 import kotlinx.android.synthetic.main.view_product.view.*
 import java.text.NumberFormat
 import java.util.*
-
 
 class ProductsAdapter(val clickListener: (ProductModel) -> Unit):
         PagedListAdapter<ProductModel, ProductsAdapter.ProductViewHolder>(DIFF_CALLBACK) {

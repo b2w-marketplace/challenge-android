@@ -1,10 +1,10 @@
-package com.sumiya.olodjinha.DataSource
+package com.sumiya.olodjinha.dataSource
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.DataSource
 import android.arch.paging.PageKeyedDataSource
-import com.sumiya.olodjinha.Model.CategoryModel
-import com.sumiya.olodjinha.Model.ProductModel
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.model.ProductModel
 
 class ProductsDataSourceFactory(var category: CategoryModel): DataSource.Factory<Int,ProductModel>() {
 

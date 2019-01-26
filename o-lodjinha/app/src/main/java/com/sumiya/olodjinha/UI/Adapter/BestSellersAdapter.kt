@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Adapter
+package com.sumiya.olodjinha.ui.adapter
 
 import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.sumiya.olodjinha.Model.ProductDataModel
-import com.sumiya.olodjinha.Model.ProductModel
+import com.sumiya.olodjinha.model.ProductDataModel
+import com.sumiya.olodjinha.model.ProductModel
 import com.sumiya.olodjinha.R
 import kotlinx.android.synthetic.main.view_product.view.*
 import java.text.NumberFormat
 import java.util.*
-
 
 class ProductAdapter(private val products: ProductDataModel, val clickListener: (ProductModel) -> Unit) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 

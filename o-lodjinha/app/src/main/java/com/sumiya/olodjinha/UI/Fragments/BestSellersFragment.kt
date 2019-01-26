@@ -1,7 +1,6 @@
-package com.sumiya.olodjinha.UI.Fragments
+package com.sumiya.olodjinha.ui.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewCompat
@@ -9,17 +8,16 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sumiya.olodjinha.Model.ProductDataModel
+import com.sumiya.olodjinha.model.ProductDataModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Adapter.ProductAdapter
+import com.sumiya.olodjinha.ui.adapter.ProductAdapter
 import kotlinx.android.synthetic.main.fragment_best_sellers.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.support.v7.widget.DividerItemDecoration
-import com.sumiya.olodjinha.Model.ProductModel
-
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.service.APIService
 
 class BestSellersFragment : Fragment() {
 

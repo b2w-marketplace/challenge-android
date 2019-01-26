@@ -1,14 +1,14 @@
-package com.sumiya.olodjinha.ViewModel
+package com.sumiya.olodjinha.viewModel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PageKeyedDataSource
 import android.arch.paging.PagedList
-import com.sumiya.olodjinha.DataSource.ProductsDataSource
-import com.sumiya.olodjinha.DataSource.ProductsDataSourceFactory
-import com.sumiya.olodjinha.Model.CategoryModel
-import com.sumiya.olodjinha.Model.ProductModel
+import com.sumiya.olodjinha.dataSource.ProductsDataSource
+import com.sumiya.olodjinha.dataSource.ProductsDataSourceFactory
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.model.ProductModel
 
 class ProductViewModel(category: CategoryModel): ViewModel() {
 

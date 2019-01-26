@@ -1,10 +1,9 @@
-package com.sumiya.olodjinha.Service
+package com.sumiya.olodjinha.service
 
-import com.sumiya.olodjinha.Constants.APIConstants
-
-import com.sumiya.olodjinha.Service.Interface.APIBanner
-import com.sumiya.olodjinha.Service.Interface.APICategory
-import com.sumiya.olodjinha.Service.Interface.APIProduct
+import com.sumiya.olodjinha.constants.APIConstants
+import com.sumiya.olodjinha.service.`interface`.APIBanner
+import com.sumiya.olodjinha.service.`interface`.APICategory
+import com.sumiya.olodjinha.service.`interface`.APIProduct
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

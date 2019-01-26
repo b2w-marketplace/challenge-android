@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Fragments
+package com.sumiya.olodjinha.ui.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -8,15 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.sumiya.olodjinha.Model.BannerDataModel
-import com.sumiya.olodjinha.Model.BannerModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.Service.APIService
+import com.sumiya.olodjinha.model.BannerModel
 import kotlinx.android.synthetic.main.fragment_banner.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class BannerFragment : Fragment() {
 

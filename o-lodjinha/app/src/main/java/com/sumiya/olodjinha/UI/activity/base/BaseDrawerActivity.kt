@@ -1,14 +1,13 @@
-package com.sumiya.olodjinha.UI.Activities.Base
+package com.sumiya.olodjinha.ui.activity.base
 
 import android.content.Intent
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.UI.Activities.AboutActivity
-import com.sumiya.olodjinha.UI.Activities.HomeActivity
+import com.sumiya.olodjinha.ui.activity.AboutActivity
+import com.sumiya.olodjinha.ui.activity.HomeActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 

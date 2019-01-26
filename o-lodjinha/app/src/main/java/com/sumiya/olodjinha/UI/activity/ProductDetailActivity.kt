@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Activities
+package com.sumiya.olodjinha.ui.activity
 
 import android.graphics.Paint
 import android.os.Build
@@ -7,11 +7,11 @@ import android.support.v7.app.AlertDialog
 import android.text.Html
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.sumiya.olodjinha.Model.ProductModel
-import com.sumiya.olodjinha.Model.ReservationModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Activities.Base.BaseActivity
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.model.ReservationModel
+import com.sumiya.olodjinha.service.APIService
+import com.sumiya.olodjinha.ui.activity.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.content_product_detail.*
 import retrofit2.Call

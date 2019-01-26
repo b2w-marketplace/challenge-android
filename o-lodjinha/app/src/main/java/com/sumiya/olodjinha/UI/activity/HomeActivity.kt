@@ -1,16 +1,14 @@
-package com.sumiya.olodjinha.UI.Activities
+package com.sumiya.olodjinha.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.sumiya.olodjinha.Model.BannerDataModel
-import com.sumiya.olodjinha.Model.CategoryModel
-import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.Service.APIService
-import com.sumiya.olodjinha.UI.Activities.Base.BaseDrawerActivity
-import com.sumiya.olodjinha.UI.Adapter.BannerPagerAdapter
-import com.sumiya.olodjinha.UI.Fragments.BestSellersFragment
-import com.sumiya.olodjinha.UI.Fragments.CategoryFragment
+import com.sumiya.olodjinha.ui.adapter.BannerPagerAdapter
+import com.sumiya.olodjinha.ui.fragments.BestSellersFragment
+import com.sumiya.olodjinha.ui.fragments.CategoryFragment
+import com.sumiya.olodjinha.model.*
+import com.sumiya.olodjinha.service.APIService
+import com.sumiya.olodjinha.ui.activity.base.BaseDrawerActivity
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import retrofit2.Call

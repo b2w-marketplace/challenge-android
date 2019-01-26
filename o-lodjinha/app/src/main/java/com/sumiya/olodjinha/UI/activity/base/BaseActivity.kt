@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Activities.Base
+package com.sumiya.olodjinha.ui.activity.base
 
 import android.app.ProgressDialog
 import android.os.Bundle

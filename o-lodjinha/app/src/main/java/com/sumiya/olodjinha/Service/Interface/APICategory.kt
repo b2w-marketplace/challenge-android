@@ -1,7 +1,7 @@
-package com.sumiya.olodjinha.Service.Interface
+package com.sumiya.olodjinha.service.`interface`
 
-import com.sumiya.olodjinha.Constants.APIConstants
-import com.sumiya.olodjinha.Model.CategoryDataModel
+import com.sumiya.olodjinha.constants.APIConstants
+import com.sumiya.olodjinha.model.CategoryDataModel
 import retrofit2.Call
 import retrofit2.http.GET
 

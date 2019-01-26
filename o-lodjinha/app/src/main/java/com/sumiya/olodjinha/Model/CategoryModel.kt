@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.Model
+package com.sumiya.olodjinha.model
 
 import java.io.Serializable
 

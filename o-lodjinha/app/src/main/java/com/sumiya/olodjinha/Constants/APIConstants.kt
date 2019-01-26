@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.Constants
+package com.sumiya.olodjinha.constants
 
 class APIConstants {
     companion object {

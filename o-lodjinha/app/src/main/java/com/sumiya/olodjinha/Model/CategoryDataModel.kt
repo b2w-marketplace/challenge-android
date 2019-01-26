@@ -1,3 +1,3 @@
-package com.sumiya.olodjinha.Model
+package com.sumiya.olodjinha.model
 
 class CategoryDataModel(val data: List<CategoryModel>)

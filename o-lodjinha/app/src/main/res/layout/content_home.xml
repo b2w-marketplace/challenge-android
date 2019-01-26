@@ -41,13 +41,13 @@
 
             <fragment
                 android:id="@+id/fragment2"
-                android:name="com.sumiya.olodjinha.UI.Fragments.CategoryFragment"
+                android:name="com.sumiya.olodjinha.ui.fragments.CategoryFragment"
                 android:layout_width="match_parent"
                 android:layout_height="160dp" />
 
             <fragment
                 android:id="@+id/fragment3"
-                android:name="com.sumiya.olodjinha.UI.Fragments.BestSellersFragment"
+                android:name="com.sumiya.olodjinha.ui.fragments.BestSellersFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

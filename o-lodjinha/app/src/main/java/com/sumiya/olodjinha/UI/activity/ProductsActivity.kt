@@ -1,4 +1,4 @@
-package com.sumiya.olodjinha.UI.Activities
+package com.sumiya.olodjinha.ui.activity
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -7,13 +7,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import com.sumiya.olodjinha.Model.CategoryModel
-import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.UI.Activities.Base.BaseActivity
-import com.sumiya.olodjinha.UI.Adapter.ProductsAdapter
-import com.sumiya.olodjinha.ViewModel.ProductViewModel
-import com.sumiya.olodjinha.ViewModel.ProductViewModelFactory
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.ui.activity.base.BaseActivity
+import com.sumiya.olodjinha.ui.adapter.ProductsAdapter
+import com.sumiya.olodjinha.viewModel.ProductViewModel
+import com.sumiya.olodjinha.viewModel.ProductViewModelFactory
 import kotlinx.android.synthetic.main.content_products.*
 
 class ProductsActivity : BaseActivity() {
