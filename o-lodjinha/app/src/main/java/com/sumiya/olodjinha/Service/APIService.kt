@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class APIService {
     private val retrofit = Retrofit.Builder()
-            .baseUrl(APIConstants.apiUrl)
+            .baseUrl(APIConstants.API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

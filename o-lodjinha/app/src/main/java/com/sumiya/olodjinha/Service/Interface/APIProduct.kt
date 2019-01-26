@@ -1,5 +1,6 @@
 package com.sumiya.olodjinha.Service.Interface
 
+import com.sumiya.olodjinha.Constants.APIConstants
 import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.Model.ReservationModel
@@ -11,17 +12,17 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface APIProduct {
-    @GET("produto")
-    fun list(@Query("offset") offset: Int,
-             @Query("limit") limit: Int,
-             @Query("categoriaId") categoriaId: Int): Call<ProductDataModel>
+    @GET(APIConstants.PRODUCT_ENDPOINT)
+    fun list(@Query(APIConstants.OFFSET_QUERY) offset: Int,
+             @Query(APIConstants.LIMIT_QUERY) limit: Int,
+             @Query(APIConstants.CATEGORY_ID_QUERY) categoriaId: Int): Call<ProductDataModel>
 
-    @GET("produto/maisvendidos")
+    @GET(APIConstants.PRODUCT_ENDPOINT + APIConstants.BEST_SELLER_ENDPOINT)
     fun listTop(): Call<ProductDataModel>
 
-    @GET("produto/{produtoId}")
-    fun get(@Path("produtoId") produtoId: Int): Call<ProductModel>
+    @GET(APIConstants.PRODUCT_ENDPOINT + "/{" + APIConstants.PRODUCT_ID_PATH + "}")
+    fun get(@Path(APIConstants.PRODUCT_ID_PATH) produtoId: Int): Call<ProductModel>
 
-    @POST("produto/{produtoId}")
-    fun post(@Path("produtoId") produtoId: Int): Call<ReservationModel>
+    @POST(APIConstants.PRODUCT_ENDPOINT + "/{" + APIConstants.PRODUCT_ID_PATH + "}")
+    fun post(@Path(APIConstants.PRODUCT_ID_PATH) produtoId: Int): Call<ReservationModel>
 }
