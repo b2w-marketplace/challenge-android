@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.sumiya.olodjinha.Model.ProductDataModel
 import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.R
@@ -50,7 +51,12 @@ class ProductAdapter(private val products: ProductDataModel, val clickListener: 
 
             priceLabel.text = "Por $precoPor"
 
-            Glide.with(itemView).load(product.urlImagem).into(productImage)
+            Glide
+                    .with(itemView)
+                    .load(product.urlImagem)
+                    .apply(RequestOptions()
+                            .placeholder(R.drawable.ic_error_outline_black_24dp))
+                    .into(productImage)
 
             itemView.setOnClickListener { clickListener(product) }
         }

@@ -1,13 +1,16 @@
 package com.sumiya.olodjinha.UI.Activities.Base
 
+import android.app.ProgressDialog
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
 open class BaseActivity: AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+
+    private var progress: ProgressDialog? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setSupportActionBar(toolbar)
     }
 
@@ -18,9 +21,23 @@ open class BaseActivity: AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
-    // don't forget click listener for back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun showLoading(message: String) {
+        if (progress == null) {
+            progress = ProgressDialog(this)
+            progress!!.setMessage(message)
+        }
+
+        progress!!.show()
+    }
+
+    fun hideLoading() {
+        if (progress != null && progress!!.isShowing) {
+            progress!!.dismiss()
+        }
     }
 }

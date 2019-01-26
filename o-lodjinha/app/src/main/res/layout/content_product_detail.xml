@@ -28,9 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="TextView"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_medium" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,7 +45,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="TextView" />
+                    android:textColor="@color/greyish"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_medium" />
 
                 <TextView
                     android:id="@+id/productPriceLabel"
@@ -54,20 +56,23 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:padding="5dp"
-                    android:text="TextView" />
+                    android:textColor="@color/tomato"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/productLabel"
+                android:id="@+id/productCategoryLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:padding="5dp"
-                android:text="TextView"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold" />
 
             <TextView
                 android:id="@+id/productDescriptionLabel"
@@ -78,7 +83,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:text="TextView" />
+                app:fontFamily="@font/roboto_medium" />
         </LinearLayout>
     </ScrollView>
 

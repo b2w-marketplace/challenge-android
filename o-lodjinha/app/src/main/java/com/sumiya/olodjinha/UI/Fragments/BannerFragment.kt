@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.sumiya.olodjinha.Model.BannerDataModel
 import com.sumiya.olodjinha.Model.BannerModel
 import com.sumiya.olodjinha.R
@@ -39,7 +40,10 @@ class BannerFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        Glide.with(this).load(banner.urlImagem).into(bannerImage)
+        Glide
+                .with(this)
+                .load(banner.urlImagem)
+                .into(bannerImage)
     }
 
     override fun onDetach() {

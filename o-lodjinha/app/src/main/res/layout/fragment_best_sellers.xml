@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:padding="10dp"
+            android:fontFamily="@font/roboto_bold"
             android:text="@string/best_sellers_title_fragment"
             android:textSize="17sp"
             android:textStyle="bold" />

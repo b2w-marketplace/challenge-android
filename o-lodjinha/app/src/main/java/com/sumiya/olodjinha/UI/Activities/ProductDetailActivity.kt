@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.text.Html
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.sumiya.olodjinha.Model.ProductModel
 import com.sumiya.olodjinha.Model.ReservationModel
 import com.sumiya.olodjinha.R
@@ -20,15 +21,25 @@ import java.text.NumberFormat
 import java.util.*
 
 class ProductDetailActivity : BaseActivity() {
-
-    lateinit var product: ProductModel
+    var product: ProductModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
+        product = (intent.extras.getSerializable("produto") as? ProductModel)!!
+        setupToolbar(product?.categoria?.descricao!!)
+
+        configureFab()
+
+        showLoading("Carregando Produto")
+
+        configureData()
+    }
+
+    fun configureFab() {
         fab.setOnClickListener { view ->
-            val call = APIService().product().post(product.id)
+            val call = APIService().product().post(product?.id!!)
 
             call.enqueue(object : Callback<ReservationModel> {
                 override fun onFailure(call: Call<ReservationModel>?, t: Throwable?) {
@@ -51,26 +62,21 @@ class ProductDetailActivity : BaseActivity() {
                 }
             })
         }
-
-        product = (intent.extras.getSerializable("produto") as? ProductModel)!!
-
-        configureData()
-
-        setupToolbar(product.categoria.descricao)
     }
 
-
     fun configureData() {
-        val call = APIService().product().get(product.id)
+        val call = APIService().product().get(product?.id!!)
 
         call.enqueue(object : Callback<ProductModel> {
             override fun onFailure(call: Call<ProductModel>?, t: Throwable?) {
+                hideLoading()
                 if (t != null) {
                     print(t.localizedMessage)
                 }
             }
 
             override fun onResponse(call: Call<ProductModel>?, response: Response<ProductModel>?) {
+                hideLoading()
                 if (response != null) {
                     configureUI(response.body()!!)
                 }
@@ -79,16 +85,22 @@ class ProductDetailActivity : BaseActivity() {
     }
 
     fun configureUI(productDetail: ProductModel) {
-        Glide.with(this).load(productDetail.urlImagem).into(productDetailImage)
+        Glide
+                .with(this)
+                .load(productDetail.urlImagem)
+                .apply(RequestOptions()
+                        .placeholder(R.drawable.ic_error_outline_black_24dp))
+                .into(productDetailImage)
 
         productTitleLabel.text = productDetail.nome
+        productCategoryLabel.text = productDetail.categoria.descricao
 
         val format = NumberFormat.getCurrencyInstance(Locale("pt","BR"))
         val precoDe = format.format(productDetail.precoDe)
         val precoPor = format.format(productDetail.precoPor)
 
         productOldPriceLabel.text = "De $precoDe"
-        productOldPriceLabel.setPaintFlags(productOldPriceLabel.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
+        productOldPriceLabel.paintFlags = productOldPriceLabel.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
         productPriceLabel.text = "Por $precoPor"
 
@@ -97,15 +109,5 @@ class ProductDetailActivity : BaseActivity() {
         } else {
             productDescriptionLabel.text = Html.fromHtml(productDetail.descricao)
         }
-//
-//        val toolbar = findViewById<View>(R.id.prod_toolbar) as Toolbar
-//        setSupportActionBar(toolbar)
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar!!.setDisplayShowHomeEnabled(true)
-//        toolbar.setNavigationOnClickListener(object : View.OnClickListener {
-//            override fun onClick(v: View) {
-//                finish()
-//            }
-//        })
     }
 }

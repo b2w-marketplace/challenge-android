@@ -12,12 +12,8 @@ import com.sumiya.olodjinha.UI.Activities.HomeActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 
-open class BaseDrawerActivity: AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
-    open fun configureData() {
-
-    }
-
-    open fun configureUI() {
+open class BaseDrawerActivity: BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
+    open fun configureDrawer() {
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)

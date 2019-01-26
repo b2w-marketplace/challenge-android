@@ -24,21 +24,24 @@ class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener, Be
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
 
+        configureDrawer()
         configureUI()
         configureData()
     }
 
-    override fun configureData() {
+    fun configureData() {
         val call = APIService().banners().list()
 
         call.enqueue(object : Callback<BannerDataModel?> {
             override fun onFailure(call: Call<BannerDataModel?>?, t: Throwable?) {
+                hideLoading()
                 if (t != null) {
                     print(t.localizedMessage)
                 }
             }
 
             override fun onResponse(call: Call<BannerDataModel?>?, response: Response<BannerDataModel?>?) {
+                hideLoading()
                 if (response != null) {
                     print(response.body())
 
@@ -50,9 +53,8 @@ class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener, Be
         })
     }
 
-    override fun configureUI() {
-        super.configureUI()
-
+    fun configureUI() {
+        showLoading("Carregando a Lodjinha")
     }
 
     override fun requestProductList(category: CategoryModel) {

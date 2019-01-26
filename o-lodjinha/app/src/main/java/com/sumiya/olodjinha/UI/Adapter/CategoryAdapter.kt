@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.sumiya.olodjinha.Model.CategoryDataModel
 import com.sumiya.olodjinha.Model.CategoryModel
 import com.sumiya.olodjinha.R
@@ -38,7 +39,12 @@ class CategoryAdapter(private val categories: CategoryDataModel, val clickListen
 
             categoryTitle.text = category.descricao
 
-            Glide.with(itemView).load(category.urlImagem).into(categoryImage)
+            Glide
+                    .with(categoryImage.context)
+                    .load(category.urlImagem)
+                    .apply(RequestOptions()
+                            .placeholder(R.drawable.ic_error_outline_black_24dp))
+                    .into(categoryImage)
 
             itemView.setOnClickListener { clickListener(category)}
         }

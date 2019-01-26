@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:orientation="vertical">
-
     <ImageView
         android:id="@+id/categoryImage"
         android:layout_width="match_parent"
@@ -22,6 +21,7 @@
         android:gravity="center_horizontal"
         android:text="TextView"
         android:textSize="13sp"
+        app:fontFamily="@font/roboto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryImage" />
 

@@ -12,6 +12,6 @@ class AboutActivity : BaseDrawerActivity() {
         setContentView(R.layout.activity_about)
         setSupportActionBar(toolbar)
 
-        configureUI()
+        configureDrawer()
     }
 }
