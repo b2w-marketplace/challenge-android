@@ -1,12 +1,9 @@
 package com.sumiya.olodjinha.ui.activity
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.view.ViewGroup
-import android.widget.TextView
+import android.view.LayoutInflater
 import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.constants.ModelKeyConstants
 import com.sumiya.olodjinha.contracts.ViewHomeContract
@@ -21,13 +18,6 @@ import com.sumiya.olodjinha.ui.fragments.BestSellersFragment
 import com.sumiya.olodjinha.ui.fragments.CategoryFragment
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
-import android.widget.RelativeLayout
-import android.support.v4.content.res.ResourcesCompat
-import android.graphics.Typeface
-import android.support.v7.app.ActionBar
-import android.view.LayoutInflater
-
-
 
 
 class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener,
@@ -59,11 +49,7 @@ class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener,
         val inflator = LayoutInflater.from(this)
         val v = inflator.inflate(R.layout.layout_title_view, null)
 
-        //(v.findViewById(R.id.title) as TextView).text = this.title
-
         this.supportActionBar?.setCustomView(v)
-
-//        this.supportActionBar?.setIcon(R.drawable.logo_navbar)
     }
 
     fun configureData() {
