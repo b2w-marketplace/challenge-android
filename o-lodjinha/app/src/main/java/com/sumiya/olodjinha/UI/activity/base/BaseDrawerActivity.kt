@@ -11,7 +11,8 @@ import com.sumiya.olodjinha.ui.activity.HomeActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 
-open class BaseDrawerActivity: BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
+open class BaseDrawerActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+    //Drawer Methods
     open fun configureDrawer() {
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -33,17 +34,23 @@ open class BaseDrawerActivity: BaseActivity() , NavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId) {
             R.id.nav_home -> {
-                startActivity(Intent(this@BaseDrawerActivity, HomeActivity::class.java))
-                finish()
+                if (this !is HomeActivity) {
+                    finish()
+                }
             }
 
             R.id.nav_sobre -> {
-                startActivity(Intent(this@BaseDrawerActivity, AboutActivity::class.java))
-                finish()
+                if (this !is AboutActivity) {
+                    startActivity(Intent(this@BaseDrawerActivity, AboutActivity::class.java))
+                    if (this !is HomeActivity) {
+                        finish()
+                    }
+                }
             }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
+
         return true
     }
 }

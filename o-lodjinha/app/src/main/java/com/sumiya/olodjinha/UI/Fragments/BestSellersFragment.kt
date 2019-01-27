@@ -4,25 +4,24 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sumiya.olodjinha.model.ProductDataModel
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.ui.adapter.ProductAdapter
-import kotlinx.android.synthetic.main.fragment_best_sellers.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import android.support.v7.widget.DividerItemDecoration
+import com.sumiya.olodjinha.contracts.ViewBestSellersFragmentContract
+import com.sumiya.olodjinha.model.ProductDataModel
 import com.sumiya.olodjinha.model.ProductModel
-import com.sumiya.olodjinha.service.APIService
+import com.sumiya.olodjinha.presenter.BestSellersPresenter
+import com.sumiya.olodjinha.ui.adapter.BestSellersAdapter
+import kotlinx.android.synthetic.main.fragment_best_sellers.*
 
-class BestSellersFragment : Fragment() {
-
+class BestSellersFragment : Fragment(), ViewBestSellersFragmentContract {
+    //Variables
     private var listener: BestSellersListener? = null
 
+    //Lifecycle
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -46,36 +45,28 @@ class BestSellersFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val call = APIService().product().listTop()
-
-        call.enqueue(object : Callback<ProductDataModel> {
-            override fun onFailure(call: Call<ProductDataModel>?, t: Throwable?) {
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
-            }
-
-            override fun onResponse(call: Call<ProductDataModel>?, response: Response<ProductDataModel>?) {
-                if (response != null) {
-                    val products = response.body()!!
-
-                    bestSellersRecycler.adapter = ProductAdapter(
-                            products,
-                            { product : ProductModel -> productClicked(product) }
-                    )
-
-                    bestSellersRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-                    ViewCompat.setNestedScrollingEnabled(bestSellersRecycler, false)
-                    bestSellersRecycler.addItemDecoration(DividerItemDecoration(context!!, LinearLayoutManager.VERTICAL))
-                }
-            }
-        })
+        val bestSellersPresenter = BestSellersPresenter(this)
+        bestSellersPresenter.getBestSellers()
     }
 
+    //Contract
+    override fun setSalesResponse(products: ProductDataModel) {
+        bestSellersRecycler.adapter = BestSellersAdapter(
+                products,
+                { product: ProductModel -> productClicked(product) }
+        )
+
+        bestSellersRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        ViewCompat.setNestedScrollingEnabled(bestSellersRecycler, false)
+        bestSellersRecycler.addItemDecoration(DividerItemDecoration(context!!, LinearLayoutManager.VERTICAL))
+    }
+
+    // Listeners
     private fun productClicked(product: ProductModel) {
         listener!!.openProductdetail(product)
     }
 
+    //Fragment Listener
     interface BestSellersListener {
         fun openProductdetail(product: ProductModel)
     }

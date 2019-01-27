@@ -10,7 +10,7 @@ import com.sumiya.olodjinha.dataSource.ProductsDataSourceFactory
 import com.sumiya.olodjinha.model.CategoryModel
 import com.sumiya.olodjinha.model.ProductModel
 
-class ProductViewModel(category: CategoryModel): ViewModel() {
+class ProductViewModel(category: CategoryModel) : ViewModel() {
 
     var itemPagedList: LiveData<PagedList<ProductModel>>
     var liveDataSource: LiveData<PageKeyedDataSource<Int, ProductModel>>

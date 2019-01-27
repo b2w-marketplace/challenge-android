@@ -6,7 +6,7 @@ import android.arch.paging.PageKeyedDataSource
 import com.sumiya.olodjinha.model.CategoryModel
 import com.sumiya.olodjinha.model.ProductModel
 
-class ProductsDataSourceFactory(var category: CategoryModel): DataSource.Factory<Int,ProductModel>() {
+class ProductsDataSourceFactory(var category: CategoryModel) : DataSource.Factory<Int, ProductModel>() {
 
     private val productLiveDataSource = MutableLiveData<PageKeyedDataSource<Int, ProductModel>>()
 

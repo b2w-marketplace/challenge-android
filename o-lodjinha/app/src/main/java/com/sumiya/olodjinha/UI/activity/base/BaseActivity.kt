@@ -5,16 +5,18 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private var progress: ProgressDialog? = null
 
+    //Lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(toolbar)
     }
 
-    fun setupToolbar(title: String){
+    //Toolbar Methods
+    fun setupToolbar(title: String) {
         toolbar.title = title
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -26,6 +28,7 @@ open class BaseActivity: AppCompatActivity() {
         return true
     }
 
+    //Loading Methods
     fun showLoading(message: String) {
         if (progress == null) {
             progress = ProgressDialog(this)

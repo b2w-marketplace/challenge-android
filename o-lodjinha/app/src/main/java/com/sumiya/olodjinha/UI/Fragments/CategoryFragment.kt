@@ -8,19 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sumiya.olodjinha.R
-import com.sumiya.olodjinha.ui.adapter.CategoryAdapter
+import com.sumiya.olodjinha.contracts.ViewCategoryFragmentContract
 import com.sumiya.olodjinha.model.CategoryDataModel
 import com.sumiya.olodjinha.model.CategoryModel
-import com.sumiya.olodjinha.service.APIService
+import com.sumiya.olodjinha.presenter.CategoryPresenter
+import com.sumiya.olodjinha.ui.adapter.CategoryAdapter
 import kotlinx.android.synthetic.main.fragment_category.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class CategoryFragment : Fragment() {
-
+class CategoryFragment : Fragment(), ViewCategoryFragmentContract {
+    //Variables
     private var listener: CategoryListener? = null
 
+    //Lifecycle
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -44,45 +43,25 @@ class CategoryFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val call = APIService().categories().list()
-
-        call.enqueue(object : Callback<CategoryDataModel>{
-            override fun onFailure(call: Call<CategoryDataModel>?, t: Throwable?) {
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
-            }
-
-            override fun onResponse(call: Call<CategoryDataModel>?, response: Response<CategoryDataModel>?) {
-                if (response != null) {
-                    print(response.body())
-                    val categories = response.body()!!
-                    categoriesRecycler.adapter = CategoryAdapter(
-                            categories,
-                            { category : CategoryModel -> categoryClicked(category) }
-                    )
-
-                    categoriesRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-                }
-            }
-        })
+        val categoryPresenter = CategoryPresenter(this)
+        categoryPresenter.getCategories()
     }
 
+    //Actions
     private fun categoryClicked(category: CategoryModel) {
         listener!!.requestProductList(category)
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
+    //Contract
+    override fun setCategoryResponse(categories: CategoryDataModel) {
+        categoriesRecycler.adapter = CategoryAdapter(
+                categories
+        ) { category: CategoryModel -> categoryClicked(category) }
+
+        categoriesRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    //Listener Interface
     interface CategoryListener {
         fun requestProductList(category: CategoryModel)
     }

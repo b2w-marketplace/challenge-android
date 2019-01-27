@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductsDataSource(private var category: CategoryModel): PageKeyedDataSource<Int,ProductModel>() {
+class ProductsDataSource(private var category: CategoryModel) : PageKeyedDataSource<Int, ProductModel>() {
     companion object {
         const val PAGE_SIZE = 20
     }
@@ -29,14 +29,14 @@ class ProductsDataSource(private var category: CategoryModel): PageKeyedDataSour
             override fun onResponse(call: Call<ProductDataModel>?, response: Response<ProductDataModel>?) {
                 if (response != null) {
                     serviceOffset += PAGE_SIZE
-                    callback.onResult(response.body()!!.data,null,serviceOffset)
+                    callback.onResult(response.body()!!.data, null, serviceOffset)
                 }
             }
         })
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, ProductModel>) {
-        val call = APIService().product().list(serviceOffset, PAGE_SIZE,category.id)
+        val call = APIService().product().list(serviceOffset, PAGE_SIZE, category.id)
 
         call.enqueue(object : Callback<ProductDataModel> {
             override fun onFailure(call: Call<ProductDataModel>?, t: Throwable?) {
@@ -55,13 +55,11 @@ class ProductsDataSource(private var category: CategoryModel): PageKeyedDataSour
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, ProductModel>) {
-        val call = APIService().product().list(serviceOffset, PAGE_SIZE,category.id)
+        val call = APIService().product().list(serviceOffset, PAGE_SIZE, category.id)
 
         call.enqueue(object : Callback<ProductDataModel> {
             override fun onFailure(call: Call<ProductDataModel>?, t: Throwable?) {
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
+                if (t != null) print(t.localizedMessage)
             }
 
             override fun onResponse(call: Call<ProductDataModel>?, response: Response<ProductDataModel>?) {

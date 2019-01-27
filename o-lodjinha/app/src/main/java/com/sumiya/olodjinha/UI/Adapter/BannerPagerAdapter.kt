@@ -8,14 +8,12 @@ import com.sumiya.olodjinha.ui.fragments.BannerFragment
 
 class BannerPagerAdapter(fragmentManager: FragmentManager, private val banners: BannerDataModel) :
         FragmentStatePagerAdapter(fragmentManager) {
-
     override fun getItem(position: Int): Fragment {
         var bannerFrag = BannerFragment()
         bannerFrag.banner = banners.data[position]
 
-        return  bannerFrag
+        return bannerFrag
     }
-
 
     override fun getCount(): Int {
         return banners.data.size

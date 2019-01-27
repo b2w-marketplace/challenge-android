@@ -10,11 +10,18 @@
     <!--Activities-->
     <!--Home-->
     <string name="home_title_name">a Lodjinha</string>
+    <string name="loading_home">"Carregando a Lodjinha"</string>
 
     <!--Sobre-->
     <string name="about_title_name">Sobre</string>
     <string name="devName">Eduardo Alves Sumiya</string>
     <string name="devDate">26 de janeiro de 2018</string>
+
+    <!--Detalhe Produto-->
+    <string name="loading_product">Carregando Produto</string>
+    <string name="success_reservation">Produto reservado com sucesso</string>
+    <string name="failure_reservation">Falha na reserva do Produto</string>
+    <string name="ok_button">OK</string>
 
     <!--Fragments-->
     <!--Categorias-->
@@ -22,5 +29,11 @@
 
     <!--Mais Vendidos-->
     <string name="best_sellers_title_fragment">Mais Vendidos</string>
-    <string name="title_activity_product_detail">ProductDetailActivity</string>
+
+
+    <!--Outros-->
+    <string name="old_price">De %1$s</string>
+    <string name="price">Por %1$s</string>
+
+
 </resources>

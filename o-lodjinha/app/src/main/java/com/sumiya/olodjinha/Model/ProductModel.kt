@@ -2,10 +2,10 @@ package com.sumiya.olodjinha.model
 
 import java.io.Serializable
 
-class ProductModel(val categoria: CategoryModel,
-                   val descricao: String,
-                   val id: Int,
-                   val nome: String,
-                   val precoDe: Number,
-                   val precoPor: Number,
-                   val urlImagem: String): Serializable
+class ProductModel(var categoria: CategoryModel,
+                   var descricao: String,
+                   var id: Int,
+                   var nome: String,
+                   var precoDe: Number,
+                   var precoPor: Number,
+                   var urlImagem: String) : Serializable

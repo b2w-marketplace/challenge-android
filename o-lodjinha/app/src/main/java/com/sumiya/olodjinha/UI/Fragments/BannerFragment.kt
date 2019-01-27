@@ -1,7 +1,6 @@
 package com.sumiya.olodjinha.ui.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_banner.*
 
 class BannerFragment : Fragment() {
 
-    private var listener: OnFragmentInteractionListener? = null
+    private var listener: BannerListener? = null
     lateinit var banner: BannerModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -24,10 +23,10 @@ class BannerFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is BannerListener) {
             listener = context
         } else {
-//            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement BannerListener")
         }
     }
 
@@ -38,6 +37,10 @@ class BannerFragment : Fragment() {
                 .with(this)
                 .load(banner.urlImagem)
                 .into(bannerImage)
+
+        bannerImage.setOnClickListener {
+            listener?.bannerCLick(banner.linkUrl)
+        }
     }
 
     override fun onDetach() {
@@ -45,8 +48,7 @@ class BannerFragment : Fragment() {
         listener = null
     }
 
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+    interface BannerListener {
+        fun bannerCLick(bannerUrl: String)
     }
 }

@@ -5,83 +5,46 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.text.Html
+import android.text.Html.fromHtml
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sumiya.olodjinha.R
+import com.sumiya.olodjinha.constants.ModelKeyConstants
+import com.sumiya.olodjinha.contracts.ViewProductDetailContract
 import com.sumiya.olodjinha.model.ProductModel
-import com.sumiya.olodjinha.model.ReservationModel
-import com.sumiya.olodjinha.service.APIService
+import com.sumiya.olodjinha.presenter.ProductDetailPresenter
 import com.sumiya.olodjinha.ui.activity.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.content_product_detail.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
-class ProductDetailActivity : BaseActivity() {
-    var product: ProductModel? = null
+class ProductDetailActivity : BaseActivity(), ViewProductDetailContract {
 
+    //Variables
+    private var product: ProductModel? = null
+    val productDetailPresenter = ProductDetailPresenter(this)
+
+    //Lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
-        product = (intent.extras.getSerializable("produto") as? ProductModel)!!
+        product = (intent.extras.getSerializable(ModelKeyConstants.productKey) as? ProductModel)!!
         setupToolbar(product?.categoria?.descricao!!)
 
         configureFab()
 
-        showLoading("Carregando Produto")
+        showLoading(resources.getString(R.string.loading_product))
 
-        configureData()
+        productDetailPresenter.getProduct(product?.id!!)
     }
 
-    fun configureFab() {
-        fab.setOnClickListener { view ->
-            val call = APIService().product().post(product?.id!!)
-
-            call.enqueue(object : Callback<ReservationModel> {
-                override fun onFailure(call: Call<ReservationModel>?, t: Throwable?) {
-                    if (t != null) {
-                        print(t.localizedMessage)
-                    }
-                }
-
-                override fun onResponse(call: Call<ReservationModel>?, response: Response<ReservationModel>?) {
-                    if (response != null) {
-                        val builder = AlertDialog.Builder(this@ProductDetailActivity)
-                        builder.setMessage("Produto reservado com sucesso")
-                                .setCancelable(false)
-                                .setPositiveButton("OK") { dialog, id ->
-                                    finish()
-                                }
-                        val alert = builder.create()
-                        alert.show()
-                    }
-                }
-            })
+    //Methods
+    private fun configureFab() {
+        fab.setOnClickListener {
+            productDetailPresenter.setProductReservation(product?.id!!)
         }
-    }
-
-    fun configureData() {
-        val call = APIService().product().get(product?.id!!)
-
-        call.enqueue(object : Callback<ProductModel> {
-            override fun onFailure(call: Call<ProductModel>?, t: Throwable?) {
-                hideLoading()
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
-            }
-
-            override fun onResponse(call: Call<ProductModel>?, response: Response<ProductModel>?) {
-                hideLoading()
-                if (response != null) {
-                    configureUI(response.body()!!)
-                }
-            }
-        })
     }
 
     fun configureUI(productDetail: ProductModel) {
@@ -95,19 +58,43 @@ class ProductDetailActivity : BaseActivity() {
         productTitleLabel.text = productDetail.nome
         productCategoryLabel.text = productDetail.categoria.descricao
 
-        val format = NumberFormat.getCurrencyInstance(Locale("pt","BR"))
+        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
         val precoDe = format.format(productDetail.precoDe)
         val precoPor = format.format(productDetail.precoPor)
 
-        productOldPriceLabel.text = "De $precoDe"
+        productOldPriceLabel.text = String.format(resources.getString(R.string.old_price), precoDe)
         productOldPriceLabel.paintFlags = productOldPriceLabel.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
-        productPriceLabel.text = "Por $precoPor"
+        productPriceLabel.text = String.format(resources.getString(R.string.price), precoPor)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            productDescriptionLabel.text = Html.fromHtml(productDetail.descricao, Html.FROM_HTML_MODE_COMPACT)
+            productDescriptionLabel.text = fromHtml(productDetail.descricao, Html.FROM_HTML_MODE_COMPACT)
         } else {
-            productDescriptionLabel.text = Html.fromHtml(productDetail.descricao)
+            productDescriptionLabel.text = fromHtml(productDetail.descricao)
         }
+    }
+
+    private fun showReservationDialog(message: String) {
+        val builder = AlertDialog.Builder(this@ProductDetailActivity)
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(resources.getString(R.string.ok_button)) { _, _ ->
+                    finish()
+                }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    //Contract
+    override fun setProductResponse(product: ProductModel) {
+        configureUI(product)
+    }
+
+    override fun showReservationResponse() {
+        showReservationDialog(resources.getString(R.string.success_reservation))
+    }
+
+    override fun handleError(t: Throwable) {
+        showReservationDialog(resources.getString(R.string.failure_reservation))
     }
 }

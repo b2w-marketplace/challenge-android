@@ -7,15 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.sumiya.olodjinha.R
 import com.sumiya.olodjinha.model.CategoryDataModel
 import com.sumiya.olodjinha.model.CategoryModel
-import com.sumiya.olodjinha.R
 import kotlinx.android.synthetic.main.view_category.view.*
 
 class CategoryAdapter(private val categories: CategoryDataModel, val clickListener: (CategoryModel) -> Unit) : Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
-        return  categories.data.size
+        return categories.data.size
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -46,9 +46,8 @@ class CategoryAdapter(private val categories: CategoryDataModel, val clickListen
                             .placeholder(R.drawable.ic_error_outline_black_24dp))
                     .into(categoryImage)
 
-            itemView.setOnClickListener { clickListener(category)}
+            itemView.setOnClickListener { clickListener(category) }
         }
-
     }
 }
 

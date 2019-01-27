@@ -1,22 +1,39 @@
 package com.sumiya.olodjinha.ui.activity
 
 import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.support.design.widget.TabLayout
+import android.view.ViewGroup
+import android.widget.TextView
 import com.sumiya.olodjinha.R
+import com.sumiya.olodjinha.constants.ModelKeyConstants
+import com.sumiya.olodjinha.contracts.ViewHomeContract
+import com.sumiya.olodjinha.model.BannerDataModel
+import com.sumiya.olodjinha.model.CategoryModel
+import com.sumiya.olodjinha.model.ProductModel
+import com.sumiya.olodjinha.presenter.HomePresenter
+import com.sumiya.olodjinha.ui.activity.base.BaseDrawerActivity
 import com.sumiya.olodjinha.ui.adapter.BannerPagerAdapter
+import com.sumiya.olodjinha.ui.fragments.BannerFragment
 import com.sumiya.olodjinha.ui.fragments.BestSellersFragment
 import com.sumiya.olodjinha.ui.fragments.CategoryFragment
-import com.sumiya.olodjinha.model.*
-import com.sumiya.olodjinha.service.APIService
-import com.sumiya.olodjinha.ui.activity.base.BaseDrawerActivity
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import android.widget.RelativeLayout
+import android.support.v4.content.res.ResourcesCompat
+import android.graphics.Typeface
+import android.support.v7.app.ActionBar
+import android.view.LayoutInflater
 
 
-class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener, BestSellersFragment.BestSellersListener {
+
+
+class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener,
+        BestSellersFragment.BestSellersListener, BannerFragment.BannerListener, ViewHomeContract {
+
+    //Lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -24,46 +41,64 @@ class HomeActivity : BaseDrawerActivity(), CategoryFragment.CategoryListener, Be
 
         configureDrawer()
         configureUI()
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+
         configureData()
     }
 
-    fun configureData() {
-        val call = APIService().banners().list()
-
-        call.enqueue(object : Callback<BannerDataModel?> {
-            override fun onFailure(call: Call<BannerDataModel?>?, t: Throwable?) {
-                hideLoading()
-                if (t != null) {
-                    print(t.localizedMessage)
-                }
-            }
-
-            override fun onResponse(call: Call<BannerDataModel?>?, response: Response<BannerDataModel?>?) {
-                hideLoading()
-                if (response != null) {
-                    print(response.body())
-
-                    val banners = response.body()!!
-                    bannerPager.adapter = BannerPagerAdapter(supportFragmentManager,banners)
-
-                }
-            }
-        })
-    }
-
+    //Methods
     fun configureUI() {
-        showLoading("Carregando a Lodjinha")
+        showLoading(resources.getString(R.string.loading_home))
+
+        this.supportActionBar?.setDisplayShowCustomEnabled(true)
+        this.supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val inflator = LayoutInflater.from(this)
+        val v = inflator.inflate(R.layout.layout_title_view, null)
+
+        //(v.findViewById(R.id.title) as TextView).text = this.title
+
+        this.supportActionBar?.setCustomView(v)
+
+//        this.supportActionBar?.setIcon(R.drawable.logo_navbar)
     }
 
+    fun configureData() {
+        val homePresenter = HomePresenter(this)
+        homePresenter.getBanners()
+    }
+
+    // Contracts
+    override fun setBannerResponse(banners: BannerDataModel) {
+        bannerPager.adapter = BannerPagerAdapter(supportFragmentManager, banners)
+    }
+
+    override fun handleError(t: Throwable) {
+    }
+
+    //Listeners
+
+    //    CategoryListener
     override fun requestProductList(category: CategoryModel) {
         val productIntent = Intent(this, ProductsActivity::class.java)
-        productIntent.putExtra("category", category)
+        productIntent.putExtra(ModelKeyConstants.categoryKey, category)
         startActivity(productIntent)
     }
 
+    //    BestSellersListener
     override fun openProductdetail(product: ProductModel) {
         val productDetailIntent = Intent(this, ProductDetailActivity::class.java)
-        productDetailIntent.putExtra("produto", product)
+        productDetailIntent.putExtra(ModelKeyConstants.productKey, product)
         startActivity(productDetailIntent)
+    }
+
+    //    BannerListener
+    override fun bannerCLick(bannerUrl: String) {
+        val bannerIntent = Intent(Intent.ACTION_VIEW)
+        bannerIntent.data = Uri.parse(bannerUrl)
+        startActivity(bannerIntent)
     }
 }

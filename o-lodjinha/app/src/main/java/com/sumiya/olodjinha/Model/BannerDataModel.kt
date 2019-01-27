@@ -1,3 +1,3 @@
 package com.sumiya.olodjinha.model
 
-class BannerDataModel(val data: List<BannerModel>)
+class BannerDataModel(var data: List<BannerModel>)

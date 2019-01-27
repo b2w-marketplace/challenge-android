@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".UI.Activities.ProductDetailActivity"
+    tools:context=".ui.activity.ProductDetailActivity"
     tools:showIn="@layout/activity_product_detail">
 
     <ScrollView
@@ -86,7 +86,4 @@
                 app:fontFamily="@font/roboto_medium" />
         </LinearLayout>
     </ScrollView>
-
-
-
 </android.support.constraint.ConstraintLayout>
