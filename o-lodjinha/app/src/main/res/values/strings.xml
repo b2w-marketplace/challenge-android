@@ -1,9 +1,39 @@
 <resources>
-    <string name="app_name">OLodjinha</string>
+    <string name="app_name">a Lodjinha</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!--Activities-->
+    <!--Home-->
+    <string name="home_title_name">a Lodjinha</string>
+    <string name="loading_home">"Carregando a Lodjinha"</string>
+
+    <!--Sobre-->
+    <string name="about_title_name">Sobre</string>
+    <string name="devName">Eduardo Alves Sumiya</string>
+    <string name="devDate">26 de janeiro de 2018</string>
+
+    <!--Detalhe Produto-->
+    <string name="loading_product">Carregando Produto</string>
+    <string name="success_reservation">Produto reservado com sucesso</string>
+    <string name="failure_reservation">Falha na reserva do Produto</string>
+    <string name="ok_button">OK</string>
+
+    <!--Fragments-->
+    <!--Categorias-->
+    <string name="categories_title_fragment">Categorias</string>
+
+    <!--Mais Vendidos-->
+    <string name="best_sellers_title_fragment">Mais Vendidos</string>
+
+
+    <!--Outros-->
+    <string name="old_price">De %1$s</string>
+    <string name="price">Por %1$s</string>
+
+
 </resources>
