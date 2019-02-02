@@ -2,4 +2,5 @@
 <resources>
 
     <string name="menu_about_application">Sobre a aplicação</string>
+    <string name="categories_label">Categorias</string>
 </resources>

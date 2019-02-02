@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.eric.alodjinha.R
 import com.eric.alodjinha.features.home.model.Banner
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.frame_layout_banner.view.*
 
 class BannerPagerAdapter(var mContext: Context, internal var banners: List<Banner>?) : PagerAdapter() {
@@ -29,8 +30,10 @@ class BannerPagerAdapter(var mContext: Context, internal var banners: List<Banne
 
         val banner = banners!![position]
 
-        Glide.with(mContext!!).load(banner.urlImagem)
-            .transition(DrawableTransitionOptions.withCrossFade())
+        Picasso.get()
+            .load(banner.urlImagem)
+            .placeholder(R.drawable.shopping_bag)
+            .error(R.drawable.warning)
             .into(itemView.imageViewBanner)
 
         container.addView(itemView)
