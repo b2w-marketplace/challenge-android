@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.eric.alodjinha.R
+import com.eric.alodjinha.base.gone
+import com.eric.alodjinha.base.visible
 import com.eric.alodjinha.features.home.HomeFragmentPresenter
 import com.eric.alodjinha.features.home.HomeFragmentPresenterImpl
 import com.eric.alodjinha.features.home.HomeFragmentView
@@ -47,9 +49,11 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
     override fun showLoading() {
 
+        progressBar.visible()
     }
 
     override fun hideLoading() {
 
+        progressBar.gone()
     }
 }
