@@ -1,0 +1,38 @@
+package com.eric.alodjinha.features.home
+
+import android.util.Log
+import com.eric.alodjinha.base.ioThread
+import com.eric.alodjinha.features.home.api.HomeFragmentInteractor
+import com.eric.alodjinha.features.home.api.HomeFragmentInteractorImpl
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
+
+class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresenter {
+
+    val fragmentInteractor: HomeFragmentInteractor = HomeFragmentInteractorImpl.instance
+    val disposible = CompositeDisposable()
+
+    override fun onCreate() {
+
+        getBanners()
+    }
+
+    override fun onDestroy() {
+
+        disposible.dispose()
+    }
+
+    private fun getBanners() {
+
+        fragmentInteractor.getBanners()
+            .ioThread()
+            .doOnSubscribe { view.showLoading() }
+            .doOnTerminate { view.hideLoading() }
+            .subscribe({
+                view.receiveBanner(it.data)
+            },
+                {
+                    Log.e("HomePresenter", it.message)
+                }).addTo(disposible)
+    }
+}
