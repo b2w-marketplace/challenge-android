@@ -5,13 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.eric.alodjinha.MainActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.eric.alodjinha.R
 import com.eric.alodjinha.base.Constants
+import com.eric.alodjinha.features.product.adapter.ProductListAdapter
+import com.eric.alodjinha.features.product.model.Product
+import kotlinx.android.synthetic.main.fragment_products.*
 
 class ProductsFragment : Fragment(), ProductsFragmentView {
 
     val presenter: ProductsFragmentPresenter = ProductsFragmentPresenterImpl(this)
+    val mProducts : MutableList<Product> = ArrayList()
+    var productsAdapter : ProductListAdapter? = null
 
 
     companion object {
@@ -41,6 +47,24 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onCreate(arguments?.get(Constants.CANTEGORY_ID) as Int)
+    }
+
+    override fun configureViews() {
+
+        productsAdapter = ProductListAdapter(mProducts)
+
+        val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        recyclerViewProducts.layoutManager = LinearLayoutManager(context)
+        recyclerViewProducts.addItemDecoration(dividerItemDecoration)
+        recyclerViewProducts.adapter = productsAdapter
+
+    }
+
+    override fun receiveProducts(products: List<Product>) {
+
+        mProducts.addAll(products)
+        productsAdapter?.notifyDataSetChanged()
+
     }
 
     override fun onDestroy() {

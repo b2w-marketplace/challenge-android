@@ -9,7 +9,7 @@ import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_products.view.*
 
-class ProductListAdapter(var categories: List<Product>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+class ProductListAdapter(var products: List<Product>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
     var onClick: (Product) -> Unit = {}
 
@@ -21,7 +21,7 @@ class ProductListAdapter(var categories: List<Product>) : RecyclerView.Adapter<P
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val product = categories[position]
+        val product = products[position]
 
         Picasso.get()
             .load(product.urlImagem)
@@ -36,7 +36,7 @@ class ProductListAdapter(var categories: List<Product>) : RecyclerView.Adapter<P
     }
 
     override fun getItemCount(): Int {
-        return categories.size
+        return products.size
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
