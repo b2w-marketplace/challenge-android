@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6626604-aaa5-47bc-b8f6-d89011018e31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractorImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
@@ -26,8 +22,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/adapter/ProductListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/adapter/ProductListAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,70 +66,45 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="3" />
-          <entry key="kt" value="77" />
-          <entry key="xml" value="22" />
+          <entry key="java" value="2" />
+          <entry key="kt" value="85" />
+          <entry key="xml" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="Kotlin" value="77" />
-          <entry key="XML" value="22" />
+          <entry key="JAVA" value="2" />
+          <entry key="Kotlin" value="85" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="4" />
-          <entry key="kt" value="2207" />
-          <entry key="xml" value="1614" />
+          <entry key="kt" value="2827" />
+          <entry key="xml" value="1682" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="Kotlin" value="2207" />
-          <entry key="XML" value="1614" />
+          <entry key="Kotlin" value="2827" />
+          <entry key="XML" value="1682" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+            <state relative-caret-position="446">
+              <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="31" />
               <folding>
-                <element signature="e#45#604#0" expanded="true" />
+                <element signature="e#45#760#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/HomeFragmentPresenterImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/HomeFragment.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -144,20 +113,29 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="49" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="49" />
+            <state relative-caret-position="495">
+              <caret line="33" column="52" selection-start-line="1" selection-end-line="33" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="29" column="52" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+            <state relative-caret-position="120">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#45#240#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -4104,7 +4082,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmets.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/Constants.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/HomeFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductApi.kt" />
@@ -4112,10 +4089,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/api/HomeApi.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractor.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractorImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/adapter/ProductListAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/helpers/EndlessRecyclerViewScrollListener.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/adapter/ProductListAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt" />
       </list>
     </option>
@@ -4196,7 +4175,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="alodjinha" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="challenge-android" type="b2602c69:ProjectViewProjectNode" />
@@ -4207,19 +4187,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="alodjinha" type="462c0819:PsiDirectoryNode" />
               <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="challenge-android" type="b2602c69:ProjectViewProjectNode" />
-              <item name="challenge-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="alodjinha" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="challenge-android" type="b2602c69:ProjectViewProjectNode" />
@@ -4231,18 +4198,6 @@
               <item name="alodjinha" type="462c0819:PsiDirectoryNode" />
               <item name="features" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="challenge-android" type="b2602c69:ProjectViewProjectNode" />
-              <item name="challenge-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="alodjinha" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="challenge-android" type="b2602c69:ProjectViewProjectNode" />
@@ -4299,7 +4254,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="/opt/Android_Sdk/Sdk" />
     <property name="device.picker.selection" value="17ecda3c7d34" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ALodjinha" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Loop" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -4462,12 +4417,12 @@
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Logcat" order="3" weight="0.87157285" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32756132" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32467532" />
       <window_info anchor="bottom" id="Messages" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.67266774" />
       <window_info anchor="bottom" id="Run" order="8" />
-      <window_info anchor="bottom" id="Debug" order="9" visible="true" weight="0.65945166" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.53535354" />
       <window_info anchor="right" id="Fabric" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Device File Explorer" order="2" side_tool="true" />
@@ -4485,33 +4440,68 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt</url>
-          <line>64</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt</url>
-          <line>65</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt</url>
-          <line>29</line>
+          <line>27</line>
           <properties />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>mProducts</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(currentItens + scrollOutItens == totalItens)</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>isScrolling</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>it.data</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>arguments?.get(Constants.CANTEGORY_ID) as Int</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/settings.gradle">
@@ -4605,13 +4595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/RxExtentions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/api/HomeFragmentInteractor.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -4692,21 +4675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/Constants.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -4780,20 +4748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractorImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="85" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/adapter/ProductListAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -4804,21 +4758,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/HomeFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding>
-            <element signature="e#45#604#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="251">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
         </state>
       </provider>
     </entry>
@@ -4829,19 +4772,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/home/HomeFragment.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentView.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="90">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/api/ProductInteractorImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.0.0/2151d26c3b241f0a887f2dadb9ab091649fcf020/recyclerview-1.0.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="10608" column="33" selection-start-line="10608" selection-start-column="33" selection-end-line="10608" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/helpers/EndlessRecyclerViewScrollListener.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="e#41#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="157" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/base/RxExtentions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragmentPresenterImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="29" column="52" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+        <state relative-caret-position="120">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#45#240#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="52" selection-start-line="1" selection-end-line="33" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/eric/alodjinha/features/product/ProductsFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="31" />
+          <folding>
+            <element signature="e#45#760#0" expanded="true" />
           </folding>
         </state>
       </provider>

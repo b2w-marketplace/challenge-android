@@ -9,9 +9,11 @@ class ProductsFragmentPresenterImpl(val view: ProductsFragmentView) : ProductsFr
 
     val interactor = ProductInteractorImpl.instance
     val disposable = CompositeDisposable()
+    var categoriaId : Int? = null
 
     override fun onCreate(categoriaId: Int) {
 
+        this.categoriaId = categoriaId
         view.configureViews()
         getProductsByCategory(0, 20, categoriaId)
     }
@@ -21,11 +23,18 @@ class ProductsFragmentPresenterImpl(val view: ProductsFragmentView) : ProductsFr
         disposable.dispose()
     }
 
+    override fun loadMoreProducts(offset: Int, limite: Int) {
+
+        getProductsByCategory(offset, limite, categoriaId!!)
+    }
+
     private fun getProductsByCategory(offset: Int, limite: Int, categoriaId: Int) {
+
+        view.showLoading()
 
         interactor.getProductsByCategory(offset, limite, categoriaId)
             .ioThread()
-            .doOnSubscribe { view.showLoading() }
+            .doOnSubscribe { }
             .doOnTerminate { view.hideLoading() }
             .subscribe({ view.receiveProducts(it.data) }, {
 
