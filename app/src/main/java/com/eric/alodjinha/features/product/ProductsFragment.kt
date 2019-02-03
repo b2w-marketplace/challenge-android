@@ -12,13 +12,17 @@ import com.eric.alodjinha.base.Constants
 import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_products.*
+import com.eric.alodjinha.base.helpers.EndlessRecyclerViewScrollListener
+import androidx.recyclerview.widget.RecyclerView
 
 class ProductsFragment : Fragment(), ProductsFragmentView {
 
-    val presenter: ProductsFragmentPresenter = ProductsFragmentPresenterImpl(this)
-    val mProducts : MutableList<Product> = ArrayList()
-    var productsAdapter : ProductListAdapter? = null
-
+    private val presenter: ProductsFragmentPresenter = ProductsFragmentPresenterImpl(this)
+    private val mProducts: MutableList<Product> = ArrayList()
+    private var productsAdapter: ProductListAdapter? = null
+    private var scrollListener: EndlessRecyclerViewScrollListener? = null
+    private val COUNT_ITENS = 20
+    private val recyclerViewOnScrollListener : RecyclerView.OnScrollListener? = null
 
     companion object {
 
@@ -54,17 +58,25 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
         productsAdapter = ProductListAdapter(mProducts)
 
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        val linearLayoutManager = LinearLayoutManager(context)
         recyclerViewProducts.layoutManager = LinearLayoutManager(context)
         recyclerViewProducts.addItemDecoration(dividerItemDecoration)
         recyclerViewProducts.adapter = productsAdapter
 
+        scrollListener = object : EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
+
+                presenter.loadMoreProducts(page, COUNT_ITENS)
+            }
+        }
+
+        recyclerViewProducts.setOnScrollListener(scrollListener)
     }
 
     override fun receiveProducts(products: List<Product>) {
 
         mProducts.addAll(products)
         productsAdapter?.notifyDataSetChanged()
-
     }
 
     override fun onDestroy() {
