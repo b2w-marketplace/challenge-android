@@ -16,6 +16,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
 
         getBanners()
         getCategories()
+        getProductsMoreSallers()
     }
 
     override fun onDestroy() {
@@ -30,7 +31,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
             .doOnSubscribe { view.showLoading() }
             .doOnTerminate { view.hideLoading() }
             .subscribe({
-                view.receiveBanner(it.data!!.data)
+                view.receiveBanner(it.data)
             },
                 {
                     Log.e("HomePresenter", it.message)

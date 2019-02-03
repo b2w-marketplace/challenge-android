@@ -10,13 +10,13 @@ interface HomeApi {
 
     @Headers("Accept: application/json")
     @GET("/banner")
-    fun getBanner(): Observable<ApiResponse<BannerResponse>>
+    fun getBanner(): Observable<BannerResponse>
 
     @Headers("Accept: application/json")
     @GET("/categoria")
-    fun getCategories(): Observable<ApiResponse<CategoriesResponse>>
+    fun getCategories(): Observable<CategoriesResponse>
 
     @Headers("Accept: application/json")
     @GET("/produto/maisvendidos")
-    fun getProductsMoreSallers(): Observable<ApiResponse<ProductResponse>>
+    fun getProductsMoreSallers(): Observable<ProductResponse>
 }

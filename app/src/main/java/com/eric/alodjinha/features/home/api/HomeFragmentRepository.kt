@@ -9,17 +9,17 @@ class HomeFragmentRepository {
 
     val service = RetrofitService(HomeApi::class.java, BuildConfig.URL_BASE)
 
-    fun getBanner(): Observable<ApiResponse<BannerResponse>> {
+    fun getBanner(): Observable<BannerResponse> {
 
         return service.apiService.getBanner()
     }
 
-    fun getCategories(): Observable<ApiResponse<CategoriesResponse>> {
+    fun getCategories(): Observable<CategoriesResponse> {
 
         return service.apiService.getCategories()
     }
 
-    fun getProductsMoreSallers(): Observable<ApiResponse<ProductResponse>>{
+    fun getProductsMoreSallers(): Observable<ProductResponse>{
 
         return service.apiService.getProductsMoreSallers()
     }

@@ -64,7 +64,7 @@ class HomeFragment : Fragment(), HomeFragmentView {
     }
 
     override fun receiveProductsMoreSallers(products: List<Product>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       val x = products
     }
 
     override fun showLoading() {
