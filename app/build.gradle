@@ -21,22 +21,22 @@ android {
         }
     }
 
-    productFlavors{
+    productFlavors {
 
-        develop{
+        develop {
 
             flavorDimensions "default"
 
-            buildConfigField("String","URL_BASE", '"https://alodjinha.herokuapp.com"')
-            resValue("string","app_name","a Lodjinha Dev")
+            buildConfigField("String", "URL_BASE", '"https://alodjinha.herokuapp.com"')
+            resValue("string", "app_name", "a Lodjinha Dev")
         }
 
-        prod{
+        prod {
 
             flavorDimensions "default"
 
-            buildConfigField("String","URL_BASE", '"https://alodjinha.herokuapp.com"')
-            resValue("string","app_name","a Lodjinha")
+            buildConfigField("String", "URL_BASE", '"https://alodjinha.herokuapp.com"')
+            resValue("string", "app_name", "a Lodjinha")
         }
     }
 }

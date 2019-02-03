@@ -1,5 +1,6 @@
 package com.eric.alodjinha.feature.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,8 @@ import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_home.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.eric.alodjinha.MainActivity
+import com.eric.alodjinha.base.Constants
+import com.eric.alodjinha.features.product.ProductActivity
 import com.eric.alodjinha.features.product.ProductsFragment
 
 
@@ -69,7 +72,14 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
         val adapter = CategoriesAdapter(categories)
         adapter.onClick = {
-            mActivity?.addFragment(ProductsFragment.getInstance(it.id))
+            //mActivity?.addFragment(ProductsFragment.getInstance(it.id))
+
+            val extras = Bundle()
+            extras.putInt(Constants.CANTEGORY_ID, it.id)
+            extras.putString(Constants.CANTEGORY_NAME, it.descricao)
+            val intent = Intent(context, ProductActivity::class.java)
+            intent.putExtra(Constants.CANTEGORY, extras)
+            context?.startActivity(intent)
         }
 
         recyclerViewCategories.layoutManager = LinearLayoutManager(
