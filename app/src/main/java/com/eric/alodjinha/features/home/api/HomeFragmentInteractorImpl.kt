@@ -1,6 +1,6 @@
 package com.eric.alodjinha.features.home.api
 
-import com.eric.alodjinha.base.ApiResponse
+import com.eric.alodjinha.features.product.api.ProductResponse
 import io.reactivex.Observable
 
 class HomeFragmentInteractorImpl : HomeFragmentInteractor {

@@ -16,8 +16,11 @@ import com.eric.alodjinha.features.home.adapter.BannerPagerAdapter
 import com.eric.alodjinha.features.home.adapter.CategoriesAdapter
 import com.eric.alodjinha.features.home.model.Banner
 import com.eric.alodjinha.features.home.model.Category
-import com.eric.alodjinha.features.home.model.Product
+import com.eric.alodjinha.features.product.adapter.ProductListAdapter
+import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_home.*
+import androidx.recyclerview.widget.DividerItemDecoration
+
 
 class HomeFragment : Fragment(), HomeFragmentView {
 
@@ -35,8 +38,7 @@ class HomeFragment : Fragment(), HomeFragmentView {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -45,6 +47,12 @@ class HomeFragment : Fragment(), HomeFragmentView {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onCreate()
+    }
+
+    override fun onDestroy() {
+
+        presenter.onDestroy()
+        super.onDestroy()
     }
 
     override fun receiveBanner(banners: List<Banner>) {
@@ -59,12 +67,22 @@ class HomeFragment : Fragment(), HomeFragmentView {
         adapter.onClick = {}
 
         recyclerViewCategories.layoutManager = LinearLayoutManager(
-            context, LinearLayoutManager.HORIZONTAL, false)
+            context, LinearLayoutManager.HORIZONTAL, false
+        )
         recyclerViewCategories.adapter = adapter
     }
 
     override fun receiveProductsMoreSallers(products: List<Product>) {
-       val x = products
+
+        val adapter = ProductListAdapter(products)
+        adapter.onClick = {
+
+        }
+
+        val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        recyclerViewProducts.layoutManager = LinearLayoutManager(context)
+        recyclerViewProducts.addItemDecoration(dividerItemDecoration)
+        recyclerViewProducts.adapter = adapter
     }
 
     override fun showLoading() {

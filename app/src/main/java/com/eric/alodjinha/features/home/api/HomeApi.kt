@@ -1,8 +1,7 @@
 package com.eric.alodjinha.features.home.api
 
-import com.eric.alodjinha.base.ApiResponse
+import com.eric.alodjinha.features.product.api.ProductResponse
 import io.reactivex.Observable
-import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 
