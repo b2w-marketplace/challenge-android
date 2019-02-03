@@ -31,10 +31,19 @@ fun <T> Single<T>.ioThread(): Single<T> {
         .observeOn(AndroidSchedulers.mainThread())
 }
 
-fun View.gone(){
+//fun <T> Observable<Result<T>>.onlySuccess() : Observable<T> {
+//    return filter { it.isSuccess() }
+//        .map { it.data!! }
+//}
+
+fun <T> Observable<ApiResponse<T>>.response(): Observable<ApiResponse<T>> {
+    return filter { true }.map { it }
+}
+
+fun View.gone() {
     this.visibility = View.GONE
 }
 
-fun View.visible(){
+fun View.visible() {
     this.visibility = View.VISIBLE
 }

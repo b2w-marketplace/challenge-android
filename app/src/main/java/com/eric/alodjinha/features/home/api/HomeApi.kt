@@ -1,5 +1,6 @@
 package com.eric.alodjinha.features.home.api
 
+import com.eric.alodjinha.base.ApiResponse
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -9,13 +10,13 @@ interface HomeApi {
 
     @Headers("Accept: application/json")
     @GET("/banner")
-    fun getBanner(): Observable<BannerResponse>
+    fun getBanner(): Observable<ApiResponse<BannerResponse>>
 
     @Headers("Accept: application/json")
     @GET("/categoria")
-    fun getCategories(): Observable<CategoriesResponse>
+    fun getCategories(): Observable<ApiResponse<CategoriesResponse>>
 
     @Headers("Accept: application/json")
     @GET("/produto/maisvendidos")
-    fun getProductsMoreSallers(): Observable<ProductResponse>
+    fun getProductsMoreSallers(): Observable<ApiResponse<ProductResponse>>
 }

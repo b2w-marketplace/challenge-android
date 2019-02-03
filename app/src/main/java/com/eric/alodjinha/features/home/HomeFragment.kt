@@ -16,6 +16,7 @@ import com.eric.alodjinha.features.home.adapter.BannerPagerAdapter
 import com.eric.alodjinha.features.home.adapter.CategoriesAdapter
 import com.eric.alodjinha.features.home.model.Banner
 import com.eric.alodjinha.features.home.model.Category
+import com.eric.alodjinha.features.home.model.Product
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), HomeFragmentView {
@@ -60,6 +61,10 @@ class HomeFragment : Fragment(), HomeFragmentView {
         recyclerViewCategories.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.HORIZONTAL, false)
         recyclerViewCategories.adapter = adapter
+    }
+
+    override fun receiveProductsMoreSallers(products: List<Product>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showLoading() {

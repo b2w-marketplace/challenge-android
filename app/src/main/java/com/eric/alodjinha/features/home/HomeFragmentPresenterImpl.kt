@@ -30,7 +30,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
             .doOnSubscribe { view.showLoading() }
             .doOnTerminate { view.hideLoading() }
             .subscribe({
-                view.receiveBanner(it.data)
+                view.receiveBanner(it.data!!.data)
             },
                 {
                     Log.e("HomePresenter", it.message)
@@ -38,6 +38,17 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
     }
 
     private fun getCategories() {
+
+        fragmentInteractor.getCategories()
+            .ioThread()
+            .doOnSubscribe { view.showLoading() }
+            .doOnTerminate { view.hideLoading() }
+            .subscribe({
+                view.receiveCategories(it.data)
+            },
+                {
+                    Log.e("HomePresenter", it.message)
+                }).addTo(disposible)
 
         fragmentInteractor.getCategories()
             .ioThread()
