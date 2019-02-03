@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,8 @@ import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_products.*
 import com.eric.alodjinha.base.helpers.EndlessRecyclerViewScrollListener
 import androidx.recyclerview.widget.RecyclerView
+import com.eric.alodjinha.base.gone
+import com.eric.alodjinha.base.visible
 
 class ProductsFragment : Fragment(), ProductsFragmentView {
 
@@ -22,7 +25,7 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
     private var productsAdapter: ProductListAdapter? = null
     private var scrollListener: EndlessRecyclerViewScrollListener? = null
     private val COUNT_ITENS = 20
-    private val recyclerViewOnScrollListener : RecyclerView.OnScrollListener? = null
+    val linearLayoutManager = LinearLayoutManager(context)
 
     companion object {
 
@@ -58,8 +61,8 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
         productsAdapter = ProductListAdapter(mProducts)
 
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
-        val linearLayoutManager = LinearLayoutManager(context)
-        recyclerViewProducts.layoutManager = LinearLayoutManager(context)
+
+        recyclerViewProducts.layoutManager = linearLayoutManager
         recyclerViewProducts.addItemDecoration(dividerItemDecoration)
         recyclerViewProducts.adapter = productsAdapter
 
@@ -87,11 +90,11 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
 
     override fun showLoading() {
 
-        //  progressBar.visible()
+          progressBar.visible()
     }
 
     override fun hideLoading() {
 
-        //   progressBar.gone()
+           progressBar.gone()
     }
 }

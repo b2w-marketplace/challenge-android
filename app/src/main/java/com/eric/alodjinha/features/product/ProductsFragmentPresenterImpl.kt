@@ -30,9 +30,11 @@ class ProductsFragmentPresenterImpl(val view: ProductsFragmentView) : ProductsFr
 
     private fun getProductsByCategory(offset: Int, limite: Int, categoriaId: Int) {
 
+        view.showLoading()
+
         interactor.getProductsByCategory(offset, limite, categoriaId)
             .ioThread()
-            .doOnSubscribe { view.showLoading() }
+            .doOnSubscribe { }
             .doOnTerminate { view.hideLoading() }
             .subscribe({ view.receiveProducts(it.data) }, {
 
