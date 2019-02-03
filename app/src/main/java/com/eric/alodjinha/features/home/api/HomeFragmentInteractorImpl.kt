@@ -19,4 +19,9 @@ class HomeFragmentInteractorImpl : HomeFragmentInteractor{
     override fun getCategories(): Observable<CategoriesResponse> {
         return repository.getCategories().map { it }
     }
+
+    override fun getProductsMoreSallers(): Observable<ProductResponse> {
+
+        return repository.getProductsMoreSallers().map { it }
+    }
 }

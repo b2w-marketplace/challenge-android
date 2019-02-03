@@ -6,7 +6,7 @@ import io.reactivex.Observable
 
 class HomeFragmentRepository {
 
-    val service = RetrofitService(ProductApi::class.java, BuildConfig.URL_BASE)
+    val service = RetrofitService(HomeApi::class.java, BuildConfig.URL_BASE)
 
     fun getBanner(): Observable<BannerResponse> {
 
@@ -16,5 +16,10 @@ class HomeFragmentRepository {
     fun getCategories(): Observable<CategoriesResponse> {
 
         return service.apiService.getCategories()
+    }
+
+    fun getProductsMoreSallers(): Observable<ProductResponse>{
+
+        return service.apiService.getProductsMoreSallers()
     }
 }

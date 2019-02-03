@@ -5,7 +5,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 
-interface ProductApi {
+interface HomeApi {
 
     @Headers("Accept: application/json")
     @GET("/banner")
@@ -14,4 +14,8 @@ interface ProductApi {
     @Headers("Accept: application/json")
     @GET("/categoria")
     fun getCategories(): Observable<CategoriesResponse>
+
+    @Headers("Accept: application/json")
+    @GET("/produto/maisvendidos")
+    fun getProductsMoreSallers(): Observable<ProductResponse>
 }

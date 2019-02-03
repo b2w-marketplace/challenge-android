@@ -50,4 +50,18 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
                     Log.e("HomePresenter", it.message)
                 }).addTo(disposible)
     }
+
+    private fun getProductsMoreSallers() {
+
+        fragmentInteractor.getProductsMoreSallers()
+            .ioThread()
+            .doOnSubscribe { view.showLoading() }
+            .doOnTerminate { view.hideLoading() }
+            .subscribe({
+                view.receiveProductsMoreSallers(it.data)
+            },
+                {
+                    Log.e("HomePresenter", it.message)
+                }).addTo(disposible)
+    }
 }

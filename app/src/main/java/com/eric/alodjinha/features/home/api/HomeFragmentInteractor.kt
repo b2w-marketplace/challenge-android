@@ -6,4 +6,5 @@ interface HomeFragmentInteractor {
 
     fun getBanners() : Observable<BannerResponse>
     fun getCategories() : Observable<CategoriesResponse>
+    fun getProductsMoreSallers() : Observable<ProductResponse>
 }
