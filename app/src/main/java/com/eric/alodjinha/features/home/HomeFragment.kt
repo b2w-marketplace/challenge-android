@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.eric.alodjinha.R
 import com.eric.alodjinha.base.gone
 import com.eric.alodjinha.base.visible
@@ -12,7 +13,9 @@ import com.eric.alodjinha.features.home.HomeFragmentPresenter
 import com.eric.alodjinha.features.home.HomeFragmentPresenterImpl
 import com.eric.alodjinha.features.home.HomeFragmentView
 import com.eric.alodjinha.features.home.adapter.BannerPagerAdapter
+import com.eric.alodjinha.features.home.adapter.CategoriesAdapter
 import com.eric.alodjinha.features.home.model.Banner
+import com.eric.alodjinha.features.home.model.Category
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), HomeFragmentView {
@@ -30,8 +33,10 @@ class HomeFragment : Fragment(), HomeFragmentView {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -45,6 +50,16 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
         viewPagerBanner.adapter = BannerPagerAdapter(context!!, banners)
         tabLayoutBanner.setupWithViewPager(viewPagerBanner, true)
+    }
+
+    override fun receiveCategories(categories: List<Category>) {
+
+        val adapter = CategoriesAdapter(categories)
+        adapter.onClick = {}
+
+        recyclerViewCategories.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewCategories.adapter = adapter
     }
 
     override fun showLoading() {

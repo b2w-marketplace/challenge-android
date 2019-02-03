@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
-              android:layout_width="match_parent"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginTop="16dp"
-              android:layout_marginBottom="16dp">
+              android:layout_marginTop="20dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginLeft="8dp"
+              android:layout_marginRight="8dp"
+              android:clickable="true">
 
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewCategory"
@@ -19,6 +23,7 @@
             android:gravity="center"
             tools:text="Placas de video"
             android:fontFamily="@font/roboto"
-            android:textColor="@color/dark"/>
+            android:textColor="@color/dark"
+            android:maxLines="2"/>
 
 </LinearLayout>

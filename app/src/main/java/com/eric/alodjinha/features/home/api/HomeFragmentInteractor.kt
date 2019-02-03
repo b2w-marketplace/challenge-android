@@ -5,4 +5,5 @@ import io.reactivex.Observable
 interface HomeFragmentInteractor {
 
     fun getBanners() : Observable<BannerResponse>
+    fun getCategories() : Observable<CategoriesResponse>
 }

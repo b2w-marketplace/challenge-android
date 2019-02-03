@@ -12,4 +12,9 @@ class HomeFragmentRepository {
 
         return service.apiService.getBanner()
     }
+
+    fun getCategories(): Observable<CategoriesResponse> {
+
+        return service.apiService.getCategories()
+    }
 }

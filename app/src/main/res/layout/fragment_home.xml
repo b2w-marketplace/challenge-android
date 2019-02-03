@@ -53,8 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/categories_label"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp"
             android:textColor="@color/dark"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/constraint_view_page_container"
@@ -78,10 +78,33 @@
             app:layout_constraintTop_toBottomOf="@id/viewSeparatorCategorie"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+            android:id="@+id/viewSeparatorTopMoreSaller"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewCategories"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/greyish"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewMoreSallers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more_saller_label"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp"
+            android:textColor="@color/dark"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/viewSeparatorTopMoreSaller"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="16dp"/>
 
     <ProgressBar
             android:id="@+id/progressBar"

@@ -15,4 +15,8 @@ class HomeFragmentInteractorImpl : HomeFragmentInteractor{
 
         return repository.getBanner().map { it }
     }
+
+    override fun getCategories(): Observable<CategoriesResponse> {
+        return repository.getCategories().map { it }
+    }
 }

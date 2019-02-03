@@ -15,6 +15,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
     override fun onCreate() {
 
         getBanners()
+        getCategories()
     }
 
     override fun onDestroy() {
@@ -30,6 +31,20 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
             .doOnTerminate { view.hideLoading() }
             .subscribe({
                 view.receiveBanner(it.data)
+            },
+                {
+                    Log.e("HomePresenter", it.message)
+                }).addTo(disposible)
+    }
+
+    private fun getCategories() {
+
+        fragmentInteractor.getCategories()
+            .ioThread()
+            .doOnSubscribe { view.showLoading() }
+            .doOnTerminate { view.hideLoading() }
+            .subscribe({
+                view.receiveCategories(it.data)
             },
                 {
                     Log.e("HomePresenter", it.message)

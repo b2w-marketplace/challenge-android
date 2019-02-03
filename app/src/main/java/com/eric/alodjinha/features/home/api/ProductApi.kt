@@ -10,4 +10,8 @@ interface ProductApi {
     @Headers("Accept: application/json")
     @GET("/banner")
     fun getBanner(): Observable<BannerResponse>
+
+    @Headers("Accept: application/json")
+    @GET("/categoria")
+    fun getCategories(): Observable<CategoriesResponse>
 }
