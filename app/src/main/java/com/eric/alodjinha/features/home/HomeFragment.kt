@@ -20,11 +20,14 @@ import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_home.*
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.eric.alodjinha.MainActivity
+import com.eric.alodjinha.features.product.ProductsFragment
 
 
 class HomeFragment : Fragment(), HomeFragmentView {
 
     val presenter: HomeFragmentPresenter = HomeFragmentPresenterImpl(this)
+    var mActivity: MainActivity? = null
 
     companion object {
 
@@ -47,6 +50,7 @@ class HomeFragment : Fragment(), HomeFragmentView {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onCreate()
+        mActivity = context as MainActivity
     }
 
     override fun onDestroy() {
@@ -64,7 +68,9 @@ class HomeFragment : Fragment(), HomeFragmentView {
     override fun receiveCategories(categories: List<Category>) {
 
         val adapter = CategoriesAdapter(categories)
-        adapter.onClick = {}
+        adapter.onClick = {
+            mActivity?.addFragment(ProductsFragment.getInstance(it.id))
+        }
 
         recyclerViewCategories.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.HORIZONTAL, false
