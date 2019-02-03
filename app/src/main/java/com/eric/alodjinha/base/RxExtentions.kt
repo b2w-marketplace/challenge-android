@@ -31,10 +31,10 @@ fun <T> Single<T>.ioThread(): Single<T> {
         .observeOn(AndroidSchedulers.mainThread())
 }
 
-fun View.gone(){
+fun View.gone() {
     this.visibility = View.GONE
 }
 
-fun View.visible(){
+fun View.visible() {
     this.visibility = View.VISIBLE
 }

@@ -14,14 +14,21 @@
         android:gravity="bottom">
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
             app:srcCompat="@drawable/logo_menu"
-            android:id="@+id/imageView" android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+            android:background="@drawable/background_logo_header_nav"
+            android:id="@+id/imageView"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -35,6 +42,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="1.0"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" app:layout_constraintHorizontal_bias="1.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

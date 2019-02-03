@@ -2,6 +2,7 @@
     <string name="menu_home" translatable="false">Home</string>
     <string name="menu_about_application">About application</string>
     <string name="categories_label">Categories</string>
+    <string name="more_saller_label">More Sallers</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

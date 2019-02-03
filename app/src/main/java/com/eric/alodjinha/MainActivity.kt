@@ -8,7 +8,7 @@ import android.view.MenuItem
 import com.eric.alodjinha.base.BaseActivity
 import com.eric.alodjinha.feature.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.toolbar_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityView {
 
@@ -32,6 +32,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        addFragment(HomeFragment.getInstance())
     }
 
     override fun onBackPressed() {
