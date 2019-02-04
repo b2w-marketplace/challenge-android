@@ -60,7 +60,6 @@ class ProductActivity : AppCompatActivity(), ProductsFragmentView {
     override fun configureViews() {
 
         setTitle(categoryName)
-        supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         productsAdapter = ProductListAdapter(mProducts)
