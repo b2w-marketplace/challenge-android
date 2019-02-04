@@ -36,7 +36,7 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
             if (homeFragment == null) {
 
                 val extras = Bundle()
-                extras.putInt(Constants.CANTEGORY_ID, categoryId)
+                extras.putInt(Constants.CATEGORY_ID, categoryId)
                 homeFragment = ProductsFragment()
                 homeFragment?.arguments = extras
             }
@@ -53,7 +53,7 @@ class ProductsFragment : Fragment(), ProductsFragmentView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.onCreate(arguments?.get(Constants.CANTEGORY_ID) as Int)
+        presenter.onCreate(arguments?.get(Constants.CATEGORY_ID) as Int)
     }
 
     override fun configureViews() {

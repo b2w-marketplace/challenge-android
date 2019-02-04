@@ -72,14 +72,8 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
         val adapter = CategoriesAdapter(categories)
         adapter.onClick = {
-            //mActivity?.addFragment(ProductsFragment.getInstance(it.id))
 
-            val extras = Bundle()
-            extras.putInt(Constants.CANTEGORY_ID, it.id)
-            extras.putString(Constants.CANTEGORY_NAME, it.descricao)
-            val intent = Intent(context, ProductActivity::class.java)
-            intent.putExtra(Constants.CANTEGORY, extras)
-            context?.startActivity(intent)
+            ProductActivity.starter(context!!, it.id, it.descricao)
         }
 
         recyclerViewCategories.layoutManager = LinearLayoutManager(

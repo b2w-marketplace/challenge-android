@@ -1,8 +1,10 @@
 package com.eric.alodjinha.features.product
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,23 +25,43 @@ class ProductActivity : AppCompatActivity(), ProductsFragmentView {
     private var scrollListener: EndlessRecyclerViewScrollListener? = null
     private val COUNT_ITENS = 20
     val linearLayoutManager = LinearLayoutManager(this)
+    var categoryId = 0
+    var categoryName = ""
+
+    companion object {
+
+        fun starter(context: Context, categoryId: Int, categoryName: String) {
+
+            val intent = Intent(context, ProductActivity::class.java)
+            intent.putExtra(Constants.CATEGORY_ID, categoryId)
+            intent.putExtra(Constants.CATEGORY_NAME, categoryName)
+            context?.startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
-        var categoryId = 0
-        var categoryName = ""
-        if (intent.extras.get(Constants.CANTEGORY) != null) {
-
-            categoryId = intent.extras.getInt(Constants.CANTEGORY_ID)
-//            categoryName = intent.extras.getString(Constants.CANTEGORY_NAME)
-        }
-
+        categoryId = intent.getIntExtra(Constants.CATEGORY_ID, 0)
+        categoryName = intent.getStringExtra(Constants.CATEGORY_NAME)
         presenter.onCreate(categoryId)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when (item?.itemId) {
+
+            android.R.id.home -> { onBackPressed() }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun configureViews() {
+
+        setTitle(categoryName)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         productsAdapter = ProductListAdapter(mProducts)
 
