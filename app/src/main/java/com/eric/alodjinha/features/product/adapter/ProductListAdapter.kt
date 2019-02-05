@@ -1,5 +1,6 @@
 package com.eric.alodjinha.features.product.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_products.view.*
 import java.text.DecimalFormat
+import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
+
+
 
 class ProductListAdapter(var products: List<Product>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
@@ -32,6 +36,10 @@ class ProductListAdapter(var products: List<Product>) : RecyclerView.Adapter<Pro
             .into(holder.imageViewProduct)
 
         holder.textViewProductName.text = product.nome
+
+
+        holder.textViewPriceFrom.setPaintFlags(holder.textViewPriceFrom.getPaintFlags()
+                or Paint.STRIKE_THRU_TEXT_FLAG)
         holder.textViewPriceFrom.text = product.precoDe?.formatNumberBr()
         holder.textViewPriceBy.text = product.precoPor?.formatNumberBr()
         holder.itemView.setOnClickListener { onClick(product) }
