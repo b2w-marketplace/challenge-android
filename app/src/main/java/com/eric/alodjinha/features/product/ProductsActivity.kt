@@ -15,6 +15,7 @@ import com.eric.alodjinha.base.helpers.EndlessRecyclerViewScrollListener
 import com.eric.alodjinha.base.visible
 import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
+import com.eric.alodjinha.features.product.productdetail.ProductDetailActivity
 import kotlinx.android.synthetic.main.fragment_products.*
 
 class ProductsActivity : AppCompatActivity(), ProductsView {
@@ -52,7 +53,9 @@ class ProductsActivity : AppCompatActivity(), ProductsView {
 
         when (item?.itemId) {
 
-            android.R.id.home -> { onBackPressed() }
+            android.R.id.home -> {
+                onBackPressed()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -62,12 +65,8 @@ class ProductsActivity : AppCompatActivity(), ProductsView {
         setTitle(categoryName)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        productsAdapter = ProductListAdapter(mProducts)
-
-        productsAdapter!!.onClick {
-
-
-        }
+        productsAdapter = ProductListAdapter(mProducts!!)
+        productsAdapter?.onClick = { ProductDetailActivity.starter(this, it.id, categoryName) }
 
         val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 

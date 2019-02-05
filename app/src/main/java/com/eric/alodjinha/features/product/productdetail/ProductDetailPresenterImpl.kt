@@ -12,6 +12,7 @@ class ProductDetailPresenterImpl(val view: ProductDetailView) : ProductDetailPre
 
     override fun onCreate(productId: Int) {
 
+        view.configureViews()
         getProductDetail(productId)
     }
 
