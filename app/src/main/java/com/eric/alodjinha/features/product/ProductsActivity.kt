@@ -17,7 +17,7 @@ import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_products.*
 
-class ProductActivity : AppCompatActivity(), ProductsView {
+class ProductsActivity : AppCompatActivity(), ProductsView {
 
     private val presenter: ProductsPresenter = ProductsPresenterImpl(this)
     private val mProducts: MutableList<Product> = ArrayList()
@@ -32,7 +32,7 @@ class ProductActivity : AppCompatActivity(), ProductsView {
 
         fun starter(context: Context, categoryId: Int, categoryName: String) {
 
-            val intent = Intent(context, ProductActivity::class.java)
+            val intent = Intent(context, ProductsActivity::class.java)
             intent.putExtra(Constants.CATEGORY_ID, categoryId)
             intent.putExtra(Constants.CATEGORY_NAME, categoryName)
             context?.startActivity(intent)
@@ -65,6 +65,11 @@ class ProductActivity : AppCompatActivity(), ProductsView {
 
         productsAdapter = ProductListAdapter(mProducts)
 
+        productsAdapter!!.onClick {
+
+
+        }
+
         val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 
         recyclerViewProducts.layoutManager = linearLayoutManager
@@ -78,7 +83,7 @@ class ProductActivity : AppCompatActivity(), ProductsView {
             }
         }
 
-        recyclerViewProducts.setOnScrollListener(scrollListener)
+        recyclerViewProducts.addOnScrollListener(scrollListener!!)
     }
 
     override fun receiveProducts(products: List<Product>) {

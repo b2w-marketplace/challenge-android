@@ -13,7 +13,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".features.product.productdetail.ProductDetailActivity">
         </activity>
-        <activity android:name=".features.product.ProductActivity">
+        <activity android:name=".features.product.ProductsActivity">
         </activity>
         <activity
                 android:name=".MainActivity"
