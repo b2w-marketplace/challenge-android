@@ -17,9 +17,9 @@ import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.fragment_products.*
 
-class ProductActivity : AppCompatActivity(), ProductsFragmentView {
+class ProductActivity : AppCompatActivity(), ProductsView {
 
-    private val presenter: ProductsFragmentPresenter = ProductsFragmentPresenterImpl(this)
+    private val presenter: ProductsPresenter = ProductsPresenterImpl(this)
     private val mProducts: MutableList<Product> = ArrayList()
     private var productsAdapter: ProductListAdapter? = null
     private var scrollListener: EndlessRecyclerViewScrollListener? = null
