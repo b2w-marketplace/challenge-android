@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.emoji:emoji:1.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/d26202540bbcc0943bf77a8fe1e5be9b/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/5d59d2da74449d9430473442f24723d5/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/d26202540bbcc0943bf77a8fe1e5be9b/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/d26202540bbcc0943bf77a8fe1e5be9b/jars/libs/noto-emoji-compat-java.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/d26202540bbcc0943bf77a8fe1e5be9b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/5d59d2da74449d9430473442f24723d5/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/5d59d2da74449d9430473442f24723d5/jars/libs/noto-emoji-compat-java.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/emoji-1.0.0.aar/5d59d2da74449d9430473442f24723d5/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
