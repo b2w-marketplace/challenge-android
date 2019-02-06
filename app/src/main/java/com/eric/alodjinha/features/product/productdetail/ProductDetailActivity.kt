@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Paint
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.view.MenuItem
 import com.eric.alodjinha.R
-import com.eric.alodjinha.base.BaseActivity
-import com.eric.alodjinha.base.Constants
-import com.eric.alodjinha.base.crossPriceFrom
-import com.eric.alodjinha.base.formatNumberBr
+import com.eric.alodjinha.base.*
 import com.eric.alodjinha.features.product.api.ProductReservationResponse
 import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
@@ -101,17 +100,21 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
         textViewPriceFrom.crossPriceFrom()
 
+
+
         productName.text = product.nome
         textViewPriceFrom.text = product.precoDe?.formatNumberBr()
-        textViewPriceBy.text= product.precoPor?.formatNumberBr()
-        textVieDescription.text = product.descricao
+        textViewPriceBy.text = product.precoPor?.formatNumberBr()
+        textVieDescription.text = product.descricao?.formatFromHTML()
     }
 
     override fun showLoading() {
 
+        progressBar.visible()
     }
 
     override fun hideLoading() {
 
+        progressBar.gone()
     }
 }
