@@ -9,5 +9,5 @@ data class Product(
     val nome: String?,
     val precoDe: Float?,
     val precoPor: Float?,
-    val category: Category
+    val categoria: Category
 )

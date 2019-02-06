@@ -4,4 +4,7 @@
     <string name="menu_about_application">Sobre a aplicação</string>
     <string name="categories_label">Categorias</string>
     <string name="more_saller_label">Mais vendidos</string>
+    <string name="product_reservation_suscess">Produto reservado com sucesso.</string>
+    <string name="product_reservation_error">Ocorreu um erro, tente mais tarde.</string>
+    <string name="close_buttom">Fechar</string>
 </resources>

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,9 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eric.alodjinha.base.gone
 import com.eric.alodjinha.base.visible
 
-class ProductsFragment : Fragment(), ProductsFragmentView {
+class ProductsFragment : Fragment(), ProductsView {
 
-    private val presenter: ProductsFragmentPresenter = ProductsFragmentPresenterImpl(this)
+    private val presenter: ProductsPresenter = ProductsPresenterImpl(this)
     private val mProducts: MutableList<Product> = ArrayList()
     private var productsAdapter: ProductListAdapter? = null
     private var scrollListener: EndlessRecyclerViewScrollListener? = null

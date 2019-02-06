@@ -1,10 +1,8 @@
 package com.eric.alodjinha.features.product.api
 
+import com.eric.alodjinha.features.product.model.Product
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ProductApi {
 
@@ -15,4 +13,12 @@ interface ProductApi {
         @Query("limite") limite: Int,
         @Query("categoriaId") categoriaId: Int
     ): Observable<ProductResponse>
+
+    @Headers("Accept: application/json")
+    @POST("/produto/{produtoId}")
+    fun productReservation(@Path("produtoId") productId: Int): Observable<ProductReservationResponse>
+
+    @Headers("Accept: application/json")
+    @GET("/produto/{produtoId}")
+    fun getProductDetail(@Path("produtoId") productId: Int): Observable<Product>
 }
