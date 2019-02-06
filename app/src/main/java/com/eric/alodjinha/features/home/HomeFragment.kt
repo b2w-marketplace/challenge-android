@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.eric.alodjinha.MainActivity
 import com.eric.alodjinha.features.product.ProductsActivity
+import com.eric.alodjinha.features.product.productdetail.ProductDetailActivity
 
 
 class HomeFragment : Fragment(), HomeFragmentView {
@@ -84,6 +85,7 @@ class HomeFragment : Fragment(), HomeFragmentView {
         val adapter = ProductListAdapter(products)
         adapter.onClick = {
 
+            ProductDetailActivity.starter(context!!, it.id, it.categoria.descricao)
         }
 
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
