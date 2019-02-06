@@ -27,9 +27,11 @@ class ProductDetailPresenterImpl(val view: ProductDetailView) : ProductDetailPre
             .ioThread()
             .doOnSubscribe { view.showLoading() }
             .doOnTerminate { view.hideLoading() }
-            .subscribe({ view.productReservationSucess(it) }, {
+            .subscribe({
+                view.productReservationSucess(it)
+            }, {
 
-                // TODO
+               view.productReservationError()
             }).addTo(disposable)
     }
 

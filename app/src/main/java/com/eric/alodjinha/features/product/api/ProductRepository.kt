@@ -14,7 +14,7 @@ class ProductRepository {
         return service.apiService.getProductsByCategory(offset, limite, categoriaId)
     }
 
-    fun productReservation(productId: Int): Observable<String> {
+    fun productReservation(productId: Int): Observable<ProductReservationResponse> {
 
         return service.apiService.productReservation(productId)
     }

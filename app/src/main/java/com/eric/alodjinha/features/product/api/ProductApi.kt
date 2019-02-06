@@ -16,7 +16,7 @@ interface ProductApi {
 
     @Headers("Accept: application/json")
     @POST("/produto/{produtoId}")
-    fun productReservation(@Path("produtoId") productId: Int): Observable<String>
+    fun productReservation(@Path("produtoId") productId: Int): Observable<ProductReservationResponse>
 
     @Headers("Accept: application/json")
     @GET("/produto/{produtoId}")

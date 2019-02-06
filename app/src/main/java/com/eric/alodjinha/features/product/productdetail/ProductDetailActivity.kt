@@ -1,16 +1,18 @@
 package com.eric.alodjinha.features.product.productdetail
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.eric.alodjinha.R
+import com.eric.alodjinha.base.BaseActivity
 import com.eric.alodjinha.base.Constants
+import com.eric.alodjinha.features.product.api.ProductReservationResponse
 import com.eric.alodjinha.features.product.model.Product
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
-class ProductDetailActivity : AppCompatActivity(), ProductDetailView {
+class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
     val presenter: ProductDetailPresenter = ProductDetailPresenterImpl(this)
     var productId = 0
@@ -57,10 +59,23 @@ class ProductDetailActivity : AppCompatActivity(), ProductDetailView {
         setSupportActionBar(toolbar)
         setTitle(productName)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        floatingActionButtom.setOnClickListener { presenter.productReservation(productId) }
     }
 
-    override fun productReservationSucess(message: String) {
+    override fun productReservationSucess(message: ProductReservationResponse) {
 
+        showDialogWithCallback("",
+            getString(R.string.product_reservation_suscess), getString(R.string.close_buttom), "",
+            DialogInterface.OnClickListener { dialog, which -> finish() }, null
+        )
+    }
+
+    override fun productReservationError() {
+
+        showDialogWithCallback("",
+            getString(R.string.product_reservation_error), getString(R.string.ok), "",
+            DialogInterface.OnClickListener { dialog, which ->  }, null
+        )
     }
 
     override fun getProductDetail(product: Product) {

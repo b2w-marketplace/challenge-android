@@ -17,7 +17,7 @@ class ProductInteractorImpl : ProductInteractor {
         return repository.getProductsByCategory(offset, limite, categoriaId).map { it }
     }
 
-    override fun productReservation(productId: Int): Observable<String> {
+    override fun productReservation(productId: Int): Observable<ProductReservationResponse> {
 
         return repository.productReservation(productId).map { it }
     }

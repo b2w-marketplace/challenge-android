@@ -3,6 +3,10 @@
     <string name="menu_about_application">About application</string>
     <string name="categories_label">Categories</string>
     <string name="more_saller_label">More Sallers</string>
+    <string name="product_reservation_suscess">Produto reservado com sucesso.</string>
+    <string name="product_reservation_error">Ocorreu um erro, tente mais tarde.</string>
+    <string name="close_buttom">Close</string>
+    <string name="ok" translatable="false">OK</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
