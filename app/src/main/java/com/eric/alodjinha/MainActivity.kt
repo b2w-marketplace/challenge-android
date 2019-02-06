@@ -1,5 +1,6 @@
 package com.eric.alodjinha
 
+import android.graphics.Typeface
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
@@ -9,6 +10,9 @@ import com.eric.alodjinha.base.BaseActivity
 import com.eric.alodjinha.feature.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
+import android.graphics.Typeface.createFromAsset
+
+
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityView {
 
