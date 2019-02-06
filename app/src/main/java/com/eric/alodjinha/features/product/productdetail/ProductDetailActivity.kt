@@ -89,9 +89,10 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
     override fun getProductDetail(product: Product) {
 
+        collasingToobar.title = product.nome
 
         Picasso.get()
-            .load("https://img.elo7.com.br/product/zoom/FBCE34/adesivo-paisagem-praia-decorando-com-adesivos.jpg")
+            .load(product.urlImagem)
             .placeholder(R.drawable.shopping_bag)
             .error(R.drawable.warning)
             .into(imageViewProduct)
