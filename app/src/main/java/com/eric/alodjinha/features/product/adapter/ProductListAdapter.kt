@@ -10,10 +10,6 @@ import com.eric.alodjinha.base.formatNumberBr
 import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_products.view.*
-import java.text.DecimalFormat
-import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
-
-
 
 class ProductListAdapter(var products: List<Product>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 

@@ -10,20 +10,21 @@ import com.eric.alodjinha.base.BaseActivity
 import com.eric.alodjinha.base.Constants
 import com.eric.alodjinha.features.product.api.ProductReservationResponse
 import com.eric.alodjinha.features.product.model.Product
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
 class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
     val presenter: ProductDetailPresenter = ProductDetailPresenterImpl(this)
     var productId = 0
-    var productName = ""
+    var categoryName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
         productId = intent.getIntExtra(Constants.PRODUCT_ID, 0)
-        productName = intent.getStringExtra(Constants.CATEGORY_NAME)
+        categoryName = intent.getStringExtra(Constants.CATEGORY_NAME)
         presenter.onCreate(productId)
     }
 
@@ -57,29 +58,43 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
     override fun configureViews() {
 
         setSupportActionBar(toolbar)
-        setTitle(productName)
+        setTitle(categoryName)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        floatingActionButtom.setOnClickListener { presenter.productReservation(productId) }
+        floatingActionButtom.setOnClickListener {
+            presenter.productReservation(productId)
+            floatingActionButtom.isEnabled = false
+        }
     }
 
     override fun productReservationSucess(message: ProductReservationResponse) {
 
-        showDialogWithCallback("",
-            getString(R.string.product_reservation_suscess), getString(R.string.close_buttom), "",
+        showDialogWithCallback(
+            "",
+            getString(R.string.product_reservation_suscess), getString(R.string.ok), "",
             DialogInterface.OnClickListener { dialog, which -> finish() }, null
         )
+
+        floatingActionButtom.isEnabled = true
     }
 
     override fun productReservationError() {
 
-        showDialogWithCallback("",
-            getString(R.string.product_reservation_error), getString(R.string.ok), "",
-            DialogInterface.OnClickListener { dialog, which ->  }, null
+        showDialogWithCallback(
+            "",
+            getString(R.string.product_reservation_error), getString(R.string.close_buttom), "",
+            DialogInterface.OnClickListener { dialog, which -> }, null
         )
+        floatingActionButtom.isEnabled = true
     }
 
     override fun getProductDetail(product: Product) {
 
+
+        Picasso.get()
+            .load("https://img.elo7.com.br/product/zoom/FBCE34/adesivo-paisagem-praia-decorando-com-adesivos.jpg")
+            .placeholder(R.drawable.shopping_bag)
+            .error(R.drawable.warning)
+            .into(imageViewProduct)
     }
 
     override fun showLoading() {
