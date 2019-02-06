@@ -8,6 +8,7 @@ import android.view.MenuItem
 import com.eric.alodjinha.R
 import com.eric.alodjinha.base.Constants
 import com.eric.alodjinha.features.product.model.Product
+import kotlinx.android.synthetic.main.activity_product_detail.*
 
 class ProductDetailActivity : AppCompatActivity(), ProductDetailView {
 
@@ -53,8 +54,8 @@ class ProductDetailActivity : AppCompatActivity(), ProductDetailView {
 
     override fun configureViews() {
 
+        setSupportActionBar(toolbar)
         setTitle(productName)
-        supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
