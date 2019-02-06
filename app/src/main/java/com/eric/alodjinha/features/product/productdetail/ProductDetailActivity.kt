@@ -3,15 +3,19 @@ package com.eric.alodjinha.features.product.productdetail
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.MenuItem
 import com.eric.alodjinha.R
 import com.eric.alodjinha.base.BaseActivity
 import com.eric.alodjinha.base.Constants
+import com.eric.alodjinha.base.crossPriceFrom
+import com.eric.alodjinha.base.formatNumberBr
 import com.eric.alodjinha.features.product.api.ProductReservationResponse
 import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import kotlinx.android.synthetic.main.product_description_detail.*
 
 class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
@@ -89,13 +93,18 @@ class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
     override fun getProductDetail(product: Product) {
 
-        collasingToobar.title = product.nome
-
         Picasso.get()
             .load(product.urlImagem)
             .placeholder(R.drawable.shopping_bag)
             .error(R.drawable.warning)
             .into(imageViewProduct)
+
+        textViewPriceFrom.crossPriceFrom()
+
+        productName.text = product.nome
+        textViewPriceFrom.text = product.precoDe?.formatNumberBr()
+        textViewPriceBy.text= product.precoPor?.formatNumberBr()
+        textVieDescription.text = product.descricao
     }
 
     override fun showLoading() {

@@ -43,83 +43,15 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/productName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="PALCA DE VIDEO"
-                    android:maxLines="2"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textSize="17sp"
-                    android:textColor="@color/greyish_brown"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="24dp" android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
-                    app:layout_constraintHorizontal_bias="0.0"/>
-
-            <View
-                    android:id="@+id/viewTop"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/greyish"
-                    app:layout_constraintTop_toBottomOf="@+id/productName"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textViewPriceFrom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="299,00"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/viewTop"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textViewPriceBy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="299,00"
-                    app:layout_constraintTop_toBottomOf="@id/viewTop"
-                    android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginRight="16dp"/>
-
-            <View
-                    android:id="@+id/viewBottom"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/greyish"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewPriceBy"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textVieDescription"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    tools:text="299,00"
-                    app:layout_constraintTop_toBottomOf="@id/viewBottom"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include layout="@layout/product_description_detail"/>
 
     </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar android:id="@+id/progressBar"
+                 android:layout_width="48dp"
+                 android:layout_height="48dp"
+                 android:layout_gravity="center"
+                 android:visibility="gone"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
