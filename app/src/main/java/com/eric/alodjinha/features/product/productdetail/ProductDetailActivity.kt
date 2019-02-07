@@ -16,10 +16,6 @@ import com.eric.alodjinha.features.product.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.product_description_detail.*
-import android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
-import com.eric.alodjinha.base.helpers.CollapseToolbarHelper
-
 
 class ProductDetailActivity : BaseActivity(), ProductDetailView {
 
