@@ -11,7 +11,7 @@ import com.eric.alodjinha.feature.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import android.graphics.Typeface.createFromAsset
-
+import com.eric.alodjinha.features.about.AboutFragment
 
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityView {
@@ -40,14 +40,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         addFragment(HomeFragment.getInstance())
     }
 
-    override fun onBackPressed() {
-
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
-    }
+    override fun onBackPressed() {}
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -58,6 +51,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.nav_item_about -> {
 
+                addFragment(AboutFragment.getInstance())
             }
         }
 

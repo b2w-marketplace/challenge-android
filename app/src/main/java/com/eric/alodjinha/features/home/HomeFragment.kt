@@ -28,7 +28,6 @@ import com.eric.alodjinha.features.product.productdetail.ProductDetailActivity
 class HomeFragment : Fragment(), HomeFragmentView {
 
     val presenter: HomeFragmentPresenter = HomeFragmentPresenterImpl(this)
-    var mActivity: MainActivity? = null
 
     companion object {
 
@@ -51,7 +50,6 @@ class HomeFragment : Fragment(), HomeFragmentView {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.onCreate()
-        mActivity = context as MainActivity
     }
 
     override fun onDestroy() {
