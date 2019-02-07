@@ -36,6 +36,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+        nav_view.itemIconTintList = null
 
         addFragment(HomeFragment.getInstance())
     }
