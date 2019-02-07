@@ -6,16 +6,17 @@
         android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
             android:layout_height="300dp"
             android:layout_width="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay"
-            android:fitsSystemWindows="true">
+    >
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/collasingToobar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
+                app:contentScrim="@color/white_two"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -23,7 +24,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax"/>
 
             <androidx.appcompat.widget.Toolbar
@@ -32,7 +32,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="?attr/colorPrimary"
                     app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="scroll"/>
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -52,7 +52,6 @@
                  android:layout_height="48dp"
                  android:layout_gravity="center"
                  android:visibility="gone"/>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtom"
