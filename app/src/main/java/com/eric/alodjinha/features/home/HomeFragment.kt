@@ -94,11 +94,19 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
     override fun showLoading() {
 
+        constraintLayoutOuter.visible()
         progressBar.visible()
     }
 
     override fun hideLoading() {
 
         progressBar.gone()
+    }
+
+    override fun receiveError() {
+
+        constraintLayoutOuter.gone()
+        textViewError.visible()
+        textViewError.setOnClickListener { presenter.onCreate() }
     }
 }

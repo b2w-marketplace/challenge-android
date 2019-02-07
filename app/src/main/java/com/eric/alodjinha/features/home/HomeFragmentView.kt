@@ -9,6 +9,7 @@ interface HomeFragmentView {
     fun receiveBanner(banners : List<Banner>)
     fun receiveCategories(categories : List<Category>)
     fun receiveProductsMoreSallers(products : List<Product>)
+    fun receiveError()
     fun showLoading()
     fun hideLoading()
 }
