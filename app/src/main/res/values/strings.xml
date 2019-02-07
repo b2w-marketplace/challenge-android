@@ -11,5 +11,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="development_date" translatable="false">06 de fevereiro de 2019</string>
     <string name="develop_name" translatable="false">Eric Clauber de Araújo Aragão</string>
-    <string name="error_response" translatable="false">Houve algum erro na rede. Tentar novamente?</string>
+    <string name="error_response">Houve algum erro na rede. Tentar novamente?</string>
+    <string name="empty_list_products">Esta categoria não possui produtos.</string>
 </resources>

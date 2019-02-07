@@ -1,5 +1,6 @@
 package com.eric.alodjinha.features.product
 
+import android.util.Log
 import com.eric.alodjinha.base.ioThread
 import com.eric.alodjinha.features.product.api.ProductInteractorImpl
 import io.reactivex.disposables.CompositeDisposable
@@ -36,7 +37,12 @@ class ProductsPresenterImpl(val view: ProductsView) : ProductsPresenter {
             .doOnTerminate { view.hideLoading() }
             .subscribe({ view.receiveProducts(it.data) }, {
 
-                // TODO
+                Log.e("Error", it.message)
             }).addTo(disposable)
+    }
+
+    override fun configureEmptyList() {
+
+        view.configureEmptyList()
     }
 }

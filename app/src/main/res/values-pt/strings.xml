@@ -7,5 +7,6 @@
     <string name="product_reservation_suscess">Produto reservado com sucesso.</string>
     <string name="product_reservation_error">Ocorreu um erro, tente mais tarde.</string>
     <string name="close_buttom">Fechar</string>
-    <string name="error_response" translatable="false">Houve algum erro na rede. Tentar novamente?</string>
+    <string name="error_response">Houve algum erro na rede. Tentar novamente?</string>
+    <string name="empty_list_products">Esta categoria não possui produtos.</string>
 </resources>

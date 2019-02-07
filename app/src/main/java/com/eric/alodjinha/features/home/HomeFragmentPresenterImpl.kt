@@ -48,6 +48,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
                 view.receiveCategories(it.data)
             },
                 {
+                    view.receiveError()
                     Log.e("HomePresenter", it.message)
                 }).addTo(disposible)
 
@@ -59,6 +60,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
                 view.receiveCategories(it.data)
             },
                 {
+                    view.receiveError()
                     Log.e("HomePresenter", it.message)
                 }).addTo(disposible)
     }
@@ -73,6 +75,7 @@ class HomeFragmentPresenterImpl(val view: HomeFragmentView) : HomeFragmentPresen
                 view.receiveProductsMoreSallers(it.data)
             },
                 {
+                    view.receiveError()
                     Log.e("HomePresenter", it.message)
                 }).addTo(disposible)
     }

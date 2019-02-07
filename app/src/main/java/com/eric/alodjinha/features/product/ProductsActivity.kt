@@ -16,7 +16,7 @@ import com.eric.alodjinha.base.visible
 import com.eric.alodjinha.features.product.adapter.ProductListAdapter
 import com.eric.alodjinha.features.product.model.Product
 import com.eric.alodjinha.features.product.productdetail.ProductDetailActivity
-import kotlinx.android.synthetic.main.fragment_products.*
+import kotlinx.android.synthetic.main.activity_product.*
 
 class ProductsActivity : AppCompatActivity(), ProductsView {
 
@@ -88,6 +88,8 @@ class ProductsActivity : AppCompatActivity(), ProductsView {
 
         mProducts.addAll(products)
         productsAdapter?.notifyDataSetChanged()
+        recyclerViewProducts.visible()
+        presenter.configureEmptyList()
     }
 
     override fun onDestroy() {
@@ -104,5 +106,14 @@ class ProductsActivity : AppCompatActivity(), ProductsView {
     override fun hideLoading() {
 
         progressBar.gone()
+    }
+
+    override fun configureEmptyList() {
+
+        if (!mProducts.isNotEmpty()) {
+
+            recyclerViewProducts.gone()
+            textViewEmptyList.visible()
+        }
     }
 }

@@ -6,6 +6,7 @@ interface ProductsView {
 
     fun receiveProducts(products: List<Product>)
     fun configureViews()
+    fun configureEmptyList()
     fun showLoading()
     fun hideLoading()
 }

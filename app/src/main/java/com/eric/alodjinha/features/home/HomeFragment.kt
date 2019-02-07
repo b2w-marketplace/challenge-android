@@ -95,6 +95,7 @@ class HomeFragment : Fragment(), HomeFragmentView {
     override fun showLoading() {
 
         constraintLayoutOuter.visible()
+        textViewError.gone()
         progressBar.visible()
     }
 
