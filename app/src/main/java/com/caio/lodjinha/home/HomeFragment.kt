@@ -28,17 +28,6 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var categoryViewModel: CategoryViewModel
 
-    companion object {
-
-        var homeFragment: HomeFragment? = null
-
-        fun getInstance(): HomeFragment {
-
-            if (homeFragment == null) homeFragment = HomeFragment()
-            return homeFragment!!
-        }
-    }
-
     private fun initViewModel() {
         productViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
         bannerViewModel = ViewModelProviders.of(this).get(BannerViewModel::class.java)
