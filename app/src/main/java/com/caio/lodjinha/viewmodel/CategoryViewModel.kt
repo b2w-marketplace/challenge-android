@@ -8,6 +8,7 @@ import com.caio.lodjinha.repository.BannerRepository
 import com.caio.lodjinha.repository.remote.CategoryRepository
 import com.caio.lodjinha.repository.remote.RemoteResponse
 import com.caio.lodjinha.repository.remote.io.BannerResponse
+import com.caio.lodjinha.repository.remote.io.CategoriesResponse
 import javax.inject.Inject
 
 class CategoryViewModel : ViewModel() {
@@ -15,7 +16,7 @@ class CategoryViewModel : ViewModel() {
     @Inject
     lateinit var categoryRepository: CategoryRepository
 
-    private var liveDataCategory: LiveData<RemoteResponse<BannerResponse>>? = null
+    private var liveDataCategory: LiveData<RemoteResponse<CategoriesResponse>>? = null
 
     init {
         initializeDagger()
@@ -23,14 +24,14 @@ class CategoryViewModel : ViewModel() {
     private fun initializeDagger() = ApplicationBase.appComponent.inject(this)
 
 
-    fun getBanner(): LiveData<RemoteResponse<BannerResponse>>{
-        liveDataCategory = MutableLiveData<RemoteResponse<BannerResponse>>()
+    fun getCategory(): LiveData<RemoteResponse<CategoriesResponse>>{
+        liveDataCategory = MutableLiveData<RemoteResponse<CategoriesResponse>>()
 
         categoryRepository.getCategory()
             .subscribe({ result ->
-                (liveDataCategory as MutableLiveData<RemoteResponse<BannerResponse?>>).value = result},
+                (liveDataCategory as MutableLiveData<RemoteResponse<CategoriesResponse?>>).value = result},
                 { t: Throwable? -> t?.printStackTrace() })
 
-        return liveDataCategory as MutableLiveData<RemoteResponse<BannerResponse>>
+        return liveDataCategory as MutableLiveData<RemoteResponse<CategoriesResponse>>
     }
 }

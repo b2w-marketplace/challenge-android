@@ -1,10 +1,7 @@
 package com.caio.lodjinha.repository.remote
 
-import com.caio.lodjinha.repository.remote.RemoteResponse
-import com.caio.lodjinha.repository.remote.banner.BannerRemoteRep
 import com.caio.lodjinha.repository.remote.category.CategoryRemoteRep
-import com.caio.lodjinha.repository.remote.io.BannerResponse
-import com.caio.lodjinha.repository.remote.validateHttpCode
+import com.caio.lodjinha.repository.remote.io.CategoriesResponse
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -18,7 +15,7 @@ class CategoryRepository @Inject constructor(
 
     private val TAG: String = this::class.java.simpleName
 
-    fun getCategory() : Observable<RemoteResponse<BannerResponse?>> {
+    fun getCategory() : Observable<RemoteResponse<CategoriesResponse?>> {
 
         return categoryRemoteRep.getCategory()
             .subscribeOn(Schedulers.io())
