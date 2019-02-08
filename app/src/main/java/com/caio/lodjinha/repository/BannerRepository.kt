@@ -1,8 +1,8 @@
 package com.caio.lodjinha.repository
 
 import com.caio.lodjinha.repository.remote.RemoteResponse
-import com.caio.lodjinha.repository.remote.io.ProductResponse
-import com.caio.lodjinha.repository.remote.product.ProductRemoteRep
+import com.caio.lodjinha.repository.remote.banner.BannerRemoteRep
+import com.caio.lodjinha.repository.remote.io.BannerResponse
 import com.caio.lodjinha.repository.remote.validateHttpCode
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,15 +11,15 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ProductRepository @Inject constructor(
-    private val productRemoteRep: ProductRemoteRep
+class BannerRepository @Inject constructor(
+    private val bannerRemoteRep: BannerRemoteRep
 ) {
 
     private val TAG: String = this::class.java.simpleName
 
-    fun getProductsMoreSallers() : Observable<RemoteResponse<ProductResponse?>> {
+    fun getBanner() : Observable<RemoteResponse<BannerResponse?>> {
 
-        return productRemoteRep.getProductsMoreSallers()
+        return bannerRemoteRep.getBanner()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .validateHttpCode()

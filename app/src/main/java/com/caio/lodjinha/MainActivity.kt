@@ -6,6 +6,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import com.caio.lodjinha.base.BaseActivity
+import com.caio.lodjinha.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 
@@ -29,6 +30,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         nav_view.setNavigationItemSelectedListener(this)
         nav_view.itemIconTintList = null
 
+        addFragment(HomeFragment.getInstance())
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
