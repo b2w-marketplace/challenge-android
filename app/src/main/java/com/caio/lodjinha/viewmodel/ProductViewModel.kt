@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.caio.lodjinha.di.ApplicationBase
 import com.caio.lodjinha.repository.ProductRepository
+import com.caio.lodjinha.repository.entity.Product
 import com.caio.lodjinha.repository.remote.RemoteResponse
 import com.caio.lodjinha.repository.remote.io.ProductResponse
 import javax.inject.Inject
@@ -16,6 +17,7 @@ class ProductViewModel : ViewModel() {
 
     private var ldProductMoreSallers: LiveData<RemoteResponse<ProductResponse>>? = null
     private var ldProductByCategoria: LiveData<RemoteResponse<ProductResponse>>? = null
+    private var ldProductDetail: LiveData<RemoteResponse<Product>>? = null
 
     init {
         initializeDagger()
@@ -43,5 +45,16 @@ class ProductViewModel : ViewModel() {
                 { t: Throwable? -> t?.printStackTrace() })
 
         return ldProductByCategoria as MutableLiveData<RemoteResponse<ProductResponse>>
+    }
+
+    fun getProductDetail(produtoId: Int): LiveData<RemoteResponse<Product>>{
+        ldProductDetail = MutableLiveData<RemoteResponse<Product>>()
+
+        productRepository.getProductDetail(produtoId)
+            .subscribe({ result ->
+                (ldProductDetail as MutableLiveData<RemoteResponse<Product?>>).value = result},
+                { t: Throwable? -> t?.printStackTrace() })
+
+        return ldProductDetail as MutableLiveData<RemoteResponse<Product>>
     }
 }

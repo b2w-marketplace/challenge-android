@@ -15,11 +15,13 @@ import com.caio.lodjinha.base.Constants
 import com.caio.lodjinha.home.adapter.BannerPagerAdapter
 import com.caio.lodjinha.home.adapter.CategoriesAdapter
 import com.caio.lodjinha.home.adapter.ProductsMoreSallersAdapter
+import com.caio.lodjinha.product.ProductDetailActivity
 import com.caio.lodjinha.product.ProductsListActivity
 import com.caio.lodjinha.viewmodel.BannerViewModel
 import com.caio.lodjinha.viewmodel.CategoryViewModel
 import com.caio.lodjinha.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -65,8 +67,8 @@ class HomeFragment : BaseFragment() {
             if (it!!.isSuccess()){
                 val adapter = ProductsMoreSallersAdapter(it.data!!.data)
                 adapter.onClick = {
-
-//                    ProductDetailActivity.starter(context!!, it.id, it.categoria.descricao)
+                    startActivity<ProductDetailActivity>(
+                        Constants.PRODUCT_ID to it.id,Constants.CATEGORY_NAME to it.categoria.descricao)
                 }
 
                 val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)

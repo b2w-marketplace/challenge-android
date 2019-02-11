@@ -11,7 +11,7 @@ class RemoteConstant {
         const val PRODUCT_BY_ID = "/produto/{produtoId}"
         const val QUERY_OFFSET = "offset"
         const val QUERY_LIMITE = "limite"
-        const val QUERY_CATEGORY_ID = "categotyId"
+        const val QUERY_CATEGORY_ID = "categoriaId"
         const val PARAM_PRODUCT_ID = "produtoId"
         const val URL_BASE = "https://alodjinha.herokuapp.com"
     }

@@ -30,6 +30,10 @@
         </activity>
 
         <activity android:name=".product.ProductsListActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".product.ProductDetailActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

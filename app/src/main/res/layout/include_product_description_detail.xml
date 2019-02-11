@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvProductNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Teste Product Name"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="17sp"
+            android:textColor="@color/greyish_brown"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <View
+            android:id="@+id/viewTop"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greyish"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductNameDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPriceFromDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewFrom"
+            tools:text="999,00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewTop"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPriceByDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewBy"
+            tools:text="999,00"
+            app:layout_constraintTop_toBottomOf="@id/viewTop"
+            android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="16dp"/>
+
+    <View
+            android:id="@+id/viewBottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greyish"
+            app:layout_constraintTop_toBottomOf="@+id/tvPriceByDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvDescriptionDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="teste tete"
+            app:layout_constraintTop_toBottomOf="@id/viewBottom"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"/>
+
+</android.support.constraint.ConstraintLayout>

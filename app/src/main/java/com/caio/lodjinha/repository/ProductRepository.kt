@@ -1,5 +1,6 @@
 package com.caio.lodjinha.repository
 
+import com.caio.lodjinha.repository.entity.Product
 import com.caio.lodjinha.repository.remote.RemoteResponse
 import com.caio.lodjinha.repository.remote.io.ProductResponse
 import com.caio.lodjinha.repository.remote.product.ProductRemoteRep
@@ -33,6 +34,16 @@ class ProductRepository @Inject constructor(
     fun getProductsByCategory(offset: Int, limite: Int,categoriaId: Int) : Observable<RemoteResponse<ProductResponse?>> {
 
         return productRemoteRep.getProductsByCategory(offset, limite, categoriaId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .validateHttpCode()
+            .doOnSubscribe {loadingDialog.showLoading() }
+            .doOnTerminate{loadingDialog.dismissLoading()}
+    }
+
+    fun getProductDetail(produtoId: Int) : Observable<RemoteResponse<Product?>> {
+
+        return productRemoteRep.getProductDetail(produtoId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .validateHttpCode()

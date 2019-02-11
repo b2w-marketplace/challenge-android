@@ -18,6 +18,8 @@ import com.caio.lodjinha.repository.entity.Product
 import com.caio.lodjinha.utils.EndlessRecyclerViewScrollListener
 import com.caio.lodjinha.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_list_products.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 
 class ProductsListActivity : BaseActivity() {
 
@@ -58,6 +60,8 @@ class ProductsListActivity : BaseActivity() {
         productsListAdapter = ProductListAdapter(mProducts)
         productsListAdapter?.onClick = {
             Log.d(TAG,"onClick->"+it.id+ categoryName)
+            startActivity<ProductDetailActivity>(
+                Constants.PRODUCT_ID to it.id,Constants.CATEGORY_NAME to it.categoria.descricao)
         }
 
         val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)

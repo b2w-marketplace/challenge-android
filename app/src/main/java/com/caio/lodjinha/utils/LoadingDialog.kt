@@ -21,7 +21,7 @@ class LoadingDialog(private val context: Context) {
             it.requestWindowFeature(Window.FEATURE_NO_TITLE)
 //        mLoadingDialog.setOwnerActivity(act)
             it.setContentView(R.layout.dialog_loading)
-            it.setCancelable(false)
+            it.setCancelable(true)
             //ncessario para rodar no context do ApplicationBase
 //            it.getWindow().setType(WindowManager.LayoutParams.TYPE_PHONE);
         }
