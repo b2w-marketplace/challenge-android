@@ -10,4 +10,6 @@
     <string name="lblDate">11/02/2019</string>
     <string name="emptyListProducts">Categoria não possui produtos</string>
     <string name="dialog_loading">carregando...</string>
+    <string name="reservationSuccess">Produto reservado com sucesso.</string>
+    <string name="ok">ok</string>
 </resources>

@@ -2,6 +2,7 @@ package com.caio.lodjinha.repository
 
 import com.caio.lodjinha.repository.entity.Product
 import com.caio.lodjinha.repository.remote.RemoteResponse
+import com.caio.lodjinha.repository.remote.io.ProductReservationResponse
 import com.caio.lodjinha.repository.remote.io.ProductResponse
 import com.caio.lodjinha.repository.remote.product.ProductRemoteRep
 import com.caio.lodjinha.repository.remote.validateHttpCode
@@ -26,9 +27,6 @@ class ProductRepository @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .validateHttpCode()
-//            .doOnSubscribe {if(isLoading!!) loadingDialog.showLoading() }
-//            .doOnTerminate{if(isLoading!!) loadingDialog.dismissLoading()}
-
     }
 
     fun getProductsByCategory(offset: Int, limite: Int,categoriaId: Int) : Observable<RemoteResponse<ProductResponse?>> {
@@ -49,6 +47,14 @@ class ProductRepository @Inject constructor(
             .validateHttpCode()
             .doOnSubscribe {loadingDialog.showLoading() }
             .doOnTerminate{loadingDialog.dismissLoading()}
+    }
+
+    fun productReservation(produtoId: Int) : Observable<RemoteResponse<ProductReservationResponse?>> {
+
+        return productRemoteRep.productReservation(produtoId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .validateHttpCode()
     }
 
 

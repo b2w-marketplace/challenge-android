@@ -2,6 +2,7 @@ package com.caio.lodjinha.product
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -62,8 +63,17 @@ class ProductDetailActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btnReservation.setOnClickListener {
-//            presenter.productReservation(productId)
-//            floatingActionButtom.isEnabled = false
+            btnReservation.isEnabled = false
+            productViewModel.productReservation(productId).observe(this, Observer { it ->
+                if(it!!.isSuccess()){
+                    showDialogWithCallback(
+                        "",
+                        getString(R.string.reservationSuccess), getString(R.string.ok), "",
+                        DialogInterface.OnClickListener { dialog, which -> finish() }, null
+                    )
+                }
+                btnReservation.isEnabled = true
+            })
         }
     }
 

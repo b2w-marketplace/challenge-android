@@ -11,6 +11,7 @@ import android.view.MenuItem
 import com.caio.lodjinha.R
 import com.caio.lodjinha.base.BaseActivity
 import com.caio.lodjinha.base.Constants
+import com.caio.lodjinha.di.ApplicationBase
 import com.caio.lodjinha.extensions.gone
 import com.caio.lodjinha.extensions.visible
 import com.caio.lodjinha.product.adapter.ProductListAdapter
@@ -19,7 +20,6 @@ import com.caio.lodjinha.utils.EndlessRecyclerViewScrollListener
 import com.caio.lodjinha.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_list_products.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.startActivity
 
 class ProductsListActivity : BaseActivity() {
 
@@ -53,6 +53,11 @@ class ProductsListActivity : BaseActivity() {
 
     private fun initViewModel() {
         productViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApplicationBase.activityContext = this
     }
 
     private fun createProductList() {
