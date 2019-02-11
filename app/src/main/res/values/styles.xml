@@ -28,4 +28,8 @@
         <item name="android:textColor">@color/tomato</item>
     </style>
 
+    <style name="transparentBgTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
 </resources>

@@ -11,8 +11,5 @@ class AppModule(private val applicationBase : ApplicationBase) {
 
   @Provides @Singleton fun provideContext(): Context = applicationBase
 
-//  @Provides @Singleton fun context(): Context {
-//    return applicationBase
-//  }
 
 }

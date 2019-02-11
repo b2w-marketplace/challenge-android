@@ -8,4 +8,6 @@
     <string name="lblMoreSaller">Mais vendidos</string>
     <string name="lblDevelop">Caio Machado</string>
     <string name="lblDate">11/02/2019</string>
+    <string name="emptyListProducts">Categoria não possui produtos</string>
+    <string name="dialog_loading">carregando...</string>
 </resources>

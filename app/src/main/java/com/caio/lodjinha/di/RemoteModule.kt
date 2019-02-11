@@ -6,6 +6,7 @@ import com.caio.lodjinha.repository.RemoteConstant
 import com.caio.lodjinha.repository.remote.banner.BannerREST
 import com.caio.lodjinha.repository.remote.category.CategoryREST
 import com.caio.lodjinha.repository.remote.product.ProductREST
+import com.caio.lodjinha.utils.LoadingDialog
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -54,6 +55,6 @@ class RemoteModule {
         retrofit.create(CategoryREST::class.java)
 
 
-//    @Provides @Singleton fun provideLoadingDialog(context: Context): LoadingDialog =
-//            LoadingDialog(context)
+    @Provides @Singleton fun provideLoadingDialog(context: Context): LoadingDialog =
+            LoadingDialog(context)
 }

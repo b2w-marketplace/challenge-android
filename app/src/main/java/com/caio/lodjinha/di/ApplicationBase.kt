@@ -1,6 +1,7 @@
 package com.caio.lodjinha.di
 
 import android.app.Application
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 
 class ApplicationBase : Application() {

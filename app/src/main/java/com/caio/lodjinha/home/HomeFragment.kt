@@ -11,16 +11,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.caio.lodjinha.R
 import com.caio.lodjinha.base.BaseFragment
+import com.caio.lodjinha.base.Constants
 import com.caio.lodjinha.home.adapter.BannerPagerAdapter
 import com.caio.lodjinha.home.adapter.CategoriesAdapter
 import com.caio.lodjinha.home.adapter.ProductsMoreSallersAdapter
+import com.caio.lodjinha.product.ProductsListActivity
 import com.caio.lodjinha.viewmodel.BannerViewModel
 import com.caio.lodjinha.viewmodel.CategoryViewModel
 import com.caio.lodjinha.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
 class HomeFragment : BaseFragment() {
+
+    private val TAG: String = this::class.java.simpleName
 
     private lateinit var productViewModel: ProductViewModel
 
@@ -37,13 +42,19 @@ class HomeFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG,"onCreateView")
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG,"onCreate")
         initViewModel()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG,"onResume")
         createBanner()
         createCategories()
         createProductsMoreSallers()
@@ -71,9 +82,10 @@ class HomeFragment : BaseFragment() {
             if(it!!.isSuccess()){
                 val adapter = CategoriesAdapter(it.data!!.data)
                 adapter.onClick = {
-
-                    Log.d("OnClickCategory->"+it.id,it.descricao)
-//            ProductsActivity.starter(context!!, it.id, it.descricao)
+                    Log.d(TAG,"OnClickCategory->"+it.id+it.descricao)
+                    startActivity<ProductsListActivity>(
+                        Constants.CATEGORY_ID to it.id,
+                        Constants.CATEGORY_NAME to it.descricao)
                 }
                 rvCategories.layoutManager = LinearLayoutManager(
                     context, LinearLayoutManager.HORIZONTAL, false

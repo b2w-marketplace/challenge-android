@@ -14,4 +14,5 @@
     <color name="white_two">#fcfcfc</color>
     <color name="black_alpha_30">#30000000</color>
     <color name="white_alpha_20">#60fcfcfc</color>
+    <color name="transparent">#00000000</color>
 </resources>

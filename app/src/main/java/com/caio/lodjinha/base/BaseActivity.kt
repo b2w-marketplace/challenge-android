@@ -3,8 +3,13 @@ package com.caio.lodjinha.base
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.caio.lodjinha.R
+import com.caio.lodjinha.di.ApplicationBase
 
 open class BaseActivity : AppCompatActivity() {
+
+    init {
+        ApplicationBase.activityContext = this
+    }
 
     fun addFragment(fragment: Fragment) {
 

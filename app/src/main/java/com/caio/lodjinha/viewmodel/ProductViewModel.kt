@@ -15,6 +15,7 @@ class ProductViewModel : ViewModel() {
     lateinit var productRepository: ProductRepository
 
     private var ldProductMoreSallers: LiveData<RemoteResponse<ProductResponse>>? = null
+    private var ldProductByCategoria: LiveData<RemoteResponse<ProductResponse>>? = null
 
     init {
         initializeDagger()
@@ -31,5 +32,16 @@ class ProductViewModel : ViewModel() {
                 { t: Throwable? -> t?.printStackTrace() })
 
         return ldProductMoreSallers as MutableLiveData<RemoteResponse<ProductResponse>>
+    }
+
+    fun getProductsByCategory(offset: Int, limite: Int,categoriaId: Int): LiveData<RemoteResponse<ProductResponse>>{
+        ldProductByCategoria = MutableLiveData<RemoteResponse<ProductResponse>>()
+
+        productRepository.getProductsByCategory(offset, limite, categoriaId)
+            .subscribe({ result ->
+                (ldProductByCategoria as MutableLiveData<RemoteResponse<ProductResponse?>>).value = result},
+                { t: Throwable? -> t?.printStackTrace() })
+
+        return ldProductByCategoria as MutableLiveData<RemoteResponse<ProductResponse>>
     }
 }
