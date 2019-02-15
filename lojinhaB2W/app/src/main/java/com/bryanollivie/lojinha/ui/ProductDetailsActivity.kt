@@ -1,10 +1,11 @@
-package com.bryanollivie.loginhab2w
+package com.bryanollivie.lojinha.ui
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import com.bryanollivie.lojinha.R
 
 import kotlinx.android.synthetic.main.activity_product_details.*
 

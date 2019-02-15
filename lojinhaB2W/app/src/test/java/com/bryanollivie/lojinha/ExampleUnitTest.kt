@@ -1,4 +1,4 @@
-package com.bryanollivie.loginhab2w
+package com.bryanollivie.lojinha
 
 import org.junit.Test
 

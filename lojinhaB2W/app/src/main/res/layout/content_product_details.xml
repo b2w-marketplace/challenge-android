@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_product_details"
-        tools:context=".ProductDetailsActivity">
+        tools:context=".ui.ProductDetailsActivity">
 
     <TextView
             android:layout_width="wrap_content"
