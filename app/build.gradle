@@ -25,6 +25,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation baseDependencies.values()
     implementation layoutDependencies.values()
+    implementation navigationDependencies.values()
     testImplementation unitTestDependencies.values()
     androidTestImplementation androidTestDependencies.values()
 }
