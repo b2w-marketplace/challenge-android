@@ -1,30 +1,35 @@
 package br.com.b2w.lodjinha.features.banner
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.PagerAdapter
 import br.com.b2w.lodjinha.R
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_banner.view.*
+import java.lang.Exception
 
 class BannerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : CardView(context, attrs, defStyleAttr) {
 
-    private val images: MutableList<Drawable> = mutableListOf()
+    private val imagesUrl: MutableList<String> = mutableListOf()
 
     init {
         View.inflate(context, R.layout.view_banner, this)
     }
 
-    fun setImages(images: List<Drawable>) {
-        this.images.addAll(images)
+    fun setImages(imagesUrl: List<String>) {
+        this.imagesUrl.addAll(imagesUrl)
         setupViewPager()
+    }
+
+    private fun hideLoading() {
+        bannerProgressBar.visibility = View.INVISIBLE
     }
 
     private fun setupViewPager() {
@@ -34,7 +39,17 @@ class BannerView @JvmOverloads constructor(
     inner class ImageSliderAdapter : PagerAdapter() {
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             val imageLayout = LayoutInflater.from(context).inflate(R.layout.view_banner_image, container, false).apply {
-                findViewById<ImageView>(R.id.bannerImageView).setImageDrawable(images[position])
+                Picasso.get().load(imagesUrl[position]).into(findViewById(R.id.bannerImageView),
+                    object : Callback {
+                        override fun onSuccess() {
+                            hideLoading()
+                        }
+
+                        override fun onError(e: Exception?) {
+                            hideLoading()
+                        }
+                    }
+                )
             }
             container.addView(imageLayout)
             return imageLayout
@@ -45,7 +60,7 @@ class BannerView @JvmOverloads constructor(
 
         override fun isViewFromObject(view: View, `object`: Any): Boolean = view == `object`
 
-        override fun getCount(): Int = images.size
+        override fun getCount(): Int = imagesUrl.size
 
         override fun getPageTitle(position: Int): CharSequence? = ""
     }

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "${rootDir}/config/dependencies.gradle"
 
 android {
@@ -26,6 +27,10 @@ dependencies {
     implementation baseDependencies.values()
     implementation layoutDependencies.values()
     implementation navigationDependencies.values()
+    implementation lifecycleDependencies.values()
+    implementation networkDependencies.values()
+    implementation dependencyInjectionDependencies.values()
+    kapt lifecycleCompilerDependencies.values()
     testImplementation unitTestDependencies.values()
     androidTestImplementation androidTestDependencies.values()
 }
