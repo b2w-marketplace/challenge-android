@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">LoginhaB2W</string>
     <string name="action_settings">Settings</string>
+
+    <string name="message_progress">Carregando...</string>
+    <string name="no_connection">Sem Conexão...\nVerifique suas conexões de Wifi e Dados Moveis!</string>
+    <string name="server_error">Ocorreu um problema no servidor, tente novamente em segundos.</string>
+    <string name="req_error">Ocorreu um problema na requisição, tente novamente em segundos.</string>
+
 </resources>

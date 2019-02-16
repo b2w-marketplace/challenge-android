@@ -1,10 +1,8 @@
-/*
-package com.tocalivros.android.utils
+package com.bryanollivie.lojinha.utils
 
 import android.app.ProgressDialog
 import android.content.Context
 import com.bryanollivie.lojinha.R
-import com.tocalivros.android.R
 
 class ProgressDialogHelper(context: Context) {
 
@@ -54,4 +52,3 @@ class ProgressDialogHelper(context: Context) {
 
 }
 
-*/

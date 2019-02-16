@@ -1,0 +1,438 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <RelativeLayout
+                android:id="@+id/nav_header_container"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true">
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <!--
+                                <ImageView
+                                        android:id="@+id/nav_image_user"
+                                        android:layout_width="67dp"
+                                        android:layout_height="65dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                         android:contentDescription="@string/nav_header_desc"
+                                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                        android:src="@drawable/ic_user_round"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                        android:id="@+id/nav_msg_inicio"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                        android:text="@string/nav_header_title"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                                        android:textColor="@color/colorWhite"
+                                        android:textStyle="bold"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/nav_image_user"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                        android:id="@+id/nav_email_user"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:text="@string/nav_header_subtitle"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/nav_image_user" />
+
+                                <android.support.v7.widget.AppCompatImageView
+                                        android:id="@+id/nav_img_user"
+                                        android:layout_width="39dp"
+                                        android:layout_height="27dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:contentDescription="@string/nav_header_desc"
+                                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                        app:srcCompat="@drawable/baseline_expand_more_white_24"
+                                        tools:ignore="VectorDrawableCompat"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent" />
+                            </android.support.constraint.ConstraintLayout>
+
+                        </RelativeLayout>
+
+
+
+                        <android.support.constraint.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/colorBlackBackgroundMenu">
+
+                            &lt;!&ndash; Meus Audios &ndash;&gt;
+                            <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="Meus Áudios"
+                                    android:textColor="@color/colorGrey"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            &lt;!&ndash; Biblioteca &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_biblioteca"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                                <ImageView
+                                        android:id="@+id/imageView2"
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_biblioteca" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Biblioteca"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Assinaturas &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_assinaturas"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_biblioteca">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_assinaturas" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Assinaturas"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+
+                            &lt;!&ndash; Descobertas &ndash;&gt;
+                            <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="Descobertas"
+                                    android:textColor="@color/colorGrey"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_assinaturas" />
+
+                            &lt;!&ndash; Destaques &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_destaques"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_destaques" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Destaques"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Categoria &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_categorias"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_destaques">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_categorias" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Categorias"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Consultor &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_consultor"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_categorias">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_consultor" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Consultor Literário"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Notificacoes &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_notificacoes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:visibility="gone"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_consultor">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_notificacoes" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Notificações"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+
+                            &lt;!&ndash; Configuracoes e Suporte &ndash;&gt;
+                            <TextView
+                                    android:id="@+id/textView4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="Configurações e Suporte"
+                                    android:textColor="@color/colorGrey"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_notificacoes" />
+
+                            &lt;!&ndash; Voucher &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_voucher"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_voucher" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Resgate de Voucher"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Configurações &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_configuracoes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:visibility="gone"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_voucher">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_configuracoes" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Configurações"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Suporte &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_suporte"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:visibility="gone"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_configuracoes">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_suporte" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Suporte"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+
+                            &lt;!&ndash; Player &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_player"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:visibility="gone"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nav_menu_suporte">
+
+                                <android.support.v7.widget.AppCompatImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        ads:srcCompat="@drawable/baseline_play_arrow_white_24"
+                                        app:srcCompat="@drawable/baseline_play_arrow_white_24"
+                                        tools:ignore="VectorDrawableCompat" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Player"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                            &lt;!&ndash; Logout &ndash;&gt;
+                            <LinearLayout
+                                    android:id="@+id/nav_menu_logout"
+                                    android:layout_width="400dp"
+                                    android:layout_height="47dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:gravity="right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="1.0"
+                                    app:layout_constraintStart_toStartOf="parent">
+
+                                <ImageView
+                                        android:layout_width="39dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:src="@drawable/ic_menu_logout" />
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Logout"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="15sp" />
+                            </LinearLayout>-->
+
+            </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
