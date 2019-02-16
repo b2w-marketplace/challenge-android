@@ -1,0 +1,29 @@
+ext {
+    def appCompatVersion = '1.0.2'
+    def coreKtxVersion = '1.0.1'
+    def constraintLayoutVersion = '1.1.3'
+    def materialVersion = '1.0.0'
+    def junitVersion = '4.12'
+    def runnerVersion = '1.1.1'
+    def espressoVersion = '3.1.1'
+
+    baseDependencies = [
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+            appCompat : "androidx.appcompat:appcompat:${appCompatVersion}",
+            coreKtx   : "androidx.core:core-ktx:${coreKtxVersion}"
+    ]
+
+    layoutDependencies = [
+            constraintLayout : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            material         : "com.google.android.material:material:${materialVersion}"
+    ]
+
+    unitTestDependencies = [
+            junit : "junit:junit:${junitVersion}"
+    ]
+
+    androidTestDependencies = [
+            runner       : "androidx.test:runner:${runnerVersion}",
+            espressoCore : "androidx.test.espresso:espresso-core:${espressoVersion}"
+    ]
+}
