@@ -60,7 +60,7 @@ class CategoryView @JvmOverloads constructor(
                     categoryNameTextView.text = category.description
                     Picasso.get()
                         .load(category.urlImagem)
-                        .placeholder(R.drawable.ic_exclamation_circle_solid)
+                        //.placeholder(R.drawable.ic_exclamation_circle_solid)
                         .into(categoryImageView)
                     setOnClickListener { categorySelectedListener?.invoke(category) }
                 }

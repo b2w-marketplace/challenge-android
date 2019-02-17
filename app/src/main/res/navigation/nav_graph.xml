@@ -20,13 +20,32 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="br.com.b2w.lodjinha.features.product.presentation.ProductsFragment"
-        android:label="{title}">
+        android:label="{title}"
+        tools:layout="@layout/fragment_products">
         <argument
             android:name="title"
             app:argType="string" />
         <argument
             android:name="category"
             app:argType="br.com.b2w.lodjinha.features.category.Category" />
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="br.com.b2w.lodjinha.features.product.presentation.ProductDetailsFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="productId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

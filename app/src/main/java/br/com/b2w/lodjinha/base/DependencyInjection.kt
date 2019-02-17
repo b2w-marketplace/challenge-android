@@ -5,6 +5,7 @@ import br.com.b2w.lodjinha.Api
 import br.com.b2w.lodjinha.HomeViewModel
 import br.com.b2w.lodjinha.features.product.data.LoadingState
 import br.com.b2w.lodjinha.features.product.data.ProductsFactory
+import br.com.b2w.lodjinha.features.product.presentation.ProductDetailsViewModel
 import br.com.b2w.lodjinha.features.product.presentation.ProductsAdapter
 import br.com.b2w.lodjinha.features.product.presentation.ProductsViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -19,6 +20,7 @@ object DependencyInjection {
     private const val BASE_URL = "https://alodjinha.herokuapp.com/"
 
     val productsModule = module {
+        single { ProductDetailsViewModel(get()) }
         single { ProductsAdapter() }
         viewModel { ProductsViewModel(get(), get()) }
         single { ProductsFactory(get(), get()) }

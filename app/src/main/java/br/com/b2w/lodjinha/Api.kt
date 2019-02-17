@@ -2,10 +2,12 @@ package br.com.b2w.lodjinha
 
 import br.com.b2w.lodjinha.features.banner.BannerResponse
 import br.com.b2w.lodjinha.features.category.CategoryResponse
+import br.com.b2w.lodjinha.features.product.Product
 import br.com.b2w.lodjinha.features.product.ProductsResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Api {
@@ -23,5 +25,8 @@ interface Api {
     fun getProducts(@Query("offset") offset: Int,
                     @Query("limit") limit: Int,
                     @Query("categoriaId") categoryId: Int): Call<ProductsResponse>
+
+    @GET("produto/{id}")
+    fun getProduct(@Path("id") id: Int): Deferred<Product>
 
 }

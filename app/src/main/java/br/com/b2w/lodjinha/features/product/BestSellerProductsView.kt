@@ -56,7 +56,7 @@ class BestSellerProductsView  @JvmOverloads constructor(
                 with(view) {
                     Picasso.get()
                         .load(product.urlImagem)
-                        .placeholder(R.drawable.ic_exclamation_circle_solid)
+//                        .placeholder(R.drawable.ic_exclamation_circle_solid)
                         .into(productImageView)
                     productNameTextView.text = product.name
                     productOldPriceTextView.text = context.getString(R.string.product_old_price, product.oldPrice.toString())

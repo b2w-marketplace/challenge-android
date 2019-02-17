@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/productImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/productNameTextView"
+                style="@style/ProductName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImageView"
+                app:layout_goneMarginEnd="32dp"
+                tools:text="Uncharted Collections" />
+
+            <View
+                android:id="@+id/productPriceTopDivider"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
+
+            <br.com.b2w.lodjinha.views.StrikeThroughTextView
+                android:id="@+id/productOldPriceTextView"
+                style="@style/ProductOldPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/productNewPriceTextView"
+                app:layout_constraintStart_toStartOf="@+id/productNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/productPriceTopDivider"
+                app:layout_constraintBottom_toTopOf="@+id/productPriceBottomDivider"
+                tools:text="De: 9999,99" />
+
+            <TextView
+                android:id="@+id/productNewPriceTextView"
+                style="@style/ProductNewPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@+id/productOldPriceTextView"
+                app:layout_constraintEnd_toEndOf="@+id/productNameTextView"
+                app:layout_constraintStart_toEndOf="@+id/productOldPriceTextView"
+                app:layout_constraintTop_toTopOf="@+id/productOldPriceTextView"
+                tools:text="Por 9999,98" />
+
+            <View
+                android:id="@+id/productPriceBottomDivider"
+                style="@style/DividerStyle"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productNewPriceTextView" />
+
+
+            <TextView
+                android:id="@+id/bestSellerProductsTitleTextView"
+                style="@style/DefaultTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/productNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/productPriceBottomDivider"
+                tools:text="Lorem Ipsum" />
+
+            <TextView
+                android:id="@+id/productDescriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/productNameTextView"
+                app:layout_constraintStart_toStartOf="@+id/productNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/bestSellerProductsTitleTextView"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl vel pretium lectus quam id leo in vitae. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Tristique risus nec feugiat in fermentum posuere urna. Volutpat sed cras ornare arcu dui. Dictum varius duis at consectetur lorem donec massa. Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Ut aliquam purus sit amet luctus venenatis lectus magna. Pellentesque pulvinar pellentesque habitant morbi tristique senectus. Eget nullam non nisi est. Gravida rutrum quisque non tellus orci ac auctor augue mauris. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Neque viverra justo nec ultrices. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Rutrum quisque non tellus orci. Turpis egestas sed tempus urna et pharetra pharetra." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveProductFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/check_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

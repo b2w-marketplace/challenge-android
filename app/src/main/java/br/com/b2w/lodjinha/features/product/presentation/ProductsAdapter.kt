@@ -7,6 +7,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.R
+import br.com.b2w.lodjinha.features.category.Category
 import br.com.b2w.lodjinha.features.product.Product
 import br.com.b2w.lodjinha.features.product.data.LoadingState
 import com.squareup.picasso.Picasso
@@ -15,6 +16,11 @@ import kotlinx.android.synthetic.main.product_item.view.*
 class ProductsAdapter : PagedListAdapter<Product, RecyclerView.ViewHolder>(diffCallback) {
 
     private var loadingState: LoadingState? = null
+    private var productSelectedListener: ((Product) -> Unit)? = null
+
+    fun onProductSelected(param: (Product) -> Unit) {
+        productSelectedListener = param
+    }
 
     fun updateLoadingState(loadingState: LoadingState) {
         this.loadingState = loadingState
@@ -44,17 +50,18 @@ class ProductsAdapter : PagedListAdapter<Product, RecyclerView.ViewHolder>(diffC
     override fun getItemViewType(position: Int): Int =
         if (loadingState == LoadingState.LOADING && position == itemCount - 1) LOADING_ITEM else PRODUCT_ITEM
 
-    private class ProductViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    private inner class ProductViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(product: Product) {
             with(view) {
                 Picasso.get()
                     .load(product.urlImagem)
-                    .placeholder(br.com.b2w.lodjinha.R.drawable.ic_exclamation_circle_solid)
+//                    .placeholder(br.com.b2w.lodjinha.R.drawable.ic_exclamation_circle_solid)
                     .into(productImageView)
                 productNameTextView.text = product.name
                 productOldPriceTextView.text = context.getString(R.string.product_old_price, product.oldPrice.toString())
                 productNewPriceTextView.text = context.getString(R.string.product_new_price, product.newPrice.toString())
+                setOnClickListener { productSelectedListener?.invoke(product) }
             }
         }
 

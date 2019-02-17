@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.BaseFragment
 import br.com.b2w.lodjinha.R
-import br.com.b2w.lodjinha.features.product.data.LoadingState
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_products.*
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -50,9 +49,13 @@ class ProductsFragment : BaseFragment() {
     }
 
     private fun getProducts() {
-        val category = args.category
+        adapter.onProductSelected { product ->
+            val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailsFragment(args.category.description, product.id)
+            findNavController().navigate(action)
+        }
+
         launch {
-            viewModel.getProducts(category.id).observe(this@ProductsFragment, Observer {
+            viewModel.getProducts(args.category.id).observe(this@ProductsFragment, Observer {
                 productsProgressBar.visibility = View.INVISIBLE
                 adapter.submitList(it)
             })
