@@ -52,6 +52,11 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun getBestSellerProducts() {
+        bestSellerProductsView.onProductSelected { product ->
+            val action = HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(product.category.description, product.id)
+            findNavController().navigate(action)
+        }
+
         launch {
             homeViewModel.getBestSellerProducts().observe(this@HomeFragment, Observer { products ->
                 with(bestSellerProductsView) {

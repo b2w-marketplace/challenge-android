@@ -19,9 +19,14 @@ class BestSellerProductsView  @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val products: MutableList<Product> = mutableListOf()
+    private var productSelectedListener: ((Product) -> Unit)? = null
 
     init {
         View.inflate(context, R.layout.view_best_seller_products, this)
+    }
+
+    fun onProductSelected(param: (Product) -> Unit) {
+        productSelectedListener = param
     }
 
     fun setProducts(products: List<Product>) {
@@ -61,6 +66,7 @@ class BestSellerProductsView  @JvmOverloads constructor(
                     productNameTextView.text = product.name
                     productOldPriceTextView.text = context.getString(R.string.product_old_price, product.oldPrice.toString())
                     productNewPriceTextView.text = context.getString(R.string.product_new_price, product.newPrice.toString())
+                    setOnClickListener { productSelectedListener?.invoke(product) }
                 }
             }
 
