@@ -3,6 +3,7 @@ package br.com.b2w.lodjinha.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.home_menu
                 textColorRes = R.color.dark
                 onClick { _ ->
-                    findNavController(R.id.fragment).navigate(R.id.homeFragment)
+                    findNavController(R.id.fragment).navigate(R.id.action_homeFragmentDrawer_to_homeFragment)
                     false
                 }
             }
