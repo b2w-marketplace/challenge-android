@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.BaseFragment
@@ -42,6 +43,7 @@ class ProductsFragment : BaseFragment() {
 
     private fun setupRecyclerView() {
         with(productsRecyclerView) {
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = this@ProductsFragment.adapter
         }
