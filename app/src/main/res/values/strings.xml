@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Lodjinha</string>
+    <string name="logo_name">A Lodjinha</string>
     <string name="categories">Categorias</string>
     <string name="best_seller_products">Mais vendidos</string>
     <string name="product_old_price">De: %s</string>
     <string name="product_new_price">Por %s</string>
+    <string name="home">Home</string>
+    <string name="about">Sobre o aplicativo</string>
 </resources>

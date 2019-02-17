@@ -6,5 +6,7 @@
     <color name="greyish">#AAAAAA</color>
     <color name="greyishBrown">#4A4A4A</color>
     <color name="white">#D5D5D5</color>
+    <color name="white_2">#FCFCFC</color>
     <color name="tomato">#F15025</color>
+    <color name="dark">#2D3142</color>
 </resources>
