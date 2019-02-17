@@ -12,4 +12,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <br.com.b2w.lodjinha.features.category.CategoryView
+        android:id="@+id/categoryView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

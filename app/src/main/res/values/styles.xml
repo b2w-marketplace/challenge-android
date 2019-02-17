@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DividerStyle">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="HomeTitle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/greyishBrown</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CategoryName" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/greyishBrown</item>
+        <item name="android:textSize">13sp</item>
+    </style>
 </resources>

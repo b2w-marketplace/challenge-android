@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.view_category.view.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,12 +22,24 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getBanners()
+        getCategories()
     }
 
     private fun getBanners() {
         launch {
             homeViewModel.getBannersUrl().observe(this@HomeFragment, Observer { bannersUrl ->
                 bannerView.setImages(bannersUrl)
+            })
+        }
+    }
+
+    private fun getCategories() {
+        launch {
+            homeViewModel.getCategories().observe(this@HomeFragment, Observer { categories ->
+                with(categoryView) {
+                    setCategories(categories)
+                    visibility = View.VISIBLE
+                }
             })
         }
     }
