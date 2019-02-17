@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.b2w.lodjinha.BaseFragment
+import br.com.b2w.lodjinha.views.BaseFragment
 import br.com.b2w.lodjinha.R
 import kotlinx.android.synthetic.main.fragment_products.*
 import kotlinx.coroutines.launch

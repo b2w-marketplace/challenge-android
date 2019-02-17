@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import br.com.b2w.lodjinha.BaseFragment
+import br.com.b2w.lodjinha.views.BaseFragment
 import br.com.b2w.lodjinha.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_product_details.*

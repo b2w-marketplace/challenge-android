@@ -1,6 +1,7 @@
-package br.com.b2w.lodjinha
+package br.com.b2w.lodjinha.views
 
 import androidx.lifecycle.*
+import br.com.b2w.lodjinha.Api
 import br.com.b2w.lodjinha.features.banner.Banner
 import br.com.b2w.lodjinha.features.category.Category
 import br.com.b2w.lodjinha.features.product.Product

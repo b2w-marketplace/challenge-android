@@ -1,10 +1,12 @@
-package br.com.b2w.lodjinha
+package br.com.b2w.lodjinha.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import br.com.b2w.lodjinha.R
 import co.zsmb.materialdrawerkt.builders.drawer
 import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import com.mikepenz.materialdrawer.Drawer

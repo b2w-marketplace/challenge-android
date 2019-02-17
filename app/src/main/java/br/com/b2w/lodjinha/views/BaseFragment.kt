@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha
+package br.com.b2w.lodjinha.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

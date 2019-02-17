@@ -2,7 +2,7 @@ package br.com.b2w.lodjinha.base
 
 import androidx.lifecycle.MutableLiveData
 import br.com.b2w.lodjinha.Api
-import br.com.b2w.lodjinha.HomeViewModel
+import br.com.b2w.lodjinha.views.HomeViewModel
 import br.com.b2w.lodjinha.features.product.data.LoadingState
 import br.com.b2w.lodjinha.features.product.data.ProductsFactory
 import br.com.b2w.lodjinha.features.product.presentation.ProductDetailsViewModel
