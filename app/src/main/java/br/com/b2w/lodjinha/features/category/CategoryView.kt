@@ -54,7 +54,7 @@ class CategoryView @JvmOverloads constructor(
                 with(view) {
                     categoryNameTextView.text = category.description
                     Picasso.get()
-                        .load(category.urlImagem.replace("http", "https"))
+                        .load(category.urlImagem)
                         .placeholder(R.drawable.ic_exclamation_circle_solid)
                         .into(categoryImageView)
                 }

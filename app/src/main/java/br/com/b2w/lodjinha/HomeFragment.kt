@@ -23,6 +23,7 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         getBanners()
         getCategories()
+        getBestSellerProducts()
     }
 
     private fun getBanners() {
@@ -38,6 +39,17 @@ class HomeFragment : BaseFragment() {
             homeViewModel.getCategories().observe(this@HomeFragment, Observer { categories ->
                 with(categoryView) {
                     setCategories(categories)
+                    visibility = View.VISIBLE
+                }
+            })
+        }
+    }
+
+    private fun getBestSellerProducts() {
+        launch {
+            homeViewModel.getBestSellerProducts().observe(this@HomeFragment, Observer { products ->
+                with(bestSellerProductsView) {
+                    setProducts(products)
                     visibility = View.VISIBLE
                 }
             })
