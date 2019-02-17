@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/productsFragment"
-        android:name="br.com.b2w.lodjinha.features.product.ProductsFragment"
+        android:name="br.com.b2w.lodjinha.features.product.presentation.ProductsFragment"
         android:label="{title}">
         <argument
             android:name="title"

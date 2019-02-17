@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_best_seller_products.view.*
-import kotlinx.android.synthetic.main.view_best_seller_products_item.view.*
+import kotlinx.android.synthetic.main.product_item.view.*
 
 class BestSellerProductsView  @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -41,7 +41,7 @@ class BestSellerProductsView  @JvmOverloads constructor(
     inner class BestSellerProductsAdapter : RecyclerView.Adapter<BestSellerProductsAdapter.BestSellerProductsViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerProductsViewHolder =
-            BestSellerProductsViewHolder(LayoutInflater.from(context).inflate(R.layout.view_best_seller_products_item, parent, false))
+            BestSellerProductsViewHolder(LayoutInflater.from(context).inflate(R.layout.product_item, parent, false))
 
         override fun getItemCount(): Int = products.size
 
