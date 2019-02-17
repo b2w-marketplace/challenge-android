@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.view_category.view.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,6 +36,11 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun getCategories() {
+        categoryView.onCategorySelected { category ->
+            val action = HomeFragmentDirections.actionHomeFragmentToProductsFragment(category.description, category)
+            findNavController().navigate(action)
+        }
+
         launch {
             homeViewModel.getCategories().observe(this@HomeFragment, Observer { categories ->
                 with(categoryView) {

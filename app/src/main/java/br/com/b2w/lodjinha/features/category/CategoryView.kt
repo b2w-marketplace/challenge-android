@@ -18,9 +18,14 @@ class CategoryView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val categories: MutableList<Category> = mutableListOf()
+    private var categorySelectedListener: ((Category) -> Unit)? = null
 
     init {
         View.inflate(context, R.layout.view_category, this)
+    }
+
+    fun onCategorySelected(param: (Category) -> Unit) {
+        categorySelectedListener = param
     }
 
     fun setCategories(categories: List<Category>) {
@@ -57,6 +62,7 @@ class CategoryView @JvmOverloads constructor(
                         .load(category.urlImagem)
                         .placeholder(R.drawable.ic_exclamation_circle_solid)
                         .into(categoryImageView)
+                    setOnClickListener { categorySelectedListener?.invoke(category) }
                 }
             }
 
