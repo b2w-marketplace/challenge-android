@@ -49,4 +49,19 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/white_2</item>
     </style>
+
+    <style name="AboutStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/greyishBrown</item>
+        <item name="android:textSize">64sp</item>
+    </style>
+
+    <style name="AboutDevNameStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/greyishBrown</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AboutDeliveryDateStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/greyishBrown</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

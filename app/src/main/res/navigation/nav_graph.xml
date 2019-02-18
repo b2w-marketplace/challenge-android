@@ -20,11 +20,6 @@
             app:destination="@id/productDetailsFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_homeFragmentDrawer_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -57,5 +52,11 @@
             android:name="productId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="br.com.b2w.lodjinha.views.AboutFragment"
+        android:label="@string/about"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>
