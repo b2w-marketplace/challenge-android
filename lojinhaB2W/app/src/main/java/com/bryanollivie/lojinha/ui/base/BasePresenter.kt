@@ -18,5 +18,4 @@ open class BasePresenter<V : BaseMvpView> : BaseMvpPresenter<V> {
         mView = null
     }
 
-
 }
