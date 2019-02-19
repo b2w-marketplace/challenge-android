@@ -29,6 +29,7 @@ class CategoryView @JvmOverloads constructor(
     }
 
     fun setCategories(categories: List<Category>) {
+        this.categories.clear()
         this.categories.addAll(categories)
         setupRecyclerView()
     }
@@ -60,7 +61,6 @@ class CategoryView @JvmOverloads constructor(
                     categoryNameTextView.text = category.description
                     Picasso.get()
                         .load(category.urlImagem)
-                        //.placeholder(R.drawable.ic_exclamation_circle_solid)
                         .into(categoryImageView)
                     setOnClickListener { categorySelectedListener?.invoke(category) }
                 }

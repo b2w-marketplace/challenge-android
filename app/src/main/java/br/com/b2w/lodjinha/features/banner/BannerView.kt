@@ -24,6 +24,7 @@ class BannerView @JvmOverloads constructor(
     }
 
     fun setImages(imagesUrl: List<String>) {
+        this.imagesUrl.clear()
         this.imagesUrl.addAll(imagesUrl)
         setupViewPager()
     }
