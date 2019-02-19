@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.b2w.lodjinha.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,6 +27,12 @@ class HomeFragment : BaseFragment() {
         getBanners()
         getCategories()
         getBestSellerProducts()
+        (activity as MainActivity).showToolbarLogoInfo()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as MainActivity).hideToolbarLogoInfo()
     }
 
     private fun getBanners() {

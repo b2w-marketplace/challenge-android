@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="br.com.b2w.lodjinha.views.HomeFragment"
-        android:label="HomeFragment"
+        android:label=""
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_productsFragment"

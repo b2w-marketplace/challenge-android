@@ -15,7 +15,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light" />
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+        <ImageView
+            android:id="@+id/toolbarAppLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/logo_navbar" />
+
+        <br.com.b2w.lodjinha.views.PacificoTextView
+            android:id="@+id/toolbarAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logo_name"
+            android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <fragment
         android:id="@+id/fragment"

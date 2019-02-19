@@ -1,6 +1,7 @@
 package br.com.b2w.lodjinha.views
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,6 +21,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupDrawer()
         bindToolbarInNavController()
+    }
+
+    fun showToolbarLogoInfo() {
+        mainToolbar.title = ""
+        toolbarAppLogo.visibility = View.VISIBLE
+        toolbarAppName.visibility = View.VISIBLE
+    }
+
+    fun hideToolbarLogoInfo() {
+        toolbarAppLogo.visibility = View.GONE
+        toolbarAppName.visibility = View.GONE
     }
 
     private fun setupDrawer() {
