@@ -1,7 +1,9 @@
 package br.com.b2w.lodjinha.features.product.presentation
 
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
+import android.os.Message
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +30,40 @@ class ProductDetailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupSaveProduct()
+        observerSaveProductResponse()
         getProduct()
     }
+
+    private fun setupSaveProduct() {
+        saveProductFab.setOnClickListener {
+            launch {
+                saveProductProgressBar.show()
+                saveProductFab.isClickable = false
+                viewModel.saveProduct(args.productId)
+            }
+        }
+    }
+
+    private fun observerSaveProductResponse() {
+        viewModel.saveProductLiveData.observe(this@ProductDetailsFragment, Observer { state ->
+            saveProductProgressBar.hide()
+            saveProductFab.isClickable = true
+            val message = when (state) {
+                is ProductDetailsViewModel.SaveProductState.SuccessState -> getString(R.string.save_product_successfully)
+                is ProductDetailsViewModel.SaveProductState.ErrorState -> state.message
+            }
+            showDialog(message)
+        })
+    }
+
+    private fun showDialog(message: String) =
+        AlertDialog
+            .Builder(context)
+            .setMessage(if (message.isEmpty()) context?.getString(R.string.save_product_error) else message)
+            .setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog.dismiss() }
+            .show()
+
 
     private fun getProduct() {
         launch {

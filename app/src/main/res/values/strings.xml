@@ -10,4 +10,6 @@
     <string name="about_app">Sobre o aplicativo</string>
     <string name="my_name" translatable="false">Lucas Soares Candalo</string>
     <string name="delivery_date" translatable="false">19 de Fevereiro de 2019</string>
+    <string name="save_product_successfully">Produto reservado com sucesso</string>
+    <string name="save_product_error">Erro ao reservar produto</string>
 </resources>
