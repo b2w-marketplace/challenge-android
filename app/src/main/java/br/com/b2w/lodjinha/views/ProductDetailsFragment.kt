@@ -1,12 +1,12 @@
 package br.com.b2w.lodjinha.views
 
-import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import br.com.b2w.lodjinha.R
@@ -35,16 +35,14 @@ class ProductDetailsFragment : BaseFragment() {
 
     private fun setupSaveProduct() {
         saveProductFab.setOnClickListener {
-            launch {
-                saveProductProgressBar.show()
-                saveProductFab.isClickable = false
-                viewModel.saveProduct(args.productId)
-            }
+            saveProductProgressBar.show()
+            saveProductFab.isClickable = false
+            launch { viewModel.saveProduct(args.productId) }
         }
     }
 
     private fun observerSaveProductResponse() {
-        viewModel.saveProductLiveData.observe(this@ProductDetailsFragment, Observer { state ->
+        viewModel.saveProductLiveData.observe(this@ProductDetailsFragment,  Observer { state ->
             saveProductProgressBar.hide()
             saveProductFab.isClickable = true
             val message = when (state) {
@@ -57,25 +55,23 @@ class ProductDetailsFragment : BaseFragment() {
 
     private fun showDialog(message: String) =
         AlertDialog
-            .Builder(context)
+            .Builder(requireContext())
             .setMessage(if (message.isEmpty()) context?.getString(R.string.save_product_error) else message)
             .setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog.dismiss() }
             .show()
 
-
     private fun getProduct() {
-        launch {
-            viewModel.getProduct(args.productId).observe(this@ProductDetailsFragment, Observer { product ->
-                Picasso.get()
-                    .load(product.urlImagem)
-                    .into(productImageView)
-                productNameTextView.text = product.name
-                productOldPriceTextView.text = product.oldPrice.toString()
-                productNewPriceTextView.text = product.newPrice.toString()
-                bestSellerProductsTitleTextView.text = product.description.substringBefore(" ")
-                productDescriptionTextView.text = getFormattedHtmlText(product.description)
-            })
-        }
+        launch { viewModel.getProduct(args.productId) }
+        viewModel.productLiveData.observe(this@ProductDetailsFragment, Observer { product ->
+            Picasso.get()
+                .load(product.urlImagem)
+                .into(productImageView)
+            productNameTextView.text = product.name
+            productOldPriceTextView.text = product.oldPrice.toString()
+            productNewPriceTextView.text = product.newPrice.toString()
+            bestSellerProductsTitleTextView.text = product.description.substringBefore(" ")
+            productDescriptionTextView.text = getFormattedHtmlText(product.description)
+        })
     }
 
     private fun getFormattedHtmlText(text: String) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
