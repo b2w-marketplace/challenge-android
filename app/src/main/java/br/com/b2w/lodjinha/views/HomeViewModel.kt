@@ -10,24 +10,14 @@ import kotlinx.coroutines.withContext
 
 class HomeViewModel(private val api: Api) : ViewModel() {
 
-    private val bannersLiveData: MutableLiveData<List<Banner>> = MutableLiveData()
-    private val bannersUrlLiveData: LiveData<List<String>> = Transformations.map(bannersLiveData) {
-        it.map { banner -> banner.linkUrl }
-    }
-    private val categoriesLiveData: MutableLiveData<List<Category>> = MutableLiveData()
-    private val bestSellerProductsLiveData: MutableLiveData<List<Product>> = MutableLiveData()
+    val homeLiveData: MutableLiveData<Home> = MutableLiveData()
 
-    suspend fun getBannersUrl(): LiveData<List<String>> = withContext(Dispatchers.IO) {
-        bannersLiveData.postValue(api.getBanners().await().data)
-        bannersUrlLiveData
+    suspend fun getHomeData() = withContext(Dispatchers.IO) {
+        val banners = api.getBanners().await().data
+        val categories = api.getCategories().await().data
+        val products = api.getBestSellerProducts().await().data
+        homeLiveData.postValue(Home(banners, categories, products))
     }
 
-    suspend fun getCategories(): LiveData<List<Category>> = withContext(Dispatchers.IO) {
-        categoriesLiveData.apply { postValue(api.getCategories().await().data) }
-    }
-
-    suspend fun getBestSellerProducts(): LiveData<List<Product>> = withContext(Dispatchers.IO) {
-        bestSellerProductsLiveData.apply { postValue(api.getBestSellerProducts().await().data) }
-    }
-
+    data class Home(val banners: List<Banner>, val categories: List<Category>, val products: List<Product>)
 }

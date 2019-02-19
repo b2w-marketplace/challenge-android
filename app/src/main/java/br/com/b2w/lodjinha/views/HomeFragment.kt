@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.b2w.lodjinha.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -24,9 +23,9 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getBanners()
-        getCategories()
-        getBestSellerProducts()
+        observeHomeData()
+        onCategorySelected()
+        onProductSelected()
         (activity as MainActivity).showToolbarLogoInfo()
     }
 
@@ -35,15 +34,25 @@ class HomeFragment : BaseFragment() {
         (activity as MainActivity).hideToolbarLogoInfo()
     }
 
-    private fun getBanners() {
-        launch {
-            homeViewModel.getBannersUrl().observe(this@HomeFragment, Observer { bannersUrl ->
-                bannerView.setImages(bannersUrl)
-            })
-        }
+    private fun observeHomeData() {
+        launch { homeViewModel.getHomeData() }
+        homeViewModel.homeLiveData.observe(this, Observer { home ->
+            homeProgressBar.hide()
+            with(bannerView) {
+                setImages(home.banners.map { banner -> banner.urlImagem })
+            }
+            with(categoryView) {
+                setCategories(home.categories)
+                visibility = View.VISIBLE
+            }
+            with(bestSellerProductsView) {
+                setProducts(home.products)
+                visibility = View.VISIBLE
+            }
+        })
     }
 
-    private fun getCategories() {
+    private fun onCategorySelected() {
         categoryView.onCategorySelected { category ->
             val action = HomeFragmentDirections.actionHomeFragmentToProductsFragment(
                 category.description,
@@ -51,33 +60,15 @@ class HomeFragment : BaseFragment() {
             )
             findNavController().navigate(action)
         }
-
-        launch {
-            homeViewModel.getCategories().observe(this@HomeFragment, Observer { categories ->
-                with(categoryView) {
-                    setCategories(categories)
-                    visibility = View.VISIBLE
-                }
-            })
-        }
     }
 
-    private fun getBestSellerProducts() {
+    private fun onProductSelected() {
         bestSellerProductsView.onProductSelected { product ->
             val action = HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(
                 product.category.description,
                 product.id
             )
             findNavController().navigate(action)
-        }
-
-        launch {
-            homeViewModel.getBestSellerProducts().observe(this@HomeFragment, Observer { products ->
-                with(bestSellerProductsView) {
-                    setProducts(products)
-                    visibility = View.VISIBLE
-                }
-            })
         }
     }
 }
