@@ -19,6 +19,7 @@ class ProductDetailsFragment : BaseFragment() {
 
     private val viewModel: ProductDetailsViewModel by viewModel()
     private val args: ProductDetailsFragmentArgs by navArgs()
+    private var hasSavedProduct = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,14 +38,17 @@ class ProductDetailsFragment : BaseFragment() {
         saveProductFab.setOnClickListener {
             saveProductProgressBar.show()
             saveProductFab.isClickable = false
+            hasSavedProduct = true
             launch { viewModel.saveProduct(args.productId) }
         }
     }
 
     private fun observerSaveProductResponse() {
         viewModel.saveProductLiveData.observe(this@ProductDetailsFragment,  Observer { state ->
+            if (!hasSavedProduct) { return@Observer }
             saveProductProgressBar.hide()
             saveProductFab.isClickable = true
+            hasSavedProduct = false
             val message = when (state) {
                 is ProductDetailsViewModel.SaveProductState.SuccessState -> getString(R.string.save_product_successfully)
                 is ProductDetailsViewModel.SaveProductState.ErrorState -> state.message
