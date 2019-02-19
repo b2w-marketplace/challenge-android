@@ -30,6 +30,7 @@ class BannerView @JvmOverloads constructor(
 
     private fun hideLoading() {
         bannerProgressBar.visibility = View.INVISIBLE
+        pageIndicatorView.visibility = View.VISIBLE
     }
 
     private fun setupViewPager() {
