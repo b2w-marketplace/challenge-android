@@ -1,16 +1,14 @@
-package br.com.b2w.lodjinha.features.product.presentation
+package br.com.b2w.lodjinha.views
 
 import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
-import android.os.Message
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import br.com.b2w.lodjinha.views.BaseFragment
 import br.com.b2w.lodjinha.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_product_details.*
@@ -70,7 +68,6 @@ class ProductDetailsFragment : BaseFragment() {
             viewModel.getProduct(args.productId).observe(this@ProductDetailsFragment, Observer { product ->
                 Picasso.get()
                     .load(product.urlImagem)
-//                    .placeholder(br.com.b2w.lodjinha.R.drawable.ic_exclamation_circle_solid)
                     .into(productImageView)
                 productNameTextView.text = product.name
                 productOldPriceTextView.text = product.oldPrice.toString()

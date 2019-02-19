@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.product.presentation
+package br.com.b2w.lodjinha.views
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

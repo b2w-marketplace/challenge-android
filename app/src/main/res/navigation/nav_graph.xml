@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/productsFragment"
-        android:name="br.com.b2w.lodjinha.features.product.presentation.ProductsFragment"
+        android:name="br.com.b2w.lodjinha.views.ProductsFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_products">
         <argument
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="br.com.b2w.lodjinha.features.product.presentation.ProductDetailsFragment"
+        android:name="br.com.b2w.lodjinha.views.ProductDetailsFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_product_details">
         <argument

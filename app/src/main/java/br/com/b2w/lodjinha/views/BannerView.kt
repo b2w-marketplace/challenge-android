@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.banner
+package br.com.b2w.lodjinha.views
 
 import android.content.Context
 import android.util.AttributeSet

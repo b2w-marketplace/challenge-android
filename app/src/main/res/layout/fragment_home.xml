@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <br.com.b2w.lodjinha.features.banner.BannerView
+    <br.com.b2w.lodjinha.views.BannerView
         android:id="@+id/bannerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <br.com.b2w.lodjinha.features.category.CategoryView
+    <br.com.b2w.lodjinha.views.CategoryView
         android:id="@+id/categoryView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerView" />
 
-    <br.com.b2w.lodjinha.features.product.BestSellerProductsView
+    <br.com.b2w.lodjinha.views.BestSellerProductsView
         android:id="@+id/bestSellerProductsView"
         android:layout_width="0dp"
         android:layout_height="0dp"

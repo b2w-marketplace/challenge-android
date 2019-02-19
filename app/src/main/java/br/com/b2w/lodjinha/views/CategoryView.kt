@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.category
+package br.com.b2w.lodjinha.views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.R
+import br.com.b2w.lodjinha.features.category.Category
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_category.view.*
 import kotlinx.android.synthetic.main.view_category_item.view.*

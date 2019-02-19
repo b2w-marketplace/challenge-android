@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.product.presentation
+package br.com.b2w.lodjinha.views
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.R
-import br.com.b2w.lodjinha.features.category.Category
 import br.com.b2w.lodjinha.features.product.Product
 import br.com.b2w.lodjinha.features.product.data.LoadingState
 import com.squareup.picasso.Picasso
@@ -36,7 +35,13 @@ class ProductsAdapter : PagedListAdapter<Product, RecyclerView.ViewHolder>(diffC
         return if (viewType == PRODUCT_ITEM) {
             ProductViewHolder(inflater.inflate(R.layout.product_item, parent, false))
         } else {
-            LoadingViewHolder(inflater.inflate(R.layout.loading_item, parent, false))
+            LoadingViewHolder(
+                inflater.inflate(
+                    R.layout.loading_item,
+                    parent,
+                    false
+                )
+            )
         }
     }
 
@@ -56,7 +61,6 @@ class ProductsAdapter : PagedListAdapter<Product, RecyclerView.ViewHolder>(diffC
             with(view) {
                 Picasso.get()
                     .load(product.urlImagem)
-//                    .placeholder(br.com.b2w.lodjinha.R.drawable.ic_exclamation_circle_solid)
                     .into(productImageView)
                 productNameTextView.text = product.name
                 productOldPriceTextView.text = context.getString(R.string.product_old_price, product.oldPrice.toString())

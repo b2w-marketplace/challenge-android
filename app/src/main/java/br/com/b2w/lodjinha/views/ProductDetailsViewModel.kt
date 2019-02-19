@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.product.presentation
+package br.com.b2w.lodjinha.views
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,7 +22,9 @@ class ProductDetailsViewModel(val api: Api) : ViewModel() {
         val state = if (response.isSuccessful && response.body()?.message?.isEmpty() != false) {
             SaveProductState.SuccessState
         } else {
-            SaveProductState.ErrorState(response.body()?.message ?: "")
+            SaveProductState.ErrorState(
+                response.body()?.message ?: ""
+            )
         }
         saveProductLiveData.postValue(state)
     }

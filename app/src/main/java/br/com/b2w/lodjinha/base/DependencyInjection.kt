@@ -5,9 +5,9 @@ import br.com.b2w.lodjinha.Api
 import br.com.b2w.lodjinha.views.HomeViewModel
 import br.com.b2w.lodjinha.features.product.data.LoadingState
 import br.com.b2w.lodjinha.features.product.data.ProductsFactory
-import br.com.b2w.lodjinha.features.product.presentation.ProductDetailsViewModel
-import br.com.b2w.lodjinha.features.product.presentation.ProductsAdapter
-import br.com.b2w.lodjinha.features.product.presentation.ProductsViewModel
+import br.com.b2w.lodjinha.views.ProductDetailsViewModel
+import br.com.b2w.lodjinha.views.ProductsAdapter
+import br.com.b2w.lodjinha.views.ProductsViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

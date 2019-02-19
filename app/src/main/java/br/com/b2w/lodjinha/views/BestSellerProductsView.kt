@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.product
+package br.com.b2w.lodjinha.views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.b2w.lodjinha.R
+import br.com.b2w.lodjinha.features.product.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_best_seller_products.view.*
 import kotlinx.android.synthetic.main.product_item.view.*

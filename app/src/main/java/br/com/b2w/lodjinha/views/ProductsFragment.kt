@@ -1,4 +1,4 @@
-package br.com.b2w.lodjinha.features.product.presentation
+package br.com.b2w.lodjinha.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.b2w.lodjinha.views.BaseFragment
 import br.com.b2w.lodjinha.R
 import kotlinx.android.synthetic.main.fragment_products.*
 import kotlinx.coroutines.launch
@@ -50,7 +49,11 @@ class ProductsFragment : BaseFragment() {
 
     private fun getProducts() {
         adapter.onProductSelected { product ->
-            val action = ProductsFragmentDirections.actionProductsFragmentToProductDetailsFragment(args.category.description, product.id)
+            val action =
+                ProductsFragmentDirections.actionProductsFragmentToProductDetailsFragment(
+                    args.category.description,
+                    product.id
+                )
             findNavController().navigate(action)
         }
 
