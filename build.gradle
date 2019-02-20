@@ -24,6 +24,7 @@ allprojects {
 }
 
 ext {
+    constraintVersion = '1.1.3'
     picassoVersion = '2.71828'
     retrofitVersion = '2.5.0'
     moshiVersion = '1.8.0'

@@ -37,6 +37,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //Constraint Layout
+    implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
+
     //PICASSO
     implementation("com.squareup.picasso:picasso:$picassoVersion") {
         exclude group: 'com.android.support'
