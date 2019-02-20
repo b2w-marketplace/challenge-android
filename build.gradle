@@ -23,6 +23,17 @@ allprojects {
     }
 }
 
+ext {
+    picassoVersion = '2.71828'
+    retrofitVersion = '2.5.0'
+    moshiVersion = '1.8.0'
+    daggerVersion = '2.15'
+    okhttpVersion = '3.13.1'
+    rxKotlinVersion = '2.2.0'
+    rxJavaVersion = '2.2.6'
+    lifecycleVersion = '1.1.1'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
