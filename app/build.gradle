@@ -73,4 +73,7 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:$lifecycleVersion"
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
     kapt "android.arch.lifecycle:compiler:$lifecycleVersion"
+
+    //Calligraphy
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 }
