@@ -42,14 +42,14 @@ class DrawerFragment : Fragment() {
             //startActivity<SobreActivity>()
         }
 
-        openFragment(0)
+        //openFragment(0)
         return views
     }
 
     private fun openFragment(position: Int) {
 
         when (position) {
-            0 -> removeAllFragment(HomeFragment(), "Home")
+            //0 -> removeAllFragment(HomeFragment(), "Home")
 
             else -> {
             }
