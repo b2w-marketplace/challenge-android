@@ -9,16 +9,18 @@ interface ServiceApi {
         fun onLoaded(return_service: T)
     }
 
-    fun bannerFindAll(callback: ServiceCallback<ReturnBase>)
-
     fun categoriaFindAll(callback: ServiceCallback<ReturnBase>)
-
-    fun produtoFindByCategoria(categoriaId: Int, offset: Int, limit: Int, callback: ServiceCallback<ReturnBase>)
-
-    fun produtoFindById(produtoId: Int, callback: ServiceCallback<ReturnBase>)
 
     fun produtoMaisVendidos(callback: ServiceCallback<ReturnBase>)
 
-    fun reservarProdutoById(produtoId: Int, callback: ServiceCallback<ReturnBase>)
+    fun produtoFindByCategoria(categoriaId: Int, callback: ServiceCallback<ReturnBase>)
+
+    fun produtoFindById(produtoId: Int, callback: ServiceCallback<ReturnBase>)
+
+    /*fun bannerFindAll(callback: ServiceCallback<ReturnBase>)
+
+
+
+    fun reservarProdutoById(produtoId: Int, callback: ServiceCallback<ReturnBase>)*/
 }
 

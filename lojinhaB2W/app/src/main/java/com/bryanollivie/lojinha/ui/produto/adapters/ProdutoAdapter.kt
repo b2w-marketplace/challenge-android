@@ -9,10 +9,10 @@ import com.bryanollivie.lojinha.data.model.Produto
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_produto.view.*
 
-class MaisVendidosAdapter(
+class ProdutoAdapter(
     val items: List<Any>,
-    val itemClick: (Any) -> Unit
-) : RecyclerView.Adapter<MaisVendidosAdapter.ViewHolder>() {
+    val itemClick: (String) -> Unit
+) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_produto, parent, false)
@@ -33,7 +33,7 @@ class MaisVendidosAdapter(
             itemView.rowMaisVendidosPor.text = Produto.toObject(itemModel)["nome"].toString().replace(".", ",")
 
             itemView.setOnClickListener {
-                itemClick(this)
+                itemClick(Produto.toObject(itemModel)["id"].toString())
             }
         }
     }

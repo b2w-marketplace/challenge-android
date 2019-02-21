@@ -1,5 +1,6 @@
 package com.bryanollivie.lojinha.data.network
 
+import com.bryanollivie.lojinha.data.model.Categoria
 import com.bryanollivie.lojinha.data.model.ReturnBase
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,15 +19,15 @@ interface RetrofitEndpoint {
 
     //region Produto
     @GET("./produto")
-    fun produtoFindByCategoria(@Query("categoriaId") categoriaId: Int, @Query("offset") offset: Int, @Query("limit") limit: Int): Call<ReturnBase>
+    fun produtoFindByCategoria(@Query("categoriaId") categoriaId: Int): Call<ReturnBase>
 
     @GET("./produto/maisvendidos")
     fun produtoMaisVendidos(): Call<ReturnBase>
 
-    @GET("./produto/{produtoId}")
+    @GET("/produto/{produtoId}")
     fun produtoFindById(@Path("produtoId") produtoId: Int): Call<ReturnBase>
 
-    @POST("./produto/{produtoId}")
+    @POST("/produto/{produtoId}")
     fun reservarProdutoById(@Path("produtoId") produtoId: Int): Call<ReturnBase>
     //endregion
 }

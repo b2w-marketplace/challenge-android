@@ -1,8 +1,14 @@
 package com.bryanollivie.lojinha.data.model
 
-open class ReturnBase() {
+import com.google.gson.Gson
+import java.util.*
+import java.util.Arrays.asList
 
-    var data: Any? = null
+
+
+class ReturnBase {
+
+    var data: List<Any>? = null
     var offset: Int? = 0
     var total: Int? = 0
 

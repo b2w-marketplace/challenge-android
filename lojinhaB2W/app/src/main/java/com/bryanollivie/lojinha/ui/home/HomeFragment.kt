@@ -1,6 +1,8 @@
 package com.bryanollivie.lojinha.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +10,10 @@ import com.bannerlayout.listener.OnBannerClickListener
 import com.bryanollivie.lojinha.R
 import com.bryanollivie.lojinha.data.model.BannerLoja
 import com.bryanollivie.lojinha.data.model.Categoria
-import com.bryanollivie.lojinha.data.model.Produto
 import com.bryanollivie.lojinha.ui.base.BaseFragment
 import com.bryanollivie.lojinha.ui.home.adapters.CategoriaAdapter
-import com.bryanollivie.lojinha.ui.home.adapters.MaisVendidosAdapter
+import com.bryanollivie.lojinha.ui.home.adapters.ProdutoAdapter
+import com.bryanollivie.lojinha.ui.produto.ProdutoListActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -20,15 +22,16 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
 
 
     var categoriaAdapter: CategoriaAdapter? = null
-    var maisVendidosAdapter: MaisVendidosAdapter? = null
+    var maisVendidosAdapter: ProdutoAdapter? = null
 
     override var presenter: HomeContract.Presenter = HomePresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.getBanners(activity!!)
+        //presenter.getBanners(activity!!)
         presenter.getCategorias(activity!!)
         presenter.getMaisVendidos(activity!!)
+
     }
 
     override fun onCreateView(
@@ -60,18 +63,24 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
         }*/
     }
 
-    override fun showCategorias(categorias: List<Categoria>) {
+    override fun showCategorias(categorias: List<Any>) {
+        recyclerHomeCategoria.setHasFixedSize(true)
+        recyclerHomeCategoria.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         categoriaAdapter = CategoriaAdapter(categorias) { itemClick ->
-            //openBook(itemClick.sku.toString())
+            val intent = Intent(activity, ProdutoListActivity::class.java)
+            intent.putExtra("categoriaId", itemClick)
+            startActivity(intent)
         }
         recyclerHomeCategoria.adapter = categoriaAdapter
 
     }
 
-    override fun showMaisVendidos(maisVendidos: List<Produto>) {
+    override fun showMaisVendidos(maisVendidos: List<Any>) {
+        recyclerHomeMaisVendidos.setHasFixedSize(true)
+        recyclerHomeMaisVendidos.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-        maisVendidosAdapter = MaisVendidosAdapter(maisVendidos) { itemClick ->
+        maisVendidosAdapter = ProdutoAdapter(maisVendidos) { itemClick ->
             //openBook(itemClick.sku.toString())
         }
         recyclerHomeMaisVendidos.adapter = maisVendidosAdapter

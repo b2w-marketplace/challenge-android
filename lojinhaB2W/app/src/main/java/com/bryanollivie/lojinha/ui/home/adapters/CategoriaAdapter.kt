@@ -10,8 +10,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_categoria.view.*
 
 class CategoriaAdapter(
-    val items: List<Categoria>,
-    val itemClick: (Categoria) -> Unit
+    val items: List<Any>,
+    val itemClick: (String) -> Unit
 ) : RecyclerView.Adapter<CategoriaAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,20 +21,19 @@ class CategoriaAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(itemModel: Categoria) {
-            with(itemModel) {
+        fun bind(itemModel: Any) {
 
-                if (!itemModel.urlImagem.isNullOrBlank()) {
-                    Picasso.get()
-                        .load(itemModel.urlImagem)
-                        .centerCrop()
-                        .fit()
-                        .into(itemView.rowCategoriaImage)
-                }
-                itemView.rowCategoriaDesc.text = itemModel.descricao
+            Picasso.get()
+                .load(Categoria.toObject(itemModel)["urlImagem"].toString())
+                .centerCrop()
+                .fit()
+                .into(itemView.rowCategoriaImage)
+            itemView.rowCategoriaDesc.text = Categoria.toObject(itemModel)["descricao"].toString()
+
+            itemView.setOnClickListener {
+                itemClick(Categoria.toObject(itemModel)["id"].toString())
             }
         }
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
