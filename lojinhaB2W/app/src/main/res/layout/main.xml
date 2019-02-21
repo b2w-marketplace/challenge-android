@@ -27,7 +27,6 @@
 
                 <android.support.v7.widget.Toolbar
                         android:id="@+id/toolbar_main"
-                        style="@style/ActionBarStyle"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
@@ -39,8 +38,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|left"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/fab_margin"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                 </android.support.v7.widget.Toolbar>
 
@@ -60,24 +58,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_anchor="@+id/drawer_layout"
-                    app:layout_anchorGravity="bottom"/>
+                    app:layout_anchorGravity="bottom" />
 
             <FrameLayout
                     android:id="@+id/container_body"
                     android:layout_width="fill_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
 
         </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 
     <fragment
             android:id="@+id/fragment_navigation_drawer"
-            android:name="com.bryanollivie.lojinha.ui.main.DrawerFragment"
             android:layout_width="260dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:layout="@layout/fragment_drawer"
-            tools:layout="@layout/fragment_drawer"/>
+            tools:layout="@layout/fragment_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

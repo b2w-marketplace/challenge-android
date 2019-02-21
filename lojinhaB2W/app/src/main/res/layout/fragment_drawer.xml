@@ -42,6 +42,7 @@
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="@color/colorWhite"
                 android:layout_height="match_parent">
             <LinearLayout
                     android:id="@+id/nav_menu_home"

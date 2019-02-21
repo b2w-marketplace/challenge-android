@@ -23,10 +23,10 @@ interface RetrofitEndpoint {
     @GET("./produto/maisvendidos")
     fun produtoMaisVendidos(): Call<ReturnBase>
 
-    @GET("./produto")
+    @GET("./produto/{produtoId}")
     fun produtoFindById(@Path("produtoId") produtoId: Int): Call<ReturnBase>
 
-    @POST("./produto")
+    @POST("./produto/{produtoId}")
     fun reservarProdutoById(@Path("produtoId") produtoId: Int): Call<ReturnBase>
     //endregion
 }
