@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+
+    <string name="categorias">Categorias</string>
+    <string name="mais_vendidos">Mais vendidos</string>
+    <string name="erro_conexao">Ocorreu um erro ao carregar, verifique sua conexão com a internet</string>
+    <string name="desenvolvedor">Fábio Flores</string>
+    <string name="data_desenvolvimento">20 de Fevereiro 2019</string>
+    <string name="titulo_sobre">Sobre</string>
+    <string name="produto_reservado">Produto reservado com sucesso</string>
+    <string name="erro_reserva_produto">Ocorreu um erro ao reservar o produto</string>
+
+    <!--- Com parâmetros -->
+    <string name="preco_de">De: %1$s</string>
+    <string name="preco_por">Por %1$s</string>
+    <string name="nome_descricao_produto">%1$s - %2$s</string>
+
+    <!--- Menu lateral -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="home">Home</string>
+    <string name="sobre">Sobre o aplicativo</string>
+    <string name="title_activity_fragment">Fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

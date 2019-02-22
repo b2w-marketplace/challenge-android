@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mnuHome"
+        android:title="@string/home"
+        android:icon="@drawable/home_menu"
+        android:textSize="14sp"
+        app:fontFamily="@font/roboto_medium"/>
+    <item
+        android:id="@+id/mnuSobre"
+        android:title="@string/sobre"
+        android:icon="@drawable/tag_menu"
+        android:textSize="14sp"
+        app:fontFamily="@font/roboto_medium"/>
+</menu>
