@@ -1,29 +1,23 @@
 package com.bryanollivie.lojinha.data.model
 
-import com.bannerlayout.listener.BannerModelCallBack
+import com.google.gson.internal.LinkedTreeMap
 
-
-class BannerLoja : BannerModelCallBack {
-
-    var id: Int? = 0
-    var title: String? = ""
-    var linkUrl: String? = ""
+data class BannerLoja(
+    var id: Int? = 0,
+    var linkUrl: String? = "",
     var urlImagem: String? = ""
+) {
 
-    override val bannerUrl: String
-        get() = linkUrl.toString()
 
-    override val bannerTitle: String
-        get() = title.toString()
+    companion object {
 
-    constructor(image: String) {
-        this.urlImagem = image
+        fun toObject(itemModel: Any): LinkedTreeMap<*, *> {
+            val getrow = itemModel
+            val t = getrow as LinkedTreeMap<*, *>
+            return t
+        }
+
     }
-
-    constructor(image: String, title: String) {
-        this.urlImagem = image
-        this.title = title
-    }
-
-    constructor()
 }
+
+

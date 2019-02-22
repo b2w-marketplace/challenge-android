@@ -1,5 +1,6 @@
 package com.bryanollivie.lojinha.data.remote
 
+import com.bryanollivie.lojinha.data.model.Produto
 import com.bryanollivie.lojinha.data.model.ReturnBase
 
 interface ServiceApi {
@@ -15,12 +16,11 @@ interface ServiceApi {
 
     fun produtoFindByCategoria(categoriaId: Int, callback: ServiceCallback<ReturnBase>)
 
-    fun produtoFindById(produtoId: Int, callback: ServiceCallback<ReturnBase>)
+    fun produtoFindById(produtoId: Int, callback: ServiceCallback<Produto>)
 
-    /*fun bannerFindAll(callback: ServiceCallback<ReturnBase>)
+    fun reservarProdutoById(produtoId: Int, callback: ServiceCallback<ReturnBase>)
 
+    fun bannerFindAll(callback: ServiceCallback<ReturnBase>)
 
-
-    fun reservarProdutoById(produtoId: Int, callback: ServiceCallback<ReturnBase>)*/
 }
 

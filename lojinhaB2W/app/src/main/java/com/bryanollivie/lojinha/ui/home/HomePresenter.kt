@@ -53,7 +53,6 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
         }
 
     }
-/*
 
 
     override fun getBanners(context: Context) {
@@ -64,7 +63,7 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
                 override fun onLoaded(service_return: ReturnBase) {
 
                     if (service_return?.data != null) {
-                        getView()?.showBanner(service_return.data as List<BannerLoja>)
+                        getView()?.showBanner(service_return.data!!)
                     }
                     getView()!!.hideLoading()
                 }
@@ -76,7 +75,6 @@ class HomePresenter : BasePresenter<HomeContract.View>(), HomeContract.Presenter
 
     }
 
-*/
 
 }
 

@@ -6,19 +6,21 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bannerlayout.listener.OnBannerClickListener
+import android.widget.Toast
 import com.bryanollivie.lojinha.R
 import com.bryanollivie.lojinha.data.model.BannerLoja
-import com.bryanollivie.lojinha.data.model.Categoria
 import com.bryanollivie.lojinha.ui.base.BaseFragment
 import com.bryanollivie.lojinha.ui.home.adapters.CategoriaAdapter
+import com.bryanollivie.lojinha.ui.home.adapters.GlideImageLoader
 import com.bryanollivie.lojinha.ui.home.adapters.ProdutoAdapter
 import com.bryanollivie.lojinha.ui.produto.ProdutoListActivity
+import com.jam.utils.easybanner.EasyBannerConfig
+import com.jam.utils.easybanner.listener.OnEasyBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), HomeContract.View,
-    OnBannerClickListener<BannerLoja> {
+class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), HomeContract.View/*,
+    OnBannerClickListener<BannerLoja> */{
 
 
     var categoriaAdapter: CategoriaAdapter? = null
@@ -28,7 +30,7 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //presenter.getBanners(activity!!)
+        presenter.getBanners(activity!!)
         presenter.getCategorias(activity!!)
         presenter.getMaisVendidos(activity!!)
 
@@ -41,26 +43,25 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    override fun showBanner(banners: List<BannerLoja>) {
-        /*if (banners != null) {
-            if (banners.size != 0) {
+    override fun showBanner(banners: List<Any>) {
 
-                home_banner.apply {
-                    delayTime = 2000
-                    dotsSelector = R.drawable.banner_selector
-                    pageNumViewBottomMargin = 12
-                    pageNumViewLeftMargin = 12
-                    pageNumViewRightMargin = 12
-                    pageNumViewTopMargin = 12
-                    imageLoaderManager = BannerAdapter()
-                    onBannerClickListener = this@HomeFragment
+
+        val urls = ArrayList<String>()
+
+        for (banner in banners) {
+            urls.add(BannerLoja.toObject(banner)["urlImagem"].toString())
+        }
+        home_banner
+            .setData(urls as ArrayList<Any>)
+            .isAutoPlay(true)
+            .setIndicatorStyle(EasyBannerConfig.CIRCLE_INDICATOR)
+            .setDisplayLoader(GlideImageLoader())
+            .setOnEasyBannerListener(object : OnEasyBannerListener {
+                override fun onBannerClick(position: Int) {
+                    Toast.makeText(activity, position.toString(), Toast.LENGTH_SHORT).show()
                 }
-                    .initPageNumView()
-                    .resource(banners as MutableList)
-                    .switchBanner(true)
-
-            }
-        }*/
+            })
+            .start()
     }
 
     override fun showCategorias(categorias: List<Any>) {
@@ -87,7 +88,4 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
 
     }
 
-    override fun onBannerClick(view: View, position: Int, model: BannerLoja) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }

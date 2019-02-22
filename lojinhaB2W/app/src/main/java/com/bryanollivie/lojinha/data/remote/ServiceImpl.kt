@@ -2,6 +2,7 @@ package com.bryanollivie.lojinha.data.remote
 
 import android.util.Log
 import com.bryanollivie.lojinha.data.model.Categoria
+import com.bryanollivie.lojinha.data.model.Produto
 import com.bryanollivie.lojinha.data.model.ReturnBase
 import com.bryanollivie.lojinha.data.network.RetrofitEndpoint
 import com.bryanollivie.lojinha.data.network.RetrofitInit
@@ -10,7 +11,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ServiceImpl : ServiceApi {
-
 
     internal var mRetrofit: RetrofitEndpoint
 
@@ -91,41 +91,14 @@ class ServiceImpl : ServiceApi {
         })
     }
 
-
-
     override fun produtoFindById(
         produtoId: Int,
-        callback: ServiceApi.ServiceCallback<ReturnBase>
+        callback: ServiceApi.ServiceCallback<Produto>
     ) {
         val call = mRetrofit.produtoFindById(produtoId)
-        call.enqueue(object : Callback<ReturnBase> {
+        call.enqueue(object : Callback<Produto> {
 
-            override fun onResponse(call: Call<ReturnBase>?, response: Response<ReturnBase>?) {
-
-                if (response != null) {
-                    if (response.code() == 200) {
-                        val reponse = response.body()
-                        if (reponse != null) {
-                            callback.onLoaded(reponse)
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ReturnBase>?, t: Throwable?) {
-                Log.e("Erro", "Erro Retorno" + t)
-            }
-        })
-    }
-
-/*/
-
-    override fun bannerFindAll(callback: ServiceApi.ServiceCallback<ReturnBase>) {
-
-        val call = mRetrofit.bannerFindAll()
-        call.enqueue(object : Callback<ReturnBase> {
-
-            override fun onResponse(call: Call<ReturnBase>?, response: Response<ReturnBase>?) {
+            override fun onResponse(call: Call<Produto>?, response: Response<Produto>?) {
 
                 if (response != null) {
                     if (response.code() == 200) {
@@ -137,38 +110,11 @@ class ServiceImpl : ServiceApi {
                 }
             }
 
-            override fun onFailure(call: Call<ReturnBase>?, t: Throwable?) {
+            override fun onFailure(call: Call<Produto>?, t: Throwable?) {
                 Log.e("Erro", "Erro Retorno" + t)
             }
         })
     }
-
-
-   */
-/* override fun categoriaFindAll(callback: ServiceApi.ServiceCallback<ReturnBase>) {
-
-        val call = mRetrofit.categoriaFindAll()
-        call.enqueue(object : Callback<ReturnBase> {
-
-            override fun onResponse(call: Call<ReturnBase>?, response: Response<ReturnBase>?) {
-
-                if (response != null) {
-                    if (response.code() == 200) {
-                        val reponse = response.body()
-                        if (reponse != null) {
-                            callback.onLoaded(reponse)
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ReturnBase>?, t: Throwable?) {
-                Log.e("Erro", "Erro Retorno" + t)
-            }
-        })
-    }
-*//*
-
 
     override fun reservarProdutoById(produtoId: Int, callback: ServiceApi.ServiceCallback<ReturnBase>) {
         val call = mRetrofit.reservarProdutoById(produtoId)
@@ -193,7 +139,28 @@ class ServiceImpl : ServiceApi {
     }
 
 
-*/
+    override fun bannerFindAll(callback: ServiceApi.ServiceCallback<ReturnBase>) {
+
+        val call = mRetrofit.bannerFindAll()
+        call.enqueue(object : Callback<ReturnBase> {
+
+            override fun onResponse(call: Call<ReturnBase>?, response: Response<ReturnBase>?) {
+
+                if (response != null) {
+                    if (response.code() == 200) {
+                        val reponse = response.body()
+                        if (reponse != null) {
+                            callback.onLoaded(reponse)
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ReturnBase>?, t: Throwable?) {
+                Log.e("Erro", "Erro Retorno" + t)
+            }
+        })
+    }
 
 }
 

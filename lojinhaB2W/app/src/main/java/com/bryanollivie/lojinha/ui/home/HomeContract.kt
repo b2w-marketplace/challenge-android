@@ -9,7 +9,7 @@ object HomeContract {
 
     interface View : BaseMvpView {
 
-        fun showBanner(banners: List<BannerLoja>)
+        fun showBanner(banners: List<Any>)
 
         fun showCategorias(categorias: List<Any>)
 
@@ -18,7 +18,7 @@ object HomeContract {
 
     interface Presenter : BaseMvpPresenter<View> {
 
-        //fun getBanners(context: Context)
+        fun getBanners(context: Context)
 
         fun getCategorias(context: Context)
 
