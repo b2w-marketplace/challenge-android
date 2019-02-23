@@ -7,7 +7,7 @@ import android.support.v7.widget.PagerSnapHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.include_banner.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.snap.OnSnapPositionChangeListener
 import marcus.com.br.b2wtest.helper.snap.attachSnapHelperWithListener

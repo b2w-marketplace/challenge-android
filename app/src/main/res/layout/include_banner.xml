@@ -1,0 +1,19 @@
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragmentHomeBanners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <marcus.com.br.b2wtest.helper.RecyclerIndicator
+            android:id="@+id/fragmentHomeBannersIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/fragmentHomeBanners"
+            android:layout_marginBottom="4dp"/>
+</merge>
