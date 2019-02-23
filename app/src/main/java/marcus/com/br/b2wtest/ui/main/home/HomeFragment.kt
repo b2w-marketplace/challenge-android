@@ -7,6 +7,7 @@ import android.support.v7.widget.PagerSnapHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.include_banner.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.snap.OnSnapPositionChangeListener
@@ -34,8 +35,9 @@ class HomeFragment : BaseFragment() {
 
     private fun init() {
         setupBanner()
+        setupSwipeRefresh()
         initObservers()
-        homeViewModel.getBanners()
+        fetchData()
     }
 
     private fun setupBanner() {
@@ -44,17 +46,30 @@ class HomeFragment : BaseFragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
+    private fun setupSwipeRefresh() {
+        fragmentHomeSwipe.setOnRefreshListener {
+            fetchData()
+        }
+    }
+
     private fun initObservers() {
         homeViewModel.bannerResult.observeResource(this, onSuccess = {
+            fragmentHomeSwipe.isRefreshing = false
             successBanner(it.bannerList)
         }, onError = {
 
         })
     }
 
+    private fun fetchData() {
+        homeViewModel.getBanners()
+    }
+
     private fun successBanner(bannerList: List<BannerData>) {
+        fragmentHomeBannersIndicator.removeAllViews()
         bannersAdapter.addToList(bannerList as ArrayList<BannerData>)
         fragmentHomeBannersIndicator.attach(fragmentHomeBanners)
+        fragmentHomeBanners.onFlingListener = null
         fragmentHomeBanners.attachSnapHelperWithListener(
             PagerSnapHelper(),
             object : OnSnapPositionChangeListener {
