@@ -26,7 +26,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     private fun setFont() {
         CalligraphyConfig.initDefault(
             CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Pacifico-Regular.ttf")
+                .setDefaultFontPath("fonts/Roboto-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         )

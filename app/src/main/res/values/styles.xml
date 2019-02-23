@@ -1,5 +1,10 @@
 <resources>
 
-
+    <!-- MENU -->
+    <style name="Header.Title" parent="AppTheme">
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/white_two</item>
+        <item name="android:textSize">24sp</item>
+    </style>
 
 </resources>
