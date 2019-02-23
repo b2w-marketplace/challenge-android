@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
-        <item android:id="@+id/nav_item_one"
+        <item android:id="@+id/menuHome"
               android:icon="@android:drawable/ic_menu_add"
-              android:title="Item 1"/>
-        <item android:id="@+id/nav_item_two"
+              android:title="Home"/>
+        <item android:id="@+id/menuAbout"
               android:icon="@android:drawable/ic_menu_agenda"
-              android:title="Item 2"/>
-        <item android:id="@+id/nav_item_three"
-              android:icon="@android:drawable/ic_menu_call"
-              android:title="Item 3"/>
+              android:title="Sobre"/>
     </group>
-    <group android:id="@+id/group_menu">
-        <item android:id="@+id/nav_item_four"
-              android:title="Item 4"/>
-        <item android:id="@+id/nav_item_five"
-              android:title="Item 5"/>
-    </group>
-    <item android:title="Title 1">
-        <menu>
-            <item android:id="@+id/nav_item_six"
-                  android:icon="@android:drawable/ic_menu_camera"
-                  android:title="Item 6"/>
-            <item android:id="@+id/nav_item_seven"
-                  android:icon="@android:drawable/ic_menu_compass"
-                  android:title="Item 7"/>
-        </menu>
-    </item>
 </menu>

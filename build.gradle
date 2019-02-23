@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
@@ -19,7 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
@@ -30,7 +30,7 @@ ext {
     moshiVersion = '1.8.0'
     daggerVersion = '2.15'
     okhttpVersion = '3.13.1'
-    rxKotlinVersion = '2.2.0'
+    rxAndroidVersion = '2.1.1'
     rxJavaVersion = '2.2.6'
     lifecycleVersion = '1.1.1'
 }

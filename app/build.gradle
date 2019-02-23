@@ -66,8 +66,8 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     //RX
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
     //AAC
     implementation "android.arch.lifecycle:runtime:$lifecycleVersion"

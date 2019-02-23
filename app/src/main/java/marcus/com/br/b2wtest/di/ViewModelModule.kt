@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import marcus.com.br.b2wtest.ui.home.HomeViewModel
+import marcus.com.br.b2wtest.ui.main.home.HomeViewModel
 
 @Module
 abstract class ViewModelModule {

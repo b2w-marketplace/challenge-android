@@ -3,6 +3,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="marcus.com.br.b2wtest">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application android:allowBackup="false"
                  android:label="@string/app_name"
                  android:name=".LodjinhaApp"
@@ -12,7 +14,7 @@
                  android:theme="@style/AppTheme"
                  tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

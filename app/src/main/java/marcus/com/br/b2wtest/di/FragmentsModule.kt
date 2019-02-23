@@ -2,12 +2,11 @@ package marcus.com.br.b2wtest.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import marcus.com.br.b2wtest.ui.main.MainActivity
+import marcus.com.br.b2wtest.ui.main.home.HomeFragment
 
 @Module
-abstract class ActivitiesModule {
-
+abstract class FragmentsModule {
 
     @ContributesAndroidInjector
-    abstract fun contributesHomeActivity(): MainActivity
+    abstract fun contributesHomeFragment(): HomeFragment
 }
