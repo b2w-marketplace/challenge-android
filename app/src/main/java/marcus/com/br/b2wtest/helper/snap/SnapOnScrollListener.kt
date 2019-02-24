@@ -5,8 +5,8 @@ import android.support.v7.widget.RecyclerView
 
 class SnapOnScrollListener(
     private val snapHelper: PagerSnapHelper,
-    var behavior: Behavior = Behavior.NOTIFY_ON_SCROLL,
-    var onSnapPositionChangeListener: OnSnapPositionChangeListener? = null
+    private var behavior: Behavior = Behavior.NOTIFY_ON_SCROLL,
+    private var onSnapPositionChangeListener: OnSnapPositionChangeListener? = null
 ) : RecyclerView.OnScrollListener() {
 
     enum class Behavior {

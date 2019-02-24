@@ -9,15 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.include_banner.*
+import kotlinx.android.synthetic.main.include_category.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.snap.OnSnapPositionChangeListener
 import marcus.com.br.b2wtest.helper.snap.attachSnapHelperWithListener
 import marcus.com.br.b2wtest.model.data.BannerData
+import marcus.com.br.b2wtest.model.data.CategoryData
 import marcus.com.br.b2wtest.ui.BaseFragment
 
 class HomeFragment : BaseFragment() {
 
     private val bannersAdapter = BannersAdapter()
+    private val categoriesAdapter = CategoriesAdapter()
 
     private val homeViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory)
@@ -34,8 +37,9 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun init() {
-        setupBanner()
         setupSwipeRefresh()
+        setupBanner()
+        setupCategory()
         initObservers()
         fetchData()
     }
@@ -43,6 +47,12 @@ class HomeFragment : BaseFragment() {
     private fun setupBanner() {
         fragmentHomeBanners.adapter = bannersAdapter
         fragmentHomeBanners.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setupCategory() {
+        fragmentHomeCategories.adapter = categoriesAdapter
+        fragmentHomeCategories.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
@@ -59,10 +69,17 @@ class HomeFragment : BaseFragment() {
         }, onError = {
 
         })
+
+        homeViewModel.categorieResult.observeResource(this, onSuccess = {
+            successCategory(it.categoryList)
+        }, onError = {
+
+        })
     }
 
     private fun fetchData() {
         homeViewModel.getBanners()
+        homeViewModel.getCategories()
     }
 
     private fun successBanner(bannerList: List<BannerData>) {
@@ -78,6 +95,10 @@ class HomeFragment : BaseFragment() {
                 }
             }
         )
+    }
+
+    private fun successCategory(categoryList: List<CategoryData>) {
+        categoriesAdapter.addToList(categoryList as ArrayList<CategoryData>)
     }
 
     companion object {
