@@ -1,7 +1,8 @@
 <merge
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:showIn="@layout/fragment_home">
 
     <TextView
             android:id="@+id/fragmentHomeCategoryTitle"
@@ -28,6 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            tools:listitem="@layout/item_category"
+            tools:orientation="horizontal"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentHomeCategoryDivider"/>
 </merge>
