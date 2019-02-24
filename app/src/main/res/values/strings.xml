@@ -8,4 +8,7 @@
     <string name="menu_about">Sobre o aplicativo</string>
     <string name="product_from_price">De: %1$s</string>
     <string name="product_to_price">Por: %1$s</string>
+    <string name="title_about">Sobre</string>
+    <string name="developer_name">Marcus Vinicius Silva de Souza</string>
+    <string name="developer_date">24 de fevereiro de 2019</string>
 </resources>

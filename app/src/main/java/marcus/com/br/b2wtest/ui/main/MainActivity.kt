@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.ui.BaseActivity
+import marcus.com.br.b2wtest.ui.main.about.AboutFragmet
 import marcus.com.br.b2wtest.ui.main.home.HomeFragment
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -56,7 +57,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.menuAbout -> {
-
+                MainNavigator.navigateToFragment(manager, AboutFragmet(), R.id.activityHomeContainer, AboutFragmet.TAG)
             }
         }
 

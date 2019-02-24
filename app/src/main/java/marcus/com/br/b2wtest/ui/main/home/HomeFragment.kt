@@ -7,10 +7,13 @@ import android.support.v7.widget.PagerSnapHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.include_banner.*
 import kotlinx.android.synthetic.main.include_category.*
 import kotlinx.android.synthetic.main.include_product_sellers.*
+import kotlinx.android.synthetic.main.toolbar.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.snap.OnSnapPositionChangeListener
 import marcus.com.br.b2wtest.helper.snap.attachSnapHelperWithListener
@@ -18,6 +21,7 @@ import marcus.com.br.b2wtest.model.data.BannerData
 import marcus.com.br.b2wtest.model.data.CategoryData
 import marcus.com.br.b2wtest.model.data.ProductData
 import marcus.com.br.b2wtest.ui.BaseFragment
+import marcus.com.br.b2wtest.ui.main.MainActivity
 
 class HomeFragment : BaseFragment() {
 
@@ -40,12 +44,21 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun init() {
+        setupToolbar()
         setupSwipeRefresh()
         setupBanner()
         setupCategory()
         setupBestSeller()
         initObservers()
         fetchData()
+    }
+
+    private fun setupToolbar() {
+        activity?.let {
+            val toolbar = (activity as MainActivity).toolbar
+            toolbar.findViewById<ImageView>(R.id.toolbarImage).visibility = View.VISIBLE
+            toolbar.findViewById<TextView>(R.id.toolbarTitle).text = getString(R.string.app_name)
+        }
     }
 
     private fun setupBanner() {
