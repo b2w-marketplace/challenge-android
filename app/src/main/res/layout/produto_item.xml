@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            android:id="@+id/iv_produto"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@+id/produto_item_tv_descricao"
+            app:layout_constraintBottom_toBottomOf="@+id/produto_item_tv_preco_de"
+            android:contentDescription="@string/iv_produto"
+    />
+    <TextView
+            style="@style/DescricaoProduto"
+            android:text="@string/texto_descricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/produto_item_tv_descricao"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_seta"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintStart_toEndOf="@+id/iv_produto"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:singleLine="false"
+            tools:text="Lorem ipsum dolor sit amet, fastidii inimicus vim ad, per error nihil an, usu modo mediocrem concludaturque an. Melius urbanitas vituperata per te, an nec nobis qualisque, te sapientem gloriatur dissentias mei. Aliquip efficiendi nec ea. Pri in tibique constituto. Mei ut ornatus appellantur, veritus patrioque ad usu, an delicata definitionem eam. Ferri electram an eos."/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/produto_item_tv_preco_de"
+            app:layout_constraintStart_toStartOf="@+id/produto_item_tv_descricao"
+            tools:text="R$ 999,99"
+            android:textSize="12sp"
+            android:textColor="@color/greyish"
+            app:layout_constraintTop_toTopOf="@+id/produto_item_tv_preco_por"
+            app:layout_constraintBottom_toBottomOf="@+id/produto_item_tv_preco_por"
+            app:layout_constraintEnd_toStartOf="@+id/produto_item_tv_preco_por"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/produto_item_tv_preco_por"
+            tools:text="R$ 199,99"
+            style="@style/PrecoPor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/produto_item_tv_descricao"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/produto_item_tv_descricao"
+            />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/disclosure_indicator"
+            android:id="@+id/iv_seta"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/iv_seta"/>
+</android.support.constraint.ConstraintLayout>

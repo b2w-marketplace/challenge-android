@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".ui.fragments.ProdutoDetalheFragment">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                style="@android:style/Widget.DeviceDefault.Light.ScrollView"
+                android:fillViewport="true" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="parent">
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/iv_produto"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/iv_produto"/>
+                <TextView
+                        style="@style/DescricaoProduto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_descricao_produto"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_produto"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:layout_constraintHorizontal_bias="0.0" tools:text="Título do Produto"/>
+
+                <View android:id="@+id/lista_notas_fundo_gradiente1"
+                      android:layout_width="0dp"
+                      android:layout_height="5dp"
+                      android:background="@drawable/fundo_gradiente_cima"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/tv_descricao_produto"
+                      android:layout_marginTop="8dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_preco_de"
+                        android:textColor="@color/greyish"
+                        app:layout_constraintStart_toStartOf="@+id/tv_descricao_produto"
+                        app:layout_constraintTop_toTopOf="@+id/tv_preco_por"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_preco_por"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_preco_por"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        tools:text="R$ 999,99"
+                        android:textSize="12sp"/>
+
+                <TextView
+                        style="@style/PrecoPor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_preco_por"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@+id/lista_notas_fundo_gradiente1" tools:text="R$ 199,99"
+                />
+
+                <View android:id="@+id/lista_notas_fundo_gradiente2"
+                      android:layout_width="0dp"
+                      android:layout_height="5dp"
+                      android:background="@drawable/fundo_gradiente_baixo"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/tv_preco_por"
+                      android:layout_marginTop="8dp"/>
+
+                <TextView
+                        style="@style/DescricaoProdutoNegrito"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_titulo_detalhe"
+                        app:layout_constraintTop_toBottomOf="@+id/lista_notas_fundo_gradiente2"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_preco_de"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_preco_por" app:layout_constraintHorizontal_bias="0.0"
+                        tools:text="Subtítulo"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_detalhes"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_detalhe"
+                        app:layout_constraintStart_toStartOf="@+id/tv_titulo_detalhe"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        android:layout_marginBottom="100dp"
+                        tools:text="Lorem ipsum dolor sit amet, fastidii inimicus vim ad, per error nihil an, usu modo mediocrem concludaturque an. Melius urbanitas vituperata per te, an nec nobis qualisque, te sapientem gloriatur dissentias mei. Aliquip efficiendi nec ea. Pri in tibique constituto. Mei ut ornatus appellantur, veritus patrioque ad usu, an delicata definitionem eam. Ferri electram an eos."/>
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+        <Button
+                android:id="@+id/btn_confirma_reserva"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="6dp"
+                android:stateListAnimator="@null"
+                android:background="@drawable/custom_confirmar_reserva"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="16dp"
+        />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

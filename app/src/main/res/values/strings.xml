@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+
+    <!-- Navigation drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- MAIN FRAGMENT -->
+    <string name="main_fragment_categorias">Categorias</string>
+    <string name="main_fragment_mais_vendidos">Mais Vendidos</string>
+
+    <!-- ABOUT FRAGMENT -->
+    <string name="image_view_logo_sobre">image_view_logo_sobre</string>
+    <string name="about_developer">Rodrigo de Freitas Paixão</string>
+    <string name="about_version_date">22/02/2019</string>
+    <string name="texto_descricao">Descrição</string>
+    <string name="iv_categoria">iv_categoria</string>
+    <string name="iv_seta">iv_seta</string>
+    <string name="iv_produto">iv_produto</string>
+
+</resources>

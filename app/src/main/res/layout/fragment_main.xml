@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".ui.fragments.MainFragment"
+             android:id="@+id/frameLayout">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:id="@+id/scrollView"
+            android:clipToPadding="true">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/constraintLayoutItens">
+
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_categorias"/>
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_indicator"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/vp_banner"
+                    app:layout_constraintStart_toStartOf="@+id/vp_banner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="@+id/vp_banner"
+                    app:layout_constraintVertical_bias="1.0"
+            />
+
+            <TextView
+                    style="@style/DescricaoProdutoNegrito"
+                    android:text="@string/main_fragment_categorias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_categorias"
+                    app:layout_constraintTop_toBottomOf="@id/vp_banner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginTop="8dp"/>
+
+            <View android:id="@+id/lista_notas_fundo_gradiente1"
+                  android:layout_width="0dp"
+                  android:layout_height="5dp"
+                  android:background="@drawable/fundo_gradiente_baixo"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/tv_categorias"
+                  android:layout_marginTop="8dp"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/lista_notas_fundo_gradiente1"
+                    app:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/rv_categorias"
+                    android:scrollbars="horizontal"/>
+
+            <View android:id="@+id/lista_notas_fundo_gradiente2"
+                  android:layout_width="0dp"
+                  android:layout_height="5dp"
+                  android:background="@drawable/fundo_gradiente_cima"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/rv_categorias"
+            />
+
+            <TextView
+                    style="@style/DescricaoProdutoNegrito"
+                    android:text="@string/main_fragment_mais_vendidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_mais_vendidos"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/lista_notas_fundo_gradiente2"/>
+
+            <View android:id="@+id/lista_notas_fundo_gradiente3"
+                  android:layout_width="0dp"
+                  android:layout_height="5dp"
+                  android:background="@drawable/fundo_gradiente_baixo"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/tv_mais_vendidos"
+                  android:layout_marginTop="8dp"/>
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/swipe_lista_mais_vendidos"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toBottomOf="@+id/lista_notas_fundo_gradiente3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                <android.support.v7.widget.RecyclerView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rv_mais_vendidos"
+                        android:scrollbars="vertical"/>
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>
