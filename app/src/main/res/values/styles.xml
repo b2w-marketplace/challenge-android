@@ -26,4 +26,14 @@
     <style name="Product.Name" parent="AppTheme">
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="Product.FromPrice" parent="AppTheme">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Product.ToPrice" parent="AppTheme">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/tomato</item>
+    </style>
 </resources>

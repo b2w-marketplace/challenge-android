@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_best_seller_product.view.*
 import marcus.com.br.b2wtest.R
+import marcus.com.br.b2wtest.helper.toBRL
 import marcus.com.br.b2wtest.model.data.ProductData
 import marcus.com.br.b2wtest.ui.BaseRecyclerAdapter
 
@@ -33,6 +34,11 @@ class BestSellersProductAdapter : BaseRecyclerAdapter<ProductData>() {
                 .into(itemBestProductImage)
 
             itemBestProductName.text = productData.name
+            itemBestProductFromPrice.text =
+                resources.getString(R.string.product_from_price, productData.fromPrice.toBRL())
+            itemBestProductToPrice.text =
+                resources.getString(R.string.product_to_price, productData.toPrice.toBRL())
+
         }
     }
 }
