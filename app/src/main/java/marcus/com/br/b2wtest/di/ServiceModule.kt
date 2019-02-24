@@ -5,6 +5,7 @@ import dagger.Provides
 import marcus.com.br.b2wtest.model.api.Api
 import marcus.com.br.b2wtest.model.service.BannerService
 import marcus.com.br.b2wtest.model.service.CategoryService
+import marcus.com.br.b2wtest.model.service.ProductService
 import javax.inject.Singleton
 
 @Module
@@ -17,4 +18,8 @@ class ServiceModule {
     @Provides
     @Singleton
     fun provideCategorieService(api: Api) = CategoryService(api)
+
+    @Provides
+    @Singleton
+    fun provideProductsService(api: Api) = ProductService(api)
 }

@@ -16,4 +16,10 @@
     <style name="Home.Category.Description" parent="AppTheme">
         <item name="android:textSize">13sp</item>
     </style>
+
+    <!-- HOME PRODUCTS -->
+    <style name="Home.Product.Title" parent="AppTheme">
+        <item name="android:text">@string/sellers_products_title</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

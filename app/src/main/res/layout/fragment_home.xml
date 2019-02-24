@@ -19,6 +19,9 @@
             <include
                     layout="@layout/include_category"/>
 
+            <include
+                    layout="@layout/include_product_sellers"/>
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>

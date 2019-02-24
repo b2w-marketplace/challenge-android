@@ -9,10 +9,10 @@
 
     <ImageView
             android:id="@+id/itemCategoryImage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/itemCategoryName"
-            app:layout_constraintEnd_toEndOf="@+id/itemCategoryName"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@null"/>
 

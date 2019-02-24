@@ -3,31 +3,39 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-            android:id="@+id/fragmentHomeCategoryTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Home.Category.Title"
-            fontPath="fonts/Roboto-Medium.ttf"
-            tools:ignore="MissingPrefix"
-            android:layout_margin="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeBannersIndicator"
-            app:layout_constraintBottom_toTopOf="@+id/fragmentHomeCategoryDivider"
-            app:layout_constraintStart_toStartOf="parent"/>
     <View
-            android:id="@+id/fragmentHomeCategoryDivider"
+            android:id="@+id/fragmentHomeProductFirstDivider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/greyish"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeCategoryTitle"/>
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeCategories"/>
+
+    <TextView
+            android:id="@+id/fragmentHomeProductTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Home.Product.Title"
+            fontPath="fonts/Roboto-Medium.ttf"
+            tools:ignore="MissingPrefix"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeProductFirstDivider"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentHomeProductDivider"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <View
+            android:id="@+id/fragmentHomeProductDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greyish"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeProductTitle"/>
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/fragmentHomeCategories"
+            android:id="@+id/fragmentHomeProducts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeCategoryDivider"/>
+            app:layout_constraintTop_toBottomOf="@+id/fragmentHomeProductDivider"/>
 </merge>

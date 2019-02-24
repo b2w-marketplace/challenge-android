@@ -10,17 +10,20 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.include_banner.*
 import kotlinx.android.synthetic.main.include_category.*
+import kotlinx.android.synthetic.main.include_product_sellers.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.snap.OnSnapPositionChangeListener
 import marcus.com.br.b2wtest.helper.snap.attachSnapHelperWithListener
 import marcus.com.br.b2wtest.model.data.BannerData
 import marcus.com.br.b2wtest.model.data.CategoryData
+import marcus.com.br.b2wtest.model.data.ProductData
 import marcus.com.br.b2wtest.ui.BaseFragment
 
 class HomeFragment : BaseFragment() {
 
     private val bannersAdapter = BannersAdapter()
     private val categoriesAdapter = CategoriesAdapter()
+    private val bestSellersProductAdapter = BestSellersProductAdapter()
 
     private val homeViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory)
@@ -40,6 +43,7 @@ class HomeFragment : BaseFragment() {
         setupSwipeRefresh()
         setupBanner()
         setupCategory()
+        setupBestSeller()
         initObservers()
         fetchData()
     }
@@ -54,6 +58,12 @@ class HomeFragment : BaseFragment() {
         fragmentHomeCategories.adapter = categoriesAdapter
         fragmentHomeCategories.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setupBestSeller() {
+        fragmentHomeProducts.adapter = bestSellersProductAdapter
+        fragmentHomeProducts.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
     private fun setupSwipeRefresh() {
@@ -75,11 +85,18 @@ class HomeFragment : BaseFragment() {
         }, onError = {
 
         })
+
+        homeViewModel.productBestResult.observeResource(this, onSuccess = {
+            successBestProducts(it.productList)
+        }, onError = {
+
+        })
     }
 
     private fun fetchData() {
         homeViewModel.getBanners()
         homeViewModel.getCategories()
+        homeViewModel.getBestSellers()
     }
 
     private fun successBanner(bannerList: List<BannerData>) {
@@ -99,6 +116,10 @@ class HomeFragment : BaseFragment() {
 
     private fun successCategory(categoryList: List<CategoryData>) {
         categoriesAdapter.addToList(categoryList as ArrayList<CategoryData>)
+    }
+
+    private fun successBestProducts(productList: List<ProductData>) {
+        bestSellersProductAdapter.addToList(productList as ArrayList<ProductData>)
     }
 
     companion object {

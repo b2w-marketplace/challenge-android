@@ -3,4 +3,7 @@
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
     <string name="categories_title">Categorias</string>
+    <string name="sellers_products_title">Mais Vendidos</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_about">Sobre o aplicativo</string>
 </resources>
