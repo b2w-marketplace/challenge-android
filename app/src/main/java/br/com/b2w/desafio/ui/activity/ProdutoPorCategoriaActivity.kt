@@ -25,11 +25,11 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
 
     private lateinit var binding: ActivityProdutoPorCategoriaBinding
 
-    private var produtoViewModel: ProdutoViewModel? = null
+    private lateinit var produtoViewModel: ProdutoViewModel
 
     private lateinit var produtoAdapter: ProdutoAdapter
 
-    private var linearLayoutManager: LinearLayoutManager? = null
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     private var isScrolling: Boolean? = false
     private var currentItems: Int = 0
@@ -54,7 +54,7 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
         addOnScrollListener()
         addObservable()
 
-        produtoViewModel!!.listar(0, 20, getCategoriaSelecionada().id)
+        produtoViewModel.listar(0, 20, getCategoriaSelecionada().id)
     }
 
     private fun setToolbar() {
@@ -78,9 +78,9 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                currentItems = linearLayoutManager!!.childCount
-                totalItems = linearLayoutManager!!.itemCount
-                scrollOutItems = linearLayoutManager!!.findFirstVisibleItemPosition()
+                currentItems = linearLayoutManager.childCount
+                totalItems = linearLayoutManager.itemCount
+                scrollOutItems = linearLayoutManager.findFirstVisibleItemPosition()
 
                 if (isScrolling!! && currentItems + scrollOutItems === totalItems) {
                     isScrolling = false
@@ -90,7 +90,7 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
                         val produto = produtoAdapter.getItemByPosition(totalItems - 1)
 
                         binding.pbLoading.visibility = View.VISIBLE
-                        produtoViewModel!!.listar(produto.id!!, 20, getCategoriaSelecionada().id)
+                        produtoViewModel.listar(produto.id!!, 20, getCategoriaSelecionada().id)
                     } else {
                         // Scrolling down
                     }
@@ -100,14 +100,14 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
     }
 
     private fun addObservable() {
-        produtoViewModel!!.listarObservable()
+        produtoViewModel.listarObservable()
             .observe(this, Observer<LodjinhaResponse<MutableList<Produto>>> { produtoResponse ->
 
                 binding.pbLoading.visibility = View.GONE
                 if (produtoResponse != null) {
                     if (produtoResponse.message.isNullOrEmpty()) {
                         if(!produtoResponse.data!!.isEmpty()){
-                            produtoAdapter.addData(produtoResponse.data!!)
+                            produtoAdapter.addData(produtoResponse.data)
                         } else {
 
                             if(produtoAdapter.itemCount == 0)

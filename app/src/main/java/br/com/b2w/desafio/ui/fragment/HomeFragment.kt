@@ -34,9 +34,9 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
 
     private lateinit var binding: FragmentHomeBinding
 
-    private var bannerViewModel: BannerViewModel? = null
-    private var produtoViewModel: ProdutoViewModel? = null
-    private var categoriaViewModel: CategoriaViewModel? = null
+    private lateinit var bannerViewModel: BannerViewModel
+    private lateinit var produtoViewModel: ProdutoViewModel
+    private lateinit var categoriaViewModel: CategoriaViewModel
 
     private lateinit var produtoAdapter: ProdutoAdapter
     private lateinit var categoriaAdapter: CategoriaAdapter
@@ -59,19 +59,19 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
     }
 
     private fun listarBanners(){
-        bannerViewModel!!.listar()
+        bannerViewModel.listar()
     }
 
     private fun listarCategorias(){
-        categoriaViewModel!!.listar()
+        categoriaViewModel.listar()
     }
 
     private fun listarMaisVendidos(){
-        produtoViewModel!!.listarMaisVendidos()
+        produtoViewModel.listarMaisVendidos()
     }
 
     private fun addObservable(){
-        bannerViewModel!!.listarObservable().observe(this, Observer<LodjinhaResponse<MutableList<Banner>>> { bannerResponse ->
+        bannerViewModel.listarObservable().observe(this, Observer<LodjinhaResponse<MutableList<Banner>>> { bannerResponse ->
 
             if(bannerResponse != null){
                 if(bannerResponse.message.isNullOrEmpty()){
@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
             }
         })
 
-        categoriaViewModel!!.listarObservable().observe(this, Observer<LodjinhaResponse<MutableList<Categoria>>> { categoriaResponse ->
+        categoriaViewModel.listarObservable().observe(this, Observer<LodjinhaResponse<MutableList<Categoria>>> { categoriaResponse ->
 
             if(categoriaResponse != null){
                 if(categoriaResponse.message.isNullOrEmpty()){
@@ -102,7 +102,7 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
             }
         })
 
-        produtoViewModel!!.listarMaisVendidosObservable().observe(this, Observer<LodjinhaResponse<MutableList<Produto>>> { produtoResponse ->
+        produtoViewModel.listarMaisVendidosObservable().observe(this, Observer<LodjinhaResponse<MutableList<Produto>>> { produtoResponse ->
 
             if(produtoResponse != null){
                 if(produtoResponse.message.isNullOrEmpty()){

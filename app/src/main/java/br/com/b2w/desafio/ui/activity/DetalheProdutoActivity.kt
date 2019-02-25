@@ -25,7 +25,7 @@ class DetalheProdutoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetalheProdutoBinding
 
-    private var produtoViewModel: ProdutoViewModel? = null
+    private lateinit var produtoViewModel: ProdutoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class DetalheProdutoActivity : AppCompatActivity() {
 
         binding.fab.setOnClickListener { view ->
             binding.fab.isEnabled = false
-            produtoViewModel!!.postById(getProdutoSelecionado().id!!)
+            produtoViewModel.postById(getProdutoSelecionado().id!!)
         }
 
         addObservable()
@@ -51,7 +51,7 @@ class DetalheProdutoActivity : AppCompatActivity() {
     }
 
     private fun addObservable() {
-        produtoViewModel!!.getPostByIdObservable().observe(this, Observer<LodjinhaResponse<Produto>> { produtoResponse ->
+        produtoViewModel.getPostByIdObservable().observe(this, Observer<LodjinhaResponse<Produto>> { produtoResponse ->
 
             binding.fab.isEnabled = true
 
