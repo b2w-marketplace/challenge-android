@@ -45,11 +45,6 @@ class ProductDetailActivity : BaseActivity() {
         activityProductDetailTo.text = getString(R.string.product_to_price, productData.toPrice.toBRL())
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
     private fun fromHtml(html: String): Spanned {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)

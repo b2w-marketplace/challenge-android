@@ -15,4 +15,11 @@ class ProductService @Inject constructor(val api: Api) {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun getByCategory(offset: Int, categoryId: Int): Flowable<ProductResult> {
+        return api
+            .getByCategory(offset = offset, categoryId = categoryId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 }

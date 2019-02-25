@@ -22,6 +22,7 @@ import marcus.com.br.b2wtest.model.data.CategoryData
 import marcus.com.br.b2wtest.model.data.ProductData
 import marcus.com.br.b2wtest.ui.BaseFragment
 import marcus.com.br.b2wtest.ui.BaseRecyclerAdapter
+import marcus.com.br.b2wtest.ui.ProductListAdapter
 import marcus.com.br.b2wtest.ui.main.MainActivity
 import marcus.com.br.b2wtest.ui.main.MainNavigator
 
@@ -29,7 +30,7 @@ class HomeFragment : BaseFragment(), BaseRecyclerAdapter.OnItemClickListener {
 
     private val bannersAdapter = BannersAdapter()
     private val categoriesAdapter = CategoriesAdapter()
-    private val bestSellersProductAdapter = BestSellersProductAdapter()
+    private val bestSellersProductAdapter = ProductListAdapter()
 
     private val homeViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory)
@@ -70,6 +71,7 @@ class HomeFragment : BaseFragment(), BaseRecyclerAdapter.OnItemClickListener {
     }
 
     private fun setupCategory() {
+        categoriesAdapter.listener = this
         fragmentHomeCategories.adapter = categoriesAdapter
         fragmentHomeCategories.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -140,8 +142,16 @@ class HomeFragment : BaseFragment(), BaseRecyclerAdapter.OnItemClickListener {
 
     override fun onItemClick(view: View, position: Int) {
         context?.let {
-            val productData = bestSellersProductAdapter.getItem(position)
-            MainNavigator.navigateToProductDetailActivity(it, productData)
+            when (view.id) {
+                R.id.itemBestProductContainer -> {
+                    val productData = bestSellersProductAdapter.getItem(position)
+                    MainNavigator.navigateToProductDetailActivity(it, productData)
+                }
+                R.id.itemCategoryContainer -> {
+                    val categoryData = categoriesAdapter.getItem(position)
+                    MainNavigator.navigateToCategoryProductActivity(it, categoryData)
+                }
+            }
         }
     }
 

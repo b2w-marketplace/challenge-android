@@ -23,6 +23,11 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newFont))
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
     private fun setFont() {
         CalligraphyConfig.initDefault(
             CalligraphyConfig.Builder()

@@ -1,4 +1,4 @@
-package marcus.com.br.b2wtest.ui.main.home
+package marcus.com.br.b2wtest.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,12 +9,17 @@ import kotlinx.android.synthetic.main.item_best_seller_product.view.*
 import marcus.com.br.b2wtest.R
 import marcus.com.br.b2wtest.helper.toBRL
 import marcus.com.br.b2wtest.model.data.ProductData
-import marcus.com.br.b2wtest.ui.BaseRecyclerAdapter
 
-class BestSellersProductAdapter : BaseRecyclerAdapter<ProductData>() {
+class ProductListAdapter : BaseRecyclerAdapter<ProductData>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_best_seller_product, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_best_seller_product,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {

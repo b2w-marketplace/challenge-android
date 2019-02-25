@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import marcus.com.br.b2wtest.ui.categoryproduct.CategoryProductViewModel
 import marcus.com.br.b2wtest.ui.main.home.HomeViewModel
 
 @Module
@@ -17,4 +18,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CategoryProductViewModel::class)
+    abstract fun bindCategoryProductViewModel(viewModel: CategoryProductViewModel): ViewModel
 }

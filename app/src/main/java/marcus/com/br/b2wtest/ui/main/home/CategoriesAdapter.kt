@@ -21,12 +21,15 @@ class CategoriesAdapter : BaseRecyclerAdapter<CategoryData>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(recyclerList[position])
+        (holder as ViewHolder).bind(recyclerList[position], listener)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(categoryData: CategoryData) = with(itemView) {
+        fun bind(
+            categoryData: CategoryData,
+            listener: OnItemClickListener?
+        ) = with(itemView) {
             Picasso.get()
                 .load(categoryData.urlImage)
                 .placeholder(R.drawable.progress_animation)
@@ -34,6 +37,10 @@ class CategoriesAdapter : BaseRecyclerAdapter<CategoryData>() {
                 .into(itemCategoryImage)
 
             itemCategoryName.text = categoryData.description
+
+            itemCategoryContainer.setOnClickListener {
+                listener?.onItemClick(this, adapterPosition)
+            }
         }
     }
 }
