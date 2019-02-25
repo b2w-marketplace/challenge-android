@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Lodjinha</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_detalhe_produto">Detalhes</string>
+
+    <string name="title_a_lodjinha">a Lodjinha</string>
+
+    <string name="msg_erro_banner">Não foi possível carregar os banners!</string>
+    <string name="msg_erro_categoria">Não foi possível carregar as categorias!</string>
+    <string name="msg_erro_produtos_mais_vendidos">Não foi possível carregar os produtos mais vendidos!</string>
+
+    <string name="msg_sucesso_reserva_produto">Produto reservado com sucesso</string>
+    <string name="msg_erro_produto_por_categoria">Não foi possível carregar os produtos por categoria!</string>
+    <string name="msg_indisponibilidade_produto_por_categoria">Nenhum produto disponível para a categoria selecionada!</string>
+
+    <string name="param_produto">PARAM_PRODUTO</string>
+    <string name="param_categoria">PARAM_CATEGORIA</string>
+</resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.activity.DetalheProdutoActivity"
+    tools:showIn="@layout/activity_detalhe_produto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/iv_produto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_descricao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X"
+                android:textSize="18sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_produto" />
+
+            <View
+                android:id="@+id/view_divider_top"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="32dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
+
+            <TextView
+                android:id="@+id/tv_preco_de"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="De: 99999.99"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_divider_bottom"
+                app:layout_constraintRight_toLeftOf="@+id/tv_preco_por"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider_top" />
+
+            <TextView
+                android:id="@+id/tv_preco_por"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Por: 99999.99"
+                android:textColor="@color/colorTomato"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tv_preco_de"
+                app:layout_constraintTop_toTopOf="@+id/view_divider_top" />
+
+            <View
+                android:id="@+id/view_divider_bottom"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_preco_por" />
+
+            <TextView
+                android:id="@+id/tv_descricao_completa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X Mortal Kombat X"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider_bottom" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</layout>
