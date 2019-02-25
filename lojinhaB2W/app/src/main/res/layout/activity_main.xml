@@ -20,9 +20,9 @@
                     android:id="@+id/collapsing_toolbar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
+                    android:background="@color/colorPrimary"
                     android:theme="@style/AppTheme.AppBarOverlay"
-                    app:contentScrim="@color/colorWhite"
+                    app:contentScrim="@color/colorPrimary"
                     app:layout_scrollFlags="scroll|enterAlways">
 
                 <android.support.v7.widget.Toolbar
@@ -33,14 +33,14 @@
                         app:layout_collapseMode="pin"
                         app:popupTheme="@style/AppTheme.PopupOverlay">
 
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:src="@drawable/logo_navbar"/>
+
                     <TextView
-                            android:id="@+id/main_toolbar_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center|left"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/fab_margin"
-                            android:textStyle="bold"/>
+                            android:text="@string/a_lojinha_home"
+                            style="@style/Title1White"/>
 
                 </android.support.v7.widget.Toolbar>
 

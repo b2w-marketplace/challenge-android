@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#5e2a84</color>
+    <color name="colorPrimaryDark">#552777</color>
+    <color name="colorAccent">#fcfcfc</color>
     <color name="WarmPurple">#5e2a84</color>
     <color name="tomato">#f15025</color>
     <color name="grayish">#aaaaaa</color>
@@ -11,4 +11,6 @@
     <color name="grayishBrown">#4a4a4a</color>
     <color name="colorWhite">#d5d5d5</color>
     <color name="whiteTwo">#fcfcfc</color>
+    <color name="colorSucess">#4CAF50</color>
+
 </resources>

@@ -25,8 +25,8 @@ class CategoriaAdapter(
 
             Picasso.get()
                 .load(Categoria.toObject(itemModel)["urlImagem"].toString())
-                .centerCrop()
                 .fit()
+                .error(R.drawable.baseline_perm_media_24)
                 .into(itemView.rowCategoriaImage)
             itemView.rowCategoriaDesc.text = Categoria.toObject(itemModel)["descricao"].toString()
 

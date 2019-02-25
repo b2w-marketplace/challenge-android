@@ -32,4 +32,68 @@
         <item name="color">@color/colorBackground</item>
     </style>
 
+    <style name="ProdutoPrecoDe">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/grayish</item>
+
+    </style>
+
+    <style name="ProdutoPrecoPor">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/tomato</item>
+
+    </style>
+
+    <style name="ProdutoTitle">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grayishBrown</item>
+    </style>
+
+
+    <style name="ProdutoDesc">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/grayish</item>
+    </style>
+
+
+    <style name="Title1">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/grayishBrown</item>
+    </style>
+
+
+    <style name="Title2">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/grayishBrown</item>
+    </style>
+
+
+    <style name="Title1White">
+        <item name="android:fontFamily">@font/pacificoregular</item>
+        <item name="fontFamily">@font/pacificoregular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/whiteTwo</item>
+    </style>
+
+
+
 </resources>

@@ -17,12 +17,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+            <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:id="@+id/toolbar_produtos_title"/>
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                             android:id="@+id/rvProduto"
-                                            android:layout_height="300dp"
-                                            android:background="@color/colorAccent"/>
+                                            android:visibility="gone"
+                                            android:layout_height="match_parent"
 
+                                            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <TextView
+            android:id="@+id/sem_produtos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="@color/grayish"
+            android:text="Sem Produtos"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    />
 </android.support.design.widget.CoordinatorLayout>

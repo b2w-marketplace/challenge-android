@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
@@ -26,23 +27,28 @@
                         android:layout_height="27dp"
                         app:srcCompat="@drawable/logo_menu"
                         app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="8dp" android:layout_marginTop="8dp"/>
+                        android:layout_marginStart="24dp" android:layout_marginTop="44dp"/>
 
-                <android.support.v7.widget.AppCompatImageView
-                        android:id="@+id/nav_img_logo"
-                        android:layout_width="39dp"
-                        app:srcCompat="@drawable/logo_menu"
-                        android:layout_height="27dp"
-                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
-            </android.support.constraint.ConstraintLayout>
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                           android:src="@drawable/logo_navbar"
+                           app:layout_constraintEnd_toStartOf="@+id/textView3" android:layout_marginEnd="8dp"
+                           android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/a_lojinha_home"
+                        style="@style/Title1White" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/textView3"/>
+                </android.support.constraint.ConstraintLayout>
 
         </RelativeLayout>
 
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:background="@color/colorWhite"
+                android:background="@color/whiteTwo"
                 android:layout_height="match_parent">
             <LinearLayout
                     android:id="@+id/nav_menu_home"
@@ -56,8 +62,8 @@
 
                 <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="39dp"
-                        android:layout_height="20dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/home_menu"/>
@@ -66,14 +72,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:layout_marginLeft="8dp"
                         android:text="@string/nav_text_home"
-                        android:textColor="@color/colorBackground"
-                        android:textSize="15sp"/>
+                style="@style/Title1"/>
             </LinearLayout>
             <LinearLayout
                     android:id="@+id/nav_menu_sobre"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -81,8 +87,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/nav_menu_home" android:layout_marginTop="16dp">
 
                 <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="20dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/tag_menu"/>
@@ -91,9 +97,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="8dp"
                         android:text="@string/nav_text_sobre_o_aplicativo"
-                        android:textColor="@color/colorBackground"
-                        android:textSize="15sp"/>
+                        style="@style/Title1"/>
             </LinearLayout>
 
 

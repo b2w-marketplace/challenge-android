@@ -13,6 +13,12 @@ class GlideImageLoader : ImageLoader() {
             .load(path as String)
             .into(displayView as ImageView)
 
+        /*Picasso.get()
+            .load(path as String)
+            .centerInside()
+            .fit()
+            .into(displayView as ImageView)*/
+
     }
 
 }

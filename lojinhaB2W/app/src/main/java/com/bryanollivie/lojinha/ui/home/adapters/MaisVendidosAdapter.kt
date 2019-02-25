@@ -1,9 +1,13 @@
 package com.bryanollivie.lojinha.ui.home.adapters
 
 import android.support.v7.widget.RecyclerView
+import android.text.Spannable
+import android.text.Spanned
+import android.text.style.StrikethroughSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.bryanollivie.lojinha.R
 import com.bryanollivie.lojinha.data.model.Produto
 import com.squareup.picasso.Picasso
@@ -25,12 +29,14 @@ class MaisVendidosAdapter(
 
             Picasso.get()
                 .load(Produto.toObject(itemModel)["urlImagem"].toString())
-                .centerCrop()
+                .centerInside()
                 .fit()
                 .into(itemView.rowMaisVendidosImage)
+            val precoDe = Produto.toObject(itemModel)["precoDe"].toString().replace(".", ",")
+
             itemView.rowMaisVendidosTitle.text = Produto.toObject(itemModel)["nome"].toString()
-            itemView.rowMaisVendidosDe.text = Produto.toObject(itemModel)["precoDe"].toString().replace(".", ",")
-            itemView.rowMaisVendidosPor.text = Produto.toObject(itemModel)["nome"].toString().replace(".", ",")
+            //itemView.rowMaisVendidosPor.text = Produto.toObject(itemModel)["precoPor"].toString().replace(".", ",")
+
 
             itemView.setOnClickListener {
                 itemClick(this)

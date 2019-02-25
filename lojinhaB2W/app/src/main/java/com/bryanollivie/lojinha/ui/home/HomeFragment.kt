@@ -1,5 +1,6 @@
 package com.bryanollivie.lojinha.ui.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -9,18 +10,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bryanollivie.lojinha.R
 import com.bryanollivie.lojinha.data.model.BannerLoja
+import com.bryanollivie.lojinha.data.model.Categoria
+import com.bryanollivie.lojinha.data.model.Produto
 import com.bryanollivie.lojinha.ui.base.BaseFragment
 import com.bryanollivie.lojinha.ui.home.adapters.CategoriaAdapter
 import com.bryanollivie.lojinha.ui.home.adapters.GlideImageLoader
 import com.bryanollivie.lojinha.ui.home.adapters.ProdutoAdapter
 import com.bryanollivie.lojinha.ui.produto.ProdutoListActivity
+import com.bryanollivie.lojinha.ui.produto.detalhe.ProdutoDetalheActivity
 import com.jam.utils.easybanner.EasyBannerConfig
 import com.jam.utils.easybanner.listener.OnEasyBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), HomeContract.View/*,
-    OnBannerClickListener<BannerLoja> */{
+class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), HomeContract.View{
 
 
     var categoriaAdapter: CategoriaAdapter? = null
@@ -82,7 +85,9 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
         recyclerHomeMaisVendidos.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         maisVendidosAdapter = ProdutoAdapter(maisVendidos) { itemClick ->
-            //openBook(itemClick.sku.toString())
+            val intent = Intent(activity!!, ProdutoDetalheActivity::class.java)
+            intent.putExtra("produtoId", itemClick)
+            startActivity(intent)
         }
         recyclerHomeMaisVendidos.adapter = maisVendidosAdapter
 
