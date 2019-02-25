@@ -22,12 +22,19 @@ class BestSellersProductAdapter : BaseRecyclerAdapter<ProductData>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ViewHolder).bind(recyclerList[position])
+        (holder as ViewHolder).bind(recyclerList[position], listener)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(productData: ProductData) = with(itemView) {
+        fun bind(
+            productData: ProductData,
+            listener: OnItemClickListener?
+        ) = with(itemView) {
+            itemBestProductContainer.setOnClickListener {
+                listener?.onItemClick(this, adapterPosition)
+            }
+
             Picasso.get()
                 .load(productData.urlImage)
                 .placeholder(R.drawable.progress_animation)

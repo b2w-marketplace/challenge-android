@@ -21,9 +21,11 @@ import marcus.com.br.b2wtest.model.data.BannerData
 import marcus.com.br.b2wtest.model.data.CategoryData
 import marcus.com.br.b2wtest.model.data.ProductData
 import marcus.com.br.b2wtest.ui.BaseFragment
+import marcus.com.br.b2wtest.ui.BaseRecyclerAdapter
 import marcus.com.br.b2wtest.ui.main.MainActivity
+import marcus.com.br.b2wtest.ui.main.MainNavigator
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), BaseRecyclerAdapter.OnItemClickListener {
 
     private val bannersAdapter = BannersAdapter()
     private val categoriesAdapter = CategoriesAdapter()
@@ -74,6 +76,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupBestSeller() {
+        bestSellersProductAdapter.listener = this
         fragmentHomeProducts.adapter = bestSellersProductAdapter
         fragmentHomeProducts.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -133,6 +136,13 @@ class HomeFragment : BaseFragment() {
 
     private fun successBestProducts(productList: List<ProductData>) {
         bestSellersProductAdapter.addToList(productList as ArrayList<ProductData>)
+    }
+
+    override fun onItemClick(view: View, position: Int) {
+        context?.let {
+            val productData = bestSellersProductAdapter.getItem(position)
+            MainNavigator.navigateToProductDetailActivity(it, productData)
+        }
     }
 
     companion object {
