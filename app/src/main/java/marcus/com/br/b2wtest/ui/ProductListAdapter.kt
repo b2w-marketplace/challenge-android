@@ -43,6 +43,7 @@ class ProductListAdapter : BaseRecyclerAdapter<ProductData>() {
             Picasso.get()
                 .load(productData.urlImage)
                 .placeholder(R.drawable.progress_animation)
+                .error(R.drawable.vector_img_not_found)
                 .into(itemBestProductImage)
 
             itemBestProductName.text = productData.name
