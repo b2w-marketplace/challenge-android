@@ -58,4 +58,9 @@
         <item name="android:textColor">@color/greyish_brown</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <!-- PRODUCT DETAIL -->
+    <style name="ProductDetail.Title" parent="AppTheme">
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>
