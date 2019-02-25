@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         bindingNavHeaderMain = NavHeaderMainBinding.bind(binding.navView.getHeaderView(0))
 
-        onNavigationItemSelected(binding.navView.menu.getItem(0))
+        if(savedInstanceState == null){
+            onNavigationItemSelected(binding.navView.menu.getItem(0))
+        }
     }
 
     private fun setToolbar() {

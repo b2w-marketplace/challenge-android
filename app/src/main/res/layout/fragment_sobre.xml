@@ -2,59 +2,65 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/iv_produto"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:src="@drawable/logo_sobre"
-            app:layout_constraintBottom_toTopOf="@+id/tv_nome_app"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tv_nome_app"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pacifico_regular"
-            android:gravity="center"
-            android:text="@string/title_a_lodjinha"
-            android:textSize="64dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_produto"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/logo_sobre"
+                app:layout_constraintBottom_toTopOf="@+id/tv_nome_app"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_nome_dev"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:text="Leandro Leite Pereira"
-            android:textSize="14dp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_data_desenv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tv_nome_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pacifico_regular"
+                android:gravity="center"
+                android:text="@string/title_a_lodjinha"
+                android:textSize="64dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_data_desenv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/roboto_light"
-            android:gravity="center"
-            android:text="25 de fevereiro de 2019"
-            android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tv_nome_dev"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Leandro Leite Pereira"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_data_desenv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_data_desenv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_light"
+                android:gravity="center"
+                android:text="25 de fevereiro de 2019"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </layout>
