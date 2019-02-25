@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import br.com.b2w.desafio.R
 import br.com.b2w.desafio.databinding.CardViewProdutoBinding
 import br.com.b2w.desafio.model.produto.Produto
+import br.com.b2w.desafio.util.Utils
 import com.bumptech.glide.Glide
+import java.text.NumberFormat
 
 class ProdutoAdapter(val context: Context, val listener: AgendaAdapterOnClickListener) :
         RecyclerView.Adapter<ProdutoAdapter.MovieViewHolder>() {
@@ -64,14 +66,16 @@ class ProdutoAdapter(val context: Context, val listener: AgendaAdapterOnClickLis
                 .with(context)
                 .load(item!!.urlImagem)
                 .centerCrop()
-                .placeholder(R.mipmap.ic_nao_disponivel)
+                .placeholder(R.drawable.loading)
                 .error(R.mipmap.ic_nao_disponivel)
                 .into(binding.ivProduto)
 
+            val defaultFormat = NumberFormat.getInstance(Utils.getCurrentLocale(context))
+
             binding.tvDescricao.text = item.nome
-            binding.tvPrecoDe.text = "De: " + item.precoDe.toString()
+            binding.tvPrecoDe.text = "De: " + defaultFormat.format(item.precoDe)
             binding.tvPrecoDe.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-            binding.tvPrecoPor.text = "Por " + item.precoPor.toString()
+            binding.tvPrecoPor.text = "Por " + defaultFormat.format(item.precoPor)
         }
 
         override fun onClick(v: View?) {

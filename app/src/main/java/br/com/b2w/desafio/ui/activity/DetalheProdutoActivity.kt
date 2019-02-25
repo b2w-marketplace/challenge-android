@@ -17,6 +17,8 @@ import br.com.b2w.desafio.ui.viewmodel.ProdutoViewModel
 import br.com.b2w.desafio.util.Alert
 import com.bumptech.glide.Glide
 import android.graphics.Paint
+import br.com.b2w.desafio.util.Utils
+import java.text.NumberFormat
 
 
 class DetalheProdutoActivity : AppCompatActivity() {
@@ -86,14 +88,16 @@ class DetalheProdutoActivity : AppCompatActivity() {
             Glide
                 .with(this@DetalheProdutoActivity)
                 .load(produto.urlImagem)
-                .placeholder(R.mipmap.ic_nao_disponivel)
+                .placeholder(R.drawable.loading)
                 .error(R.mipmap.ic_nao_disponivel)
                 .into(binding.contentDetalheProduto.ivProduto)
 
+            val defaultFormat = NumberFormat.getInstance(Utils.getCurrentLocale(this@DetalheProdutoActivity))
+
             binding.contentDetalheProduto.tvDescricao.text = produto.nome
-            binding.contentDetalheProduto.tvPrecoDe.text = "De " + produto.precoDe.toString()
+            binding.contentDetalheProduto.tvPrecoDe.text = "De " + defaultFormat.format(produto.precoDe)
             binding.contentDetalheProduto.tvPrecoDe.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-            binding.contentDetalheProduto.tvPrecoPor.text = "Por " + produto.precoPor.toString()
+            binding.contentDetalheProduto.tvPrecoPor.text = "Por " + defaultFormat.format(produto.precoPor)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 binding.contentDetalheProduto.tvDescricaoCompleta.text = Html.fromHtml(produto.descricao, Html.FROM_HTML_MODE_LEGACY)

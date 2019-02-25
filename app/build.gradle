@@ -41,7 +41,7 @@ dependencies {
     def arch_lifecycle_version = '1.1.1'
     def arch_paging_version = '1.0.1'
     def glide_version = '4.9.0'
-    def picasso_version = '2.71828'
+    def view_pager_indicator = '1.1.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -66,6 +66,5 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$test_runner_version"
     androidTestImplementation "com.android.support.test:rules:$rulesVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
-
-    implementation 'com.github.vivchar:ViewPagerIndicator:1.1.0'
+    implementation "com.github.vivchar:ViewPagerIndicator:$view_pager_indicator"
 }

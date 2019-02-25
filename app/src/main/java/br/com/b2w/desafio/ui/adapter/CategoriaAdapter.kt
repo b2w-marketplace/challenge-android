@@ -47,7 +47,7 @@ class CategoriaAdapter(val context: Context, val listener: AgendaAdapterOnClickL
                 .with(context)
                 .load(item!!.urlImagem)
                 .centerCrop()
-                .placeholder(R.mipmap.ic_nao_disponivel)
+                .placeholder(R.drawable.loading)
                 .error(R.mipmap.ic_nao_disponivel)
                 .into(binding.ivProduto)
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -30,11 +29,11 @@
                 android:id="@+id/tv_descricao"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Mortal Kombat X"
                 android:textSize="18sp"
-                android:fontFamily="@font/roboto_medium"
                 app:layout_constraintEnd_toStartOf="@+id/iv_indicator"
                 app:layout_constraintLeft_toRightOf="@+id/iv_produto"
                 app:layout_constraintStart_toEndOf="@+id/iv_produto"
@@ -44,21 +43,21 @@
                 android:id="@+id/tv_preco_de"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="De: 99999.99"
+                android:layout_marginLeft="8dp"
                 android:fontFamily="@font/roboto_bold"
+                android:text="De: 99999.99"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/iv_produto"
                 app:layout_constraintRight_toLeftOf="@+id/tv_preco_por"
-                app:layout_constraintStart_toEndOf="@+id/iv_produto" />
+                app:layout_constraintStart_toEndOf="@+id/iv_produto"
+                app:layout_constraintTop_toTopOf="@+id/tv_preco_por" />
 
             <TextView
                 android:id="@+id/tv_preco_por"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="8dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="De: 99999.99"
                 android:textColor="@color/colorTomato"

@@ -43,11 +43,12 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        retainInstance
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        bannerViewModel = ViewModelProviders.of(this).get(BannerViewModel::class.java)
-        produtoViewModel = ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
-        categoriaViewModel = ViewModelProviders.of(this).get(CategoriaViewModel::class.java)
+        bannerViewModel = ViewModelProviders.of(activity!!).get(BannerViewModel::class.java)
+        produtoViewModel = ViewModelProviders.of(activity!!).get(ProdutoViewModel::class.java)
+        categoriaViewModel = ViewModelProviders.of(activity!!).get(CategoriaViewModel::class.java)
 
         addObservable()
         listarBanners()
@@ -164,8 +165,8 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
             .with(context!!)
             .load(banner.urlImagem)
             .centerCrop()
-            .placeholder(R.mipmap.ic_nao_disponivel)
-            .error(br.com.b2w.desafio.R.mipmap.ic_nao_disponivel)
+            .placeholder(R.drawable.loading)
+            .error(R.mipmap.ic_nao_disponivel)
             .into(binding.ivBanner)
 
         return binding.root
