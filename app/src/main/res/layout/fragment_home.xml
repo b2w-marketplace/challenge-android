@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="visible"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="vm"
+            type="br.com.andrecouto.alodjinha.ui.fragment.home.HomeViewModel" />
+
+        <variable
+            name="categoryAdapter"
+            type="br.com.andrecouto.alodjinha.ui.base.adapter.SingleLayoutAdapter" />
+
+        <variable
+            name="productAdapter"
+            type="br.com.andrecouto.alodjinha.ui.base.adapter.SingleLayoutAdapter" />
+
+        <variable
+            name="bannerAdapter"
+            type="br.com.andrecouto.alodjinha.ui.fragment.home.adapter.BannerPagerAdapter" />
+
+        <import type="android.view.View" />
+
+        <import type="br.com.andrecouto.alodjinha.domain.model.common.Status" />
+
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.fragment.home.HomeFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:ignore="MissingConstraints">
+
+        <br.com.andrecouto.alodjinha.ui.view.HorizontalViewPager
+            android:id="@+id/bannerSlider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_height_190dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:adapter="@{bannerAdapter}"
+            app:indicator="@{indicator}"
+            app:onBannerSelected="@{vm}"/>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:foregroundGravity="center_horizontal"
+            android:padding="@dimen/default_padding_12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:radius="@dimen/default_radius_6dp" />
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/view_loading"
+            android:visibility="@{ visible ? View.VISIBLE : View.GONE }"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+        <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+            android:id="@+id/txtCategoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin_16dp"
+            android:layout_marginStart="@dimen/default_margin_16dp"
+            android:layout_marginTop="@dimen/default_magin_8dp"
+            android:text="@string/home_category_text_view"
+            android:textColor="@color/grey_4a4a4a"
+            android:textSize="@dimen/default_text_size_20sp"
+            style="@style/lodjinha_text_app_font_roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintViewPager" />
+
+        <View
+            android:id="@+id/divider_category"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/grey_d5d5d5"
+            android:layout_marginTop="@dimen/default_magin_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtCategoryTitle"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerCategories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:adapter="@{categoryAdapter}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_category" />
+
+        <View
+            android:id="@+id/divider_topseelings"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/grey_d5d5d5"
+            android:layout_marginTop="@dimen/default_magin_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerCategories"
+            />
+
+        <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+            android:id="@+id/txtTopSellingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin_16dp"
+            android:layout_marginStart="@dimen/default_margin_16dp"
+            android:layout_marginTop="@dimen/default_magin_8dp"
+            android:text="@string/home_top_selling_title"
+            android:textColor="@color/grey_4a4a4a"
+            android:textSize="@dimen/default_text_size_20sp"
+            style="@style/lodjinha_text_app_font_roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_topseelings" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerProducts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:adapter="@{productAdapter}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTopSellingTitle" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

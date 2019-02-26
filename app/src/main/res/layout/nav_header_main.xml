@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/menu_pattern"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/imageViewNav"
+        android:layout_width="@dimen/default_width_54dp"
+        android:layout_height="@dimen/default_height_54dp"
+        android:layout_marginBottom="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:background="@drawable/solid_circle"
+        android:contentDescription="@string/nav_header_desc"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_navbar" />
+
+    <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+        android:id="@+id/typefacedTextViewNav"
+        style="@style/lodjinha_text_app_font_pacifico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:gravity="end"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@string/nav_bar_title"
+        android:textSize="@dimen/default_text_size_24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

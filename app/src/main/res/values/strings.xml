@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ALodjinha</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_bar_title">a Lodjinha</string>
+    <string name="item_home_menu_title">Home</string>
+    <string name="item_about_developer_title">Sobre o aplicativo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="developer_name">André Couto</string>
+    <string name="development_date">24 de fevereiro de 2019</string>
+    <string name="home_category_text_view">Categorias</string>
+    <string name="home_top_selling_title">Mais Vendidos</string>
+    <string name="underline_price"><![CDATA[<u>%s</u>]]></string>
+    <string name="reatin_product_phrase">Produto reservado com sucesso</string>
+</resources>

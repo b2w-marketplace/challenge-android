@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    defaultConfig {
+        applicationId "br.com.andrecouto.alodjinha"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary true
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+
+        debug {
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    def appDependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation appDependencies.kotlin
+
+    // Arch
+    implementation appDependencies.ArchLifeCycle
+    implementation appDependencies.ArchReactiveStreams
+
+    // Room
+    implementation appDependencies.Room
+    implementation appDependencies.RxRoom
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
+    kapt appDependencies.RoomCompiler
+
+    // Support
+    implementation appDependencies.support
+    implementation appDependencies.supportAppCompat
+    implementation appDependencies.supportDesign
+    implementation appDependencies.supportCardView
+    implementation appDependencies.constraintLayout
+
+    // Dagger
+    implementation appDependencies.dagger
+    implementation appDependencies.daggerAndroid
+    kapt appDependencies.daggerCompiler
+    kapt appDependencies.daggerAndroidCompiler
+
+    // Rx
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+
+    // Retrofit - OkHttp
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitGson
+    implementation appDependencies.retrofitRx
+    implementation appDependencies.okHttpInterceptor
+    implementation appDependencies.stetho
+    implementation appDependencies.stetho_OkHttp
+
+    // Glide
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+
+    // Tools
+    implementation appDependencies.indicatorViewPager
+
+    // Test Dependencies
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.archTesting
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.esperesso
+}
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}

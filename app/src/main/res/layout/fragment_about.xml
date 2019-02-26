@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.about.AboutFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginTop="@dimen/default_margin_36dp"
+        android:src="@drawable/logo_sobre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+        android:id="@+id/txtLogoAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginTop="@dimen/default_margin_24dp"
+        android:text="@string/nav_bar_title"
+        android:textSize="@dimen/default_text_size_64dp"
+        android:textColor="@color/grey_4a4a4a"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAbout"
+        style="@style/lodjinha_text_app_font_pacifico"/>
+
+    <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+        android:id="@+id/txtDeveloperName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginBottom="@dimen/default_magin_8dp"
+        android:text="@string/developer_name"
+        android:textSize="@dimen/default_text_size_14sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDevelopmentDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/lodjinha_text_app_font_roboto_medium" />
+
+    <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+        android:id="@+id/txtDevelopmentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginBottom="@dimen/default_margin_24dp"
+        android:text="@string/development_date"
+        android:textSize="@dimen/default_text_size_12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/lodjinha_text_app_font_roboto_light" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

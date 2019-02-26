@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="br.com.andrecouto.alodjinha.ui.fragment.product.ProductDetailsViewModel" />
+
+        <variable
+            name="item"
+            type="br.com.andrecouto.alodjinha.domain.model.lodjinha.Product" />
+    </data>
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.product.ProductDetailsActivity">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <ImageView
+                    android:id="@+id/imgProduct"
+                    android:layout_width="@dimen/default_width_200dp"
+                    android:layout_height="@dimen/default_height_200dp"
+                    android:layout_marginEnd="@dimen/default_magin_8dp"
+                    android:layout_marginLeft="@dimen/default_magin_8dp"
+                    android:layout_marginRight="@dimen/default_magin_8dp"
+                    android:layout_marginStart="@dimen/default_magin_8dp"
+                    android:layout_marginTop="@dimen/default_magin_8dp"
+                    android:scaleType="fitCenter"
+                    srcImageUrl="@{item.urlImage}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_magin_8dp"
+                    android:layout_marginLeft="@dimen/default_magin_8dp"
+                    android:layout_marginRight="@dimen/default_magin_8dp"
+                    android:layout_marginStart="@dimen/default_magin_8dp"
+                    android:layout_marginTop="@dimen/default_magin_8dp"
+                    tools:text="Nome do produto"
+                    android:text="@{item.name}"
+                    android:textColor="@color/grey_4a4a4a"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    style="@style/lodjinha_text_app_font_roboto_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgProduct" />
+
+                <View
+                    android:id="@+id/view_divider_top"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grey_d5d5d5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+                <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+                    android:id="@+id/txtPriceFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_magin_8dp"
+                    android:layout_marginStart="@dimen/default_magin_8dp"
+                    android:layout_marginTop="@dimen/default_magin_8dp"
+                    android:gravity="bottom"
+                    tools:text="De: 9999,99"
+                    android:text="@{String.valueOf(item.priceFrom)}"
+                    android:textColor="@color/grey_aaaaaa"
+                    android:textSize="@dimen/default_text_size_12sp"
+                    style="@style/lodjinha_text_app_font_roboto_medium"
+                    app:layout_constraintBottom_toTopOf="@+id/view_divider_bottom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_divider_top" />
+
+                <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+                    android:id="@+id/txt_preco_por"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="bottom"
+                    tools:text="Por: 9999,98"
+                    android:text="@{String.valueOf(item.priceFor)}"
+                    android:textColor="@color/red_5e2a84"
+                    android:textSize="@dimen/default_text_size_20sp"
+                    style="@style/lodjinha_text_app_font_roboto_bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_divider_top" />
+
+                <View
+                    android:id="@+id/view_divider_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/default_magin_8dp"
+                    android:background="@color/grey_d5d5d5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_preco_por" />
+
+                <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+                    android:id="@+id/txtDescricao"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_magin_8dp"
+                    android:layout_marginLeft="@dimen/default_magin_8dp"
+                    android:layout_marginRight="@dimen/default_magin_8dp"
+                    android:layout_marginStart="@dimen/default_magin_8dp"
+                    android:layout_marginTop="@dimen/default_magin_8dp"
+                    android:text="@{item.description}"
+                    android:textSize="@dimen/default_text_size_17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_divider_bottom" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> vm.onProductClicked(item)}"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@+id/scrollView2"
+            app:layout_anchorGravity="right|bottom"
+            app:srcCompat="@drawable/check_button" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TypefacedTextView">
+        <attr name="typeface" format="string" />
+    </declare-styleable>
+    <declare-styleable name="TypefacedButtonView">
+        <attr name="text_color_button_theme_new" format="color"/>
+        <attr name="titleText" format="string" localization="suggested" />
+    </declare-styleable>
+</resources>

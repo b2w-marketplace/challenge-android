@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+            name="item"
+            type="br.com.andrecouto.alodjinha.domain.model.lodjinha.Category" />
+
+        <variable
+            name="vm"
+            type="br.com.andrecouto.alodjinha.ui.fragment.home.HomeViewModel" />
+
+    </data>
+<android.support.constraint.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{() -> vm.onCategoryClicked(item)}"
+   >
+
+    <ImageView
+        android:id="@+id/imgCategory"
+        android:layout_width="@dimen/default_width_80dp"
+        android:layout_height="@dimen/default_height_80dp"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginTop="@dimen/default_magin_8dp"
+        srcImageUrl="@{item.urlImage}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_magin_8dp"
+        android:layout_marginLeft="@dimen/default_magin_8dp"
+        android:layout_marginRight="@dimen/default_magin_8dp"
+        android:layout_marginStart="@dimen/default_magin_8dp"
+        android:layout_marginTop="@dimen/default_margin_4dp"
+        android:textSize="@dimen/default_text_size_13sp"
+        android:textColor="@color/grey_4a4a4a"
+        android:textAlignment="center"
+        tools:text="Categoria"
+        android:text="@{item.description}"
+        style="@style/lodjinha_text_app_font_roboto_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCategory" />
+
+</android.support.constraint.ConstraintLayout>
+</layout>
