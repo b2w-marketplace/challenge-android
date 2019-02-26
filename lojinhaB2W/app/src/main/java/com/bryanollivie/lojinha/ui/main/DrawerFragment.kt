@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.bryanollivie.lojinha.R
 import com.bryanollivie.lojinha.ui.home.HomeFragment
+import com.bryanollivie.lojinha.ui.sobre.SobreActivity
+import org.jetbrains.anko.support.v4.startActivity
 
 class DrawerFragment : Fragment() {
 
@@ -39,7 +41,7 @@ class DrawerFragment : Fragment() {
         }
 
         nav_menu_sobre.setOnClickListener {
-            //startActivity<SobreActivity>()
+            startActivity<SobreActivity>()
         }
 
         openFragment(0)
@@ -93,7 +95,7 @@ class DrawerFragment : Fragment() {
 
         mDrawerLayout!!.setDrawerListener(mDrawerToggle)
         mDrawerLayout!!.post { mDrawerToggle!!.syncState() }
-        mDrawerToggle!!.getDrawerArrowDrawable().setColor(resources.getColor(R.color.colorAccent))
+        mDrawerToggle!!.getDrawerArrowDrawable().setColor(resources.getColor(R.color.whiteTwo))
 
     }
 

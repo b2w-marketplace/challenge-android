@@ -21,6 +21,7 @@ import com.bryanollivie.lojinha.ui.produto.detalhe.ProdutoDetalheActivity
 import com.jam.utils.easybanner.EasyBannerConfig
 import com.jam.utils.easybanner.listener.OnEasyBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.support.v4.browse
 
 
 class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), HomeContract.View{
@@ -49,19 +50,22 @@ class HomeFragment : BaseFragment<HomeContract.View, HomeContract.Presenter>(), 
     override fun showBanner(banners: List<Any>) {
 
 
-        val urls = ArrayList<String>()
+        val urlImgs = ArrayList<String>()
+        val links = ArrayList<String>()
 
         for (banner in banners) {
-            urls.add(BannerLoja.toObject(banner)["urlImagem"].toString())
+            urlImgs.add(BannerLoja.toObject(banner)["urlImagem"].toString())
+            links.add(BannerLoja.toObject(banner)["linkUrl"].toString())
         }
         home_banner
-            .setData(urls as ArrayList<Any>)
+            .setData(urlImgs as ArrayList<Any>)
             .isAutoPlay(true)
             .setIndicatorStyle(EasyBannerConfig.CIRCLE_INDICATOR)
             .setDisplayLoader(GlideImageLoader())
             .setOnEasyBannerListener(object : OnEasyBannerListener {
                 override fun onBannerClick(position: Int) {
-                    Toast.makeText(activity, position.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, links.get(position), Toast.LENGTH_SHORT).show()
+                    browse(links.get(position))
                 }
             })
             .start()

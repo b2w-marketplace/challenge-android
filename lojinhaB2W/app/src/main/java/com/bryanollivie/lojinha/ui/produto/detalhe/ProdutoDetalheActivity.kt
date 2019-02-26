@@ -40,6 +40,7 @@ class ProdutoDetalheActivity : BaseActivity<ProdutoDetalheContract.View, Produto
         Picasso.get()
             .load(produto.urlImagem)
             .centerInside()
+            .error(R.drawable.baseline_perm_media_24)
             .fit()
             .into(imagem_produto_detalhe)
 

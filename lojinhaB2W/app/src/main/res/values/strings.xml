@@ -18,5 +18,6 @@
     <string name="title_activity_produto_list">Produtos</string>
     <string name="title_activity_produto_detalhe"/>
     <string name="a_lojinha_home">a Lojinha</string>
+    <string name="title_activity_sobre">Sobre</string>
 
 </resources>
