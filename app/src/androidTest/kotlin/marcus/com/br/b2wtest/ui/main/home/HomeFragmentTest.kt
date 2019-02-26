@@ -48,4 +48,22 @@ class HomeFragmentTest : BaseTest() {
             validateBestSeller(7)
         }
     }
+
+    @Test
+    fun validateCategoryScreenAppear() {
+        robots {
+            mockResponse()
+            initActivity(intent)
+            validateCategoryOpen()
+        }
+    }
+
+    @Test
+    fun validateProductDetailAppear() {
+        robots {
+            mockResponse()
+            initActivity(intent)
+            validateProductDetailOpen()
+        }
+    }
 }
