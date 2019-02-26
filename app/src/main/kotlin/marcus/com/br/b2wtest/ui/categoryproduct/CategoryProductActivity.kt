@@ -3,6 +3,7 @@ package marcus.com.br.b2wtest.ui.categoryproduct
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.ImageView
@@ -59,7 +60,9 @@ class CategoryProductActivity : BaseActivity(), BaseRecyclerAdapter.OnItemClickL
 
     private fun initObservers() {
         categoryProductViewModel.loading.observe(this, Observer {
-
+            if (it == false) {
+                activityCategoryLoading.visibility = View.GONE
+            }
         })
 
         categoryProductViewModel.productResult.observeResource(this, onSuccess = {
@@ -70,6 +73,11 @@ class CategoryProductActivity : BaseActivity(), BaseRecyclerAdapter.OnItemClickL
     }
 
     private fun successProduct(productList: List<ProductData>) {
+        if (productList.isEmpty()) {
+            Snackbar.make(activityCategoryProductContainer, R.string.product_not_found, Snackbar.LENGTH_INDEFINITE)
+                .show()
+            return
+        }
         productListAdapter.addToList(productList as ArrayList<ProductData>)
     }
 

@@ -11,4 +11,5 @@
     <string name="title_about">Sobre</string>
     <string name="developer_name">Marcus Vinicius Silva de Souza</string>
     <string name="developer_date">24 de fevereiro de 2019</string>
+    <string name="product_not_found">Nenhum produto encontrado.</string>
 </resources>
