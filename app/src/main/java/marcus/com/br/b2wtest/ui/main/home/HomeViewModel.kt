@@ -23,18 +23,21 @@ class HomeViewModel @Inject constructor(
 
     fun getBanners() {
         bannerService.getBanners()
+            .doFinally { loading.postValue(false) }
             .toNetworkFlowable()
             .subscribeLiveData(this, bannerResult)
     }
 
     fun getCategories() {
         categoryService.getCategories()
+            .doFinally { loading.postValue(false) }
             .toNetworkFlowable()
             .subscribeLiveData(this, categorieResult)
     }
 
     fun getBestSellers() {
         productService.getBestSellers()
+            .doFinally { loading.postValue(false) }
             .toNetworkFlowable()
             .subscribeLiveData(this, productBestResult)
     }

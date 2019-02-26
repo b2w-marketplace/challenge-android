@@ -1,5 +1,6 @@
 package marcus.com.br.b2wtest.ui.main.home
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -91,6 +92,12 @@ class HomeFragment : BaseFragment(), BaseRecyclerAdapter.OnItemClickListener {
     }
 
     private fun initObservers() {
+        homeViewModel.loading.observe(this, Observer {
+            if (it == false) {
+                fragmentHomeLoading.visibility = View.GONE
+            }
+        })
+
         homeViewModel.bannerResult.observeResource(this, onSuccess = {
             fragmentHomeSwipe.isRefreshing = false
             successBanner(it.bannerList)
