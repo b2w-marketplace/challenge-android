@@ -25,16 +25,16 @@ class HomeFragmentTest : BaseTest() {
 
     private val intent = Intent()
 
-    lateinit var bannerService: BannerService
-    lateinit var categoService: CategoryService
-    lateinit var producService: ProductService
+    private lateinit var bannerService: BannerService
+    private lateinit var categoryService: CategoryService
+    private lateinit var producrService: ProductService
 
     @Before
     fun before() {
         super.setup()
         bannerService = mockk()
-        categoService = mockk()
-        producService = mockk()
+        categoryService = mockk()
+        producrService = mockk()
     }
 
     @Test
