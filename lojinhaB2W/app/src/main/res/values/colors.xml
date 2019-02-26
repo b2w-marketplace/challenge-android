@@ -3,14 +3,10 @@
     <color name="colorPrimary">#5e2a84</color>
     <color name="colorPrimaryDark">#552777</color>
     <color name="colorAccent">#f15025</color>
-    <color name="WarmPurple">#5e2a84</color>
     <color name="tomato">#f15025</color>
     <color name="grayish">#aaaaaa</color>
     <color name="colorBackground">#d5d5d5</color>
-    <color name="dark">#2d3142</color>
     <color name="grayishBrown">#4a4a4a</color>
-    <color name="colorWhite">#d5d5d5</color>
     <color name="whiteTwo">#fcfcfc</color>
-    <color name="colorSucess">#4CAF50</color>
 
 </resources>
