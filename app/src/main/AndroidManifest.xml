@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.category.CategoryActivity" />
-        <activity android:name=".ui.activity.product.ProductDetailsActivity"></activity>
+        <activity android:name=".ui.activity.product.ProductDetailsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

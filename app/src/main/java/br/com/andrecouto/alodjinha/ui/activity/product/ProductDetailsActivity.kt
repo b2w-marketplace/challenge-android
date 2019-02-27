@@ -7,6 +7,7 @@ import br.com.andrecouto.alodjinha.ui.base.BaseActivity
 import br.com.andrecouto.alodjinha.ui.fragment.product.ProductDetailsFragment
 import br.com.andrecouto.alodjinha.ui.fragment.product.ProductDetailsViewModel
 import br.com.andrecouto.alodjinha.util.FragmentUtil
+import kotlinx.android.synthetic.main.fragment_product_details.*
 
 class ProductDetailsActivity : BaseActivity<ProductDetailsViewModel, ActivityProductDetailsBinding>() {
 
