@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.text.Html"/>
+
+        <variable
+            name="collapse"
+            type="java.lang.Boolean" />
         <variable
             name="vm"
             type="br.com.andrecouto.alodjinha.ui.fragment.product.ProductDetailsViewModel" />
@@ -30,6 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                android:background="@color/white"
+                app:title='@{collapse ? item.category.description : "" }'
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
                 <ImageView
@@ -46,6 +52,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    app:navigationIcon="?homeAsUpIndicator"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
             </android.support.design.widget.CollapsingToolbarLayout>
