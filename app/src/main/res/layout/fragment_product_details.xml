@@ -2,8 +2,8 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
+        <import type="android.text.Html"/>
         <variable
             name="vm"
             type="br.com.andrecouto.alodjinha.ui.fragment.product.ProductDetailsViewModel" />
@@ -141,7 +141,7 @@
                     android:layout_marginRight="@dimen/default_magin_8dp"
                     android:layout_marginStart="@dimen/default_magin_8dp"
                     android:layout_marginTop="@dimen/default_magin_8dp"
-                    android:text="@{item.description}"
+                    android:text="@{Html.fromHtml(String.format(@string/html_phrase, String.valueOf(item.description)))}"
                     android:textSize="@dimen/default_text_size_17sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

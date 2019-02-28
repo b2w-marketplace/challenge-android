@@ -21,8 +21,6 @@ ext {
     final stetho = '1.4.2'
     final roundedImageView = '2.3.0'
     final glide = '4.7.1'
-    final MPAndroidChart = 'v3.0.3'
-    final QrGenerator = '2.4.0'
     final indicatorLib = '2.4.1@aar'
 
     //Test
@@ -90,17 +88,8 @@ ext {
             glide                : "com.github.bumptech.glide:glide:$glide",
             glideCompiler        : "com.github.bumptech.glide:compiler:$glide",
 
-            // Persian Date Picker
-            datePicker           : ":datepicker",
-
-            // MP Android Chart
-            MPAndroidChart       : "com.github.PhilJay:MPAndroidChart:$MPAndroidChart",
-
-            // Qr Generator
-            QrGenerator          : "com.github.kenglxn.QRGen:android:$QrGenerator",
-
             // Indicator View Pager
-            indicatorViewPager   : "com.github.JakeWharton:ViewPagerIndicator:$indicatorLib",
+            indicatorViewPager   : "com.github.JakeWharton:ViewPagerIndicator:$indicatorLib"
     ]
 
     testDependencies = [
