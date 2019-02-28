@@ -1,5 +1,7 @@
 package com.caio.lodjinha.di
 
+import com.caio.challengeandroid.product.adapter.ProductsAdapter
+import com.caio.challengeandroid.repository.datasource.ProductsDataFactory
 import com.caio.lodjinha.home.adapter.BannerPagerAdapter
 import com.caio.lodjinha.home.adapter.CategoriesAdapter
 import com.caio.lodjinha.home.adapter.ProductsMoreSallersAdapter
@@ -12,6 +14,7 @@ import com.caio.lodjinha.repository.remote.CategoryREST
 import com.caio.lodjinha.repository.remote.ProductREST
 import com.caio.lodjinha.viewmodel.HomeViewModel
 import com.caio.lodjinha.viewmodel.ProductDetailViewModel
+import com.caio.lodjinha.viewmodel.ProductListViewModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,8 +36,14 @@ object DependencyInjection {
         viewModel { ProductDetailViewModel(get()) }
     }
 
+    val productListModule = module(override = true){
+        viewModel { ProductListViewModel(get()) }
+        factory { ProductsAdapter() }
+        factory { ProductsDataFactory(get()) }
+    }
+
     val repositoryModule = module {
-        single { ProductRepository(get()) }
+        single { ProductRepository(get(),get()) }
         single { CategoryRepository(get()) }
         single { BannerRepository(get()) }
     }

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caio.challengeandroid.R
 import com.caio.challengeandroid.product.ProductDetailActivity
+import com.caio.challengeandroid.product.ProductsListActivity
 import com.caio.lodjinha.base.BaseFragment
 import com.caio.lodjinha.base.Constants
 import com.caio.lodjinha.extensions.openActivity
@@ -63,37 +64,45 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun createListCategories(categories: List<Category>) {
-        categoriesAdapter.setListCategories(categories)
-        categoriesAdapter.onClick = {
-
-//            startActivity<ProductsListActivity>(
-//                Constants.CATEGORY_ID to it.id,
-//                Constants.CATEGORY_NAME to it.descricao)
+        with(categoriesAdapter){
+            setListCategories(categories)
+            onClick = {
+                activity?.openActivity(ProductsListActivity::class.java){
+                    putString(Constants.CATEGORY_NAME, it.descricao)
+                    putInt(Constants.CATEGORY_ID, it.id)
+                }
+            }
+            rvCategories.layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.HORIZONTAL, false
+            )
+            rvCategories.adapter = this
         }
-        rvCategories.layoutManager = LinearLayoutManager(
-            context, LinearLayoutManager.HORIZONTAL, false
-        )
-        rvCategories.adapter = categoriesAdapter
     }
 
     private fun createBannerPager(banners: List<Banner>) {
-        bannerPagerAdapter.setListBanners(banners)
-        viewPagerBanner.adapter = bannerPagerAdapter
-        tabLayoutBanner.setupWithViewPager(viewPagerBanner, true)
+        with(bannerPagerAdapter){
+            setListBanners(banners)
+            viewPagerBanner.adapter = this
+            tabLayoutBanner.setupWithViewPager(viewPagerBanner, true)
+        }
     }
 
     private fun createListProductsMoreSallers(products: List<Product>) {
-        productsMoreSallersAdapter.setListProducts(products)
-        productsMoreSallersAdapter.onClick = {prod->
-            activity?.openActivity(ProductDetailActivity::class.java){
-                putInt(Constants.PRODUCT_ID, prod.id)
-                putString(Constants.CATEGORY_NAME, prod.categoria.descricao)
+        with(productsMoreSallersAdapter){
+            setListProducts(products)
+            onClick = {prod->
+                activity?.openActivity(ProductDetailActivity::class.java){
+                    putInt(Constants.PRODUCT_ID, prod.id)
+                    putString(Constants.CATEGORY_NAME, prod.categoria.descricao)
+                }
             }
         }
 
-        val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
-        rvProducts.layoutManager = LinearLayoutManager(context)
-        rvProducts.addItemDecoration(dividerItemDecoration)
-        rvProducts.adapter = productsMoreSallersAdapter
+        with(rvProducts){
+            val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(dividerItemDecoration)
+            adapter = productsMoreSallersAdapter
+        }
     }
 }

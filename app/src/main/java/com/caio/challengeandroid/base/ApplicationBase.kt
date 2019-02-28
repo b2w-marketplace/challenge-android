@@ -12,6 +12,7 @@ class ApplicationBase : Application() {
             DependencyInjection.networkModule,
             DependencyInjection.homeModule,
             DependencyInjection.productDetailModule,
+            DependencyInjection.productListModule,
             DependencyInjection.repositoryModule
         ))
     }
