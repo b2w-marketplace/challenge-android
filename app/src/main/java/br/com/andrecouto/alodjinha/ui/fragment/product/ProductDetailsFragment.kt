@@ -45,7 +45,7 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
 
     fun init() {
         txtPriceFrom.setPaintFlags(txtPriceFrom.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-        
+
         (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
         collapsing_toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.white)!!)
 
