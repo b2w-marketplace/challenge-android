@@ -8,7 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caio.challengeandroid.R
+import com.caio.challengeandroid.product.ProductDetailActivity
 import com.caio.lodjinha.base.BaseFragment
+import com.caio.lodjinha.base.Constants
+import com.caio.lodjinha.extensions.openActivity
 import com.caio.lodjinha.home.adapter.BannerPagerAdapter
 import com.caio.lodjinha.home.adapter.CategoriesAdapter
 import com.caio.lodjinha.home.adapter.ProductsMoreSallersAdapter
@@ -82,10 +85,10 @@ class HomeFragment : BaseFragment() {
     private fun createListProductsMoreSallers(products: List<Product>) {
         productsMoreSallersAdapter.setListProducts(products)
         productsMoreSallersAdapter.onClick = {prod->
-//            activity?.openActivity(ProductDetailActivity::class.java){
-//                putInt(Constants.PRODUCT_ID, prod.id)
-//                putString(Constants.CATEGORY_NAME, prod.categoria.descricao)
-//            }
+            activity?.openActivity(ProductDetailActivity::class.java){
+                putInt(Constants.PRODUCT_ID, prod.id)
+                putString(Constants.CATEGORY_NAME, prod.categoria.descricao)
+            }
         }
 
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
