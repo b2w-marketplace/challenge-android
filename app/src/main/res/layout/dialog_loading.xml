@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:gravity="center">
+
+    <ProgressBar
+            android:indeterminateDrawable="@drawable/progressbar_states"
+            android:layout_width="@dimen/dimens_100"
+            android:layout_height="@dimen/dimens_100"
+            android:layout_margin="@dimen/dimens_10"
+            android:indeterminateDuration="2000" />
+
+    <TextView
+            android:id="@+id/tvLoading"
+            android:textSize="@dimen/dimens_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffffff"
+            android:padding="@dimen/dimens_10"
+            android:layout_marginLeft="@dimen/dimens_5"
+            android:text="@string/dialog_loading" />
+</LinearLayout>

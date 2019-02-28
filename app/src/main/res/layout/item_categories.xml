@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:layout_marginBottom="16dp"
+              android:layout_marginLeft="8dp"
+              android:layout_marginRight="8dp"
+              android:clickable="true">
+
+    <ImageView
+            android:id="@+id/ivCategory"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+
+    <ProgressBar
+            android:id="@+id/progress"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:gravity="center|center_vertical"
+            android:visibility="invisible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategory"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            tools:text="Teste"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/dark"
+            android:maxLines="3"/>
+
+</LinearLayout>

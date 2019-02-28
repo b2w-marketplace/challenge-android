@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/warm_purple</color>
+    <color name="colorPrimaryDark">@color/warm_purple_dark</color>
+    <color name="colorAccent">@color/warm_purple</color>
+
+    <color name="warm_purple">#5e2a84</color>
+    <color name="warm_purple_dark">#49176D</color>
+    <color name="tomato">#f15025</color>
+    <color name="greyish">#aaaaaa</color>
+    <color name="dark">#2d3142</color>
+    <color name="greyish_brown">#4a4a4a</color>
+    <color name="white">#d5d5d5</color>
+    <color name="white_two">#fcfcfc</color>
+    <color name="black_alpha_30">#30000000</color>
+    <color name="white_alpha_20">#60fcfcfc</color>
+    <color name="transparent">#00000000</color>
 </resources>
