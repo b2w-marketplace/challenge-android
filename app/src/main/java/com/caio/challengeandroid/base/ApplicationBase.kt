@@ -8,12 +8,12 @@ class ApplicationBase : Application() {
 
     override fun onCreate() {
         super.onCreate()
-//        startKoin(this, listOf(
-//            DependencyInjection.networkModule,
-//            DependencyInjection.homeModule,
-//            DependencyInjection.productDetailModule,
-//            DependencyInjection.repositoryModule
-//        ))
+        startKoin(this, listOf(
+            DependencyInjection.networkModule,
+            DependencyInjection.homeModule,
+            DependencyInjection.productDetailModule,
+            DependencyInjection.repositoryModule
+        ))
     }
 
 }

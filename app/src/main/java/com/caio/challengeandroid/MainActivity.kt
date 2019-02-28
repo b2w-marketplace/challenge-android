@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat
 import com.caio.challengeandroid.R
 import com.caio.lodjinha.about.AboutFragment
 import com.caio.lodjinha.base.BaseActivity
+import com.caio.lodjinha.home.HomeFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -31,14 +32,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         nav_view.setNavigationItemSelectedListener(this)
         nav_view.itemIconTintList = null
 
-//        addFragment(HomeFragment())
+        addFragment(HomeFragment())
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
             R.id.nav_item_home -> {
-//                addFragment(HomeFragment())
+                addFragment(HomeFragment())
             }
             R.id.nav_item_about -> {
                 addFragment(AboutFragment.getInstance())
