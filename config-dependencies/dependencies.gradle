@@ -1,0 +1,70 @@
+ext {
+    def coroutinesVersion = '1.1.1'
+    def appCompatVersion = '1.0.2'
+    def coreKtxVersion = '1.0.1'
+    def annotationVersion = '1.0.0-alpha1'
+    def constraintLayoutVersion = '1.1.3'
+    def materialVersion = '1.0.0'
+    def navDrawerVersion = '7.0.0-alpha2'
+    def pageIndicatorVersion = '1.0.3'
+    def navigationVersion = '1.0.0-beta02'
+    def lifecycleVersion = '2.0.0'
+    def retrofitVersion = '2.5.0'
+    def retrofitCoroutinesAdapterVersion = '0.9.2'
+    def picassoVersion = '2.71828'
+    def pagingVersion = '2.1.0'
+    def networkInterceptorVersion = '3.9.0'
+    def koinVersion = '1.0.2'
+    def junitVersion = '4.12'
+    def runnerVersion = '1.1.1'
+    def espressoVersion = '3.1.1'
+    def rulesVersion = '1.1.1'
+    def hamcrestVersion = '1.3'
+
+    baseDependencies = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}",
+            coroutinesAndroid :"org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+            appCompat         : "androidx.appcompat:appcompat:${appCompatVersion}",
+            coreKtx           : "androidx.core:core-ktx:${coreKtxVersion}",
+            annotation        : "androidx.annotation:annotation:${annotationVersion}"
+    ]
+
+    supportDependencies = [
+            constraintLayout : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            material         : "com.google.android.material:material:${materialVersion}"
+    ]
+
+    lifecycleDependencies = [
+            lifecycle : "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}"
+    ]
+
+    lifecycleCompilerDependencies = [
+            lifecycleCompiler : "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}"
+    ]
+
+    networkDependencies = [
+            retrofit                  : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGsonConverter     : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitCoroutinesAdapter : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${retrofitCoroutinesAdapterVersion}",
+            picasso                   : "com.squareup.picasso:picasso:${picassoVersion}",
+            networkInterceptor        : "com.squareup.okhttp3:logging-interceptor:${networkInterceptorVersion}"
+    ]
+
+    dependencyInjectionDependencies = [
+            koin          : "org.koin:koin-android:${koinVersion}",
+            koinViewModel : "org.koin:koin-androidx-viewmodel:${koinVersion}"
+    ]
+
+    unitTestDependencies = [
+            junit               : "junit:junit:${junitVersion}",
+            liveDataTestHelpers : "androidx.arch.core:core-testing:${lifecycleVersion}"
+    ]
+
+    androidTestDependencies = [
+            runner       : "androidx.test:runner:${runnerVersion}",
+            espressoCore : "androidx.test.espresso:espresso-core:${espressoVersion}",
+            rules        : "androidx.test:rules:${rulesVersion}",
+            hamcrest     : "org.hamcrest:hamcrest-library:${hamcrestVersion}"
+    ]
+}
