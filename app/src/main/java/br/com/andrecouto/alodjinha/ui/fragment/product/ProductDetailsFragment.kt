@@ -31,8 +31,7 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
                 AlertUtil.alertDialogShow(activity!!, resources.getString(R.string.reatin_product_phrase))
             }
         }
-         activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
-         activity?.actionBar?.setTitle("teste")
+
 
     }
 
