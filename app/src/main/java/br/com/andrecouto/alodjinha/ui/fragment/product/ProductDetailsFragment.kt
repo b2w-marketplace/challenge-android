@@ -13,9 +13,6 @@ import br.com.andrecouto.alodjinha.util.AlertUtil
 import br.com.andrecouto.alodjinha.util.ConstantUtil
 import br.com.andrecouto.alodjinha.util.extension.observe
 import kotlinx.android.synthetic.main.fragment_product_details.*
-import android.graphics.Paint.UNDERLINE_TEXT_FLAG
-
-
 
 class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentProductDetailsBinding>() {
 

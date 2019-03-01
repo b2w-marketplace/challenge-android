@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.category.CategoryActivity" />
+        <activity android:name=".ui.activity.category.CategoryActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:label=""/>
         <activity android:name=".ui.activity.product.ProductDetailsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 

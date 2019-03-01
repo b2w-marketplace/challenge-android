@@ -1,6 +1,7 @@
 package br.com.andrecouto.alodjinha.ui.fragment.category
 
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import br.com.andrecouto.alodjinha.R
@@ -15,6 +16,7 @@ import br.com.andrecouto.alodjinha.ui.base.adapter.SingleLayoutAdapter
 import br.com.andrecouto.alodjinha.util.ConstantUtil
 import br.com.andrecouto.alodjinha.util.extension.observe
 import kotlinx.android.synthetic.main.fragment_category.*
+import kotlinx.android.synthetic.main.fragment_product_details.*
 
 class CategoryFragment : BaseFragment<CategoryViewModel, FragmentCategoryBinding>() {
 
@@ -34,6 +36,7 @@ class CategoryFragment : BaseFragment<CategoryViewModel, FragmentCategoryBinding
 
         activity?.getIntent()?.getExtras()?.getSerializable(ConstantUtil.CATEGORY)?.let {
             viewModel.getProducts( (it as Category).id)
+            binding.item = it
         }
 
         observe(viewModel.products) {
@@ -42,6 +45,12 @@ class CategoryFragment : BaseFragment<CategoryViewModel, FragmentCategoryBinding
 
         observe(viewModel.selectedProduct) {
             if (it.id > 0) openProductDetails(it)
+        }
+
+        (activity as? AppCompatActivity)?.setSupportActionBar(toolbarCategory)
+
+        toolbarCategory.setNavigationOnClickListener {
+            activity?.onBackPressed()
         }
 
         setupRecyclerView()
