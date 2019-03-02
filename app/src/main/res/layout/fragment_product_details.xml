@@ -24,7 +24,7 @@
         android:fitsSystemWindows="true">
 
         <!-- Layout da app bar -->
-        <android.support.design.widget.AppBarLayout
+        <br.com.andrecouto.alodjinha.ui.view.CustomAppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/default_height_260dp"
@@ -57,7 +57,7 @@
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
             </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
+        </br.com.andrecouto.alodjinha.ui.view.CustomAppBarLayout>
 
         <!-- Conteúdo com scroll -->
         <android.support.v4.widget.NestedScrollView
@@ -121,7 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/default_margin_16dp"
-                    android:layout_marginRight="@dimen/default_margin_16dp"
+                    android:layout_marginStart="@dimen/default_margin_16dp"
                     android:layout_marginTop="@dimen/default_margin_16dp"
                     android:gravity="bottom"
                     tools:text="Por: 9999,98"

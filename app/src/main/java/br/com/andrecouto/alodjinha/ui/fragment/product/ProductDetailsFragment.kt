@@ -9,6 +9,7 @@ import br.com.andrecouto.alodjinha.databinding.FragmentProductDetailsBinding
 import br.com.andrecouto.alodjinha.domain.model.lodjinha.Product
 import br.com.andrecouto.alodjinha.ui.base.BaseFragment
 import br.com.andrecouto.alodjinha.ui.base.ViewModelScope
+import br.com.andrecouto.alodjinha.ui.view.CustomAppBarLayout
 import br.com.andrecouto.alodjinha.util.AlertUtil
 import br.com.andrecouto.alodjinha.util.ConstantUtil
 import br.com.andrecouto.alodjinha.util.extension.observe
@@ -49,15 +50,20 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
             activity?.onBackPressed()
         }
 
-        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appbar, verticalOffset ->
-            if (verticalOffset == -360) {
-                binding.collapse = true
-                toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.colorPrimary)!!)
-                toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP)
-            } else {
-                binding.collapse = false
-                toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.white)!!)
-                toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.black_2d3142), PorterDuff.Mode.SRC_ATOP)
+        appbar.setOnStateChangeListener(object : CustomAppBarLayout.OnStateChangeListener {
+            override fun onStateChange(toolbarChange: CustomAppBarLayout.State) {
+                when (toolbarChange) {
+                    CustomAppBarLayout.State.COLLAPSED -> {
+                        binding.collapse = true
+                        toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.colorPrimary)!!)
+                        toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP)
+                    }
+                    else -> {
+                        binding.collapse = false
+                        toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.white)!!)
+                        toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.black_2d3142), PorterDuff.Mode.SRC_ATOP)
+                    }
+                }
             }
         })
     }
