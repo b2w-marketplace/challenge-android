@@ -4,6 +4,7 @@ import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import br.com.andrecouto.alodjinha.R
 import br.com.andrecouto.alodjinha.databinding.FragmentProductDetailsBinding
+import br.com.andrecouto.alodjinha.domain.model.common.Status
 import br.com.andrecouto.alodjinha.domain.model.lodjinha.Product
 import br.com.andrecouto.alodjinha.ui.base.BaseFragment
 import br.com.andrecouto.alodjinha.ui.base.ViewModelScope
@@ -33,6 +34,30 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
         observe(viewModel.resultRetainProduct) {
             if (it.isNotEmpty()) {
                 AlertUtil.alertDialogShow(activity!!, resources.getString(R.string.reatin_product_phrase))
+            }
+        }
+
+        observe(viewModel.status) {
+            when(it) {
+                Status.LOADING -> {
+                    binding.loading = false
+                    binding.layout = true
+                }
+                Status.LOADED -> {
+                    binding.loading = true
+                    binding.layout = false
+                }
+                Status.NO_CONNECTION -> {
+                    binding.layout = true
+                    binding.loading = true
+                    binding.connection = true
+                }
+                Status.FAILED -> {
+                    binding.layout = true
+                    binding.loading = true
+                    binding.errorMsg = true
+                }
+                else -> {}
             }
         }
 

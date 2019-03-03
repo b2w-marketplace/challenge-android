@@ -23,6 +23,7 @@
 
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="lodjinha_text_app_font_pacifico" parent="TextAppearance.AppCompat">

@@ -76,16 +76,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyle"
-            android:theme="@style/AppTheme.PurpleAccent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <include
+            android:id="@+id/include_loading"
             android:visibility="@{ productsLoading ? View.GONE : View.VISIBLE }"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_loading"/>
 
         <include
             android:id="@+id/include_error"

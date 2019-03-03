@@ -211,7 +211,7 @@
             layout="@layout/view_error"/>
 
         <include
-            android:id="@+id/include_connectionr"
+            android:id="@+id/include_connection"
             android:visibility="@{ connection ? View.VISIBLE : View.INVISIBLE }"
             tools:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
