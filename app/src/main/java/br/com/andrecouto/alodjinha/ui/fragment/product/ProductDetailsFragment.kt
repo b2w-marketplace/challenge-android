@@ -1,8 +1,6 @@
 package br.com.andrecouto.alodjinha.ui.fragment.product
 
-import android.graphics.Paint
 import android.graphics.PorterDuff
-import android.support.design.widget.AppBarLayout
 import android.support.v7.app.AppCompatActivity
 import br.com.andrecouto.alodjinha.R
 import br.com.andrecouto.alodjinha.databinding.FragmentProductDetailsBinding
@@ -24,7 +22,7 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
         super.onViewInitialized(binding)
         binding.vm = viewModel
 
-        activity?.getIntent()?.getExtras()?.getSerializable(ConstantUtil.PRODUCT)?.let {
+        activity?.intent?.extras?.getSerializable(ConstantUtil.PRODUCT)?.let {
             viewModel.getProducts( (it as Product).id)
         }
 
@@ -56,12 +54,12 @@ class ProductDetailsFragment : BaseFragment<ProductDetailsViewModel, FragmentPro
                     CustomAppBarLayout.State.COLLAPSED -> {
                         binding.collapse = true
                         toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.colorPrimary)!!)
-                        toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP)
+                        toolbar.navigationIcon?.setColorFilter(resources.getColor(R.color.white), PorterDuff.Mode.SRC_ATOP)
                     }
                     else -> {
                         binding.collapse = false
-                        toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.white)!!)
-                        toolbar.getNavigationIcon()?.setColorFilter(getResources().getColor(R.color.black_2d3142), PorterDuff.Mode.SRC_ATOP)
+                        toolbar.setBackgroundColor(activity?.resources?.getColor(R.color.transparent)!!)
+                        toolbar.navigationIcon?.setColorFilter(resources.getColor(R.color.black_2d3142), PorterDuff.Mode.SRC_ATOP)
                     }
                 }
             }

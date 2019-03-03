@@ -11,11 +11,9 @@ object ImageViewBindingAdapter {
     @BindingAdapter("imageUrl")
     fun setSurveyUrl(view: ImageView, imageUrl: String) {
         if (imageUrl.isNotEmpty()) {
-            val options = RequestOptions().centerCrop()
 
             GlideApp.with(view.context)
                     .load(imageUrl)
-                    .apply(options)
                     .dontAnimate()
                     .placeholder(R.drawable.bg_image_not_available)
                     .into(view)

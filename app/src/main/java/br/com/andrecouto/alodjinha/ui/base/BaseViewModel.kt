@@ -22,11 +22,8 @@ abstract class BaseViewModel(private val connectionManager: BaseConnectionManage
         compositeDisposable.clear()
     }
 
-    fun checkConnection() {
-        if (connectionManager.isVPNConnected() == true)
-            Log.d("VPN Status", "Connected")
-        else
-            Log.d("VPN Status", "Nothing")
+    fun checkConnection() : Boolean {
+        return connectionManager.isNetworkConnected()
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)

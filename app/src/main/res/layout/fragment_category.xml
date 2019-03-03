@@ -3,6 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="productsLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="errorMsg"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="emptyMsg"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="connection"
+            type="java.lang.Boolean"/>
+
         <variable
             name="vm"
             type="br.com.andrecouto.alodjinha.ui.fragment.category.CategoryViewModel" />
@@ -56,6 +75,47 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:theme="@style/AppTheme.PurpleAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{ productsLoading ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/include_error"
+            android:visibility="@{ errorMsg ? View.VISIBLE : View.INVISIBLE }"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_error"/>
+
+        <include
+            android:id="@+id/include_connectionr"
+            android:visibility="@{ connection ? View.VISIBLE : View.INVISIBLE }"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_connection_error"/>
+
+        <include
+            android:id="@+id/include_empty"
+            android:visibility="@{ emptyMsg ? View.VISIBLE : View.INVISIBLE }"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_empty_error"/>
 
     </android.support.constraint.ConstraintLayout>
 

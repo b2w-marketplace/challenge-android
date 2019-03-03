@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import br.com.andrecouto.alodjinha.R
 import br.com.andrecouto.alodjinha.databinding.FragmentCategoryBinding
 import br.com.andrecouto.alodjinha.databinding.ItemViewProductsByCategoryBinding
+import br.com.andrecouto.alodjinha.domain.model.common.Status
 import br.com.andrecouto.alodjinha.domain.model.lodjinha.Category
 import br.com.andrecouto.alodjinha.domain.model.lodjinha.Product
 import br.com.andrecouto.alodjinha.ui.activity.product.ProductDetailsActivity
@@ -16,7 +17,6 @@ import br.com.andrecouto.alodjinha.ui.base.adapter.SingleLayoutAdapter
 import br.com.andrecouto.alodjinha.util.ConstantUtil
 import br.com.andrecouto.alodjinha.util.extension.observe
 import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.android.synthetic.main.fragment_product_details.*
 
 class CategoryFragment : BaseFragment<CategoryViewModel, FragmentCategoryBinding>() {
 
@@ -45,6 +45,28 @@ class CategoryFragment : BaseFragment<CategoryViewModel, FragmentCategoryBinding
 
         observe(viewModel.selectedProduct) {
             if (it.id > 0) openProductDetails(it)
+        }
+
+        observe(viewModel.statusProducts) {
+            it?.let {
+                when(it) {
+                    Status.LOADED -> binding.productsLoading = true
+                    Status.FAILED -> {
+                        binding.errorMsg = true
+                        binding.productsLoading = true
+                    }
+                    Status.NO_CONNECTION -> {
+                        binding.connection = true
+                        binding.productsLoading = true
+                    }
+                    Status.EMPTY_LIST -> {
+                        binding.emptyMsg = true
+                        binding.productsLoading = true
+                    }
+                    else -> {}
+                }
+            }
+
         }
 
         (activity as? AppCompatActivity)?.setSupportActionBar(toolbarCategory)

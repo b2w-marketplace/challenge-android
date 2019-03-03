@@ -8,7 +8,7 @@ interface BaseConnectionManager {
     /**
      * attempts to check if device is connected to internet or not
      */
-    fun isNetworkConnected(): Boolean?
+    fun isNetworkConnected(): Boolean
 
     /**
      * attempts to check if device is connected to a VPN

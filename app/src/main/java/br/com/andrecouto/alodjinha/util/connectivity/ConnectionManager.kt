@@ -3,24 +3,19 @@ package br.com.andrecouto.alodjinha.util.connectivity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Build
-import java.net.InetAddress
 import java.net.NetworkInterface
 import java.util.*
 import javax.inject.Inject
 
 class ConnectionManager @Inject constructor(context: Context): BaseConnectionManager {
 
-    companion object {
-        private const val CONNECTION_TIMEOUT = 500
-    }
-
     private val connectivityManager: ConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-    override fun isNetworkConnected(): Boolean? {
-        var result : Boolean? = null
+    override fun isNetworkConnected(): Boolean {
+        var result = false
         val nInfo = connectivityManager.activeNetworkInfo
         if (nInfo != null && nInfo.isConnectedOrConnecting) {
-            result = InetAddress.getByName("https://alodjinha.herokuapp.com/banner").isReachable(CONNECTION_TIMEOUT)
+            result = true
         }
         return result
     }

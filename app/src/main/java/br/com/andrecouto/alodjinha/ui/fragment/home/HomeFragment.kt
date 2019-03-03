@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import android.support.v7.widget.DividerItemDecoration
 import br.com.andrecouto.alodjinha.R
 import br.com.andrecouto.alodjinha.databinding.ItemViewProductsBinding
+import br.com.andrecouto.alodjinha.domain.model.common.Status
 import br.com.andrecouto.alodjinha.domain.model.lodjinha.Product
 import br.com.andrecouto.alodjinha.ui.activity.category.CategoryActivity
 import br.com.andrecouto.alodjinha.ui.activity.product.ProductDetailsActivity
@@ -27,6 +28,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun onViewInitialized(binding: FragmentHomeBinding) {
         super.onViewInitialized(binding)
+
         binding.vm = viewModel
         binding.bannerAdapter = BannerPagerAdapter(viewModel)
         binding.categoryAdapter = SingleLayoutAdapter<Category, ItemViewCategoryBinding>(
@@ -64,7 +66,100 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             }
         }
 
+        observe(viewModel.statusBannner) {
+            it?.let {
+                when(it) {
+                    Status.LOADED -> {
+                        binding.bannerLoading = true
+                        binding.errorMsg = false
+                        binding.layout = false
+                        binding.connection = false
+                    }
+                    Status.FAILED -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.errorMsg = true
+                        binding.layout = true
+                    }
+                    Status.NO_CONNECTION -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.connection = true
+                        binding.layout = true
+                    }
+                    else -> {}
+
+                }
+            }
+
+        }
+
+        observe(viewModel.statusCategory) {
+            it?.let {
+                when(it) {
+                    Status.LOADED -> {
+                        binding.categoryLoading = true
+                        binding.errorMsg = false
+                        binding.layout = false
+                        binding.connection = false
+                    }
+                    Status.FAILED -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.errorMsg = true
+                        binding.layout = true
+                    }
+                    Status.NO_CONNECTION -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.connection = true
+                        binding.layout = true
+                    }
+                    else -> {}
+                }
+            }
+
+        }
+
+        observe(viewModel.statusProducts) {
+            it?.let {
+                when(it) {
+                    Status.LOADED -> {
+                        binding.productsLoading = true
+                        binding.errorMsg = false
+                        binding.layout = false
+                        binding.connection = false
+                    }
+                    Status.FAILED -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.errorMsg = true
+                        binding.layout = true
+                    }
+                    Status.NO_CONNECTION -> {
+                        binding.bannerLoading = true
+                        binding.categoryLoading = true
+                        binding.productsLoading = true
+                        binding.connection = true
+                        binding.layout = true
+                    }
+                    else -> {}
+                }
+            }
+
+        }
+
         setupRecyclerViews()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.init()
     }
 
     private fun setupRecyclerViews() {

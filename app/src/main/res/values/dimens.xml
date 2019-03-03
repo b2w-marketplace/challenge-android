@@ -32,5 +32,8 @@
     <dimen name="default_height_200dp">200dp</dimen>
     <dimen name="default_width_200dp">200dp</dimen>
     <dimen name="default_height_260dp">260dp</dimen>
+    <dimen name="default_width_50dp">50dp</dimen>
+    <dimen name="default_height_50dp">50dp</dimen>
+    <dimen name="default_height_140dp">140dp</dimen>
 
 </resources>

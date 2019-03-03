@@ -50,10 +50,10 @@ class BindingAdapters {
         @BindingAdapter("srcImageUrl")
         fun setImageSrc(imageView: ImageView, url: String?) {
             if (!url.isNullOrEmpty()) {
-                val options = RequestOptions().centerCrop()
+                //val options = RequestOptions().centerCrop()
                 GlideApp.with(imageView.context).load(url).diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(R.drawable.bg_image_not_available)
-                        .apply(options)
+                        //.apply(options)
                         .dontAnimate()
                         .into(imageView)
             }

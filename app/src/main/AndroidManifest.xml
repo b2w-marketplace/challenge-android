@@ -15,16 +15,22 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.home.HomeActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.category.CategoryActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:label=""/>
-        <activity android:name=".ui.activity.product.ProductDetailsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".ui.activity.category.CategoryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:label="" />
+        <activity android:name=".ui.activity.product.ProductDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:label=""/>
     </application>
 
 </manifest>

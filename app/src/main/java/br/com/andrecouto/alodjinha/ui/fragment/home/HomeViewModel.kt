@@ -17,6 +17,7 @@ import br.com.andrecouto.alodjinha.util.arch.SingleLiveEvent
 import br.com.andrecouto.alodjinha.util.connectivity.BaseConnectionManager
 import br.com.andrecouto.alodjinha.util.livedata.NonNullLiveData
 import javax.inject.Inject
+import kotlin.concurrent.thread
 
 class HomeViewModel @Inject constructor(
         connectionManager: BaseConnectionManager,
@@ -34,15 +35,30 @@ class HomeViewModel @Inject constructor(
     val selectedProduct = NonNullLiveData(Product(0,"", "", 0.0f, 0.0f, ""))
 
     val statusBannner = SingleLiveEvent(Status.EMPTY)
+    val statusCategory = SingleLiveEvent(Status.EMPTY)
+    val statusProducts = SingleLiveEvent(Status.EMPTY)
 
-    init {
-        statusBannner.value = Status.LOADING
-        getBannersUseCase
-                .execute(compositeDisposable, this::getAllBanners, null)
-        getCategoriasUseCase
-                .execute(compositeDisposable, this::getAllCategories, null)
-        getTopSellingProductsUseCase
-                .execute(compositeDisposable, this::getTopSellingProducts, null)
+
+
+    fun init() {
+        selectedCategory.value = Category(0,"","")
+        selectedProduct.value = Product(0,"", "", 0.0f, 0.0f, "")
+        if (checkConnection()) {
+            statusBannner.value = Status.LOADING
+            statusCategory.value = Status.LOADING
+            statusProducts.value = Status.LOADING
+            getBannersUseCase
+                    .execute(compositeDisposable, this::getAllBanners, null)
+            getCategoriasUseCase
+                    .execute(compositeDisposable, this::getAllCategories, null)
+            getTopSellingProductsUseCase
+                    .execute(compositeDisposable, this::getTopSellingProducts, null)
+        } else {
+            statusBannner.value = Status.NO_CONNECTION
+            statusCategory.value = Status.NO_CONNECTION
+            statusProducts.value = Status.NO_CONNECTION
+        }
+
     }
 
     private fun getAllBanners(response: UseCaseResponse<List<Banner>>) {
@@ -50,7 +66,7 @@ class HomeViewModel @Inject constructor(
 
         when (response) {
             is SuccessResponse -> {
-                statusBannner.value = Status.EMPTY
+                statusBannner.value = Status.LOADED
                 banners.value = response.value
             }
             is ErrorResponse -> statusBannner.value = Status.FAILED
@@ -60,14 +76,22 @@ class HomeViewModel @Inject constructor(
     private fun getAllCategories(response: UseCaseResponse<List<Category>>) {
         Log.d(TAG, "getAllCategories() called  with: response = [$response]")
         when (response) {
-            is SuccessResponse -> categories.value = response.value
+            is SuccessResponse -> {
+                statusCategory.value = Status.LOADED
+                categories.value = response.value
+            }
+            is ErrorResponse -> statusCategory.value = Status.FAILED
         }
     }
 
     private fun getTopSellingProducts(response: UseCaseResponse<List<Product>>) {
         Log.d(TAG, "getTopSellingProducts() called  with: response = [$response]")
         when (response) {
-            is SuccessResponse -> products.value = response.value
+            is SuccessResponse -> {
+                statusProducts.value = Status.LOADED
+                products.value = response.value
+            }
+            is ErrorResponse -> statusProducts.value = Status.FAILED
         }
     }
 

@@ -5,9 +5,31 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
-            name="visible"
+            name="bannerLoading"
             type="java.lang.Boolean" />
+
+        <variable
+            name="categoryLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="productsLoading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="errorMsg"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="connection"
+            type="java.lang.Boolean"/>
+
+        <variable
+            name="layout"
+            type="java.lang.Boolean"/>
 
         <variable
             name="vm"
@@ -25,33 +47,33 @@
             name="bannerAdapter"
             type="br.com.andrecouto.alodjinha.ui.fragment.home.adapter.BannerPagerAdapter" />
 
-        <import type="android.view.View" />
-
-        <import type="br.com.andrecouto.alodjinha.domain.model.common.Status" />
-
     </data>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".ui.fragment.home.HomeFragment">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintViewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <br.com.andrecouto.alodjinha.ui.view.HorizontalViewPager
             android:id="@+id/bannerSlider"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/default_height_190dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="@dimen/default_height_140dp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:adapter="@{bannerAdapter}"
             app:indicator="@{indicator}"
-            app:onBannerSelected="@{vm}"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onBannerSelected="@{vm}" />
 
         <com.viewpagerindicator.CirclePageIndicator
             android:id="@+id/indicator"
@@ -60,17 +82,25 @@
             android:orientation="horizontal"
             android:foregroundGravity="center_horizontal"
             android:padding="@dimen/default_padding_12dp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:radius="@dimen/default_radius_6dp" />
 
-        <include
-            android:id="@+id/loading"
-            layout="@layout/view_loading"
-            android:visibility="@{ visible ? View.VISIBLE : View.GONE }"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:theme="@style/AppTheme.PurpleAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{ bannerLoading ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintViewPager"
+            app:layout_constraintEnd_toEndOf="@+id/constraintViewPager"
+            app:layout_constraintStart_toStartOf="@+id/constraintViewPager"
+            app:layout_constraintTop_toTopOf="@+id/constraintViewPager" />
 
     </android.support.constraint.ConstraintLayout>
+
 
         <br.com.andrecouto.alodjinha.ui.view.TypefacedTextView
             android:id="@+id/txtCategoryTitle"
@@ -82,6 +112,7 @@
             android:text="@string/home_category_text_view"
             android:textColor="@color/grey_4a4a4a"
             android:textSize="@dimen/default_text_size_20sp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             style="@style/lodjinha_text_app_font_roboto_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintViewPager" />
@@ -92,6 +123,7 @@
             android:layout_height="1dp"
             android:background="@color/grey_d5d5d5"
             android:layout_marginTop="@dimen/default_magin_8dp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtCategoryTitle"
@@ -101,10 +133,23 @@
             android:id="@+id/recyclerCategories"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:adapter="@{categoryAdapter}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider_category" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.PurpleAccent"
+            android:visibility="@{ categoryLoading ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="@+id/divider_topseelings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider_category" />
 
         <View
             android:id="@+id/divider_topseelings"
@@ -112,6 +157,7 @@
             android:layout_height="1dp"
             android:background="@color/grey_d5d5d5"
             android:layout_marginTop="@dimen/default_magin_8dp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recyclerCategories"
@@ -127,6 +173,7 @@
             android:text="@string/home_top_selling_title"
             android:textColor="@color/grey_4a4a4a"
             android:textSize="@dimen/default_text_size_20sp"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             style="@style/lodjinha_text_app_font_roboto_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider_topseelings" />
@@ -135,10 +182,45 @@
             android:id="@+id/recyclerProducts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="@{ layout ? View.GONE : View.VISIBLE }"
             app:adapter="@{productAdapter}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtTopSellingTitle" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.PurpleAccent"
+            android:visibility="@{ productsLoading ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTopSellingTitle" />
+
+        <include
+            android:id="@+id/include_error"
+            android:visibility="@{ errorMsg ? View.VISIBLE : View.INVISIBLE }"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_error"/>
+
+        <include
+            android:id="@+id/include_connectionr"
+            android:visibility="@{ connection ? View.VISIBLE : View.INVISIBLE }"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/view_connection_error"/>
+
+
     </android.support.constraint.ConstraintLayout>
 
 </layout>

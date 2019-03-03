@@ -151,12 +151,11 @@
                     android:layout_marginRight="@dimen/default_margin_16dp"
                     android:layout_marginStart="@dimen/default_margin_16dp"
                     android:layout_marginTop="@dimen/default_margin_16dp"
-                    android:text="@{Html.fromHtml(String.format(@string/html_phrase, String.valueOf(item.description)))}"
+                    android:text="@{Html.fromHtml(String.format(@string/product_details_html_description, String.valueOf(item.description)))}"
                     android:textSize="@dimen/default_text_size_17sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view_divider_bottom" />
-
 
 
             </android.support.constraint.ConstraintLayout>

@@ -46,11 +46,11 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(), Navigat
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-                FragmentUtil.replaceFragment(supportFragmentManager, HomeFragment.newInstance(), R.id.frame_home_container, true)
+                FragmentUtil.replaceFragment(supportFragmentManager, HomeFragment.newInstance(), R.id.frame_home_container, false)
 
             }
             R.id.nav_about -> {
-                FragmentUtil.replaceFragment(supportFragmentManager, AboutFragment.newInstance(), R.id.frame_home_container, true)
+                FragmentUtil.replaceFragment(supportFragmentManager, AboutFragment.newInstance(), R.id.frame_home_container, false)
             }
         }
 

@@ -17,6 +17,9 @@
     <string name="home_category_text_view">Categorias</string>
     <string name="home_top_selling_title">Mais Vendidos</string>
     <string name="underline_price"><![CDATA[<u>%s</u>]]></string>
-    <string name="html_phrase"><![CDATA[%s]]></string>
+    <string name="product_details_html_description"><![CDATA[%s]]></string>
     <string name="reatin_product_phrase">Produto reservado com sucesso</string>
+    <string name="error_msg">Ops..\nOcorreu um erro inesperado.\n Tente novamente.</string>
+    <string name="error_msg_empty">Ops..\nNão há produtos cadastrados nesta categoria.</string>
+    <string name="error_connection_msg">Ops..\nSem conexão com a internet.\n Tente novamente.</string>
 </resources>
