@@ -3,11 +3,13 @@ package br.com.andrecouto.alodjinha.domain.mapper
 import br.com.andrecouto.alodjinha.domain.model.response.DomainErrorException
 import br.com.andrecouto.alodjinha.domain.model.response.ErrorModel
 import br.com.andrecouto.alodjinha.domain.model.response.ErrorStatus
+import br.com.andrecouto.alodjinha.util.Mockable
 import javax.inject.Inject
 
 /**
  * A util class that generate an instance of [ErrorModel] with happened [Throwable]
  */
+@Mockable
 class DomainErrorUtil @Inject constructor() {
 
     /**
