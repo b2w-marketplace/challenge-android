@@ -25,7 +25,9 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
 
     private lateinit var binding: ActivityProdutoPorCategoriaBinding
 
-    private lateinit var produtoViewModel: ProdutoViewModel
+    private val produtoViewModel: ProdutoViewModel by lazy {
+        ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
+    }
 
     private lateinit var produtoAdapter: ProdutoAdapter
 
@@ -42,8 +44,6 @@ class ProdutoPorCategoriaActivity : AppCompatActivity(), ProdutoAdapter.AgendaAd
 
         setToolbar()
         title = getCategoriaSelecionada().descricao
-
-        produtoViewModel = ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
 
         binding.rvProdutos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(this@ProdutoPorCategoriaActivity)

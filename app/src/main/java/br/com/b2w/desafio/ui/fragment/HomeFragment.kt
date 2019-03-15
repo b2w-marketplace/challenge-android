@@ -34,9 +34,17 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
 
     private lateinit var binding: FragmentHomeBinding
 
-    private lateinit var bannerViewModel: BannerViewModel
-    private lateinit var produtoViewModel: ProdutoViewModel
-    private lateinit var categoriaViewModel: CategoriaViewModel
+    private val bannerViewModel: BannerViewModel by lazy {
+        ViewModelProviders.of(this).get(BannerViewModel::class.java)
+    }
+
+    private val produtoViewModel: ProdutoViewModel by lazy {
+        ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
+    }
+
+    private val categoriaViewModel: CategoriaViewModel by lazy {
+        ViewModelProviders.of(this).get(CategoriaViewModel::class.java)
+    }
 
     private lateinit var produtoAdapter: ProdutoAdapter
     private lateinit var categoriaAdapter: CategoriaAdapter
@@ -45,10 +53,6 @@ class HomeFragment : Fragment(), ProdutoAdapter.AgendaAdapterOnClickListener, Ca
                               savedInstanceState: Bundle?): View? {
         retainInstance
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-
-        bannerViewModel = ViewModelProviders.of(activity!!).get(BannerViewModel::class.java)
-        produtoViewModel = ViewModelProviders.of(activity!!).get(ProdutoViewModel::class.java)
-        categoriaViewModel = ViewModelProviders.of(activity!!).get(CategoriaViewModel::class.java)
 
         addObservable()
         listarBanners()

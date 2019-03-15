@@ -25,7 +25,9 @@ class DetalheProdutoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetalheProdutoBinding
 
-    private lateinit var produtoViewModel: ProdutoViewModel
+    private val produtoViewModel: ProdutoViewModel by lazy {
+        ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +35,6 @@ class DetalheProdutoActivity : AppCompatActivity() {
 
         setToolbar()
         title = getProdutoSelecionado().categoria!!.descricao
-
-        produtoViewModel = ViewModelProviders.of(this).get(ProdutoViewModel::class.java)
 
         binding.fab.setOnClickListener { view ->
             binding.fab.isEnabled = false
