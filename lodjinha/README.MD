@@ -1,6 +1,6 @@
 # a Lodjinha
 
-#### This app was build to apply to a job position on B2W Digital.
+#### This app was build to apply for a job position on B2W Digital.
 ### Project import
 
 You need the Android Studio v3.3.1 to open this project
