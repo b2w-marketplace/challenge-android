@@ -12,7 +12,6 @@ import com.danilodequeiroz.lodjinha.productlist.domain.ProductsListUseCase
 import com.danilodequeiroz.lodjinha.productlist.presentation.ProductListViewModel
 import com.danilodequeiroz.webapi.LodjinhaMockRepository
 import com.danilodequeiroz.webapi.LodjinhaRestRepository
-import com.danilodequeiroz.webapi.providesMockRetrofitClient
 import com.danilodequeiroz.webapi.providesRetrofitClient
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
