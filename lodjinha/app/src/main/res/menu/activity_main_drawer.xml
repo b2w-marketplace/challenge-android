@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="none">
+        <item
+                android:id="@+id/nav_item_home"
+                android:icon="@drawable/nav_item_home"
+                android:title="@string/nav_item_home"/>
+        <item
+                android:id="@+id/nav_item_about_app"
+                android:icon="@drawable/nav_item_about_app"
+                android:title="@string/nav_item_about_app"/>
+    </group>
+
+</menu>

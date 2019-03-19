@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">blogspot.com</domain>
+        <domain includeSubdomains="true">portal.ifrn.edu.br</domain>
+        <domain includeSubdomains="true">pt.seaicons.com</domain>
+        <domain includeSubdomains="true">classificados.folharegiao.com.br</domain>
+        <domain includeSubdomains="true">i.utdstc.com</domain>
+        <domain includeSubdomains="true">image.flaticon.com</domain>
+        <domain includeSubdomains="true">icon-icons.com</domain>
+        <domain includeSubdomains="true">esen.pt</domain>
+    </domain-config>
+</network-security-config>

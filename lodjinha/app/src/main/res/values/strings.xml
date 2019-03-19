@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty">\t</string>
+    <string name="ok">OK</string>
+    <string name="submarino_url">https://www.submarino.com.br</string>
+
+
+    <!--Home-->
+    <string name="home_subtitle_product_categories">Categorias</string>
+    <string name="home_subtitle_best_selling_products">Mais vendidos</string>
+    <string name="home_error">Item indisponível</string>
+    <string name="cd_bs_product_image">Imagem do Produto mains vendido</string>
+    <!--Home-->
+
+    <!--Product List-->
+    <string name="empty_product_list">Não há produtos</string>
+    <!--Product List-->
+
+    <!--Common-->
+    <string name="old_price_label">De %s</string>
+    <string name="new_price_label">Por %s</string>
+    <!--Common-->
+
+
+    <!--Product Detail-->
+    <string name="cd_product_image">Imagem do Produto</string>
+    <string name="reserve_success">Produto reservado com sucesso</string>
+    <string name="reserve_connection_faulty">Erro de conexão</string>
+    <string name="reserve_loading">Reservando produto…</string>
+    <string name="concat_desc">%s %s %s %s</string>
+    <string name="sample_product_category">Categoria: Placa mãe</string>
+    <string name="sample_desc">Eget mi proin sed libero enim sed faucibus turpis. Vestibulum sed arcu non odio euismod
+        lacinia at quis. Amet dictum sit amet justo donec enim diam vulputate. Eget arcu dictum varius duis at
+        consectetur lorem. Scelerisque fermentum dui faucibus in ornare quam viverra. Sapien eget mi proin sed libero.
+        Sed tempus urna et pharetra, pharetra massa. Mauris augue neque gravida in. Quisque id diam vel quam elementum
+        pulvinar etiam non. Gravida quis blandit turpis cursus. Justo donec enim diam vulputate ut pharetra sit. Nunc
+        non blandit massa enim. Urna condimentum mattis pellentesque id nibh. Libero enim sed faucibus turpis in eu mi
+        bibendum.
+    </string>
+    <!--Home-->
+
+
+    <!--Navigation View-->
+    <string name="nav_header_title">a Lodjinha</string>
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_about_app">Sobre o aplicativo</string>
+
+
+    <string name="cd_navigation_drawer_open">Abriu menu lateral de navegação</string>
+    <string name="cd_navigation_drawer_close">Fechou menu lateral de navegação</string>
+    <string name="cd_nav_header_desc">Logotipo do Lodjinha</string>
+    <!--Navigation View-->
+
+    <string name="cd_toolbar_title">Logotipo</string>
+    <string name="cd_litte_lodja_logo">Logotipo da Lodjinha</string>
+    <string name="about_dev">Danilo Augusto de Queiroz</string>
+    <string name="about_day">18 de março de 2019</string>
+</resources>

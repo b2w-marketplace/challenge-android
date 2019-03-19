@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:ignore="PrivateResource">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="home.presentation.HomeFragment"
+            tools:listitem="@layout/item_product"
+            tools:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progressBarProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/errorViewProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_refresh"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/home_error"
+            android:textStyle="bold"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/emptyProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_empty_cart"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/empty_product_list"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

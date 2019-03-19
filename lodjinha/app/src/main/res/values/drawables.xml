@@ -1,0 +1,4 @@
+<resources>
+    <item name="nav_item_home" type="drawable">@drawable/ic_menu_home</item>
+    <item name="nav_item_about_app" type="drawable">@drawable/ic_menu_about_app</item>
+</resources>
