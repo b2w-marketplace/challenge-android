@@ -8,7 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun providesLivrRulesRetrofitClient(): Retrofit {
+
+fun providesRetrofitClient(): Retrofit {
     val okhttp = OkHttpClient.Builder()
 
     if (BuildConfig.DEBUG) {
