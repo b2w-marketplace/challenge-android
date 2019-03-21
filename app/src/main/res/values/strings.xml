@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Lodjinha</string>
+    <string name="app_name">a Lodjinha</string>
+    <string name="home_label">Home</string>
+    <string name="about_label">Sobre o aplicativo</string>
+    <string name="about_title">Sobre</string>
+    <string name="developer_name">Rafael Bueno</string>
+    <string name="develop_date">22 de março de 2019</string>
 </resources>

@@ -1,11 +1,37 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextMenu">
+        <item name="fontFamily">@font/pacifico_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/whiteTwo</item>
+    </style>
+
+    <style name="TextMenuItem">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppNameAbout">
+        <item name="fontFamily">@font/pacifico_regular</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="TextDeveloperName">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="TextDevelopDate">
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
 </resources>
