@@ -1,36 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/lodjinha_navigation"
-            app:startDestination="@id/home_dest">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lodjinha_navigation"
+    app:startDestination="@id/home_dest">
 
-    <fragment android:id="@+id/home_dest"
-              android:name="br.com.rbueno.lodjinha.ui.home.HomeFragment"
-              android:label="HomeFragment">
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="br.com.rbueno.lodjinha.ui.home.HomeFragment"
+        android:label="Home">
 
-        <action android:id="@+id/action_home_dest_to_aboutFragment"
-                app:destination="@id/about_dest"/>
-        <action android:id="@+id/action_home_dest_to_productListFragment"
-                app:destination="@id/product_list_dest"/>
-        <action android:id="@+id/action_home_dest_to_productDetailFragment"
-                app:destination="@id/product_detail_dest"/>
-
-    </fragment>
-
-    <fragment android:id="@+id/about_dest"
-              android:name="br.com.rbueno.lodjinha.ui.about.AboutFragment"
-              android:label="AboutFragment"/>
-
-    <fragment android:id="@+id/product_list_dest"
-              android:name="br.com.rbueno.lodjinha.ui.product.ProductListFragment"
-              android:label="ProductListFragment">
-
-        <action android:id="@+id/action_productListFragment_to_productDetailFragment"
-                app:destination="@id/product_detail_dest"/>
+        <action
+            android:id="@+id/action_home_dest_to_aboutFragment"
+            app:destination="@id/about_dest"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_home_dest_to_productListFragment"
+            app:destination="@id/product_list_dest" />
+        <action
+            android:id="@+id/action_home_dest_to_productDetailFragment"
+            app:destination="@id/product_detail_dest" />
 
     </fragment>
 
-    <fragment android:id="@+id/product_detail_dest"
-              android:name="br.com.rbueno.lodjinha.ui.product.ProductDetailFragment"
-              android:label="ProductDetailFragment"/>
+    <fragment
+        android:id="@+id/about_dest"
+        android:name="br.com.rbueno.lodjinha.ui.about.AboutFragment"
+        android:label="@string/about_title">
+        <action
+            android:id="@+id/action_about_dest_pop"
+            app:popUpTo="@id/home_dest"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_about_dest_pop2"
+            app:popUpTo="@id/about_dest"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/product_list_dest"
+        android:name="br.com.rbueno.lodjinha.ui.product.ProductListFragment"
+        android:label="ProductListFragment">
+
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailFragment"
+            app:destination="@id/product_detail_dest" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/product_detail_dest"
+        android:name="br.com.rbueno.lodjinha.ui.product.ProductDetailFragment"
+        android:label="ProductDetailFragment" />
 </navigation>
