@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rbueno.lodjinha.R
-import br.com.rbueno.lodjinha.model.MostSold
+import br.com.rbueno.lodjinha.model.ProductList
+import br.com.rbueno.lodjinha.ui.product.list.ProductListAdapter
 import com.google.gson.GsonBuilder
 
 class MostSoldFragment : Fragment() {
@@ -25,7 +26,7 @@ class MostSoldFragment : Fragment() {
 
     private fun configRecyclerView() {
         with(recyclerView) {
-            this?.adapter = MostSoldAdapter(createMock())
+            this?.adapter = ProductListAdapter(createMock())
             this?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MostSoldFragment.context)
             this?.addItemDecoration(
                 androidx.recyclerview.widget.DividerItemDecoration(
@@ -34,10 +35,10 @@ class MostSoldFragment : Fragment() {
                 )
             )
         }
-        recyclerView?.adapter = MostSoldAdapter(createMock())
+        recyclerView?.adapter = ProductListAdapter(createMock())
     }
 
-    private fun createMock(): MostSold {
+    private fun createMock(): ProductList {
         val mostSoldJson = "{\n" +
                 "  \"data\": [\n" +
                 "    {\n" +
@@ -186,7 +187,7 @@ class MostSoldFragment : Fragment() {
                 "  ]\n" +
                 "}"
 
-        return GsonBuilder().create().fromJson(mostSoldJson, MostSold::class.java)
+        return GsonBuilder().create().fromJson(mostSoldJson, ProductList::class.java)
     }
 
 }

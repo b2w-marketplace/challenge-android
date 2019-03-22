@@ -50,6 +50,6 @@
 
     <fragment
         android:id="@+id/product_detail_dest"
-        android:name="br.com.rbueno.lodjinha.ui.product.ProductDetailFragment"
+        android:name="br.com.rbueno.lodjinha.ui.product.detail.ProductDetailFragment"
         android:label="ProductDetailFragment" />
 </navigation>

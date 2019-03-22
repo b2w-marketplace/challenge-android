@@ -21,7 +21,7 @@ data class Product(
 )
 
 
-data class MostSold(
+data class ProductList(
     @SerializedName("data")
     val data: List<Product>
 )
