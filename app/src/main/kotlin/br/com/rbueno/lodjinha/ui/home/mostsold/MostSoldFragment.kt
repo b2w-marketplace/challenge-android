@@ -40,7 +40,7 @@ class MostSoldFragment : Fragment() {
     }
 
     private fun navigateToProduct(product: Product) {
-        findNavController().navigate(R.id.product_list_dest)
+        findNavController().navigate(R.id.product_detail_dest)
     }
 
     private fun createMock(): ProductList {

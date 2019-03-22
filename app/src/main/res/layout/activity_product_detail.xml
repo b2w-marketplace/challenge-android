@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fitsSystemWindows="true"
+            android:background="@color/whiteTwo"
+            android:theme="@style/AppTheme.AppBar">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_product"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:expandedTitleTextAppearance="@style/ToolbarTransparent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:expandedTitleGravity="top"
+                app:toolbarId="@id/toolbar_product">
+
+            <ImageView
+                    android:id="@+id/image_product"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/image_placeholder"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerInside"
+                    app:layout_collapseMode="parallax"/>
+
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:titleTextColor="@color/greyishBrown"
+                    app:popupTheme="@style/AppTheme.Toolbar"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/text_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/RobotoBold.17sp.Dark"
+                    android:layout_margin="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Fifa"/>
+
+            <View
+                    android:id="@+id/view_separator_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/text_product_name"
+                    android:background="@color/greyish"/>
+
+            <TextView
+                    android:id="@+id/text_old_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/view_separator_top"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/text_new_price"
+                    android:textAppearance="@style/RobotoMedium.12sp.Greyish"
+                    tools:text="De R$ 299,99"/>
+
+            <TextView
+                    android:id="@+id/text_new_price"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_separator_top"
+                    android:textAppearance="@style/RobotoBold.18sp.Tomato"
+                    android:layout_marginRight="10dp"
+                    tools:text="Por R$ 119,99"/>
+
+            <View
+                    android:id="@+id/view_separator_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/text_new_price"
+                    android:background="@color/greyish"/>
+
+            <TextView
+                    android:id="@+id/text_product_description"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/view_separator_bottom"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_margin="10dp"
+                    android:textAppearance="@style/RobotoMedium.18sp.Dark"
+                    tools:text="Descrição do produto "
+                    android:layout_height="match_parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/check_button"
+            android:layout_margin="20dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

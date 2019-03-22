@@ -1,6 +1,6 @@
 package br.com.rbueno.lodjinha.di
 
-import br.com.rbueno.lodjinha.ui.MainActivity
+import br.com.rbueno.lodjinha.ui.home.HomeActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,6 +8,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
 
     @ContributesAndroidInjector
-    abstract fun bindMainActivity(): MainActivity
+    abstract fun bindMainActivity(): HomeActivity
 
 }

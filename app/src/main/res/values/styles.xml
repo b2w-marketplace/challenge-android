@@ -6,6 +6,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarTransparent" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="RobotoMedium">
         <item name="fontFamily">@font/roboto_medium</item>
     </style>
@@ -16,6 +23,14 @@
 
     <style name="RobotoMedium.12sp">
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RobotoMedium.18sp">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="RobotoMedium.18sp.Dark">
+        <item name="android:textColor">@color/dark</item>
     </style>
 
     <style name="RobotoMedium.12sp.Greyish">
