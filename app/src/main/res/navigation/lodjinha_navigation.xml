@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/product_list_dest"
-        android:name="br.com.rbueno.lodjinha.ui.product.ProductListFragment"
+        android:name="br.com.rbueno.lodjinha.ui.product.list.ProductListFragment"
         android:label="ProductListFragment">
 
         <action
