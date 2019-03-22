@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rbueno.lodjinha.R
+import br.com.rbueno.lodjinha.model.Product
 import br.com.rbueno.lodjinha.model.ProductList
 import br.com.rbueno.lodjinha.ui.product.list.ProductListAdapter
 import com.google.gson.GsonBuilder
@@ -26,7 +28,7 @@ class MostSoldFragment : Fragment() {
 
     private fun configRecyclerView() {
         with(recyclerView) {
-            this?.adapter = ProductListAdapter(createMock())
+            this?.adapter = ProductListAdapter(createMock()) { navigateToProduct(it) }
             this?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MostSoldFragment.context)
             this?.addItemDecoration(
                 androidx.recyclerview.widget.DividerItemDecoration(
@@ -35,7 +37,10 @@ class MostSoldFragment : Fragment() {
                 )
             )
         }
-        recyclerView?.adapter = ProductListAdapter(createMock())
+    }
+
+    private fun navigateToProduct(product: Product) {
+        findNavController().navigate(R.id.product_list_dest)
     }
 
     private fun createMock(): ProductList {

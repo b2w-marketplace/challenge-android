@@ -16,11 +16,12 @@ import br.com.rbueno.lodjinha.util.ImageLoader
 import br.com.rbueno.lodjinha.util.toMoneyDisplay
 
 
-class ProductListAdapter(private val items: ProductList) : RecyclerView.Adapter<ProductListViewHolder>() {
+class ProductListAdapter(private val items: ProductList, private val clickListener: (product: Product) -> Unit) :
+    RecyclerView.Adapter<ProductListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_product_list_item, parent, false)
-        return ProductListViewHolder(view)
+        return ProductListViewHolder(view, clickListener)
     }
 
     override fun getItemCount() = items.data.size
@@ -31,7 +32,10 @@ class ProductListAdapter(private val items: ProductList) : RecyclerView.Adapter<
 
 }
 
-class ProductListViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class ProductListViewHolder(
+    private val view: View,
+    private val clickListener: (product: Product) -> Unit
+) : RecyclerView.ViewHolder(view) {
 
     private val imageProduct by lazy { view.findViewById<ImageView>(R.id.image_product) }
     private val textProductName by lazy { view.findViewById<TextView>(R.id.text_product_name) }
@@ -55,5 +59,7 @@ class ProductListViewHolder(private val view: View) : RecyclerView.ViewHolder(vi
             textNewPrice.text =
                 String.format(view.context.getString(R.string.new_price_format), newPrice.toMoneyDisplay())
         }
+
+        view.setOnClickListener { clickListener.invoke(product) }
     }
 }
