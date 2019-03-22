@@ -1,45 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
     <ImageView
-        android:id="@+id/image_product"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:contentDescription="@null"
-        android:src="@drawable/image_placeholder"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/image_product"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:contentDescription="@null"
+            android:src="@drawable/image_placeholder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/text_product_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintLeft_toRightOf="@id/image_product"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Game God of War " />
+            android:id="@+id/text_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toRightOf="@id/image_product"
+            app:layout_constraintRight_toLeftOf="@id/image_indicator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Game God of War "/>
 
     <TextView
-        android:id="@+id/text_old_price"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintLeft_toRightOf="@id/image_product"
-        app:layout_constraintTop_toBottomOf="@id/text_product_name"
-        tools:text="De R$ 299,99" />
+            android:id="@+id/text_old_price"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toRightOf="@id/image_product"
+            app:layout_constraintTop_toBottomOf="@id/text_product_name"
+            app:layout_constraintRight_toLeftOf="@id/text_new_price"
+            android:gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="@id/text_new_price"
+            android:textAppearance="@style/RobotoMedium.12sp.Greyish"
+            tools:text="De R$ 299,99"/>
 
     <TextView
-        android:id="@+id/text_new_price"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintLeft_toRightOf="@id/text_old_price"
-        app:layout_constraintTop_toBottomOf="@id/text_product_name"
-        tools:text="Por R$ 119,99" />
+            android:id="@+id/text_new_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/text_old_price"
+            app:layout_constraintTop_toBottomOf="@id/text_product_name"
+            app:layout_constraintRight_toLeftOf="@id/image_indicator"
+            android:textAppearance="@style/RobotoBold.20sp.Tomato"
+            tools:text="Por R$ 119,99"/>
+
+    <ImageView
+            android:id="@+id/image_indicator"
+            android:contentDescription="@null"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/disclosure_indicator"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

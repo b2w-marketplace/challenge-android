@@ -6,32 +6,87 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="TextMenu">
+    <style name="RobotoMedium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="RobotoMedium.14sp">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="RobotoMedium.12sp">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RobotoMedium.12sp.Greyish">
+        <item name="android:textColor">@color/greyish</item>
+    </style>
+
+    <style name="RobotoMedium.14sp.Dark">
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="PacificoRegular">
         <item name="fontFamily">@font/pacifico_regular</item>
+    </style>
+
+    <style name="PacificoRegular.24sp">
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="PacificoRegular.64sp">
+        <item name="android:textSize">64sp</item>
+    </style>
+
+    <style name="PacificoRegular.24sp.WhiteTwo">
         <item name="android:textColor">@color/whiteTwo</item>
     </style>
 
-    <style name="TextMenuItem">
-        <item name="android:textSize">14sp</item>
-        <item name="fontFamily">@font/roboto_medium</item>
-    </style>
-
-    <style name="TextAppNameAbout">
-        <item name="fontFamily">@font/pacifico_regular</item>
-        <item name="android:textSize">64sp</item>
+    <style name="PacificoRegular.64sp.Dark">
         <item name="android:textColor">@color/dark</item>
     </style>
 
-    <style name="TextDeveloperName">
-        <item name="fontFamily">@font/roboto_medium</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/dark</item>
-    </style>
-
-    <style name="TextDevelopDate">
+    <style name="RobotoLight">
         <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="RobotoLight.12sp">
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RobotoLight.12sp.Dark">
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="RobotoBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="RobotoBold.20sp">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="RobotoBold.17sp">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="RobotoBold.17sp.Dark">
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="RobotoBold.20sp.Tomato">
+        <item name="android:textColor">@color/tomato</item>
+    </style>
+
+    <style name="RobotoRegular">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="RobotoRegular.13sp">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="RobotoRegular.13sp.Dark">
         <item name="android:textColor">@color/dark</item>
     </style>
 </resources>

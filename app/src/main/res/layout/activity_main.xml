@@ -18,13 +18,14 @@
                 android:background="@color/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
-        <fragment
-                android:id="@+id/fragment_navigation"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/lodjinha_navigation"/>
+            <fragment
+                    android:id="@+id/fragment_navigation"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/lodjinha_navigation"/>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -33,7 +34,7 @@
             android:layout_height="match_parent"
             app:itemTextColor="@color/dark"
             app:headerLayout="@layout/view_drawer_header"
-            app:itemTextAppearance="@style/TextMenuItem"
+            app:itemTextAppearance="@style/RobotoMedium.14sp"
             app:menu="@menu/home_menu"
             android:layout_gravity="start"/>
 

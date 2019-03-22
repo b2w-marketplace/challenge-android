@@ -5,4 +5,6 @@
     <string name="about_title">Sobre</string>
     <string name="developer_name">Rafael Bueno</string>
     <string name="develop_date">22 de março de 2019</string>
+    <string name="category_label">Categorias</string>
+    <string name="most_sold_label">Mais vendidos</string>
 </resources>

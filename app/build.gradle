@@ -60,6 +60,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.13"
     kapt "com.google.dagger:dagger-android-processor:2.13"
 
+    implementation 'me.relex:circleindicator:2.1.0'
+
     //Test dependencies
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
