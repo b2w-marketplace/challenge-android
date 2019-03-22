@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
@@ -18,6 +19,7 @@
           android:background="@color/greyish"/>
 
     <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/view_product_list_item"/>

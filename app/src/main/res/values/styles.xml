@@ -62,8 +62,8 @@
         <item name="fontFamily">@font/roboto_bold</item>
     </style>
 
-    <style name="RobotoBold.20sp">
-        <item name="android:textSize">20sp</item>
+    <style name="RobotoBold.18sp">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="RobotoBold.17sp">
@@ -74,7 +74,7 @@
         <item name="android:textColor">@color/dark</item>
     </style>
 
-    <style name="RobotoBold.20sp.Tomato">
+    <style name="RobotoBold.18sp.Tomato">
         <item name="android:textColor">@color/tomato</item>
     </style>
 

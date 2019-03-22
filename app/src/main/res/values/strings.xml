@@ -7,4 +7,6 @@
     <string name="develop_date">22 de março de 2019</string>
     <string name="category_label">Categorias</string>
     <string name="most_sold_label">Mais vendidos</string>
+    <string name="old_price_format">De %s</string>
+    <string name="new_price_format">Por %s</string>
 </resources>
