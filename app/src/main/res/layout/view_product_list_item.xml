@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="@dimen/default_margin_10dp"
     android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/image_product"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="@dimen/product_list_image_size"
+        android:layout_height="@dimen/product_list_image_size"
         android:contentDescription="@null"
         android:src="@drawable/image_placeholder"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/text_product_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/default_margin_20dp"
         app:layout_constraintLeft_toRightOf="@id/image_product"
         app:layout_constraintRight_toLeftOf="@id/image_indicator"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +30,7 @@
         android:id="@+id/text_old_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/default_margin_20dp"
         android:gravity="bottom"
         android:textAppearance="@style/RobotoMedium.12sp.Greyish"
         app:layout_constraintBottom_toBottomOf="@id/text_new_price"
@@ -51,8 +51,8 @@
 
     <ImageView
         android:id="@+id/image_indicator"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="@dimen/producti_list_indicator_size"
+        android:layout_height="@dimen/producti_list_indicator_size"
         android:contentDescription="@null"
         android:src="@drawable/disclosure_indicator"
         app:layout_constraintBottom_toBottomOf="parent"

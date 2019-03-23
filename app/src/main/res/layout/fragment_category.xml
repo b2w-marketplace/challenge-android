@@ -14,15 +14,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/default_margin_10dp"
+            android:layout_marginTop="@dimen/default_margin_10dp"
+            android:layout_marginBottom="@dimen/default_margin_10dp"
             android:text="@string/category_label"
             android:textAppearance="@style/RobotoBold.17sp.Dark" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/view_separator_size"
             android:background="@color/greyish" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -35,7 +35,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/view_separator_size"
             android:background="@color/greyish" />
     </LinearLayout>
 

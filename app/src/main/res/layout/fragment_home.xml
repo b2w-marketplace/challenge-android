@@ -13,7 +13,7 @@
                 android:id="@+id/fragment_banner"
                 android:name="br.com.rbueno.lodjinha.ui.home.banner.BannerFragment"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"/>
+                android:layout_height="@dimen/banner_size"/>
 
         <fragment
                 android:id="@+id/fragment_category"

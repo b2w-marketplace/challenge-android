@@ -8,17 +8,17 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="@dimen/banner_size">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager_banner"
             android:layout_width="match_parent"
-            android:layout_height="110dp" />
+            android:layout_height="@dimen/banner_size" />
 
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/indicator"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/banner_indicator_size"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:ci_drawable="@drawable/page_indicator_active"
@@ -30,7 +30,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="@dimen/banner_size">
 
         <TextView
             android:id="@+id/text_error_message"
@@ -47,7 +47,7 @@
             android:id="@+id/button_try_again"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="@dimen/default_margin_20dp"
             android:background="@color/colorAccent"
             android:text="@string/error_try_again"
             android:textColor="@color/whiteTwo"
