@@ -5,13 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     protected val errorMutableLiveData = MutableLiveData<String>()
     protected val disposables = CompositeDisposable()
+    protected var loadingMutableLiveData = MutableLiveData<Boolean>()
 
     val errorLiveData: LiveData<String>
         get() = errorMutableLiveData
+
+    val loadingLiveData: LiveData<Boolean>
+        get() = loadingMutableLiveData
 
     override fun onCleared() {
         super.onCleared()

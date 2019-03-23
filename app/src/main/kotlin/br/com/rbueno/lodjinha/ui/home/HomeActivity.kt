@@ -13,6 +13,7 @@ import androidx.navigation.navOptions
 import androidx.navigation.ui.*
 import br.com.rbueno.lodjinha.R
 import com.google.android.material.navigation.NavigationView
+import dagger.android.AndroidInjection
 
 class HomeActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
     private val navigationView by lazy { findViewById<NavigationView>(R.id.navigation_view) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

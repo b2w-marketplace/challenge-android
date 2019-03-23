@@ -4,10 +4,13 @@ import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
 import br.com.rbueno.lodjinha.di.DaggerAppComponent
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class CustomApp : Application() {
+class CustomApp : Application(), HasActivityInjector, HasSupportFragmentInjector {
 
     @Inject
     lateinit var activityDispatchingInjector: DispatchingAndroidInjector<Activity>
@@ -26,4 +29,9 @@ class CustomApp : Application() {
             .build()
             .inject(this)
     }
+
+    override fun activityInjector() = activityDispatchingInjector
+
+    override fun supportFragmentInjector() = fragmentDispatchingInjector
+
 }

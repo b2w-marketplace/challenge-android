@@ -1,5 +1,6 @@
 package br.com.rbueno.lodjinha.ui.home.mostsold
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +13,16 @@ import br.com.rbueno.lodjinha.model.Product
 import br.com.rbueno.lodjinha.model.ProductList
 import br.com.rbueno.lodjinha.ui.product.list.ProductListAdapter
 import com.google.gson.GsonBuilder
+import dagger.android.support.AndroidSupportInjection
 
 class MostSoldFragment : Fragment() {
 
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recycler_products) }
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_most_sold, container, false)
