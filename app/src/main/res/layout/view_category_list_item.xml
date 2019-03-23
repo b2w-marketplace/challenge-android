@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="80dp"
-              android:layout_margin="20dp"
-              android:layout_height="wrap_content" tools:ignore="UseCompoundDrawables">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="80dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
-            android:id="@+id/image_category"
-            android:contentDescription="@null"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/image_placeholder"/>
+        android:id="@+id/image_category"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@null"
+        android:src="@drawable/image_placeholder" />
 
     <TextView
-            android:id="@+id/text_category_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:drawableTop="@drawable/image_placeholder"
-            android:textAppearance="@style/RobotoRegular.13sp.Dark"
-            tools:text="Categoria"/>
+        android:id="@+id/text_category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:drawableTop="@drawable/image_placeholder"
+        android:gravity="center"
+        android:textAppearance="@style/RobotoRegular.13sp.Dark"
+        tools:text="Categoria" />
 
 </LinearLayout>

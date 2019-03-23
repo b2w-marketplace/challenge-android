@@ -65,7 +65,7 @@ class MostSoldFragment : Fragment() {
 
     private fun configRecyclerView(productList: ProductList) {
         with(recyclerView) {
-            this?.adapter = ProductListAdapter(productList) { navigateToProduct(it) }
+            this?.adapter = ProductListAdapter(productList.data) { navigateToProduct(it) }
             this?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MostSoldFragment.context)
             this?.addItemDecoration(
                 androidx.recyclerview.widget.DividerItemDecoration(

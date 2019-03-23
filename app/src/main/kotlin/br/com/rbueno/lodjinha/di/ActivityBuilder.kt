@@ -5,6 +5,7 @@ import br.com.rbueno.lodjinha.ui.home.banner.BannerFragment
 import br.com.rbueno.lodjinha.ui.home.category.CategoryFragment
 import br.com.rbueno.lodjinha.ui.home.mostsold.MostSoldFragment
 import br.com.rbueno.lodjinha.ui.product.detail.ProductDetailActivity
+import br.com.rbueno.lodjinha.ui.product.list.ProductListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -25,6 +26,9 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector
     abstract fun bindProductDetailActivity(): ProductDetailActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindProductListFragment(): ProductListFragment
 
 
 }

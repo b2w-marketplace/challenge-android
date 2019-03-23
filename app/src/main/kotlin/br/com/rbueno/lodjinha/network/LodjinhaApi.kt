@@ -9,6 +9,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface LodjinhaApi {
 
@@ -26,4 +27,11 @@ interface LodjinhaApi {
 
     @POST("produto/{produtoId}")
     fun reserveProduct(@Path("produtoId") productId: Int): Completable
+
+    @GET("produto")
+    fun loadProductListPage(
+        @Query("categoriaId") categoryId: Int,
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
+    ): Single<ProductList>
 }

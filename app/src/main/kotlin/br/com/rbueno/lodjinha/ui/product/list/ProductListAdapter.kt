@@ -16,7 +16,10 @@ import br.com.rbueno.lodjinha.util.ImageLoader
 import br.com.rbueno.lodjinha.util.toMoneyDisplay
 
 
-class ProductListAdapter(private val items: ProductList, private val clickListener: (product: Product) -> Unit) :
+class ProductListAdapter(
+    private val items: List<Product>,
+    private val clickListener: (product: Product) -> Unit
+) :
     RecyclerView.Adapter<ProductListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
@@ -24,13 +27,65 @@ class ProductListAdapter(private val items: ProductList, private val clickListen
         return ProductListViewHolder(view, clickListener)
     }
 
-    override fun getItemCount() = items.data.size
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
-        holder.bindView(items.data[position])
+        holder.bindView(items[position])
     }
 
 }
+
+private const val TYPE_ITEM = 0
+private const val TYPE_LOADING = 1
+
+class ProductPagedListAdapter(
+    private val items: MutableList<Product>,
+    private val clickListener: (product: Product) -> Unit
+
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var hasMoreItems = true
+
+    override fun getItemViewType(position: Int) = if (hasMoreItems && position == items.size) {
+        TYPE_LOADING
+    } else TYPE_ITEM
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return if (viewType == TYPE_LOADING) {
+            LoadingViewHolder(
+                layoutInflater.inflate(
+                    R.layout.view_product_loading_item, parent,
+                    false
+                )
+            )
+        } else {
+            ProductListViewHolder(
+                layoutInflater.inflate(R.layout.view_product_list_item, parent, false),
+                clickListener
+            )
+        }
+    }
+
+    override fun getItemCount(): Int {
+        if (hasMoreItems) return items.size + 1
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ProductListViewHolder) {
+            holder.bindView(items[position])
+        }
+    }
+
+    fun addPage(page: List<Product>, hasMoreItems: Boolean) {
+        this.hasMoreItems = hasMoreItems
+        items.addAll(page)
+        notifyDataSetChanged()
+    }
+}
+
+class LoadingViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
 class ProductListViewHolder(
     private val view: View,

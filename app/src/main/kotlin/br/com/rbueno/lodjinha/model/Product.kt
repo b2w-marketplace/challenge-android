@@ -25,14 +25,3 @@ data class ProductList(
     @SerializedName("data")
     val data: List<Product>
 )
-
-data class ProductPagedList(
-    @SerializedName("data")
-    val data: List<Product>,
-    @SerializedName("offset")
-    val offset: Int,
-    @SerializedName("total")
-    val total: Int
-)
-
-

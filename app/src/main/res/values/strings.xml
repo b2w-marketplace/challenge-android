@@ -10,4 +10,5 @@
     <string name="old_price_format">De %s</string>
     <string name="new_price_format">Por %s</string>
     <string name="reserve_product_success">Produto reservado com sucesso</string>
+    <string name="empty_message_product_list">Não há items disponíveis nessa categoria</string>
 </resources>
