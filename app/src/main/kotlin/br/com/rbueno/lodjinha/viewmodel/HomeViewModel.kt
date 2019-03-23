@@ -6,74 +6,40 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import br.com.rbueno.lodjinha.model.Banner
 import br.com.rbueno.lodjinha.model.Category
+import br.com.rbueno.lodjinha.model.Home
 import br.com.rbueno.lodjinha.model.ProductList
 import br.com.rbueno.lodjinha.repository.HomeRepository
 import br.com.rbueno.lodjinha.util.handlerLoading
+import io.reactivex.Single
+import io.reactivex.functions.Function3
 import javax.inject.Inject
 import javax.inject.Singleton
 
 class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
+    private val homeMutableLiveData = MutableLiveData<Home>()
 
-    private val bannerMutableData = MutableLiveData<Banner>()
-    private val categoryMutableData = MutableLiveData<Category>()
-    private val mostSoldMutableData = MutableLiveData<ProductList>()
+    val homeLiveData: LiveData<Home>
+        get() = homeMutableLiveData
 
-    val bannerLiveData: LiveData<Banner>
-        get() = bannerMutableData
 
-    val categoryLiveData: LiveData<Category>
-        get() = categoryMutableData
-
-    val mostSoldLiveData: LiveData<ProductList>
-        get() = mostSoldMutableData
-
-    fun loadBanner() {
+    fun loadHome() {
         disposables.add(
-            repository.getBanner()
-                .handlerLoading(loadingMutableLiveData)
+            Single.zip<Banner, Category, ProductList, Home>(
+                repository.getBanner(),
+                repository.getCategory(),
+                repository.getProductsMostSold(),
+                Function3 { banner, category, productList -> Home(banner, category, productList) }
+            ).handlerLoading(loadingMutableLiveData)
                 .subscribe({
-                    bannerMutableData.postValue(it)
+                    homeMutableLiveData.postValue(it)
                 }, {
                     handleError(it)
                 })
         )
     }
 
-    fun loadCategory() {
-        disposables.add(
-            repository.getCategory()
-                .handlerLoading(loadingMutableLiveData)
-                .subscribe({
-                    categoryMutableData.postValue(it)
-                   // categoryMutableData.postValue(null)
-                }, {
-                    handleError(it)
-                })
-        )
-    }
-
-    fun loadMostSoldProducts() {
-        disposables.add(
-            repository.getProductsMostSold()
-                .handlerLoading(loadingMutableLiveData)
-                .subscribe({
-                    mostSoldMutableData.postValue(it)
-                }, {
-                    handleError(it)
-                })
-        )
-    }
-
-    fun clearCategoryLiveData() {
-        categoryMutableData.value = null
-    }
-
-    fun clearBannerLiveData() {
-        bannerMutableData.value = null
-    }
-
-    fun clearMostSoldLiveData() {
-        mostSoldMutableData.value = null
+    fun clearHomeLiveData() {
+        homeMutableLiveData.value = null
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ViewFlipper
-import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -17,8 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Product
+import br.com.rbueno.lodjinha.ui.home.PRODUCT_ID_ARG
 import br.com.rbueno.lodjinha.ui.home.TOOLBAR_TITLE_ARG
-import br.com.rbueno.lodjinha.ui.home.mostsold.PRODUCT_ID_ARG
 import br.com.rbueno.lodjinha.util.InfiniteScrollListener
 import br.com.rbueno.lodjinha.util.observe
 import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
