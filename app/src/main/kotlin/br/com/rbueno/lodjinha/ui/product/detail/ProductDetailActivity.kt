@@ -12,11 +12,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.navArgs
 import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Product
-import br.com.rbueno.lodjinha.util.ImageLoader
-import br.com.rbueno.lodjinha.util.observe
-import br.com.rbueno.lodjinha.util.toHtmlSpanned
-import br.com.rbueno.lodjinha.util.toMoneyDisplay
+import br.com.rbueno.lodjinha.util.*
 import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -33,6 +31,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private val textNewPrice by lazy { findViewById<TextView>(R.id.text_new_price) }
     private val textProductDescription by lazy { findViewById<TextView>(R.id.text_product_description) }
     private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar_product) }
+    private val floatingReserveProduct by lazy { findViewById<FloatingActionButton>(R.id.floating_reserve_product) }
 
     private val navArgs by navArgs<ProductDetailActivityArgs>()
 
@@ -42,6 +41,13 @@ class ProductDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_detail)
         initViewModel()
         configToolbar()
+        configReserveListener()
+    }
+
+    private fun configReserveListener() {
+        floatingReserveProduct.setOnClickListener {
+            viewModel.reserveProduct(navArgs.productId)
+        }
     }
 
     private fun configToolbar() {
@@ -62,7 +68,16 @@ class ProductDetailActivity : AppCompatActivity() {
                 bindProduct(it)
                 clearProductLiveData()
             }
+
+            reserveProductLiveData.observe(this@ProductDetailActivity) {
+                showSuccessAlert()
+                clearReserveProductLiveData()
+            }
         }.loadProduct(navArgs.productId)
+    }
+
+    private fun showSuccessAlert() {
+        showAlert(R.string.reserve_product_success, android.R.string.ok)
     }
 
     private fun bindProduct(product: Product) {
