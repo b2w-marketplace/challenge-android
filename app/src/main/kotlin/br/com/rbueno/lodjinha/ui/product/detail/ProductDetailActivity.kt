@@ -11,9 +11,10 @@ import android.widget.ViewFlipper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.navArgs
 import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Product
+import br.com.rbueno.lodjinha.ui.home.PRODUCT_ID_ARG
+import br.com.rbueno.lodjinha.ui.home.TOOLBAR_TITLE_ARG
 import br.com.rbueno.lodjinha.util.*
 import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,8 +42,6 @@ class ProductDetailActivity : AppCompatActivity() {
     private val flipperProduct by lazy { findViewById<ViewFlipper>(R.id.flipper_product) }
     private val buttonTryAgain by lazy { findViewById<Button>(R.id.button_try_again) }
 
-    private val navArgs by navArgs<ProductDetailActivityArgs>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -55,18 +54,18 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun configTryAgainButton() {
         buttonTryAgain.setOnClickListener {
-            viewModel.loadProduct(navArgs.productId)
+            viewModel.loadProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
         }
     }
 
     private fun configReserveListener() {
         floatingReserveProduct.setOnClickListener {
-            viewModel.reserveProduct(navArgs.productId)
+            viewModel.reserveProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
         }
     }
 
     private fun configToolbar() {
-        toolbar.title = navArgs.toolbarTitle
+        toolbar.title = intent.getStringExtra(TOOLBAR_TITLE_ARG)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true);
@@ -97,7 +96,7 @@ class ProductDetailActivity : AppCompatActivity() {
                 showSuccessAlert()
                 clearReserveProductLiveData()
             }
-        }.loadProduct(navArgs.productId)
+        }.loadProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
     }
 
     private fun showSuccessAlert() {

@@ -2,21 +2,15 @@ package br.com.rbueno.lodjinha
 
 import android.app.Activity
 import android.app.Application
-import androidx.fragment.app.Fragment
 import br.com.rbueno.lodjinha.di.DaggerAppComponent
-import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
-import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class CustomApp : Application(), HasActivityInjector, HasSupportFragmentInjector {
+class CustomApp : Application(), HasActivityInjector {
 
     @Inject
     lateinit var activityDispatchingInjector: DispatchingAndroidInjector<Activity>
-
-    @Inject
-    lateinit var fragmentDispatchingInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate() {
         super.onCreate()
@@ -31,7 +25,4 @@ class CustomApp : Application(), HasActivityInjector, HasSupportFragmentInjector
     }
 
     override fun activityInjector() = activityDispatchingInjector
-
-    override fun supportFragmentInjector() = fragmentDispatchingInjector
-
 }
