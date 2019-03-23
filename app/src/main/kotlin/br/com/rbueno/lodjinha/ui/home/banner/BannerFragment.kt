@@ -12,7 +12,6 @@ import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Banner
 import br.com.rbueno.lodjinha.util.observe
 import br.com.rbueno.lodjinha.viewmodel.HomeViewModel
-import com.google.gson.GsonBuilder
 import dagger.android.support.AndroidSupportInjection
 import me.relex.circleindicator.CircleIndicator
 import javax.inject.Inject
@@ -65,29 +64,4 @@ class BannerFragment : Fragment() {
         indicator.setViewPager(viewPager)
         adapter.registerDataSetObserver(indicator.dataSetObserver)
     }
-
-    private fun mockBanner(): Banner {
-        val bannerString = "{\n" +
-                "  \"data\": [\n" +
-                "    {\n" +
-                "      \"id\": 1,\n" +
-                "      \"urlImagem\": \"https://images-submarino.b2w.io/spacey/2017/02/06/MainTop_GAMES_FEV17.png\",\n" +
-                "      \"linkUrl\": \"https://images-submarino.b2w.io/spacey/2017/02/06/MainTop_GAMES_FEV17.png\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"id\": 2,\n" +
-                "      \"urlImagem\": \"https://images-submarino.b2w.io/spacey/2017/02/06/DESTAQUE_FULL_CARTAO_CASA_FEV.png\",\n" +
-                "      \"linkUrl\": \"https://images-submarino.b2w.io/spacey/2017/02/06/DESTAQUE_FULL_CARTAO_CASA_FEV.png\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"id\": 3,\n" +
-                "      \"urlImagem\": \"https://images-submarino.b2w.io/spacey/2017/02/03/sub-home-dest-full-655x328-touch-play.png\",\n" +
-                "      \"linkUrl\": \"https://images-submarino.b2w.io/spacey/2017/02/03/sub-home-dest-full-655x328-touch-play.png\"\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}"
-
-        return GsonBuilder().create().fromJson(bannerString, Banner::class.java)
-    }
-
 }

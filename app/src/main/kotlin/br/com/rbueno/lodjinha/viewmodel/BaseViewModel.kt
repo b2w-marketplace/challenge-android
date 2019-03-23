@@ -22,4 +22,8 @@ abstract class BaseViewModel : ViewModel() {
         disposables.clear()
     }
 
+    protected fun handleError(throwable: Throwable) {
+        //TODO: tratar erros especificos
+        errorMutableLiveData.postValue(throwable.message)
+    }
 }
