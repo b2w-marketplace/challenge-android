@@ -52,8 +52,15 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun configToolbar() {
         toolbar.title = navArgs.toolbarTitle
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true);
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     private fun initViewModel() {
         viewModel.apply {
             loadingLiveData.observe(this@ProductDetailActivity) {
