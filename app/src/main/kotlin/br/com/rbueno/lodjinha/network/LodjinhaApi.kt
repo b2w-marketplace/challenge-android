@@ -2,9 +2,11 @@ package br.com.rbueno.lodjinha.network
 
 import br.com.rbueno.lodjinha.model.Banner
 import br.com.rbueno.lodjinha.model.Category
+import br.com.rbueno.lodjinha.model.Product
 import br.com.rbueno.lodjinha.model.ProductList
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface LodjinhaApi {
 
@@ -16,4 +18,7 @@ interface LodjinhaApi {
 
     @GET("produto/maisvendidos")
     fun getProductsMostSold(): Single<ProductList>
+
+    @GET("produto/{produtoId}")
+    fun getProduct(@Path("produtoId") productId: Int): Single<Product>
 }

@@ -13,11 +13,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Product
 import br.com.rbueno.lodjinha.model.ProductList
+import br.com.rbueno.lodjinha.ui.home.TOOLBAR_TITLE_ARG
 import br.com.rbueno.lodjinha.ui.product.list.ProductListAdapter
 import br.com.rbueno.lodjinha.util.observe
 import br.com.rbueno.lodjinha.viewmodel.HomeViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
+
+const val PRODUCT_ID_ARG = "product_id"
 
 class MostSoldFragment : Fragment() {
 
@@ -54,6 +57,7 @@ class MostSoldFragment : Fragment() {
 
             mostSoldLiveData.observe(this@MostSoldFragment) {
                 configRecyclerView(it)
+                clearMostSoldLiveData()
             }
         }.loadMostSoldProducts()
     }
@@ -73,6 +77,9 @@ class MostSoldFragment : Fragment() {
     }
 
     private fun navigateToProduct(product: Product) {
-        findNavController().navigate(R.id.product_detail_dest)
+        findNavController().navigate(R.id.product_detail_dest, Bundle().apply {
+            putInt(PRODUCT_ID_ARG, product.id)
+            putString(TOOLBAR_TITLE_ARG, product.category.description)
+        })
     }
 }

@@ -38,10 +38,23 @@
         <action
                 android:id="@+id/action_product_list_dest_to_productDetailActivity"
                 app:destination="@id/product_detail_dest"/>
+        <argument
+            android:name="toolbar_title"
+            app:argType="string" />
+        <argument
+            android:name="category_id"
+            app:argType="integer" />
 
     </fragment>
 
     <activity android:id="@+id/product_detail_dest"
               android:name="br.com.rbueno.lodjinha.ui.product.detail.ProductDetailActivity"
-              android:label="ProductDetailActivity"/>
+              android:label="ProductDetailActivity">
+        <argument
+            android:name="product_id"
+            app:argType="integer" />
+        <argument
+            android:name="toolbar_title"
+            app:argType="string" />
+    </activity>
 </navigation>

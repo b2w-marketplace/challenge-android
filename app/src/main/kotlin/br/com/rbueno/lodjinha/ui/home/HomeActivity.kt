@@ -1,32 +1,33 @@
 package br.com.rbueno.lodjinha.ui.home
 
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.navOptions
-import androidx.navigation.ui.*
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import br.com.rbueno.lodjinha.R
 import com.google.android.material.navigation.NavigationView
 import dagger.android.AndroidInjection
+
+const val TOOLBAR_TITLE_ARG = "toolbar_title"
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val navigationView by lazy { findViewById<NavigationView>(R.id.navigation_view) }
+    private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val host: NavHostFragment = supportFragmentManager
@@ -38,8 +39,14 @@ class HomeActivity : AppCompatActivity() {
         setupActionBar(navController, appBarConfiguration)
         setupNavigationMenu(navController)
 
+        navController.addOnDestinationChangedListener { _, _, arguments ->
+            arguments?.let {
+                if (it.containsKey(TOOLBAR_TITLE_ARG)) {
+                    toolbar.title = it.getString(TOOLBAR_TITLE_ARG)
+                }
+            }
+        }
     }
-
 
     private fun setupNavigationMenu(navController: NavController) {
         navigationView.setupWithNavController(navController)

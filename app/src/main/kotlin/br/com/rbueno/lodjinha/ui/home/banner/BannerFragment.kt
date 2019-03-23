@@ -51,6 +51,7 @@ class BannerFragment : Fragment() {
 
             bannerLiveData.observe(this@BannerFragment) {
                 configViewPager(it)
+                clearBannerLiveData()
             }
         }.loadBanner()
     }

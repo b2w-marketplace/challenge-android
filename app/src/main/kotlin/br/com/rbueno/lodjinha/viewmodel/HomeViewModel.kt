@@ -45,6 +45,7 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
                 .handlerLoading(loadingMutableLiveData)
                 .subscribe({
                     categoryMutableData.postValue(it)
+                   // categoryMutableData.postValue(null)
                 }, {
                     handleError(it)
                 })
@@ -61,6 +62,18 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
                     handleError(it)
                 })
         )
+    }
+
+    fun clearCategoryLiveData() {
+        categoryMutableData.value = null
+    }
+
+    fun clearBannerLiveData() {
+        bannerMutableData.value = null
+    }
+
+    fun clearMostSoldLiveData() {
+        mostSoldMutableData.value = null
     }
 
     @Suppress("UNCHECKED_CAST")

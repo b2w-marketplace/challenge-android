@@ -7,13 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.rbueno.lodjinha.R
 import br.com.rbueno.lodjinha.model.Category
+import br.com.rbueno.lodjinha.model.CategoryItem
+import br.com.rbueno.lodjinha.ui.home.TOOLBAR_TITLE_ARG
 import br.com.rbueno.lodjinha.util.observe
 import br.com.rbueno.lodjinha.viewmodel.HomeViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
+
+const val CATEGORY_ID_ARG = "category_id"
+private const val CATEGORY_ARG = "CATEGORY_ARG"
 
 class CategoryFragment : Fragment() {
 
@@ -22,7 +28,9 @@ class CategoryFragment : Fragment() {
 
     private val viewModel by lazy { ViewModelProviders.of(this, factory).get(HomeViewModel::class.java) }
 
-    private val recyclerView by lazy {view?.findViewById<RecyclerView>(R.id.recycler_category)}
+    private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recycler_category) }
+
+    private lateinit var category: Category
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -49,12 +57,25 @@ class CategoryFragment : Fragment() {
             }
 
             categoryLiveData.observe(this@CategoryFragment) {
+                category = it
                 configRecyclerView(it)
+                this.clearCategoryLiveData()
             }
         }.loadCategory()
     }
 
     private fun configRecyclerView(category: Category) {
-        recyclerView?.adapter = CategoryAdapter(category)
+        recyclerView?.adapter = CategoryAdapter(category) {
+            navigateToProductList(it)
+        }
+        recyclerView?.adapter?.notifyDataSetChanged()
+    }
+
+    private fun navigateToProductList(categoryItem: CategoryItem) {
+        findNavController().navigate(R.id.product_list_dest,
+            Bundle().apply {
+                putString(TOOLBAR_TITLE_ARG, categoryItem.description)
+                putInt(CATEGORY_ID_ARG, categoryItem.id)
+            })
     }
 }
