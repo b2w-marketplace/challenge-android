@@ -1,6 +1,5 @@
 package br.com.rbueno.lodjinha.ui.product.list
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ViewFlipper
@@ -13,17 +12,16 @@ import br.com.rbueno.lodjinha.model.Product
 import br.com.rbueno.lodjinha.ui.BaseActivity
 import br.com.rbueno.lodjinha.ui.IconToolbar
 import br.com.rbueno.lodjinha.ui.home.CATEGORY_ID_ARG
-import br.com.rbueno.lodjinha.ui.home.PRODUCT_ID_ARG
 import br.com.rbueno.lodjinha.ui.home.TOOLBAR_TITLE_ARG
 import br.com.rbueno.lodjinha.util.InfiniteScrollListener
 import br.com.rbueno.lodjinha.util.observe
+import br.com.rbueno.lodjinha.viewmodel.ITEMS_PER_PAGE
 import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 private const val PRODUCT_LIST_FLIPPER_POSITION = 0
-private const val EMPTY_FLIPPER_POSITION = 1
-private const val ERROR_FLIPPER_POSITION = 2
+private const val ERROR_FLIPPER_POSITION = 1
 
 class ProductListActivity : BaseActivity() {
     @Inject
@@ -66,18 +64,11 @@ class ProductListActivity : BaseActivity() {
 
             productListLiveData.observe(this@ProductListActivity) {
                 flipperProduct?.displayedChild = PRODUCT_LIST_FLIPPER_POSITION
-                hasMoreItems = it.data.isNotEmpty()
-                checkForEmptyState()
+                hasMoreItems = it.data.isNotEmpty() && it.data.size == ITEMS_PER_PAGE
                 addPageToAdapter(it.data)
             }
 
         }.loadProductListPage(intent.getIntExtra(CATEGORY_ID_ARG, 1))
-    }
-
-    private fun checkForEmptyState() {
-        if (!hasMoreItems && adapter.itemCount == 1) {
-            flipperProduct?.displayedChild = EMPTY_FLIPPER_POSITION
-        }
     }
 
     private fun addPageToAdapter(page: List<Product>) {

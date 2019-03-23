@@ -10,8 +10,9 @@
         <item name="android:textColor">@color/transparent</item>
     </style>
 
-    <style name="AppTheme.AppBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.AppBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="RobotoMedium">
         <item name="fontFamily">@font/roboto_medium</item>

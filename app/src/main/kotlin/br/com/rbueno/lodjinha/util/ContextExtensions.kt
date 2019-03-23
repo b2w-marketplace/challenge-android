@@ -2,6 +2,7 @@ package br.com.rbueno.lodjinha.util
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 
@@ -11,10 +12,10 @@ fun Context.openUrl(url: String) {
     })
 }
 
-fun Context.showAlert(message: Int, positiveButton: Int) {
+fun Context.showAlert(message: Int, positiveButton: Int, listener: (dialog: DialogInterface, which: Int) -> Unit) {
     AlertDialog.Builder(this)
         .setMessage(message)
-        .setPositiveButton(positiveButton, null)
+        .setPositiveButton(positiveButton, listener)
         .create()
         .show()
 }

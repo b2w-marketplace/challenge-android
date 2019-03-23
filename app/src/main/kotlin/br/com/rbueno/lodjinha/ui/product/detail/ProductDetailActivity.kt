@@ -96,11 +96,23 @@ class ProductDetailActivity : AppCompatActivity() {
                 showSuccessAlert()
                 clearReserveProductLiveData()
             }
+
+            reservationErrorLiveData.observe(this@ProductDetailActivity) {
+                shoErrorReservation()
+            }
         }.loadProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
     }
 
+    private fun shoErrorReservation() {
+        showAlert(R.string.error_default_message, R.string.error_try_again) { _, _ ->
+           viewModel.reserveProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
+        }
+    }
+
     private fun showSuccessAlert() {
-        showAlert(R.string.reserve_product_success, android.R.string.ok)
+        showAlert(R.string.reserve_product_success, android.R.string.ok) { _, _ ->
+            onBackPressed()
+        }
     }
 
     private fun bindProduct(product: Product) {

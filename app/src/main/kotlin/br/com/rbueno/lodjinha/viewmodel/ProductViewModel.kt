@@ -11,7 +11,7 @@ import br.com.rbueno.lodjinha.util.handlerLoading
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private const val ITEMS_PER_PAGE = 20
+const val ITEMS_PER_PAGE = 20
 
 class ProductViewModel(private val repository: ProductRepository) : BaseViewModel() {
 
@@ -19,6 +19,7 @@ class ProductViewModel(private val repository: ProductRepository) : BaseViewMode
     private val productMutableLiveData = MutableLiveData<Product>()
     private val reserveProductMutableLiveData = MutableLiveData<Unit>()
     private val productListMutableLiveData = MutableLiveData<ProductList>()
+    private val reservationErrorMutableLiveData = MutableLiveData<Unit>()
 
     val productLiveData: LiveData<Product>
         get() = productMutableLiveData
@@ -28,6 +29,9 @@ class ProductViewModel(private val repository: ProductRepository) : BaseViewMode
 
     val productListLiveData: LiveData<ProductList>
         get() = productListMutableLiveData
+
+    val reservationErrorLiveData: LiveData<Unit>
+        get() = reservationErrorMutableLiveData
 
     fun loadProduct(productId: Int) {
         disposables.add(
@@ -48,7 +52,7 @@ class ProductViewModel(private val repository: ProductRepository) : BaseViewMode
                 .subscribe({
                     reserveProductMutableLiveData.postValue(Unit)
                 }, {
-                    handleError(it)
+                    reservationErrorMutableLiveData.postValue(Unit)
                 })
         )
     }
