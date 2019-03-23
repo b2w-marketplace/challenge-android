@@ -15,7 +15,7 @@ private const val ITEMS_PER_PAGE = 20
 
 class ProductViewModel(private val repository: ProductRepository) : BaseViewModel() {
 
-    private var currentListQuantity = 0
+    var currentListQuantity = 0
     private val productMutableLiveData = MutableLiveData<Product>()
     private val reserveProductMutableLiveData = MutableLiveData<Unit>()
     private val productListMutableLiveData = MutableLiveData<ProductList>()

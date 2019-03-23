@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ViewFlipper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
@@ -16,6 +18,9 @@ import dagger.android.support.AndroidSupportInjection
 import me.relex.circleindicator.CircleIndicator
 import javax.inject.Inject
 
+private const val BANNER_FLIPPER_POSITION = 0
+private const val LOADING_FLIPPER_POSITION = 1
+private const val ERROR_FLIPPER_POSITION = 2
 
 class BannerFragment : Fragment() {
 
@@ -23,7 +28,7 @@ class BannerFragment : Fragment() {
     lateinit var factory: HomeViewModel.HomeViewModelFactory
 
     private val viewModel by lazy { ViewModelProviders.of(this, factory).get(HomeViewModel::class.java) }
-
+    private val buttonTryAgain by lazy { view?.findViewById<Button>(R.id.button_try_again) }
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -37,19 +42,35 @@ class BannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
+        configTryAgainButton()
     }
+
+    private fun configTryAgainButton() {
+        buttonTryAgain?.setOnClickListener {
+            viewModel.loadBanner()
+        }
+    }
+
 
     private fun initViewModel() {
         viewModel.apply {
             errorLiveData.observe(this@BannerFragment) {
-
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild =
+                        ERROR_FLIPPER_POSITION
+                }
             }
 
             loadingLiveData.observe(this@BannerFragment) {
-
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild = if (it) LOADING_FLIPPER_POSITION else BANNER_FLIPPER_POSITION
+                }
             }
 
             bannerLiveData.observe(this@BannerFragment) {
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild = BANNER_FLIPPER_POSITION
+                }
                 configViewPager(it)
                 clearBannerLiveData()
             }

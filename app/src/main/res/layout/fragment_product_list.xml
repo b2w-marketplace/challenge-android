@@ -29,4 +29,6 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <include layout="@layout/view_error_try_again"/>
+
 </ViewFlipper>

@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StrikethroughSpan
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ViewFlipper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
@@ -17,6 +19,10 @@ import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.AndroidInjection
 import javax.inject.Inject
+
+private const val PRODUCT_FLIPPER_POSITION = 0
+private const val LOADING_FLIPPER_POSITION = 1
+private const val ERROR_FLIPPER_POSITION = 2
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -32,6 +38,8 @@ class ProductDetailActivity : AppCompatActivity() {
     private val textProductDescription by lazy { findViewById<TextView>(R.id.text_product_description) }
     private val toolbar by lazy { findViewById<Toolbar>(R.id.toolbar_product) }
     private val floatingReserveProduct by lazy { findViewById<FloatingActionButton>(R.id.floating_reserve_product) }
+    private val flipperProduct by lazy { findViewById<ViewFlipper>(R.id.flipper_product) }
+    private val buttonTryAgain by lazy { findViewById<Button>(R.id.button_try_again) }
 
     private val navArgs by navArgs<ProductDetailActivityArgs>()
 
@@ -42,6 +50,13 @@ class ProductDetailActivity : AppCompatActivity() {
         initViewModel()
         configToolbar()
         configReserveListener()
+        configTryAgainButton()
+    }
+
+    private fun configTryAgainButton() {
+        buttonTryAgain.setOnClickListener {
+            viewModel.loadProduct(navArgs.productId)
+        }
     }
 
     private fun configReserveListener() {
@@ -61,17 +76,19 @@ class ProductDetailActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
     private fun initViewModel() {
         viewModel.apply {
             loadingLiveData.observe(this@ProductDetailActivity) {
-
+                flipperProduct.displayedChild = if (it) LOADING_FLIPPER_POSITION else PRODUCT_FLIPPER_POSITION
             }
 
             errorLiveData.observe(this@ProductDetailActivity) {
-
+                flipperProduct.displayedChild = ERROR_FLIPPER_POSITION
             }
 
             productLiveData.observe(this@ProductDetailActivity) {
+                flipperProduct.displayedChild = PRODUCT_FLIPPER_POSITION
                 bindProduct(it)
                 clearProductLiveData()
             }

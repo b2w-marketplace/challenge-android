@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ViewFlipper
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
@@ -24,7 +25,9 @@ import br.com.rbueno.lodjinha.viewmodel.ProductViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
+private const val PRODUCT_LIST_FLIPPER_POSITION = 0
 private const val EMPTY_FLIPPER_POSITION = 1
+private const val ERROR_FLIPPER_POSITION = 2
 
 class ProductListFragment : Fragment() {
 
@@ -37,6 +40,7 @@ class ProductListFragment : Fragment() {
     private val navArgs by navArgs<ProductListFragmentArgs>()
     private val adapter by lazy { ProductPagedListAdapter(mutableListOf()) { navigateToProduct(it) } }
     private val flipperProduct by lazy { view?.findViewById<ViewFlipper>(R.id.flipper_product) }
+    private val buttonTryAgain by lazy { view?.findViewById<Button>(R.id.button_try_again) }
 
     private var hasMoreItems = true
 
@@ -54,16 +58,24 @@ class ProductListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         initViewModel()
+        configTryAgainButton()
     }
 
+    private fun configTryAgainButton() {
+        buttonTryAgain?.setOnClickListener {
+            viewModel.currentListQuantity = 0
+            viewModel.loadProductListPage(navArgs.categoryId)
+        }
+    }
 
     private fun initViewModel() {
         viewModel.apply {
             errorLiveData.observe(this@ProductListFragment) {
-
+                flipperProduct?.displayedChild = ERROR_FLIPPER_POSITION
             }
 
             productListLiveData.observe(this@ProductListFragment) {
+                flipperProduct?.displayedChild = PRODUCT_LIST_FLIPPER_POSITION
                 hasMoreItems = it.data.isNotEmpty()
                 checkForEmptyState()
                 addPageToAdapter(it.data)

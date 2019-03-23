@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ViewFlipper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -22,12 +24,17 @@ import javax.inject.Inject
 
 const val PRODUCT_ID_ARG = "product_id"
 
+private const val MOST_SOLD_FLIPPER_POSITION = 0
+private const val LOADING_FLIPPER_POSITION = 1
+private const val ERROR_FLIPPER_POSITION = 2
+
 class MostSoldFragment : Fragment() {
 
     @Inject
     lateinit var factory: HomeViewModel.HomeViewModelFactory
 
     private val viewModel by lazy { ViewModelProviders.of(this, factory).get(HomeViewModel::class.java) }
+    private val buttonTryAgain by lazy { view?.findViewById<Button>(R.id.button_try_again) }
 
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recycler_products) }
 
@@ -43,19 +50,33 @@ class MostSoldFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
+        configTryAgainButton()
+    }
+
+    private fun configTryAgainButton() {
+        buttonTryAgain?.setOnClickListener {
+            viewModel.loadMostSoldProducts()
+        }
     }
 
     private fun initViewModel() {
         viewModel.apply {
             errorLiveData.observe(this@MostSoldFragment) {
-
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild = ERROR_FLIPPER_POSITION
+                }
             }
 
             loadingLiveData.observe(this@MostSoldFragment) {
-
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild = if (it) LOADING_FLIPPER_POSITION else MOST_SOLD_FLIPPER_POSITION
+                }
             }
 
             mostSoldLiveData.observe(this@MostSoldFragment) {
+                if (view is ViewFlipper) {
+                    (view as ViewFlipper).displayedChild = MOST_SOLD_FLIPPER_POSITION
+                }
                 configRecyclerView(it)
                 clearMostSoldLiveData()
             }

@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textAppearance="@style/RobotoBold.17sp.Dark"
-            android:text="@string/most_sold_label"/>
+            android:text="@string/most_sold_label"
+            android:textAppearance="@style/RobotoBold.17sp.Dark" />
 
-    <View android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="@color/greyish"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/greyish" />
 
-    <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_products"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/view_product_list_item"/>
+            tools:listitem="@layout/view_product_list_item" />
 
-</LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/view_loading" />
+
+    <include layout="@layout/view_error_try_again" />
+</ViewFlipper>
