@@ -1,5 +1,6 @@
 package br.com.rbueno.lodjinha.di
 
+import br.com.rbueno.lodjinha.AppTest
 import br.com.rbueno.lodjinha.BuildConfig
 import br.com.rbueno.lodjinha.CustomApp
 import br.com.rbueno.lodjinha.network.LodjinhaApi
@@ -13,11 +14,11 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class AppModule {
+class AppModuleTest {
 
     @Singleton
     @Provides
-    fun provideApi(app: CustomApp): LodjinhaApi = NetworkConfig.createApi(app.getUrl())
+    fun provideApi(app: AppTest): LodjinhaApi = NetworkConfig.createApi(app.getUrl())
 
     @Singleton
     @Provides
@@ -26,4 +27,5 @@ class AppModule {
     @Singleton
     @Provides
     fun provideProductRepository(api: LodjinhaApi): ProductRepository = NetworkProductRepository(api)
+
 }

@@ -7,7 +7,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
-class CustomApp : Application(), HasActivityInjector {
+open class CustomApp : Application(), HasActivityInjector {
 
     @Inject
     lateinit var activityDispatchingInjector: DispatchingAndroidInjector<Activity>
@@ -25,4 +25,6 @@ class CustomApp : Application(), HasActivityInjector {
     }
 
     override fun activityInjector() = activityDispatchingInjector
+
+    open fun getUrl() = BuildConfig.BASE_URL
 }

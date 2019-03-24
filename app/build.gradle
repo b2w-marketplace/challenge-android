@@ -11,7 +11,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "br.com.rbueno.lodjinha.runner.AppRunner"
         buildConfigField "String", "BASE_URL", "\"https://alodjinha.herokuapp.com/\""
     }
     buildTypes {
@@ -23,6 +23,12 @@ android {
 
     androidExtensions {
         experimental = true
+    }
+
+    testOptions {
+        animationsDisabled true
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        unitTests.returnDefaultValues = true
     }
 
     sourceSets {
@@ -43,6 +49,13 @@ def rx_android = '2.1.0'
 def rx_java = '2.2.0'
 def glide_version = '4.9.0'
 def circle_indicator_version = '2.1.0'
+def junit_version = '4.12'
+def mockito_version = '2.16.0'
+def roboletric_version = '4.0.2'
+def mock_web_server_version = '3.9.1'
+def espresso_version = '3.2.0-alpha02'
+def runner_version = '1.1.2-alpha02'
+def request_matcher_version = '2.2.0'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -71,7 +84,22 @@ dependencies {
     implementation "me.relex:circleindicator:$circle_indicator_version"
 
     //Test dependencies
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    testImplementation "org.robolectric:robolectric:$roboletric_version"
+
+    androidTestImplementation "androidx.test:runner:$runner_version"
+    androidTestImplementation "androidx.test:orchestrator:$runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation "androidx.test:rules:$runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mock_web_server_version"
+    androidTestImplementation "br.com.concretesolutions:requestmatcher:$request_matcher_version"
+
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$dagger_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+    kaptAndroidTest "androidx.test.espresso:espresso-intents:$espresso_version"
+    kaptAndroidTest "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestUtil "androidx.test:orchestrator:$runner_version"
 }
