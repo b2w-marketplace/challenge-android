@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/tools/jacoco.gradle"
 
 android {
     compileSdkVersion 28
@@ -15,6 +16,11 @@ android {
         buildConfigField "String", "BASE_URL", "\"https://alodjinha.herokuapp.com/\""
     }
     buildTypes {
+        debug{
+            testCoverageEnabled true
+            shrinkResources false
+            minifyEnabled false
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -74,7 +80,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rx_java"
 
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     implementation "com.google.dagger:dagger:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
@@ -87,6 +93,7 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-inline:$mockito_version"
     testImplementation "org.robolectric:robolectric:$roboletric_version"
+    testImplementation "android.arch.core:core-testing:$lifecycle_version"
 
     androidTestImplementation "androidx.test:runner:$runner_version"
     androidTestImplementation "androidx.test:orchestrator:$runner_version"
