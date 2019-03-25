@@ -23,7 +23,6 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun handleError(throwable: Throwable) {
-        //TODO: tratar erros especificos
         errorMutableLiveData.postValue(throwable.message)
     }
 }
