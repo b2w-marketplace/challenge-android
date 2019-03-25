@@ -68,6 +68,8 @@ class ProductListActivity : BaseActivity() {
                 addPageToAdapter(it.data)
             }
 
+            currentListQuantity = 0
+
         }.loadProductListPage(intent.getIntExtra(CATEGORY_ID_ARG, 1))
     }
 

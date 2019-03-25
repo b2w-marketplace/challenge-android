@@ -24,6 +24,7 @@ import javax.inject.Inject
 private const val PRODUCT_FLIPPER_POSITION = 0
 private const val LOADING_FLIPPER_POSITION = 1
 private const val ERROR_FLIPPER_POSITION = 2
+private const val SUCCESS_ALERT_STATE = "SUCCESS_ALERT_STATE"
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -42,6 +43,8 @@ class ProductDetailActivity : AppCompatActivity() {
     private val flipperProduct by lazy { findViewById<ViewFlipper>(R.id.flipper_product) }
     private val buttonTryAgain by lazy { findViewById<Button>(R.id.button_try_again) }
 
+    private var showSuccessAlert = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -50,6 +53,17 @@ class ProductDetailActivity : AppCompatActivity() {
         configToolbar()
         configReserveListener()
         configTryAgainButton()
+
+        savedInstanceState?.let {
+            if (it.containsKey(SUCCESS_ALERT_STATE) && it.getBoolean(SUCCESS_ALERT_STATE)) {
+                showSuccessAlert()
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(SUCCESS_ALERT_STATE, showSuccessAlert)
     }
 
     private fun configTryAgainButton() {
@@ -105,11 +119,12 @@ class ProductDetailActivity : AppCompatActivity() {
 
     private fun shoErrorReservation() {
         showAlert(R.string.error_default_message, R.string.error_try_again) { _, _ ->
-           viewModel.reserveProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
+            viewModel.reserveProduct(intent.getIntExtra(PRODUCT_ID_ARG, 1))
         }
     }
 
     private fun showSuccessAlert() {
+        showSuccessAlert = true
         showAlert(R.string.reserve_product_success, android.R.string.ok) { _, _ ->
             onBackPressed()
         }
