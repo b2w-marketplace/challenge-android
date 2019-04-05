@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/containerProductItem">
+
+    <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/ivProduct"/>
+
+    <ProgressBar
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/progress"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:gravity="center|center_vertical"
+            android:visibility="invisible" />
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="teste teste"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="18sp"
+            android:textColor="@color/dark"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/ivProduct"
+            app:layout_constraintEnd_toStartOf="@+id/ivIndicator"
+            app:layout_constraintStart_toEndOf="@id/ivProduct"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPriceFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="De 999,00"
+            style="@style/TextViewFrom"
+            app:layout_constraintStart_toEndOf="@+id/ivProduct"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName"
+            android:layout_marginTop="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/indicaton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/ivIndicator"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPriceBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewBy"
+            tools:text="Por 150,00"
+            app:layout_constraintEnd_toStartOf="@+id/ivIndicator"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName"/>
+
+</android.support.constraint.ConstraintLayout>
