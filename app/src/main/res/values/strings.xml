@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+
+    <string name="attention">Atenção</string>
+    <string name="error">Erro</string>
+    <string name="default_error">Ocorreu um erro, tente novamente</string>
+    <string name="progressDialog_title_wait">Aguarde</string>
+    <string name="title_try_again">tentar novamente</string>
+    <string name="de">de</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="products_activity_no_item_category">Nenhum item na categoria %s</string>
+    <string name="main_activity_do_you_want_close_app">Deseja fechar o aplicativo?</string>
+    <string name="product_details_product_reserved_with_success">Produto reservado com sucesso</string>
+    <string name="product_details_error_to_reserve_product">Ocorreu em erro ao reservar o produto</string>
+    <string name="navigation_drawer_title_home">Home</string>
+    <string name="navigation_drawer_about_the_app">Sobre o aplicativo</string>
+    <string name="activity_product_title_lorem_ipsum">Lorem ipsum</string>
+    <string name="fragment_about_developer_name">Dafle Cardoso</string>
+    <string name="fragment_about_develop_date">14 de abril de 2019</string>
+    <string name="fragment_home_title_categories">Categorias</string>
+    <string name="fragment_home_best_seller">Mais Vendidos</string>
+</resources>

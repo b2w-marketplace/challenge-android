@@ -1,0 +1,160 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "br.com.dafle.coins"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 4
+        versionName "1.0"
+        testInstrumentationRunner "br.com.dafle.coins.MockTestRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            ext.enableCrashlytics = false
+            debuggable true
+            applicationIdSuffix ""
+            versionNameSuffix " ( build " + defaultConfig.versionCode + " )"
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    flavorDimensions "default"
+
+    ext.appName = "Coins"
+
+    productFlavors {
+        mock {
+            versionNameSuffix "-MOCK"
+            applicationIdSuffix '.mck'
+            manifestPlaceholders = [appName: "${appName}${versionNameSuffix}"]
+        }
+        dev {
+            versionNameSuffix "-DEV"
+            applicationIdSuffix '.dev'
+            manifestPlaceholders = [appName: "${appName}${versionNameSuffix}"]
+        }
+        homolog {
+            versionNameSuffix "-HML"
+            applicationIdSuffix '.hmg'
+            manifestPlaceholders = [appName: "${appName}${versionNameSuffix}"]
+        }
+        prod {
+            manifestPlaceholders = [appName: "${appName}"]
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    final ANDROID_X_APPCOMPAT_VERSION = '1.0.2'
+    final ANDROID_X_VERSION = '1.0.0'
+    final SUPPORT_LIBRARY_VERSION = '27.1.1'
+    final CONSTRAINT_LAYOUT_VERSION = '1.1.3'
+    final GLIDE_VERSION = '4.9.0'
+    final DAGGER_VERSION = '2.8'
+    final RETROFIT_VERSION = '2.5.0'
+    final HAMCREST_VERSION = '1.3'
+    final MOCKITO_VERSION = '2.24.0'
+    final ESPRESSO_VERSION = '3.0.2'
+    final RUNNER_VERSION = '1.0.0'
+    final anko_version = '0.10.8'
+
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    def jUnit = "junit:junit:4.12"
+    def mockito = "org.mockito:mockito-core:$MOCKITO_VERSION"
+    def mockitoKotlin = "com.nhaarman:mockito-kotlin:1.1.0"
+
+    // App Dependencies
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$ANDROID_X_APPCOMPAT_VERSION"
+    implementation "androidx.recyclerview:recyclerview:$ANDROID_X_VERSION"
+    implementation "androidx.cardview:cardview:$ANDROID_X_VERSION"
+    implementation "androidx.annotation:annotation:$ANDROID_X_VERSION"
+    implementation "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VERSION"
+    implementation "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.google.android.material:material:$ANDROID_X_VERSION"
+    implementation "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GLIDE_VERSION"
+    compileOnly "org.glassfish:javax.annotation:10.0-b28"
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    kapt daggerCompiler
+
+    implementation 'org.koin:koin-android:1.0.2'
+
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+
+    // koin injection
+    implementation "org.koin:koin-android:$koin"
+    implementation "org.koin:koin-android-viewmodel:$koin"
+
+    //important for unit test, mutable live data
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.koin:koin-test:1.0.2'
+
+    testImplementation jUnit
+    testImplementation mockito
+    testImplementation(mockitoKotlin) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+    testImplementation "org.hamcrest:hamcrest-core:$HAMCREST_VERSION"
+    testImplementation "org.hamcrest:hamcrest-library:$HAMCREST_VERSION"
+    testImplementation "org.hamcrest:hamcrest-integration:$HAMCREST_VERSION"
+    testImplementation 'org.robolectric:robolectric:3.8'
+
+    // Instrumentation test dependencies
+    androidTestImplementation jUnit
+    androidTestImplementation mockito
+    androidTestImplementation "org.mockito:mockito-android:$MOCKITO_VERSION"
+    androidTestImplementation(mockitoKotlin) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+    androidTestImplementation('org.koin:koin-test:1.0.2') {
+        exclude group: 'org.mockito'
+    }
+    androidTestImplementation "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
+    androidTestImplementation "com.android.support.test:runner:$RUNNER_VERSION"
+    androidTestImplementation "com.android.support.test:rules:$RUNNER_VERSION"
+}
