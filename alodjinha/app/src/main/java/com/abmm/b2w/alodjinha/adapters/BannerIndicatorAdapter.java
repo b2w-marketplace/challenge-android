@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abmm.b2w.alodjinha.R;
-import com.abmm.b2w.alodjinha.activities.main.IMainContext;
+import com.abmm.b2w.alodjinha.activities.main.IMainPresenter;
 import com.abmm.b2w.alodjinha.model.Banner;
 
 import butterknife.BindView;
@@ -15,9 +15,9 @@ import butterknife.ButterKnife;
 
 public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicatorAdapter.BannerIndicatorViewHolder> {
 
-    private IMainContext ctx;
+    private IMainPresenter ctx;
 
-    public BannerIndicatorAdapter(IMainContext context) {
+    public BannerIndicatorAdapter(IMainPresenter context) {
         this.ctx = context;
     }
 
@@ -30,21 +30,21 @@ public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicator
 
     @Override
     public void onBindViewHolder(@NonNull BannerIndicatorViewHolder holder, int position) {
-        final Banner element = ctx.getBanners().get(position);
+        final Banner element = ctx.getBannersList().get(position);
 
         holder.bind(element);
     }
 
     @Override
     public int getItemCount() {
-        return ctx.getBanners().size();
+        return ctx.getBannersList().size();
     }
 
     class BannerIndicatorViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.banner_indicator) View indicator;
 
-        public BannerIndicatorViewHolder(@NonNull View view) {
+        BannerIndicatorViewHolder(@NonNull View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
@@ -59,14 +59,13 @@ public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicator
             indicator.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctx.getCurrentPosition() != getLayoutPosition()) {
-                        notifyItemChanged(ctx.getCurrentPosition());
-                        ctx.setCurrentPosition(getLayoutPosition());
+                    if (ctx.getCurrentBannerPosition() != getLayoutPosition()) {
+                        notifyItemChanged(ctx.getCurrentBannerPosition());
+                        ctx.setCurrentBannerPosition(getLayoutPosition());
                         ctx.updateData(banner);
                     }
                 }
             });
-
         }
     }
 
