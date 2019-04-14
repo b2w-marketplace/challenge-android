@@ -1,6 +1,5 @@
 package com.abmm.b2w.alodjinha.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,9 +31,11 @@ public abstract class BaseNavDrawerActivity extends BaseActivity implements Navi
         ButterKnife.bind(this);
 
         initUi();
+        makeRequests();
     }
 
     protected abstract int getLayout();
+    protected abstract void makeRequests();
 
     @Override
     public void onBackPressed() {
@@ -45,7 +46,7 @@ public abstract class BaseNavDrawerActivity extends BaseActivity implements Navi
         }
     }
 
-    private void initUi() {
+    protected void initUi() {
         setSupportActionBar(toolbar);
 
         setupTopbar();

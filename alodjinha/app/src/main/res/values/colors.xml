@@ -11,4 +11,7 @@
     <color name="greyish_brown">#4a4a4a</color>
     <color name="white">#d5d5d5</color>
     <color name="white_two">#fcfcfc</color>
+
+    <color name="middle_tomato">#FF967B</color>
+    <color name="end_tomato">#FFD5D5</color>
 </resources>

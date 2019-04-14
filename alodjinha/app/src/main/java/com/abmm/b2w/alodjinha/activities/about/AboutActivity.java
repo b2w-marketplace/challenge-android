@@ -17,6 +17,11 @@ public class AboutActivity extends BaseNavDrawerActivity {
     }
 
     @Override
+    protected void makeRequests() {
+        // nothing to load
+    }
+
+    @Override
     public void setupTopbar() {
         // default settings
     }
