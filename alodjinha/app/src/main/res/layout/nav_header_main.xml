@@ -33,7 +33,7 @@
         android:gravity="end"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
-        android:textSize="40sp"
+        android:textSize="24sp"
         app:fontFamily="@font/pacifico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

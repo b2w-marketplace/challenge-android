@@ -12,14 +12,18 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    
-    <style name="LodjinhaTheme.PacificoFont">
-        <item name="android:fontFamily">@font/pacifico</item>
+
+    <style name="LodjinhaTheme.Toolbar">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/pacifico</item>
         <item name="android:textSize">30sp</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="LodjinhaTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="LodjinhaTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

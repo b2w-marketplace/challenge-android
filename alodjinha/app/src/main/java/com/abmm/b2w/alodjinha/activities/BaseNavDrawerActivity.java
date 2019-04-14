@@ -1,48 +1,40 @@
-package com.abmm.b2w.alodjinha;
+package com.abmm.b2w.alodjinha.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.abmm.b2w.alodjinha.R;
+import com.abmm.b2w.alodjinha.activities.about.AboutActivity;
+import com.abmm.b2w.alodjinha.activities.main.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseNavDrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar) protected Toolbar toolbar;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(getLayout());
 
         ButterKnife.bind(this);
 
         initUi();
     }
 
-    private void initUi() {
-        setSupportActionBar(toolbar);
-
-        toolbar.setTitleTextAppearance(this, R.style.LodjinhaTheme_PacificoFont);
-        toolbar.setLogo(R.drawable.logo_navbar);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setItemIconTintList(null);
-    }
+    protected abstract int getLayout();
 
     @Override
     public void onBackPressed() {
@@ -53,17 +45,40 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private void initUi() {
+        setSupportActionBar(toolbar);
+
+        setupTopbar();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
+    }
+
+    protected abstract void setupTopbar();
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        Class nextClass;
         switch (item.getItemId()) {
+            default:
             case R.id.nav_home:
+                nextClass = MainActivity.class;
                 break;
 
             case R.id.nav_about:
+                nextClass = AboutActivity.class;
                 break;
         }
+
+        Intent nextActivity = new Intent(this, nextClass);
+        startActivity(nextActivity);
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

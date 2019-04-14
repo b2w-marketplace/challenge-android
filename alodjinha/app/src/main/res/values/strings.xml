@@ -1,11 +1,17 @@
 <resources>
     <!-- General -->
     <string name="app_name">a Lodjinha</string>
-    <string name="navigation_drawer_open">Open</string>
-    <string name="navigation_drawer_close">Close</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <!-- Nav Menu -->
     <string name="nav_menu_home">Home</string>
     <string name="nav_menu_about">Sobre o aplicativo</string>
+
+    <!-- About -->
+    <string name="title_activity_about">sobre</string>
+    <string name="about_app_name">@string/app_name</string>
+    <string name="about_dev_name">Alexandre Bruno de Macedo Medeiros</string>
+    <string name="about_date">14 de abril de 2019</string>
 </resources>
