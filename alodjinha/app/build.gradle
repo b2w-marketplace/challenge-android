@@ -34,7 +34,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    implementation "org.parceler:parceler-api:$parceler_version"
+    annotationProcessor "org.parceler:parceler:$parceler_version"
 
 }

@@ -3,19 +3,22 @@ package com.abmm.b2w.alodjinha.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Category {
 
     @Expose
     @SerializedName("id")
-    private int id;
+    int id;
 
     @Expose
     @SerializedName("descricao")
-    private String description;
+    String description;
 
     @Expose
     @SerializedName("urlImagem")
-    private String pictUrl;
+    String pictUrl;
 
     /* Getters */
     public int getId() { return id; }

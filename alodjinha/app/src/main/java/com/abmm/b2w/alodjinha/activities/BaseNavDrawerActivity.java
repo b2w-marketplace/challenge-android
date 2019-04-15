@@ -17,25 +17,10 @@ import com.abmm.b2w.alodjinha.activities.main.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class BaseNavDrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseNavDrawerActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.toolbar) protected Toolbar toolbar;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(getLayout());
-
-        ButterKnife.bind(this);
-
-        initUi();
-        makeRequests();
-    }
-
-    protected abstract int getLayout();
-    protected void makeRequests(){}
 
     @Override
     public void onBackPressed() {
@@ -46,6 +31,7 @@ public abstract class BaseNavDrawerActivity extends BaseActivity implements Navi
         }
     }
 
+    @Override
     protected void initUi() {
         setSupportActionBar(toolbar);
 

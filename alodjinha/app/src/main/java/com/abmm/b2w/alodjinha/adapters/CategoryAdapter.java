@@ -1,5 +1,6 @@
 package com.abmm.b2w.alodjinha.adapters;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -10,12 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abmm.b2w.alodjinha.LodjinhaApp;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.main.IMainPresenter;
+import com.abmm.b2w.alodjinha.activities.product_list.ProductListActivity;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
+import com.abmm.b2w.alodjinha.utils.Constants.Keys;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
+import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -89,7 +95,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         @OnClick(R.id.element_category_layout)
         void openCategory(View v) {
-            Toast.makeText(ctx.getContext(), "Abrindo activity...", Toast.LENGTH_SHORT).show();
+            Bundle extras = new Bundle();
+            extras.putParcelable(Keys.CATEGORY_DATA, Parcels.wrap(category));
+            LodjinhaApp.getInstance().callActivity(ProductListActivity.class, extras);
         }
     }
 }

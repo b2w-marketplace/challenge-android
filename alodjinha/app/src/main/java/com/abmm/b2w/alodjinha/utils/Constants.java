@@ -11,4 +11,8 @@ public class Constants {
         public static final int EMPTY_LIST = 0;
     }
 
+    public static class Keys {
+        public static final String CATEGORY_DATA = "CATEGORY_DATA";
+    }
+
 }
