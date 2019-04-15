@@ -15,7 +15,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholder" />
+        app:srcCompat="@drawable/placeholder"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/tvProductName"
@@ -59,7 +60,8 @@
         app:layout_constraintEnd_toEndOf="@+id/tvProductName"
         app:layout_constraintStart_toEndOf="@+id/tvValueFrom"
         app:layout_constraintTop_toBottomOf="@+id/tvProductName"
-        tools:text="Por 9999,99" />
+        tools:text="Por 9999,99"
+        android:layout_marginLeft="8dp" />
 
     <ImageView
         android:id="@+id/imageView2"

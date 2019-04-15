@@ -36,4 +36,5 @@
         app:layout_constraintEnd_toEndOf="@+id/ivCategory"
         app:layout_constraintStart_toStartOf="@+id/ivCategory"
         app:layout_constraintTop_toBottomOf="@+id/ivCategory" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

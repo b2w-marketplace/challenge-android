@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/ic_launcher_background" />
+        app:srcCompat="@color/ic_launcher_background"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/tvtitle"
@@ -30,6 +31,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/ivicon"
         app:layout_constraintStart_toEndOf="@+id/ivicon"
         app:layout_constraintTop_toTopOf="@+id/ivicon"
-        tools:text="Home" />
+        tools:text="Home"
+        android:layout_marginLeft="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
