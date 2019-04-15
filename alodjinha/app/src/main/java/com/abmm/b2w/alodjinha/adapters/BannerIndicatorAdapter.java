@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.main.IMainPresenter;
 import com.abmm.b2w.alodjinha.model.Banner;
+import com.abmm.b2w.alodjinha.utils.Constants.General;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,9 @@ public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicator
 
     @Override
     public int getItemCount() {
+        if (ctx.getBannerList() == null) {
+            return General.EMPTY_LIST;
+        }
         return ctx.getBannerList().size();
     }
 

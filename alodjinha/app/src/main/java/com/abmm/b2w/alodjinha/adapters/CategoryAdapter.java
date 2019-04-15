@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.main.IMainPresenter;
 import com.abmm.b2w.alodjinha.model.Category;
+import com.abmm.b2w.alodjinha.utils.Constants.General;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -44,6 +45,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public int getItemCount() {
+        if (ctx.getCategoryList() == null) {
+            return General.EMPTY_LIST;
+        }
         return ctx.getCategoryList().size();
     }
 
