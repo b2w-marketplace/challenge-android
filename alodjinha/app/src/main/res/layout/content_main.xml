@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/main_banner_img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,5 +27,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/main_banner_img"
         app:layout_constraintEnd_toEndOf="@+id/main_banner_img"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/main_categories_title_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="13sp"
+        android:textColor="@color/dark"
+        android:text="@string/main_category_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_banner_img" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_categories_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_categories_title_txt" />
 
 </android.support.constraint.ConstraintLayout>

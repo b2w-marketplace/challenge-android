@@ -1,6 +1,6 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
-import android.support.constraint.ConstraintLayout;
+import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseNavDrawerActivity;
 import com.abmm.b2w.alodjinha.adapters.BannerIndicatorAdapter;
+import com.abmm.b2w.alodjinha.adapters.CategoryAdapter;
 import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.utils.BannerOnSwipeListener;
 import com.bumptech.glide.Glide;
@@ -15,14 +16,13 @@ import com.bumptech.glide.request.RequestOptions;
 
 import butterknife.BindView;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.abmm.b2w.alodjinha.utils.Constants.General.FIRST_POSITION;
 
 public class MainActivity extends BaseNavDrawerActivity implements MainPresenterImpl.IMainView {
 
     @BindView(R.id.main_banner_img) ImageView mBannerImg;
     @BindView(R.id.main_banner_list) RecyclerView mBannerCarousel;
+    @BindView(R.id.main_categories_list) RecyclerView mCategoriesList;
 
     private IMainPresenter presenter;
 
@@ -42,18 +42,32 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     @Override
     protected void makeRequests() {
         presenter.requestBanners();
+        presenter.requestCategories();
     }
 
     @Override
-    public void initializeBanners() {
-        presenter.getBannersList().get(FIRST_POSITION).setActiveON();
-        loadBannerImage(presenter.getBannersList().get(FIRST_POSITION).getPictUrl());
+    public void initBanners() {
+        presenter.getBannerList().get(FIRST_POSITION).setActiveON();
+        loadBannerImage(presenter.getBannerList().get(FIRST_POSITION).getPictUrl());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false);
         bannerAdapter = new BannerIndicatorAdapter(presenter);
 
         mBannerCarousel.setLayoutManager(layoutManager);
         mBannerCarousel.setAdapter(bannerAdapter);
+    }
+
+    @Override
+    public void initCategories() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(presenter);
+        mCategoriesList.setLayoutManager(layoutManager);
+        mCategoriesList.setAdapter(categoryAdapter);
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 
     @Override
@@ -83,6 +97,8 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     }
 
     private void loadBannerImage(String pictUrl) {
+        int defaultBannerHeight = mBannerImg.getLayoutParams().height;
+
         Glide.with(this)
                 .load(pictUrl)
                 .apply(new RequestOptions()
@@ -91,7 +107,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
                 )
                 .into(mBannerImg);
 
-        ConstraintLayout.LayoutParams imageViewParams = new ConstraintLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT);
-        mBannerImg.setLayoutParams(imageViewParams);
+        mBannerImg.getLayoutParams().height = defaultBannerHeight;
     }
 }

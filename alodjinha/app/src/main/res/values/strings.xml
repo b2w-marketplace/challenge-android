@@ -14,4 +14,5 @@
     <string name="about_app_name">@string/app_name</string>
     <string name="about_dev_name">Alexandre Bruno de Macedo Medeiros</string>
     <string name="about_date">14 de abril de 2019</string>
+    <string name="main_category_title">Categorias</string>
 </resources>

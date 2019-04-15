@@ -1,6 +1,7 @@
 package com.abmm.b2w.alodjinha.http_module;
 
 import com.abmm.b2w.alodjinha.model.Banner;
+import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 
 import retrofit2.Call;
@@ -10,6 +11,9 @@ public interface ILodjinhaApi {
 
     @GET("/banner")
     Call<Envelope<Banner>> getBanners();
+
+    @GET("/categoria")
+    Call<Envelope<Category>> getCategories();
 
     @GET("/produto")
     Call<Envelope<Product>> getProducts();

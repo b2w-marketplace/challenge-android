@@ -13,7 +13,7 @@ import com.abmm.b2w.alodjinha.model.Banner;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicatorAdapter.BannerIndicatorViewHolder> {
+public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicatorAdapter.BannerIndicatorVH> {
 
     private IMainPresenter ctx;
 
@@ -23,28 +23,28 @@ public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicator
 
     @NonNull
     @Override
-    public BannerIndicatorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public BannerIndicatorVH onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_banner_indicator, parent, false);
-        return new BannerIndicatorViewHolder(v);
+        return new BannerIndicatorVH(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BannerIndicatorViewHolder holder, int position) {
-        final Banner element = ctx.getBannersList().get(position);
+    public void onBindViewHolder(@NonNull BannerIndicatorVH holder, int position) {
+        final Banner element = ctx.getBannerList().get(position);
 
         holder.bind(element);
     }
 
     @Override
     public int getItemCount() {
-        return ctx.getBannersList().size();
+        return ctx.getBannerList().size();
     }
 
-    class BannerIndicatorViewHolder extends RecyclerView.ViewHolder {
+    class BannerIndicatorVH extends RecyclerView.ViewHolder {
 
         @BindView(R.id.banner_indicator) View indicator;
 
-        BannerIndicatorViewHolder(@NonNull View view) {
+        BannerIndicatorVH(@NonNull View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
