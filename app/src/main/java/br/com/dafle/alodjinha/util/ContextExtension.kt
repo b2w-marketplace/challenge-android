@@ -23,8 +23,8 @@ fun Context.getDisplayHeight(): Int {
 }
 
 fun Context.isNetworkConnected(): Boolean {
-    val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    return cm.activeNetworkInfo?.isConnected ?: false
+    val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+    return cm?.activeNetworkInfo?.isConnected ?: false
 }
 
 fun Context.toggleAndroidComponent(componentClass: Class<*>, enable: Boolean) {

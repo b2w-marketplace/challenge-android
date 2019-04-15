@@ -6,12 +6,12 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "br.com.dafle.coins"
+        applicationId "br.com.dafle.alodjinha"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 4
         versionName "1.0"
-        testInstrumentationRunner "br.com.dafle.coins.MockTestRunner"
+        testInstrumentationRunner "br.com.dafle.alodjinha.MockTestRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
     }
@@ -35,7 +35,7 @@ android {
 
     flavorDimensions "default"
 
-    ext.appName = "Coins"
+    ext.appName = "a Lodjinha"
 
     productFlavors {
         mock {

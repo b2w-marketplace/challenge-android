@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.dafle.alodjinha.R
+import br.com.dafle.alodjinha.model.Banner
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_banner.*
 import org.jetbrains.anko.browse
@@ -14,11 +15,11 @@ class HomeBannerFragment: Fragment() {
 
     companion object {
 
-        val BANNER_URL_EXTRA = "BANNER_URL_EXTRA"
+        val BANNER_EXTRA = "BANNER_EXTRA"
 
-        fun newInstance(urlImagem: String): HomeBannerFragment {
+        fun newInstance(banner: Banner): HomeBannerFragment {
             val args = Bundle()
-            args.putString(BANNER_URL_EXTRA, urlImagem)
+            args.putParcelable(BANNER_EXTRA, banner)
             val fragment = HomeBannerFragment()
             fragment.arguments = args
             return fragment
@@ -31,10 +32,10 @@ class HomeBannerFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            Glide.with(this).load(it.getString(BANNER_URL_EXTRA)).placeholder(R.drawable.placeholder).into(ivBanner)
+        arguments?.getParcelable<Banner>(BANNER_EXTRA)?.let { banner ->
+            Glide.with(this).load(banner.urlImagem).placeholder(R.drawable.placeholder).into(ivBanner)
             ivBanner.setOnClickListener {
-                context?.browse("https://www.submarino.com.br/")
+                context?.browse(banner.linkUrl)
             }
         }
     }

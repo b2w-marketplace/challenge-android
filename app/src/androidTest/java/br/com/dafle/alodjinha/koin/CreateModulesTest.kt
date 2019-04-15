@@ -1,6 +1,7 @@
 package br.com.dafle.alodjinha.koin
 
 import br.com.dafle.alodjinha.Environment
+import br.com.dafle.alodjinha.service.HomeService
 import br.com.dafle.alodjinha.service.ProductService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -38,7 +39,10 @@ object CreateModulesTest {
     }
 
     fun provideCoinsService(retrofit: Retrofit): ProductService {
-//        return retrofit.create(ProductService::class.java)
         return Mockito.mock(ProductService::class.java)
+    }
+
+    fun provideHomeService(retrofit: Retrofit): HomeService {
+        return Mockito.mock(HomeService::class.java)
     }
 }

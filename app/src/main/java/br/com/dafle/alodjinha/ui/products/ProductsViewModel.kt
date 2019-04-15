@@ -1,5 +1,6 @@
 package br.com.dafle.alodjinha.ui.products
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import br.com.dafle.alodjinha.LodjinhaApplication
 import br.com.dafle.alodjinha.base.BaseViewModel
@@ -7,8 +8,7 @@ import br.com.dafle.alodjinha.business.ProductBusinnes
 import br.com.dafle.alodjinha.model.Product
 import br.com.dafle.alodjinha.util.disposedBy
 
-class ProductsViewModel(private val productBusinnes: ProductBusinnes,
-                        app: LodjinhaApplication): BaseViewModel(app) {
+class ProductsViewModel(private val productBusinnes: ProductBusinnes, app: Application): BaseViewModel(app) {
 
     val items = MutableLiveData<List<Product>>()
     var totalItemsApi = 0

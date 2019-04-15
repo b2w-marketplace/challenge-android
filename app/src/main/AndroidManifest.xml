@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:parentActivityName="br.com.dafle.alodjinha.ui.products.ProductsActvity"
-            android:name="br.com.dafle.alodjinha.ui.products.details.ProductDetails"
+            android:name="br.com.dafle.alodjinha.ui.products.details.ProductDetailsActivity"
             android:configChanges="orientation|screenSize"/>
         <activity
             android:name="br.com.dafle.alodjinha.ui.products.ProductsActvity"

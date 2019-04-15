@@ -17,7 +17,7 @@ import org.jetbrains.anko.alert
 import org.jetbrains.anko.okButton
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ProductDetails : BaseActivity() {
+class ProductDetailsActivity : BaseActivity() {
 
     val viewModel: ProductDetailsViewModel by viewModel()
     private var productId: Int? = null

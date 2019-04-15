@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.viewpager.widget.ViewPager
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -18,6 +19,17 @@ fun hasItemCount(itemCount: Int): Matcher<View> {
         }
 
         override fun matchesSafely(view: RecyclerView) = view.adapter?.itemCount == itemCount
+    }
+}
+
+fun hasItemCountViewPager(itemCount: Int): Matcher<View> {
+    return object : BoundedMatcher<View, ViewPager>(ViewPager::class.java) {
+
+        override fun describeTo(description: Description) {
+            description.appendText("has $itemCount items")
+        }
+
+        override fun matchesSafely(view: ViewPager) = view.adapter?.count == itemCount
     }
 }
 

@@ -2,6 +2,7 @@ package br.com.dafle.alodjinha.ui.home
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import br.com.dafle.alodjinha.LodjinhaApplication
 import br.com.dafle.alodjinha.base.BaseViewModel
 import br.com.dafle.alodjinha.business.HomeBusinnes
 import br.com.dafle.alodjinha.business.ProductBusinnes

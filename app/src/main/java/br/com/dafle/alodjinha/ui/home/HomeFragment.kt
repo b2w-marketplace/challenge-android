@@ -13,7 +13,7 @@ import br.com.dafle.alodjinha.R
 import br.com.dafle.alodjinha.model.Category
 import br.com.dafle.alodjinha.model.Product
 import br.com.dafle.alodjinha.ui.products.ProductsActvity
-import br.com.dafle.alodjinha.ui.products.details.ProductDetails
+import br.com.dafle.alodjinha.ui.products.details.ProductDetailsActivity
 import br.com.dafle.alodjinha.util.BaseAdapter
 import br.com.dafle.alodjinha.util.toCoin
 import com.bumptech.glide.Glide
@@ -77,7 +77,7 @@ class HomeFragment: Fragment() {
             v.tvValueFrom.paintFlags = v.tvValueFrom.paintFlags or STRIKE_THRU_TEXT_FLAG
             v.tvValueFrom.text = product.precoDe.toCoin()
             v.tvValueTo.text = product.precoPor.toCoin()
-            v.setOnClickListener { context?.startActivity<ProductDetails>(ProductDetails.EXTRA_PRODUCT to product) }
+            v.setOnClickListener { context?.startActivity<ProductDetailsActivity>(ProductDetailsActivity.EXTRA_PRODUCT to product) }
         }
         bestSellerRecyclerView.let {
             it.layoutManager = LinearLayoutManager(context)
@@ -87,7 +87,7 @@ class HomeFragment: Fragment() {
 
         viewModel.banners.observe(this, Observer {
             activity?.apply {
-                viewPager.adapter = HomeBannerPageAdapter(supportFragmentManager, it.map { HomeBannerFragment.newInstance(it.urlImagem) })
+                viewPager.adapter = HomeBannerPageAdapter(supportFragmentManager, it.map { HomeBannerFragment.newInstance(it) })
             }
         })
 

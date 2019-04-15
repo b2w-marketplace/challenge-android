@@ -11,7 +11,7 @@ import br.com.dafle.alodjinha.R
 import br.com.dafle.alodjinha.base.BaseActivity
 import br.com.dafle.alodjinha.model.Category
 import br.com.dafle.alodjinha.model.Product
-import br.com.dafle.alodjinha.ui.products.details.ProductDetails
+import br.com.dafle.alodjinha.ui.products.details.ProductDetailsActivity
 import br.com.dafle.alodjinha.util.BaseAdapter
 import br.com.dafle.alodjinha.util.toCoin
 import com.bumptech.glide.Glide
@@ -66,7 +66,7 @@ class ProductsActvity : BaseActivity() {
             v.tvValueFrom.paintFlags = v.tvValueFrom.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             v.tvValueFrom.text = product.precoDe.toCoin()
             v.tvValueTo.text = product.precoPor.toCoin()
-            v.setOnClickListener { startActivity<ProductDetails>(ProductDetails.EXTRA_PRODUCT to product) }
+            v.setOnClickListener { startActivity<ProductDetailsActivity>(ProductDetailsActivity.EXTRA_PRODUCT to product) }
         }
         val manager = LinearLayoutManager(this)
         recyclerView.let {
@@ -76,7 +76,7 @@ class ProductsActvity : BaseActivity() {
 
         viewModel.items.observe(this, Observer {
             adapter.setItems(it)
-            tvEmpty.text = if (viewModel.items.value?.size ?: 0 == 0) String.format("%s %s", getString(R.string.products_activity_no_item_category), title) else ""
+            tvEmpty.text = if (viewModel.items.value?.size ?: 0 == 0) String.format(getString(R.string.products_activity_no_item_category), title) else ""
         })
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {

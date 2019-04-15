@@ -9,7 +9,8 @@ import br.com.dafle.alodjinha.business.ProductBusinnes
 import br.com.dafle.alodjinha.model.Product
 import br.com.dafle.alodjinha.util.disposedBy
 
-class ProductDetailsViewModel(private val productBusinnes: ProductBusinnes, app: Application): BaseViewModel(app) {
+class ProductDetailsViewModel(private val productBusinnes: ProductBusinnes,
+                              app: Application): BaseViewModel(app) {
 
     var product = MutableLiveData<Product>()
     var reserve = MutableLiveData<Pair<String,Boolean>>()
