@@ -8,6 +8,7 @@ public class Constants {
 
     public static class General {
         public static final int FIRST_POSITION = 0;
+        public static final int EMPTY_LIST = 0;
     }
 
 }

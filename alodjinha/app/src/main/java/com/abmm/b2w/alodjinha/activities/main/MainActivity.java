@@ -9,24 +9,26 @@ import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseNavDrawerActivity;
 import com.abmm.b2w.alodjinha.adapters.BannerIndicatorAdapter;
 import com.abmm.b2w.alodjinha.adapters.CategoryAdapter;
+import com.abmm.b2w.alodjinha.adapters.TopSellerAdapter;
 import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.utils.BannerOnSwipeListener;
+import com.abmm.b2w.alodjinha.utils.Constants.General;
+import com.abmm.b2w.alodjinha.utils.DividerItemDecoration;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import butterknife.BindView;
 
-import static com.abmm.b2w.alodjinha.utils.Constants.General.FIRST_POSITION;
-
 public class MainActivity extends BaseNavDrawerActivity implements MainPresenterImpl.IMainView {
 
     @BindView(R.id.main_banner_img) ImageView mBannerImg;
     @BindView(R.id.main_banner_list) RecyclerView mBannerCarousel;
-    @BindView(R.id.main_categories_list) RecyclerView mCategoriesList;
+    @BindView(R.id.main_categories_list) RecyclerView mCategoriesRecyclerView;
+    @BindView(R.id.main_topseller_list) RecyclerView mTopSellerRecyclerView;
 
     private IMainPresenter presenter;
 
-    private BannerIndicatorAdapter bannerAdapter;
+    private BannerIndicatorAdapter mBannerAdapter;
 
     @Override
     protected int getLayout() {
@@ -43,26 +45,36 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     protected void makeRequests() {
         presenter.requestBanners();
         presenter.requestCategories();
+        presenter.requestTopSellers();
     }
 
     @Override
     public void initBanners() {
-        presenter.getBannerList().get(FIRST_POSITION).setActiveON();
-        loadBannerImage(presenter.getBannerList().get(FIRST_POSITION).getPictUrl());
+        presenter.getBannerList().get(General.FIRST_POSITION).setActiveON();
+        loadBannerImage(presenter.getBannerList().get(General.FIRST_POSITION).getPictUrl());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false);
-        bannerAdapter = new BannerIndicatorAdapter(presenter);
+        mBannerAdapter = new BannerIndicatorAdapter(presenter);
 
         mBannerCarousel.setLayoutManager(layoutManager);
-        mBannerCarousel.setAdapter(bannerAdapter);
+        mBannerCarousel.setAdapter(mBannerAdapter);
     }
 
     @Override
     public void initCategories() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        CategoryAdapter categoryAdapter = new CategoryAdapter(presenter);
-        mCategoriesList.setLayoutManager(layoutManager);
-        mCategoriesList.setAdapter(categoryAdapter);
+        CategoryAdapter adapter = new CategoryAdapter(presenter);
+        mCategoriesRecyclerView.setLayoutManager(layoutManager);
+        mCategoriesRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void initTopSeller() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        TopSellerAdapter adapter = new TopSellerAdapter(presenter);
+        mTopSellerRecyclerView.setLayoutManager(layoutManager);
+        mTopSellerRecyclerView.addItemDecoration(new DividerItemDecoration(this));
+        mTopSellerRecyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -92,7 +104,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         presenter.resetData(banner);
 
         loadBannerImage(banner.getPictUrl());
-        bannerAdapter.notifyDataSetChanged();
+        mBannerAdapter.notifyDataSetChanged();
         mBannerCarousel.invalidateItemDecorations();
     }
 

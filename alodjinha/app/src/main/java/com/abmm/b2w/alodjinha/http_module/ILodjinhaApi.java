@@ -15,6 +15,9 @@ public interface ILodjinhaApi {
     @GET("/categoria")
     Call<Envelope<Category>> getCategories();
 
+    @GET("/produto/maisvendidos")
+    Call<Envelope<Product>> getTopSeller();
+
     @GET("/produto")
     Call<Envelope<Product>> getProducts();
 }

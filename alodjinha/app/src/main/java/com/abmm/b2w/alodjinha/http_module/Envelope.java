@@ -7,7 +7,7 @@ import java.util.List;
 public class Envelope<T> {
 
     @Expose
-    List<T> data;
+    private List<T> data;
 
     public List<T> getData() { return data; }
 

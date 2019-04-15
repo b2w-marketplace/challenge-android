@@ -23,10 +23,10 @@ import butterknife.OnLongClick;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryVH> {
 
-    private IMainPresenter ctx;
+    private final IMainPresenter ctx;
 
-    public CategoryAdapter(IMainPresenter ctx) {
-        this.ctx = ctx;
+    public CategoryAdapter(IMainPresenter context) {
+        this.ctx = context;
     }
 
     @NonNull
@@ -48,12 +48,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     class CategoryVH extends RecyclerView.ViewHolder {
+        @BindView(R.id.element_category_icon) ImageView mIcon;
+        @BindView(R.id.element_category_title) TextView mCategory;
+        @BindView(R.id.element_category_layout) ConstraintLayout mLayout;
 
-        @BindView(R.id.element_category_icon) ImageView icon;
-        @BindView(R.id.element_category_title) TextView categoryTxt;
-        @BindView(R.id.element_category_layout) ConstraintLayout layout;
-
-        View view;
+        final View view;
         Category category;
 
         CategoryVH(@NonNull View view) {
@@ -65,13 +64,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         void bind(Category item) {
             this.category = item;
 
+            setImage(item);
+            mCategory.setText(item.getDescription());
+        }
+
+        void setImage(Category item) {
             Glide.with(view)
                     .load(item.getPictUrl())
                     .apply(new RequestOptions()
                             .placeholder(R.drawable.loading_banner_image)
                             .error(R.drawable.logo_menu))
-                    .into(icon);
-            categoryTxt.setText(item.getDescription());
+                    .into(mIcon);
         }
 
         @OnLongClick(R.id.element_category_layout)
@@ -81,7 +84,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         }
 
         @OnClick(R.id.element_category_layout)
-        public void openCategory(View v) {
+        void openCategory(View v) {
             Toast.makeText(ctx.getContext(), "Abrindo activity...", Toast.LENGTH_SHORT).show();
         }
     }

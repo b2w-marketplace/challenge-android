@@ -9,6 +9,8 @@ import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
 import com.abmm.b2w.alodjinha.http_module.LodjinhaApiClient;
 import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.model.Category;
+import com.abmm.b2w.alodjinha.model.Product;
+import com.abmm.b2w.alodjinha.utils.Constants.General;
 
 import java.util.List;
 
@@ -16,17 +18,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.abmm.b2w.alodjinha.utils.Constants.General.FIRST_POSITION;
-
 public class MainPresenterImpl implements IMainPresenter {
 
-    private IMainView mainView;
+    private final IMainView mainView;
 
     private List<Category> categoryList;
-    private List<Banner> bannersList;
+    private List<Banner> bannerList;
+    private List<Product> productList;
     private int currentBannerPosition;
 
-    ILodjinhaApi api = LodjinhaApiClient.buildApiClient();
+    private final ILodjinhaApi api = LodjinhaApiClient.buildApiClient();
 
     MainPresenterImpl(IMainView mainView) {
         this.mainView = mainView;
@@ -48,8 +49,8 @@ public class MainPresenterImpl implements IMainPresenter {
     }
 
     @Override
-    public List<Banner> getBannerList() {
-        return this.bannersList;
+    public void requestTopSellers() {
+        api.getTopSeller().enqueue(handleTopSellersCallback());
     }
 
     @Override
@@ -64,26 +65,26 @@ public class MainPresenterImpl implements IMainPresenter {
 
     @Override
     public void deactiveAll() {
-        for (int i = 0; i < bannersList.size(); i++) {
-            bannersList.get(i).setActiveOFF();
-            bannersList.get(i).setPosition(i);
+        for (int i = 0; i < bannerList.size(); i++) {
+            bannerList.get(i).setActiveOFF();
+            bannerList.get(i).setPosition(i);
         }
     }
 
     @Override
     public void swipeRight() {
-        currentBannerPosition = (currentBannerPosition > FIRST_POSITION
-                                ? currentBannerPosition
-                                : bannersList.size()) - 1;
-        updateData(bannersList.get(currentBannerPosition));
+        currentBannerPosition = (currentBannerPosition > General.FIRST_POSITION
+                ? currentBannerPosition
+                : bannerList.size()) - 1;
+        updateData(bannerList.get(currentBannerPosition));
     }
 
     @Override
     public void swipeLeft() {
-        currentBannerPosition = (currentBannerPosition < bannersList.size() - 1
-                                ? currentBannerPosition + 1
-                                : FIRST_POSITION);
-        mainView.updateData(bannersList.get(currentBannerPosition));
+        currentBannerPosition = (currentBannerPosition < bannerList.size() - 1
+                ? currentBannerPosition + 1
+                : General.FIRST_POSITION);
+        mainView.updateData(bannerList.get(currentBannerPosition));
     }
 
     @Override
@@ -92,8 +93,18 @@ public class MainPresenterImpl implements IMainPresenter {
     }
 
     @Override
+    public List<Banner> getBannerList() {
+        return this.bannerList;
+    }
+
+    @Override
     public List<Category> getCategoryList() {
         return this.categoryList;
+    }
+
+    @Override
+    public List<Product> getProductList() {
+        return this.productList;
     }
 
     @Override
@@ -108,7 +119,7 @@ public class MainPresenterImpl implements IMainPresenter {
             @Override
             public void onResponse(@NonNull Call<Envelope<Banner>> call, @NonNull Response<Envelope<Banner>> response) {
                 if (response.isSuccessful()) {
-                    bannersList = response.body().getData();
+                    bannerList = response.body().getData();
                     mainView.initBanners();
                 } else {
                     // snackbar error connectivity
@@ -141,11 +152,35 @@ public class MainPresenterImpl implements IMainPresenter {
         };
     }
 
+    private Callback<Envelope<Product>> handleTopSellersCallback() {
+        return new Callback<Envelope<Product>>() {
+            @Override
+            public void onResponse(@NonNull Call<Envelope<Product>> call, @NonNull Response<Envelope<Product>> response) {
+                if (response.isSuccessful()) {
+                    productList = response.body().getData();
+                    mainView.initTopSeller();
+                } else {
+                    // show snackbar
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Envelope<Product>> call, @NonNull Throwable t) {
+                // show snackbar
+            }
+        };
+    }
+
     public interface IMainView {
-        void initBanners();
-        void updateData(Banner banner);
-        void initCategories();
         Context getContext();
+
+        void initBanners();
+
+        void initCategories();
+
+        void initTopSeller();
+
+        void updateData(Banner banner);
     }
 
 }

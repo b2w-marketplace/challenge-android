@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 
 public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicatorAdapter.BannerIndicatorVH> {
 
-    private IMainPresenter ctx;
+    private final IMainPresenter ctx;
 
     public BannerIndicatorAdapter(IMainPresenter context) {
         this.ctx = context;

@@ -18,9 +18,9 @@ public abstract class BannerOnSwipeListener implements View.OnTouchListener {
         return gestureDetector.onTouchEvent(event);
     }
 
-    public abstract void onSwipeRight();
+    protected abstract void onSwipeRight();
 
-    public abstract void onSwipeLeft();
+    protected abstract void onSwipeLeft();
 
     private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
 

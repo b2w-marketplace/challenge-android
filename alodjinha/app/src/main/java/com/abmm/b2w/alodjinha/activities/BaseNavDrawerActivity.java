@@ -35,7 +35,7 @@ public abstract class BaseNavDrawerActivity extends BaseActivity implements Navi
     }
 
     protected abstract int getLayout();
-    protected abstract void makeRequests();
+    protected void makeRequests(){}
 
     @Override
     public void onBackPressed() {
@@ -60,7 +60,7 @@ public abstract class BaseNavDrawerActivity extends BaseActivity implements Navi
         navigationView.setItemIconTintList(null);
     }
 
-    protected abstract void setupTopbar();
+    protected void setupTopbar(){}
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
