@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/SimpleLinearLayoutVertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    tools:ignore="RtlHardcoded">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_border">
+
+        <LinearLayout style="@style/SimpleLinearLayoutHorizontal"
+            android:layout_toLeftOf="@id/iv_indicator"
+            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/iv_best_seller_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout style="@style/SimpleLinearLayoutVertical"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_gravity="center_vertical">
+
+                <TextView style="@style/ProductNameTextStyle"
+                        android:id="@+id/tv_best_seller_product"
+                        app:fontFamily="@font/roboto_bold"/>
+
+                <LinearLayout style="@style/SimpleLinearLayoutHorizontal">
+
+                    <TextView style="@style/PriceFromTextStyle"
+                        android:id="@+id/tv_price_from"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        app:fontFamily="@font/roboto_medium"/>
+
+                    <TextView style="@style/PriceToTextStyle"
+                        android:id="@+id/tv_price_to"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        app:fontFamily="@font/roboto_bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/disclosure_indicator"/>
+
+    </RelativeLayout>
+
+    <View style="@style/ViewSeparator"/>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_border">
+
+    <LinearLayout style="@style/SimpleLinearLayoutVertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo_sobre"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/about_app_name_text_size"
+            android:text="@string/app_name"
+            android:textColor="@color/greyish_brown"
+            android:layout_gravity="center_horizontal"
+            app:fontFamily="@font/pacifico_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/SimpleLinearLayoutVertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_border">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/about_developer_name_text_size"
+            android:text="@string/about_activity_developer_name"
+            android:textColor="@color/greyish_brown"
+            android:layout_gravity="center_horizontal"
+            app:fontFamily="@font/roboto_medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/about_date_text_size"
+            android:text="@string/about_activity_date"
+            android:textColor="@color/greyish_brown"
+            android:layout_gravity="center_horizontal"
+            app:fontFamily="@font/roboto_light"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

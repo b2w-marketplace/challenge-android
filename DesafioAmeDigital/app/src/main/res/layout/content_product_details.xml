@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout style="@style/SimpleLinearLayoutVertical">
+
+            <TextView style="@style/ProductNameTextStyle"
+                android:id="@+id/tv_product_name"
+                android:layout_margin="@dimen/margin_border"
+                app:fontFamily="@font/roboto_bold"/>
+
+            <View style="@style/ViewSeparator"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_border">
+
+                <TextView style="@style/PriceFromTextStyle"
+                    android:id="@+id/tv_price_from"
+                    android:layout_centerVertical="true"
+                    app:fontFamily="@font/roboto_medium"/>
+
+                <TextView style="@style/PriceToTextStyle"
+                    android:id="@+id/tv_price_to"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    app:fontFamily="@font/roboto_medium" />
+
+            </RelativeLayout>
+
+            <View style="@style/ViewSeparator"/>
+
+            <LinearLayout style="@style/SimpleLinearLayoutVertical"
+                android:padding="@dimen/margin_border"
+                android:layout_marginBottom="@dimen/margin_floating_action_button_size">
+
+                <TextView style="@style/SessionTextStyle"
+                    android:id="@+id/tv_category"
+                    app:fontFamily="@font/roboto_bold"/>
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_border"
+                    android:textSize="@dimen/product_description_text_size"
+                    android:textColor="@color/dark"
+                    app:fontFamily="@font/roboto_medium"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_reserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleY="1.3"
+        android:scaleX="1.3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_normal"
+        android:background="@color/warm_purple"
+        android:src="@drawable/check_button"/>
+
+</RelativeLayout>

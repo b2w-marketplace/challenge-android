@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout style="@style/SimpleLinearLayoutVertical"
+        android:id="@+id/ll_content"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                app:tabBackground="@drawable/pager_indicator_selector"
+                app:tabIndicatorHeight="0dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout style="@style/SimpleLinearLayoutVertical">
+
+            <TextView style="@style/SessionTextStyle"
+                android:layout_margin="@dimen/margin_border"
+                android:text="@string/home_activity_categories"
+                app:fontFamily="@font/roboto_medium"/>
+
+            <View style="@style/ViewSeparator"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_border"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+
+            <View style="@style/ViewSeparator"
+                android:layout_marginTop="@dimen/margin_border"/>
+
+            <TextView style="@style/SessionTextStyle"
+                    android:layout_margin="@dimen/margin_border"
+                    android:text="@string/home_activity_best_sellers"
+                    app:fontFamily="@font/roboto_medium"/>
+
+            <View style="@style/ViewSeparator"/>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_best_sellers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
