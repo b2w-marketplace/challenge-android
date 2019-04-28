@@ -35,7 +35,7 @@ public class TopSellerAdapter extends RecyclerView.Adapter<TopSellerAdapter.TopS
     @NonNull
     @Override
     public TopSellerVH onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_main_top_seller, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_top_seller, parent, false);
         return new TopSellerVH(v);
     }
 

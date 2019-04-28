@@ -25,7 +25,7 @@ public class BannerIndicatorAdapter extends RecyclerView.Adapter<BannerIndicator
     @NonNull
     @Override
     public BannerIndicatorVH onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_banner_indicator, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_banner_indicator, parent, false);
         return new BannerIndicatorVH(v);
     }
 

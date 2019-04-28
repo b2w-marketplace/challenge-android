@@ -18,6 +18,10 @@
     <!-- Main -->
     <string name="main_category_title">Categorias</string>
     <string name="main_top_selling_title">Mais vendidos</string>
-    <string name="title_activity_product_list">ProductListActivity</string>
+
+    <!-- Product -->
+    <string name="title_activity_product">ProductActivity</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>
