@@ -1,0 +1,154 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\cf40c8a4cf1b8d63b967c46e9fe93aa0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\9097d01c3b2cf938c6b6a7f6f0784e3c\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6dfcbef410d74b509e9b2fd98e421f95\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\654cb3b4af4a0621738c94db14cac783\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\dc38762b4f052b5503eec7ff4107c458\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4de88e73345a49ef6743ce31b719489e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2762fabb4e509f0564dd96941ba960f0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\57da05b50abdc2208268862b7f44c818\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\96546c7f96285b9d1889955bb33ea3b0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca6213164a57d452b9d0e95f39a6534c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ad43cbf5f522dd40d230a6abc11d972\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\d680711098caf33beec07e1dc28998ee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\5f84c565d01576bab57ac5c0d3be7674\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\8af905c135a27787f6321f9d4d98dfa9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ca483c0f1d311b137bd83502dbf07ad\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\0f24b36cc0c82634d4353ddaafd41ab8\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\529711ea1ba3ca02bc11865151c5477d\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca368d2ee582e6756101ae5e19f08578\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6f5fb7604a1145d6776df0a6a4d6bc9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\7e9ef9056333f8cdf74cab6ebf55a1ce\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6867c94648a47ba44f7553bc513c844c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\3fff4252f588eaa11e9a595237709e7a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2f4d8a0cfadd44d09b5b54af395ce31b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6fd4d2b2063c8a20e89502882d2e249\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\f57e0845f13ddc6fcc808c00c1f1bb02\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c0b1a53d17c460368fda906e394b8d11\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\9097d01c3b2cf938c6b6a7f6f0784e3c\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\9097d01c3b2cf938c6b6a7f6f0784e3c\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\0f24b36cc0c82634d4353ddaafd41ab8\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\0f24b36cc0c82634d4353ddaafd41ab8\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.mmart.sidershopping.MainActivity
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\cf40c8a4cf1b8d63b967c46e9fe93aa0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\cf40c8a4cf1b8d63b967c46e9fe93aa0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\9097d01c3b2cf938c6b6a7f6f0784e3c\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\9097d01c3b2cf938c6b6a7f6f0784e3c\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6dfcbef410d74b509e9b2fd98e421f95\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6dfcbef410d74b509e9b2fd98e421f95\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\654cb3b4af4a0621738c94db14cac783\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\654cb3b4af4a0621738c94db14cac783\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\dc38762b4f052b5503eec7ff4107c458\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\dc38762b4f052b5503eec7ff4107c458\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4de88e73345a49ef6743ce31b719489e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4de88e73345a49ef6743ce31b719489e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2762fabb4e509f0564dd96941ba960f0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2762fabb4e509f0564dd96941ba960f0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\57da05b50abdc2208268862b7f44c818\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\57da05b50abdc2208268862b7f44c818\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\96546c7f96285b9d1889955bb33ea3b0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\96546c7f96285b9d1889955bb33ea3b0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca6213164a57d452b9d0e95f39a6534c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca6213164a57d452b9d0e95f39a6534c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ad43cbf5f522dd40d230a6abc11d972\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ad43cbf5f522dd40d230a6abc11d972\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\d680711098caf33beec07e1dc28998ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\d680711098caf33beec07e1dc28998ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\5f84c565d01576bab57ac5c0d3be7674\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\5f84c565d01576bab57ac5c0d3be7674\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\8af905c135a27787f6321f9d4d98dfa9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\8af905c135a27787f6321f9d4d98dfa9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ca483c0f1d311b137bd83502dbf07ad\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\4ca483c0f1d311b137bd83502dbf07ad\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\668b64bcf88c28062ccc755e3652c1e7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\0f24b36cc0c82634d4353ddaafd41ab8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\0f24b36cc0c82634d4353ddaafd41ab8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\529711ea1ba3ca02bc11865151c5477d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\529711ea1ba3ca02bc11865151c5477d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca368d2ee582e6756101ae5e19f08578\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\ca368d2ee582e6756101ae5e19f08578\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6f5fb7604a1145d6776df0a6a4d6bc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6f5fb7604a1145d6776df0a6a4d6bc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\7e9ef9056333f8cdf74cab6ebf55a1ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\7e9ef9056333f8cdf74cab6ebf55a1ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6867c94648a47ba44f7553bc513c844c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\6867c94648a47ba44f7553bc513c844c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\3fff4252f588eaa11e9a595237709e7a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\3fff4252f588eaa11e9a595237709e7a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2f4d8a0cfadd44d09b5b54af395ce31b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\2f4d8a0cfadd44d09b5b54af395ce31b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6fd4d2b2063c8a20e89502882d2e249\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c6fd4d2b2063c8a20e89502882d2e249\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\f57e0845f13ddc6fcc808c00c1f1bb02\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\f57e0845f13ddc6fcc808c00c1f1bb02\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c0b1a53d17c460368fda906e394b8d11\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\mmart\.gradle\caches\transforms-2\files-2.1\c0b1a53d17c460368fda906e394b8d11\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\mmart\Projetos\challenge-android\sider-shopping\app\src\main\AndroidManifest.xml
