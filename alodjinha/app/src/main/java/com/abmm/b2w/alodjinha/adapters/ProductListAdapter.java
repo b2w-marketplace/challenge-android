@@ -28,18 +28,21 @@ public class ProductListAdapter extends RecyclerView.Adapter {
 
     // The minimum amount of items to have below your current scroll position
     // before loading more.
-    private int visibleThreshold = 5;
+    private int visibleThreshold = 18;
     private int lastVisibleItem, totalItemCount;
     private boolean isLoading;
     private OnLoadMoreListener onLoadMoreListener;
-
 
     public ProductListAdapter(List<Product> list, RecyclerView recyclerView) {
         this.productList = list;
         this.recyclerView = recyclerView;
 
         final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        recyclerView.addOnScrollListener(getScrollListener(linearLayoutManager));
+    }
+
+    private RecyclerView.OnScrollListener getScrollListener(final LinearLayoutManager linearLayoutManager) {
+        return new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -52,9 +55,8 @@ public class ProductListAdapter extends RecyclerView.Adapter {
                     }
                     isLoading = true;
                 }
-
             }
-        });
+        };
     }
 
     @NonNull
@@ -126,7 +128,6 @@ public class ProductListAdapter extends RecyclerView.Adapter {
         recyclerView.setLayoutManager(layoutManagerTemp);
         this.notifyDataSetChanged();
     }
-
 
 
     class LoadingVH extends RecyclerView.ViewHolder {

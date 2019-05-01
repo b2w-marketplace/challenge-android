@@ -11,6 +11,14 @@ public class Constants {
         public static final int EMPTY_LIST = 0;
     }
 
+    public static class Paging {
+        public static final int DEFAULT_FIRST_ELEMENT = 0;
+        public static final int DEFAULT_PAGE_SIZE = 20;
+
+        public static final int VIEW_TYPE_ITEM = 0;
+        public static final int VIEW_TYPE_LOADING = 1;
+    }
+
     public static class Keys {
         public static final String CATEGORY_DATA = "CATEGORY_DATA";
     }

@@ -1,18 +1,24 @@
 package com.abmm.b2w.alodjinha.http_module.paging;
 
 import com.abmm.b2w.alodjinha.model.Product;
+import com.abmm.b2w.alodjinha.utils.Constants.Paging;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagingDataManager{
-
-    private PagedQueryParameters pagedQueryParameters = new PagedQueryParameters();
-    private List<Product> components;
-
-    private PagingDataManager() { this.components = new ArrayList<>(); }
+public class PagingDataManager {
 
     private static PagingDataManager instance;
+
+    private int offset = Paging.DEFAULT_FIRST_ELEMENT;
+    private int limit = Paging.DEFAULT_PAGE_SIZE;
+    private boolean hasMoreData = true;
+
+    private List<Product> components;
+
+    private PagingDataManager() {
+        this.components = new ArrayList<>();
+    }
 
     public static PagingDataManager getInstance() {
         if (instance == null) {
@@ -21,29 +27,55 @@ public class PagingDataManager{
         return instance;
     }
 
-    public List<Product> getComponents() { return components; }
+    public List<Product> getComponents() {
+        return components;
+    }
 
-    public void appendNewItems(List<Product> components) { this.components.addAll(components); }
-
-    public void setComponents(List<Product> components){ this.components = components; }
+    public void appendNewItems(List<Product> components) {
+        this.components.addAll(components);
+    }
 
     public void clearComponents() {
         this.components.clear();
     }
 
-    public boolean updateForNextPage(int currentOffset) {
-        if (currentOffset != pagedQueryParameters.getPage()) {
-            pagedQueryParameters.incrementToNextPage();
-            return true;
+    public void updateForNextPage(int lastRequestSize) {
+        if (lastRequestSize != 0) {
+            incrementToNextOffset();
+        } else {
+            setHasMoreDataOFF();
         }
-        pagedQueryParameters.setHasMoreData(false);
-        return false;
     }
 
-    public PagedQueryParameters getPagedQueryParameters() { return pagedQueryParameters; }
+    public void destroyerComponentManager() {
+        instance = null;
+    }
 
-    public int getNextPage() { return pagedQueryParameters.getPage(); }
+    public int getOffset() {
+        return offset;
+    }
 
-    public void destroyerComponentManager() { instance = null; }
+    public int getLimit() {
+        return limit;
+    }
+
+    public void incrementToNextOffset() {
+        this.offset = limit;
+        this.limit += Paging.DEFAULT_PAGE_SIZE;
+    }
+
+    public boolean hasMoreData() {
+        return hasMoreData;
+    }
+
+    public void setHasMoreDataOFF() {
+        this.hasMoreData = false;
+    }
+
+    public void resetQueryParameters() {
+        this.offset = Paging.DEFAULT_FIRST_ELEMENT;
+        this.limit = Paging.DEFAULT_PAGE_SIZE;
+        hasMoreData = true;
+    }
 
 }

@@ -52,7 +52,7 @@ public class ProductListActivity extends BaseAppCompatActivity implements OnLoad
 
         listDataManager = PagingDataManager.getInstance();
         listDataManager.clearComponents();
-        listDataManager.getPagedQueryParameters().resetQueryParameters();
+        listDataManager.resetQueryParameters();
 
         mProductsRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -79,11 +79,11 @@ public class ProductListActivity extends BaseAppCompatActivity implements OnLoad
     private Handler handler = new Handler();
 
     private void loadNextPage() {
-        if (listDataManager.getPagedQueryParameters().hasMoreData()) {
+        if (listDataManager.hasMoreData()) {
             Map<String, Integer> queryMap = new HashMap<>();
 
-            queryMap.put("offset", listDataManager.getNextPage());
-            queryMap.put("limit", 20);
+            queryMap.put("offset", listDataManager.getOffset());
+            queryMap.put("limit", listDataManager.getLimit());
             queryMap.put("categoriaId", mCategory.getId());
 
             api.getProducts(queryMap).enqueue(handleProductsCallback());
@@ -101,7 +101,7 @@ public class ProductListActivity extends BaseAppCompatActivity implements OnLoad
             }
 
             @Override
-            public void onFailure(Call<Envelope<Product>> call, Throwable t) {
+            public void onFailure(@NonNull Call<Envelope<Product>> call, @NonNull Throwable t) {
 
             }
         };
@@ -109,7 +109,7 @@ public class ProductListActivity extends BaseAppCompatActivity implements OnLoad
 
     @Override
     public void onLoadMore() {
-        if (listDataManager.getComponents().size() <= listDataManager.getComponents().size() + 15) {
+        if (listDataManager.getComponents().size() <= listDataManager.getComponents().size() + 3) {
             mAdapter.setNewItem(null);
             handler.post(new Runnable() {
                 @Override
@@ -130,7 +130,8 @@ public class ProductListActivity extends BaseAppCompatActivity implements OnLoad
         removeLastItem();
         listDataManager.appendNewItems(pagedResult.getData());
         mAdapter.setNewItems(forceReload);
-        listDataManager.updateForNextPage(pagedResult.getOffset());
+
+        listDataManager.updateForNextPage(pagedResult.getData().size());
         forceReload = false;
     }
 
