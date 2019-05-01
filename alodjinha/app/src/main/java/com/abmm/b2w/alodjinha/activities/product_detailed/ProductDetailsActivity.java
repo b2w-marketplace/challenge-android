@@ -1,10 +1,10 @@
-package com.abmm.b2w.alodjinha.activities.product;
+package com.abmm.b2w.alodjinha.activities.product_detailed;
 
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseAppCompatActivity;
 import com.abmm.b2w.alodjinha.model.Product;
 
-public class ProductActivity extends BaseAppCompatActivity {
+public class ProductDetailsActivity extends BaseAppCompatActivity {
 
     private Product mProduct;
 

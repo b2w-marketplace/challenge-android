@@ -10,23 +10,23 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/element_main_topseller_image"
+        android:id="@+id/element_product_image"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="0.18"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/element_main_topseller_description_txt"
+        app:layout_constraintRight_toLeftOf="@+id/element_product_description_txt"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_menu" />
 
     <TextView
-        android:id="@+id/element_main_topseller_description_txt"
+        android:id="@+id/element_product_description_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -36,12 +36,12 @@
         android:textColor="@color/greyish_brown"
         android:textSize="18sp"
         app:layout_constraintHorizontal_weight="0.77"
-        app:layout_constraintLeft_toRightOf="@+id/element_main_topseller_image"
-        app:layout_constraintRight_toLeftOf="@id/element_main_topseller_arrow"
+        app:layout_constraintLeft_toRightOf="@+id/element_product_image"
+        app:layout_constraintRight_toLeftOf="@id/element_product_arrow"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/element_main_topseller_originalprice_txt"
+        android:id="@+id/element_product_originalprice_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -49,11 +49,11 @@
         android:textColor="@color/greyish"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/element_main_topseller_description_txt"
-        app:layout_constraintTop_toBottomOf="@+id/element_main_topseller_description_txt" />
+        app:layout_constraintLeft_toLeftOf="@+id/element_product_description_txt"
+        app:layout_constraintTop_toBottomOf="@+id/element_product_description_txt" />
 
     <TextView
-        android:id="@+id/element_main_topseller_sellingprice_txt"
+        android:id="@+id/element_product_sellingprice_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -62,17 +62,17 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/element_main_topseller_description_txt"
-        app:layout_constraintTop_toBottomOf="@+id/element_main_topseller_description_txt" />
+        app:layout_constraintRight_toRightOf="@+id/element_product_description_txt"
+        app:layout_constraintTop_toBottomOf="@+id/element_product_description_txt" />
 
     <ImageView
-        android:id="@+id/element_main_topseller_arrow"
+        android:id="@+id/element_product_arrow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="0.05"
-        app:layout_constraintLeft_toRightOf="@+id/element_main_topseller_description_txt"
+        app:layout_constraintLeft_toRightOf="@+id/element_product_description_txt"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/disclosure_indicator" />

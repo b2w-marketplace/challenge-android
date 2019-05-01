@@ -22,6 +22,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         initUi();
+        loadData();
         makeRequests();
     }
 
@@ -38,5 +39,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     protected abstract int getLayout();
     protected abstract void initUi();
 
+    protected void loadData() {}
     protected void makeRequests() {}
 }

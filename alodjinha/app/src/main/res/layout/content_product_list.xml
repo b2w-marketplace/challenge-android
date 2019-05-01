@@ -8,4 +8,17 @@
     tools:context=".activities.product_list.ProductListActivity"
     tools:showIn="@layout/activity_product_list">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/products_list_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:clipToPadding="false"
+        android:fadeScrollbars="false"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
 </android.support.constraint.ConstraintLayout>
