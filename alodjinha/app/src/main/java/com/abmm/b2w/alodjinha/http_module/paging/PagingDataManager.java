@@ -59,7 +59,7 @@ public class PagingDataManager {
         return limit;
     }
 
-    public void incrementToNextOffset() {
+    private void incrementToNextOffset() {
         this.offset = limit;
         this.limit += Paging.DEFAULT_PAGE_SIZE;
     }
@@ -68,7 +68,7 @@ public class PagingDataManager {
         return hasMoreData;
     }
 
-    public void setHasMoreDataOFF() {
+    private void setHasMoreDataOFF() {
         this.hasMoreData = false;
     }
 

@@ -25,7 +25,7 @@ public class ProductVH extends RecyclerView.ViewHolder {
     @BindView(R.id.element_product_sellingprice_txt) TextView mSellingPrice;
     @BindView(R.id.element_product_image) ImageView mProductImage;
 
-    final View view;
+    private final View view;
 
     private NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
@@ -48,7 +48,7 @@ public class ProductVH extends RecyclerView.ViewHolder {
         setImage(element);
     }
 
-    void setImage(Product item) {
+    private void setImage(Product item) {
         Glide.with(view)
                 .load(item.getPictUrl())
                 .apply(new RequestOptions()

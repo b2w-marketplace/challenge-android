@@ -17,7 +17,7 @@ public interface IMainPresenter {
 
     List<Banner> getBannerList();
     List<Category> getCategoryList();
-    List<Product> getProductList();
+    List<Product> getTopSellersList();
 
     int getCurrentBannerPosition();
     void setCurrentBannerPosition(int position);

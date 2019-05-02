@@ -103,7 +103,7 @@ public class MainPresenterImpl implements IMainPresenter {
     }
 
     @Override
-    public List<Product> getProductList() {
+    public List<Product> getTopSellersList() {
         return this.productList;
     }
 

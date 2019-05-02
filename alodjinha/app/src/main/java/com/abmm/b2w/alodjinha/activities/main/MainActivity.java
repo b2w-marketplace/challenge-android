@@ -1,9 +1,13 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseNavDrawerActivity;
@@ -17,6 +21,9 @@ import com.abmm.b2w.alodjinha.utils.DividerItemDecoration;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.BindView;
 
 public class MainActivity extends BaseNavDrawerActivity implements MainPresenterImpl.IMainView {
@@ -29,6 +36,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     private IMainPresenter presenter;
 
     private BannerIndicatorAdapter mBannerAdapter;
+    private Timer timerCounter = new Timer();
 
     @Override
     protected int getLayout() {
@@ -58,6 +66,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
 
         mBannerCarousel.setLayoutManager(layoutManager);
         mBannerCarousel.setAdapter(mBannerAdapter);
+        startBannerTimerCarousel();
     }
 
     @Override
@@ -87,6 +96,28 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         super.initUi();
         presenter = new MainPresenterImpl(this);
         mBannerImg.setOnTouchListener(getSwipeGesture());
+        mBannerImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "hahahah", Toast.LENGTH_SHORT).show();
+                String url = "https://www.submarino.com.br";
+
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_VIEW);
+                //intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+    }
+
+    @Override
+    public void updateData(Banner banner) {
+        presenter.resetData(banner);
+
+        loadBannerImage(banner.getPictUrl());
+        mBannerAdapter.notifyDataSetChanged();
+        mBannerCarousel.invalidateItemDecorations();
     }
 
     private BannerOnSwipeListener getSwipeGesture() {
@@ -97,15 +128,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
             @Override
             public void onSwipeLeft() { presenter.swipeLeft(); }
         };
-    }
-
-    @Override
-    public void updateData(Banner banner) {
-        presenter.resetData(banner);
-
-        loadBannerImage(banner.getPictUrl());
-        mBannerAdapter.notifyDataSetChanged();
-        mBannerCarousel.invalidateItemDecorations();
     }
 
     private void loadBannerImage(String pictUrl) {
@@ -120,5 +142,19 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
                 .into(mBannerImg);
 
         mBannerImg.getLayoutParams().height = defaultBannerHeight;
+    }
+
+    private void startBannerTimerCarousel() {
+        timerCounter.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        presenter.swipeLeft();
+                    }
+                });
+            }
+        }, General.BANNER_DURATION_TIMER, General.BANNER_DURATION_TIMER);
     }
 }

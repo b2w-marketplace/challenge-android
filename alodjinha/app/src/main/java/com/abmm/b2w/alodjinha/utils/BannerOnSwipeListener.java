@@ -39,15 +39,16 @@ public abstract class BannerOnSwipeListener implements View.OnTouchListener {
                 float diffY = e2.getY() - e1.getY();
                 float diffX = e2.getX() - e1.getX();
 
-                if (Math.abs(diffX) > Math.abs(diffY)) {
-                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
-                        if (diffX > 0) {
-                            onSwipeRight();
-                        } else {
-                            onSwipeLeft();
-                        }
-                        result = true;
+                if (Math.abs(diffX) > Math.abs(diffY)
+                        && Math.abs(diffX) > SWIPE_THRESHOLD
+                        && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffX > 0) {
+                        onSwipeRight();
+                    } else {
+                        onSwipeLeft();
                     }
+                    result = true;
+
                 }
             } catch (Exception exception) {
                 exception.printStackTrace();

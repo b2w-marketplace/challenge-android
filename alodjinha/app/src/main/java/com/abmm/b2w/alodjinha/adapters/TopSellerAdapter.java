@@ -29,16 +29,16 @@ public class TopSellerAdapter extends RecyclerView.Adapter<ProductVH> {
 
     @Override
     public void onBindViewHolder(@NonNull ProductVH holder, int position) {
-        final Product element = ctx.getProductList().get(position);
+        final Product element = ctx.getTopSellersList().get(position);
         holder.bind(element);
     }
 
     @Override
     public int getItemCount() {
-        if (ctx.getProductList() == null) {
+        if (ctx.getTopSellersList() == null) {
             return General.EMPTY_LIST;
         }
-        return ctx.getProductList().size();
+        return ctx.getTopSellersList().size();
     }
 
 }

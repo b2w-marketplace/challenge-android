@@ -9,14 +9,13 @@ public class Constants {
     public static class General {
         public static final int FIRST_POSITION = 0;
         public static final int EMPTY_LIST = 0;
+
+        public static final int BANNER_DURATION_TIMER = 5000; // 5 secs
     }
 
     public static class Paging {
         public static final int DEFAULT_FIRST_ELEMENT = 0;
         public static final int DEFAULT_PAGE_SIZE = 20;
-
-        public static final int VIEW_TYPE_ITEM = 0;
-        public static final int VIEW_TYPE_LOADING = 1;
     }
 
     public static class Keys {

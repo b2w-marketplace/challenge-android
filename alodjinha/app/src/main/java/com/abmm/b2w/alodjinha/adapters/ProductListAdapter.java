@@ -9,11 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.abmm.b2w.alodjinha.R;
+import com.abmm.b2w.alodjinha.activities.product_list.IProductListPresenter;
 import com.abmm.b2w.alodjinha.adapters.helper.ProductVH;
 import com.abmm.b2w.alodjinha.http_module.paging.OnLoadMoreListener;
 import com.abmm.b2w.alodjinha.model.Product;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +22,7 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     private final int VIEW_TYPE_ITEM = 0;
     private final int VIEW_TYPE_LOADING = 1;
 
-    private List<Product> productList;
-    private RecyclerView recyclerView;
+    private IProductListPresenter ctx;
 
     // The minimum amount of items to have below your current scroll position
     // before loading more.
@@ -33,12 +31,12 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     private boolean isLoading;
     private OnLoadMoreListener onLoadMoreListener;
 
-    public ProductListAdapter(List<Product> list, RecyclerView recyclerView) {
-        this.productList = list;
-        this.recyclerView = recyclerView;
+    public ProductListAdapter(IProductListPresenter context) {
+        this.ctx = context;
 
-        final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        recyclerView.addOnScrollListener(getScrollListener(linearLayoutManager));
+
+        final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) ctx.getRecyclerView().getLayoutManager();
+        ctx.getRecyclerView().addOnScrollListener(getScrollListener(linearLayoutManager));
     }
 
     private RecyclerView.OnScrollListener getScrollListener(final LinearLayoutManager linearLayoutManager) {
@@ -76,7 +74,7 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder instanceof ProductVH) {
-            final Product product = productList.get(i);
+            final Product product = ctx.getProductList().get(i);
             ((ProductVH) viewHolder).bind(product);
         } else if (viewHolder instanceof LoadingVH) {
             ((LoadingVH) viewHolder).progressBar.setIndeterminate(true);
@@ -85,16 +83,12 @@ public class ProductListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return ctx.getProductList().size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return productList.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
-    }
-
-    public void setLoaded() {
-        isLoading = false;
+        return ctx.getProductList().get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
     }
 
     public void setOnLoadMoreListener(OnLoadMoreListener mOnLoadMoreListener) {
@@ -102,13 +96,13 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     }
 
     public void setNewItem(Product newItem) {
-        productList.add(newItem);
-        notifyItemInserted(productList.size() - 1);
+        ctx.getProductList().add(newItem);
+        notifyItemInserted(ctx.getProductList().size() - 1);
     }
 
     public void removeLastItem() {
-        productList.remove(productList.size() - 1);
-        notifyItemRemoved(productList.size());
+        ctx.getProductList().remove(ctx.getProductList().size() - 1);
+        notifyItemRemoved(ctx.getProductList().size());
     }
 
     public void setNewItems(boolean forceReload) {
@@ -117,15 +111,15 @@ public class ProductListAdapter extends RecyclerView.Adapter {
         } else {
             notifyDataSetChanged();
         }
-        setLoaded();
+        isLoading = false;
     }
 
     private void forceReload() {
-        RecyclerView.LayoutManager layoutManagerTemp = recyclerView.getLayoutManager();
-        recyclerView.setAdapter(null);
-        recyclerView.setLayoutManager(null);
-        recyclerView.setAdapter(this);
-        recyclerView.setLayoutManager(layoutManagerTemp);
+        RecyclerView.LayoutManager layoutManagerTemp = ctx.getRecyclerView().getLayoutManager();
+        ctx.getRecyclerView().setAdapter(null);
+        ctx.getRecyclerView().setLayoutManager(null);
+        ctx.getRecyclerView().setAdapter(this);
+        ctx.getRecyclerView().setLayoutManager(layoutManagerTemp);
         this.notifyDataSetChanged();
     }
 
