@@ -1,37 +1,42 @@
 package com.abmm.b2w.alodjinha.model;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Product {
 
     @Expose
     @SerializedName("id")
-    private int id;
+    int id;
 
     @Expose
     @SerializedName("nome")
-    private String name;
+    String name;
 
     @Expose
     @SerializedName("urlImagem")
-    private String pictUrl;
+    String pictUrl;
 
     @Expose
     @SerializedName("descricao")
-    private String description;
+    String description;
 
     @Expose
     @SerializedName("precoDe")
-    private double originalPrice;
+    double originalPrice;
 
     @Expose
     @SerializedName("precoPor")
-    private double sellingPrice;
+    double sellingPrice;
 
     @Expose
     @SerializedName("categoria")
-    private Category category;
+    Category category;
 
     /* Getters */
     public int getId() { return id; }
@@ -62,4 +67,18 @@ public class Product {
     public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice; }
 
     public void setCategory(Category category) { this.category = category; }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + this.id +
+                ", name=" + this.name +
+                ", pictUrl=" + this.pictUrl +
+                ", description=" + this.description +
+                ", originalPrice=" + this.originalPrice +
+                ", sellingPrice=" + this.sellingPrice +
+                ", category=" + this.category +
+                "}";
+    }
 }

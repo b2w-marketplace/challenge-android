@@ -1,5 +1,7 @@
 package com.abmm.b2w.alodjinha.model;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -54,4 +56,15 @@ public class Banner {
     public void setActiveON() { isActive = true; }
 
     public void setActiveOFF() { this.isActive = false; }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Banner{" +
+                "id=" + this.id +
+                ", pictUrl=" + this.pictUrl +
+                ", linkUrl=" + this.linkUrl +
+                ", isActive=" + this.isActive +
+                "";
+    }
 }

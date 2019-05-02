@@ -17,6 +17,10 @@ public class LodjinhaApp extends Application {
 
     public static LodjinhaApp getInstance() { return appInstance; }
 
+    public <T> void callActivity(Class<T> internalActivity) {
+        this.callActivity(internalActivity, null);
+    }
+
     public <T> void callActivity(Class<T> internalActivity, Bundle extras) {
         Intent intent = new Intent(this, internalActivity);
         if (null != extras) {

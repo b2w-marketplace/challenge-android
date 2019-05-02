@@ -1,21 +1,18 @@
 package com.abmm.b2w.alodjinha.activities;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.abmm.b2w.alodjinha.LodjinhaApp;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.about.AboutActivity;
 import com.abmm.b2w.alodjinha.activities.main.MainActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public abstract class BaseNavDrawerActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,20 +49,19 @@ public abstract class BaseNavDrawerActivity extends BaseAppCompatActivity implem
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        Class nextClass;
+        Class nextActivity;
         switch (item.getItemId()) {
             default:
             case R.id.nav_home:
-                nextClass = MainActivity.class;
+                nextActivity = MainActivity.class;
                 break;
 
             case R.id.nav_about:
-                nextClass = AboutActivity.class;
+                nextActivity = AboutActivity.class;
                 break;
         }
 
-        Intent nextActivity = new Intent(this, nextClass);
-        startActivity(nextActivity);
+        LodjinhaApp.getInstance().callActivity(nextActivity);
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

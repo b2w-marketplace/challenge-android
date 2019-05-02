@@ -1,5 +1,7 @@
 package com.abmm.b2w.alodjinha.model;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -33,4 +35,14 @@ public class Category {
     public void setDescription(String description) { this.description = description; }
 
     public void setPictUrl(String pictUrl) { this.pictUrl = pictUrl; }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + this.id +
+                ", description=" + this.description +
+                ", pictUrl=" + this.pictUrl +
+                "";
+    }
 }

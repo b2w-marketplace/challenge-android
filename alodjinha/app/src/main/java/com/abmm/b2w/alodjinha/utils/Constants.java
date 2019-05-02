@@ -20,6 +20,7 @@ public class Constants {
 
     public static class Keys {
         public static final String CATEGORY_DATA = "CATEGORY_DATA";
+        public static final String PRODUCT_DATA = "PRODUCT_DATA";
     }
 
 }
