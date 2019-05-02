@@ -42,7 +42,7 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     private RecyclerView.OnScrollListener getScrollListener(final LinearLayoutManager linearLayoutManager) {
         return new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 totalItemCount = linearLayoutManager.getItemCount();
                 lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();

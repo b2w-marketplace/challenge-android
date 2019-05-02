@@ -63,8 +63,7 @@ public class MainPresenterImpl implements IMainPresenter {
         this.currentBannerPosition = position;
     }
 
-    @Override
-    public void deactiveAll() {
+    private void deactiveAll() {
         for (int i = 0; i < bannerList.size(); i++) {
             bannerList.get(i).setActiveOFF();
             bannerList.get(i).setPosition(i);
@@ -122,7 +121,7 @@ public class MainPresenterImpl implements IMainPresenter {
                     bannerList = response.body().getData();
                     mainView.initBanners();
                 } else {
-                    // snackbar error connectivity
+                    mainView.showError(response.code());
                 }
             }
 
@@ -141,7 +140,7 @@ public class MainPresenterImpl implements IMainPresenter {
                     categoryList = response.body().getData();
                     mainView.initCategories();
                 } else {
-                    // show snackbar error
+                    mainView.showError(response.code());
                 }
             }
 
@@ -160,7 +159,7 @@ public class MainPresenterImpl implements IMainPresenter {
                     productList = response.body().getData();
                     mainView.initTopSeller();
                 } else {
-                    // show snackbar
+                    mainView.showError(response.code());
                 }
             }
 
@@ -181,6 +180,8 @@ public class MainPresenterImpl implements IMainPresenter {
         void initTopSeller();
 
         void updateData(Banner banner);
+
+        void showError(int code);
     }
 
 }

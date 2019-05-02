@@ -21,7 +21,6 @@ public interface IMainPresenter {
 
     int getCurrentBannerPosition();
     void setCurrentBannerPosition(int position);
-    void deactiveAll();
 
     void swipeRight();
     void swipeLeft();

@@ -47,7 +47,7 @@ public class PagingDataManager {
         }
     }
 
-    public void destroyerComponentManager() {
+    public void destroyComponentManager() {
         instance = null;
     }
 

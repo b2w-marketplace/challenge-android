@@ -96,19 +96,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         super.initUi();
         presenter = new MainPresenterImpl(this);
         mBannerImg.setOnTouchListener(getSwipeGesture());
-        mBannerImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "hahahah", Toast.LENGTH_SHORT).show();
-                String url = "https://www.submarino.com.br";
-
-                Intent i = new Intent();
-                i.setAction(Intent.ACTION_VIEW);
-                //intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -118,6 +105,11 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         loadBannerImage(banner.getPictUrl());
         mBannerAdapter.notifyDataSetChanged();
         mBannerCarousel.invalidateItemDecorations();
+    }
+
+    @Override
+    public void showError(int code) {
+        Toast.makeText(this, "code="+ code, Toast.LENGTH_SHORT).show();
     }
 
     private BannerOnSwipeListener getSwipeGesture() {
