@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="br.com.amedigital.challenge_android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+            android:name=".ChallengeAndroidApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/logo_navbar"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/logo_navbar"
+            android:supportsRtl="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        <activity android:name=".view.ui.home.HomeActivity"
+                  android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".view.ui.about_app.AboutAppActivity"
+                  android:label="@string/about_app"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.ui.categoria.CategoriaActivity"
+                  android:label="@string/categorie"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".view.ui.product_detail.ProductDetailActivity"
+                  android:label="@string/produto"
+                  android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>

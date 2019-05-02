@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="warm_purple">#5e2a84</color>
+    <color name="tomato">#f15025</color>
+    <color name="greyish">#aaaaaa</color>
+    <color name="dark">#2d3142</color>
+    <color name="greyish_brown">#4a4a4a</color>
+    <color name="white">#4a4a4a</color>
+    <color name="white_two">#fcfcfc</color>
+</resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical">
+
+    <include
+            layout="@layout/app_bar_about_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <ImageView
+                android:id="@+id/productImageDeail"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:src="@mipmap/logo_sobre"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/productTitleDetail"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+                android:id="@+id/productTitleDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prod_title"
+                android:layout_margin="12dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:maxLength="20"
+                app:layout_constraintTop_toBottomOf="@id/productImageDeail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+                android:id="@+id/productTitleSeparatorDetail"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greyish"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/productTitleDetail"/>
+
+        <TextView
+                android:id="@+id/productValueFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/produto"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintTop_toBottomOf="@id/productTitleSeparatorDetail"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+                android:id="@+id/productValueBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:textColor="@color/tomato"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintTop_toBottomOf="@id/productTitleSeparatorDetail"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+                android:id="@+id/productValueSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greyish"
+                app:layout_constraintTop_toBottomOf="@id/productValueFrom"
+                app:layout_constraintBottom_toTopOf="@id/productNameDetail"/>
+
+        <TextView
+                android:id="@+id/productNameDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mais_vendidos"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/productValueSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/productDescription"/>
+
+        <TextView
+                android:id="@+id/productDescription"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="@string/mais_vendidos"
+                android:layout_marginStart="14dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:maxLength="100"
+                app:layout_constraintTop_toBottomOf="@id/productNameDetail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:layout_margin="18dp"
+                android:src="@mipmap/check_button"
+                app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

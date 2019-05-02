@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">a Lodjinha</string>
+    <string name="home">Home</string>
+    <string name="about">Sobre</string>
+    <string name="about_app">Sobre o aplicativo</string>
+    <string name="app_date">29 de abril de 2019</string>
+    <string name="dev_name">Victor Machado da Costa Oliveira</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="categories">Categorias</string>
+    <string name="prod_title">Título Produto</string>
+    <string name="categorie">Categoria</string>
+    <string name="produto">Produto</string>
+    <string name="mais_vendidos">Mais Vendidos</string>
+    <string name="descricao">Nome do produto com uma descrição grandona</string>
+    <string name="preco_original">De: 9999,99</string>
+    <string name="preco_atual">Por 9999,98</string>
+</resources>

@@ -1,0 +1,3 @@
+package br.com.amedigital.challenge_android.models
+
+interface NetworkResponseModel
