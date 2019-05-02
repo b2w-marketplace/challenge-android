@@ -13,15 +13,15 @@
     <string name="title_activity_about">sobre</string>
     <string name="about_app_name">@string/app_name</string>
     <string name="about_dev_name">Alexandre Bruno de Macedo Medeiros</string>
-    <string name="about_date">14 de abril de 2019</string>
+    <string name="about_date">02 de maio de 2019</string>
 
     <!-- Main -->
     <string name="main_category_title">Categorias</string>
     <string name="main_top_selling_title">Mais vendidos</string>
 
     <!-- Product -->
-    <string name="title_activity_product">ProductActivity</string>
+    <string name="product_from">De: %1$s</string>
+    <string name="product_by">Por %1$s</string>
 
-    <string name="action_settings">Settings</string>
 
 </resources>

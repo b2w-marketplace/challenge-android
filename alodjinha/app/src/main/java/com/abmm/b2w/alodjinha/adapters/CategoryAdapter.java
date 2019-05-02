@@ -75,7 +75,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             this.category = item;
 
             setImage(item);
-            mCategory.setText(item.getDescription());
+            mCategory.setText(item.getName());
         }
 
         void setImage(Category item) {
@@ -89,7 +89,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         @OnLongClick(R.id.element_category_layout)
         boolean showElementName() {
-            Toast.makeText(ctx.getContext(),category.getDescription(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ctx.getContext(),category.getName(), Toast.LENGTH_SHORT).show();
             return true;
         }
 

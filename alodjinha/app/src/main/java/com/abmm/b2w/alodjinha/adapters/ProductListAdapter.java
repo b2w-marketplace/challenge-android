@@ -34,7 +34,6 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     public ProductListAdapter(IProductListPresenter context) {
         this.ctx = context;
 
-
         final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) ctx.getRecyclerView().getLayoutManager();
         ctx.getRecyclerView().addOnScrollListener(getScrollListener(linearLayoutManager));
     }
@@ -61,8 +60,8 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         if (viewType == VIEW_TYPE_ITEM) {
-            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_product, viewGroup, false);
-            return new ProductVH(v);
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_product, viewGroup, false);
+            return new ProductVH(view);
         } else if (viewType == VIEW_TYPE_LOADING) {
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_loading, viewGroup, false);
             return new LoadingVH(view);

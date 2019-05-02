@@ -16,7 +16,7 @@ public class Category {
 
     @Expose
     @SerializedName("descricao")
-    String description;
+    String name;
 
     @Expose
     @SerializedName("urlImagem")
@@ -25,14 +25,14 @@ public class Category {
     /* Getters */
     public int getId() { return id; }
 
-    public String getDescription() { return description; }
+    public String getName() { return name; }
 
     public String getPictUrl() { return pictUrl; }
 
     /* Setters */
     public void setId(int id) { this.id = id; }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setName(String name) { this.name = name; }
 
     public void setPictUrl(String pictUrl) { this.pictUrl = pictUrl; }
 
@@ -41,7 +41,7 @@ public class Category {
     public String toString() {
         return "Category{" +
                 "id=" + this.id +
-                ", description=" + this.description +
+                ", name=" + this.name +
                 ", pictUrl=" + this.pictUrl +
                 "";
     }

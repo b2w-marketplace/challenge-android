@@ -18,9 +18,6 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.parceler.Parcels;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -38,8 +35,6 @@ public class ProductVH extends RecyclerView.ViewHolder {
     private final View view;
     private Product mProduct;
 
-    private NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-
     public ProductVH(@NonNull View view) {
         super(view);
         ButterKnife.bind(this, view);
@@ -50,11 +45,11 @@ public class ProductVH extends RecyclerView.ViewHolder {
         this.mProduct = element;
         mDescription.setText(element.getDescription());
 
-        String originalPrice = currencyFormatter.format(element.getOriginalPrice());
+        String originalPrice = element.getOriginalPriceFormatted();
         mOriginalPrice.setText(originalPrice);
         mOriginalPrice.setPaintFlags(mOriginalPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        String sellingPrice = currencyFormatter.format(element.getSellingPrice());
+        String sellingPrice = element.getSellingPriceFormatted();
         mSellingPrice.setText(sellingPrice);
 
         setImage(element);

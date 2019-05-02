@@ -1,11 +1,8 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -36,7 +33,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     private IMainPresenter presenter;
 
     private BannerIndicatorAdapter mBannerAdapter;
-    private Timer timerCounter = new Timer();
 
     @Override
     protected int getLayout() {
@@ -137,7 +133,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     }
 
     private void startBannerTimerCarousel() {
-        timerCounter.scheduleAtFixedRate(new TimerTask() {
+        new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 runOnUiThread(new Runnable() {

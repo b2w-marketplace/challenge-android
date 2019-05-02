@@ -7,6 +7,9 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 @Parcel
 public class Product {
 
@@ -39,34 +42,74 @@ public class Product {
     Category category;
 
     /* Getters */
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public String getPictUrl() { return pictUrl; }
+    public String getPictUrl() {
+        return pictUrl;
+    }
 
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public double getOriginalPrice() { return originalPrice; }
+    public double getOriginalPrice() {
+        return originalPrice;
+    }
 
-    public double getSellingPrice() { return sellingPrice; }
+    public double getSellingPrice() {
+        return sellingPrice;
+    }
 
-    public Category getCategory() { return category; }
+    public String getOriginalPriceFormatted() {
+        return formatCurrency(this.originalPrice);
+    }
+
+    public String getSellingPriceFormatted() {
+        return formatCurrency(this.sellingPrice);
+    }
+
+    private String formatCurrency(double price) {
+        return NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(price);
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 
     /* Setters */
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setPictUrl(String pictUrl) { this.pictUrl = pictUrl; }
+    public void setPictUrl(String pictUrl) {
+        this.pictUrl = pictUrl;
+    }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public void setOriginalPrice(double originalPrice) { this.originalPrice = originalPrice; }
+    public void setOriginalPrice(double originalPrice) {
+        this.originalPrice = originalPrice;
+    }
 
-    public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice; }
+    public void setSellingPrice(double sellingPrice) {
+        this.sellingPrice = sellingPrice;
+    }
 
-    public void setCategory(Category category) { this.category = category; }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @NonNull
     @Override
@@ -75,7 +118,7 @@ public class Product {
                 "id=" + this.id +
                 ", name=" + this.name +
                 ", pictUrl=" + this.pictUrl +
-                ", description=" + this.description +
+                ", name=" + this.description +
                 ", originalPrice=" + this.originalPrice +
                 ", sellingPrice=" + this.sellingPrice +
                 ", category=" + this.category +

@@ -38,7 +38,7 @@ public class ProductListActivity extends BaseAppCompatActivity implements Produc
         this.presenter = new ProductListPresenterImpl(this);
         this.presenter.setCategory(category);
 
-        setTitle(category.getDescription());
+        setTitle(category.getName());
 
         mProductsRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
