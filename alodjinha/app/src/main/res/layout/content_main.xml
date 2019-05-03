@@ -28,6 +28,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ProgressBar
+                android:id="@+id/main_banner_pbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/progress_bar_orange"
+                android:padding="12dp" />
+
             <ImageView
                 android:id="@+id/main_banner_img"
                 android:layout_width="match_parent"

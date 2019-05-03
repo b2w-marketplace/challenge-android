@@ -1,12 +1,14 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
-import android.support.v4.widget.NestedScrollView;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +22,11 @@ import com.abmm.b2w.alodjinha.utils.BannerOnSwipeListener;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
 import com.abmm.b2w.alodjinha.utils.DividerItemDecoration;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,6 +42,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     @BindView(R.id.main_categories_title) TextView mCategoriesTxt;
     @BindView(R.id.main_topseller_title) TextView mTopSellerTxt;
     @BindView(R.id.main_banner_carview) CardView mBannerFrame;
+    @BindView(R.id.main_banner_pbar) ProgressBar mBannerPbar;
 
     private IMainPresenter presenter;
     private BannerIndicatorAdapter mBannerAdapter;
@@ -135,10 +142,23 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     private void loadBannerImage(String pictUrl) {
         int defaultBannerHeight = mBannerImg.getLayoutParams().height;
 
+        mBannerPbar.setVisibility(View.VISIBLE);
         Glide.with(this)
                 .load(pictUrl)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        mBannerPbar.setVisibility(View.GONE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        mBannerPbar.setVisibility(View.GONE);
+                        return false;
+                    }
+                })
                 .apply(new RequestOptions()
-                        .placeholder(R.drawable.loading_banner_image)
                         .error(android.R.drawable.ic_dialog_alert)
                 )
                 .into(mBannerImg);

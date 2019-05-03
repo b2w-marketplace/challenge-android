@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
@@ -42,6 +43,7 @@ public class ProductDetailsActivity extends BaseAppCompatActivity {
     @BindView(R.id.product_long_title_txt) TextView mLongTitleTxt;
     @BindView(R.id.product_title_txt) TextView mTitleTxt;
     @BindView(R.id.product_description_txt) TextView mDescriptionTxt;
+    @BindView(R.id.product_details_fab) FloatingActionButton mFabBtn;
 
     private Product mProduct;
 

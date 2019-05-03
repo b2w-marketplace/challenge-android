@@ -1,5 +1,7 @@
 package com.abmm.b2w.alodjinha.utils;
 
+import com.abmm.b2w.alodjinha.BuildConfig;
+
 public class Constants {
 
     public static class LodjinhaServer {
@@ -15,12 +17,12 @@ public class Constants {
 
     public static class Paging {
         public static final int DEFAULT_FIRST_ELEMENT = 0;
-        public static final int DEFAULT_PAGE_SIZE = 20;
+        public static final int DEFAULT_PAGE_SIZE = 3;
     }
 
     public static class Keys {
-        public static final String CATEGORY_DATA = "CATEGORY_DATA";
-        public static final String PRODUCT_DATA = "PRODUCT_DATA";
+        public static final String CATEGORY_DATA = BuildConfig.APPLICATION_ID + "CATEGORY_DATA";
+        public static final String PRODUCT_DATA = BuildConfig.APPLICATION_ID + "PRODUCT_DATA";
     }
 
 }

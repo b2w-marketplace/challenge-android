@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.main.IMainPresenter;
-import com.abmm.b2w.alodjinha.adapters.helper.ProductVH;
+import com.abmm.b2w.alodjinha.adapters.holder.ProductVH;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
 

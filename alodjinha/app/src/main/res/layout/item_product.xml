@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/element_product_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,7 +25,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/element_product_description_txt"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_menu" />
+        tools:srcCompat="@drawable/logo_menu" />
+
+    <ProgressBar
+        android:id="@+id/element_product_pbar"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:indeterminateDrawable="@drawable/progress_bar_orange"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="0.18"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/element_product_description_txt"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/element_product_description_txt"

@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.product_list.IProductListPresenter;
-import com.abmm.b2w.alodjinha.adapters.helper.ProductVH;
+import com.abmm.b2w.alodjinha.adapters.holder.ProductVH;
 import com.abmm.b2w.alodjinha.http_module.paging.OnLoadMoreListener;
 import com.abmm.b2w.alodjinha.model.Product;
 
