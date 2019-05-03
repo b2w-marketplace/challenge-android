@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">o Lodjinha</string>
+    <string name="app_name">a Lodjinha</string>
+
+    <!-- Image Content Description -->
+    <string name="home_drawer_menu_pattern_desc">Imagem de cabeçalho no menu lateral</string>
+    <string name="home_drawer_logo_image_desc">Imagem do logo no menu lateral</string>
+
+    <!-- Drawer Menu Items -->
+    <string name="drawer_home_option">Home</string>
+    <string name="drawer_home_about">Sobre o aplicativo</string>
+    <string name="drawer_open_desc">Drawer aberto</string>
+    <string name="drawer_close_desc">Drawer fechado</string>
 </resources>
