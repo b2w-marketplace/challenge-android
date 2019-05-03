@@ -10,6 +10,7 @@ import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -199,7 +200,7 @@ public class MainPresenterImpl implements IMainPresenter {
         };
     }
 
-    public interface IMainView {
+    public interface IMainView extends IBasePresenterView {
         Context getContext();
 
         void initBanners();
@@ -209,12 +210,5 @@ public class MainPresenterImpl implements IMainPresenter {
         void initTopSeller();
 
         void updateData(Banner banner);
-
-        void showError(int code);
-
-        void showError();
-
-        void releaseUi();
     }
-
 }

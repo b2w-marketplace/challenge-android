@@ -29,6 +29,11 @@
     <string name="connectivity_error">Erro de conexão com a internet</string>
     <string name="try_again">Tentar novamente</string>
     <string name="category_elements_not_found">Elementos não encontrados</string>
+    <string name="error_unauthorized">Acesso não autorizado</string>
+    <string name="error_forbidden">Acesso proibido</string>
+    <string name="error_not_found">Não encontrado</string>
+    <string name="error_unknown">Erro desconhecido</string>
+    <string name="error_bad_request">Requisição inválida</string>
 
 
 </resources>

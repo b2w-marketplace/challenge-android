@@ -9,6 +9,7 @@ import com.abmm.b2w.alodjinha.http_module.LodjinhaApiClient;
 import com.abmm.b2w.alodjinha.model.ChartMessage;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.model.enums.Result;
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -93,21 +94,14 @@ public class ProductDetailsPresenterImpl implements IProductDetailsPresenter {
         };
     }
 
-    interface IProductDetailsView {
+    interface IProductDetailsView extends IBasePresenterView {
 
         void showData();
-
-        void showError(int code);
-
-        void showError();
 
         void openAlertDialog(int resId);
 
         void openAlertDialog(String message, DialogInterface.OnClickListener listener);
 
         void releaseButton();
-
-        void releaseUi();
     }
-
 }

@@ -13,6 +13,7 @@ import com.abmm.b2w.alodjinha.http_module.paging.PagingDataManager;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.Paging;
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import java.util.List;
 
@@ -123,18 +124,12 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
         listDataManager.resetQueryParameters();
     }
 
-    interface IProductListView {
+    interface IProductListView extends IBasePresenterView {
 
         ProductListAdapter getAdapter();
 
         RecyclerView getRecyclerView();
 
         void elementsNotFound();
-
-        void showError(int code);
-
-        void showError();
-
-        void releaseUi();
     }
 }

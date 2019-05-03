@@ -12,11 +12,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.abmm.b2w.alodjinha.R;
+import com.abmm.b2w.alodjinha.model.enums.ErrorCode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class BaseAppCompatActivity extends AppCompatActivity {
+public abstract class BaseAppCompatActivity extends AppCompatActivity implements IBasePresenterView {
 
     @BindView(R.id.toolbar) protected Toolbar toolbar;
     @BindView(R.id.root_layout) protected ViewGroup mRoot;
@@ -54,21 +55,29 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     protected void makeRequests() {}
 
     /* Errors */
+    @Override
     public void showError() {
-        Snackbar.make(mRoot, R.string.connectivity_error, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.try_again, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        makeRequests();
-                    }
-                })
-                .setActionTextColor(Color.RED)
-                .show();
+        View.OnClickListener action = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeRequests();
+            }
+        };
+        showSnackBar(R.string.connectivity_error, action);
         releaseUi();
     }
 
+    @Override
     public void showError(int code) {
+        ErrorCode type = ErrorCode.get(code);
+        showSnackBar(type.getResId(), null);
+    }
 
+    private void showSnackBar(int message, View.OnClickListener listener) {
+        Snackbar.make(mRoot, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.try_again, listener)
+                .setActionTextColor(Color.RED)
+                .show();
     }
 
     /* Loading */
@@ -76,6 +85,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         holder.showLoading();
     }
 
+    @Override
     public void releaseUi() {
         holder.hideLoading();
     }
