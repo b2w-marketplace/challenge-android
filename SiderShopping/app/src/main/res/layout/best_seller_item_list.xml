@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/best_seller_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/best_seller_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Nome do Produto com uma descrição grandona"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/best_seller_image"
+        app:layout_constraintTop_toTopOf="@id/best_seller_image" />
+
+    <TextView
+        android:id="@+id/best_seller_price_until"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="De: 9999,99 "
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/best_seller_name"
+        app:layout_constraintStart_toStartOf="@id/best_seller_name"
+        app:layout_constraintBottom_toBottomOf="@id/best_seller_image"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/best_seller_price_for"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="Por 9999,98"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@id/best_seller_name"
+        app:layout_constraintBottom_toBottomOf="@id/best_seller_image"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
