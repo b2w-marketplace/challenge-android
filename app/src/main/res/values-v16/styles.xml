@@ -3,7 +3,10 @@
 
     <style name="LogoMenu">
         <item name="android:textSize">24sp</item>
-        <item name="android:letterSpacing">-0.037</item>
+        <item name="android:fontFamily">@font/pacifico</item>
+    </style>
+
+    <style name="PacificoFontFamily">
         <item name="android:fontFamily">@font/pacifico</item>
     </style>
 </resources>

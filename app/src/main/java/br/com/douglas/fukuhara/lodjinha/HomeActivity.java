@@ -25,6 +25,8 @@ public class HomeActivity extends AppCompatActivity
     private void initDrawerComponents() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setIcon(R.drawable.logo_navbar);
 
         mDrawerLayout = findViewById(R.id.home_drawer_layout);
 
