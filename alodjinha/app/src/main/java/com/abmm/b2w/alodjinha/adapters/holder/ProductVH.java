@@ -1,10 +1,8 @@
 package com.abmm.b2w.alodjinha.adapters.holder;
 
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,12 +13,9 @@ import com.abmm.b2w.alodjinha.LodjinhaApp;
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.product_details.ProductDetailsActivity;
 import com.abmm.b2w.alodjinha.model.Product;
+import com.abmm.b2w.alodjinha.utils.GlideRequestListener;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
 
 import org.parceler.Parcels;
 
@@ -72,21 +67,8 @@ public class ProductVH extends RecyclerView.ViewHolder {
     private void setImage(Product item) {
         Glide.with(view)
                 .load(item.getPictUrl())
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        mProgressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        mProgressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .apply(new RequestOptions()
-                        .error(R.drawable.logo_menu))
+                .listener(new GlideRequestListener(mProgressBar))
+                .apply(new RequestOptions().error(R.drawable.logo_menu))
                 .into(mProductImg);
     }
 }

@@ -1,8 +1,6 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,12 +19,9 @@ import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.utils.BannerOnSwipeListener;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
 import com.abmm.b2w.alodjinha.utils.DividerItemDecoration;
+import com.abmm.b2w.alodjinha.utils.GlideRequestListener;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -124,11 +119,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         mBannerCarousel.invalidateItemDecorations();
     }
 
-    @Override
-    public void showError(int code) {
-        Toast.makeText(this, "code="+ code, Toast.LENGTH_SHORT).show();
-    }
-
     private BannerOnSwipeListener getSwipeGesture() {
         return new BannerOnSwipeListener(this) {
             @Override
@@ -145,21 +135,8 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         mBannerPbar.setVisibility(View.VISIBLE);
         Glide.with(this)
                 .load(pictUrl)
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        mBannerPbar.setVisibility(View.GONE);
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        mBannerPbar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .apply(new RequestOptions()
-                        .error(android.R.drawable.ic_dialog_alert)
+                .listener(new GlideRequestListener(mBannerPbar))
+                .apply(new RequestOptions().error(android.R.drawable.ic_dialog_alert)
                 )
                 .into(mBannerImg);
 

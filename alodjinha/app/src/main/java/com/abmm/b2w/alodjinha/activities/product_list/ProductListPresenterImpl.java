@@ -72,7 +72,7 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
                     Envelope<Product> pagedResult = response.body();
                     updateLoadedInfo(pagedResult);
                 } else {
-
+                    mView.showError(response.code());
                 }
                 mView.releaseUi();
             }
@@ -130,6 +130,8 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
         RecyclerView getRecyclerView();
 
         void elementsNotFound();
+
+        void showError(int code);
 
         void showError();
 

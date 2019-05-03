@@ -67,6 +67,9 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         releaseUi();
     }
 
+    public void showError(int code) {
+
+    }
 
     /* Loading */
     protected void blockUi() {
