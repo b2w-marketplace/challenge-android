@@ -22,6 +22,8 @@
     <!-- Product -->
     <string name="product_from">De: %1$s</string>
     <string name="product_by">Por %1$s</string>
+    <string name="product_reserved_successfully">Produto reservado com sucesso</string>
+
 
     <!-- Errors -->
     <string name="connectivity_error">Erro de conexão com a internet</string>

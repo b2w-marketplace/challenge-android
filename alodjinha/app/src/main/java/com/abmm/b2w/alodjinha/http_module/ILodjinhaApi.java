@@ -2,6 +2,7 @@ package com.abmm.b2w.alodjinha.http_module;
 
 import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.model.Category;
+import com.abmm.b2w.alodjinha.model.ChartMessage;
 import com.abmm.b2w.alodjinha.model.Product;
 
 import retrofit2.Call;
@@ -27,5 +28,6 @@ public interface ILodjinhaApi {
     @GET("/produto/{id}")
     Call<Product> getProductById(@Path("id") int id);
 
-
+    @POST("/produto/{id}")
+    Call<ChartMessage> addProductToChart(@Path("id") int id);
 }

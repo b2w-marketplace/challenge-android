@@ -1,13 +1,14 @@
 package com.abmm.b2w.alodjinha.activities.product_details;
 
+import android.content.DialogInterface;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
@@ -19,7 +20,9 @@ import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseAppCompatActivity;
 import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
 import com.abmm.b2w.alodjinha.http_module.LodjinhaApiClient;
+import com.abmm.b2w.alodjinha.model.ChartMessage;
 import com.abmm.b2w.alodjinha.model.Product;
+import com.abmm.b2w.alodjinha.model.enums.Result;
 import com.abmm.b2w.alodjinha.utils.Constants.Keys;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -98,12 +101,6 @@ public class ProductDetailsActivity extends BaseAppCompatActivity {
         };
     }
 
-    @OnClick(R.id.product_details_fab)
-    public void sendProduct(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-    }
-
     @Override
     protected void makeRequests() {
         api.getProductById(mProduct.getId()).enqueue(handleProductCallback());
@@ -126,6 +123,36 @@ public class ProductDetailsActivity extends BaseAppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<Product> call, @NonNull Throwable t) {
 
+            }
+        };
+    }
+
+    @OnClick(R.id.product_details_fab)
+    public void sendProduct(View view) {
+        mFabBtn.setEnabled(false);
+        api.addProductToChart(mProduct.getId()).enqueue(handleAddToChartCallback());
+    }
+
+    private Callback<ChartMessage> handleAddToChartCallback() {
+        return new Callback<ChartMessage>() {
+            @Override
+            public void onResponse(@NonNull Call<ChartMessage> call, @NonNull Response<ChartMessage> response) {
+                if (response.isSuccessful()) {
+                    ChartMessage serverAnswer = response.body();
+
+                    if (Result.SUCCESS.equalsIgnoreCase(serverAnswer.getStatus())) {
+                        openAlertDialog(R.string.product_reserved_successfully);
+                    } else {
+                        openAlertDialog(serverAnswer.getMessage(), null);
+                    }
+                }
+                mFabBtn.setEnabled(true);
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ChartMessage> call, @NonNull Throwable t) {
+                showError();
+                mFabBtn.setEnabled(true);
             }
         };
     }
@@ -162,6 +189,26 @@ public class ProductDetailsActivity extends BaseAppCompatActivity {
             textFormatted = Html.fromHtml(textResource);
         }
         return textFormatted;
+    }
+
+    private void openAlertDialog(int resId) {
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        };
+        openAlertDialog(getString(resId), listener);
+    }
+
+    private void openAlertDialog(String msg, DialogInterface.OnClickListener listener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(msg);
+        builder.setCancelable(false);
+        builder.setPositiveButton(android.R.string.ok, listener);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }
