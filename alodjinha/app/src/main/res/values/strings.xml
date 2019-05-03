@@ -23,5 +23,10 @@
     <string name="product_from">De: %1$s</string>
     <string name="product_by">Por %1$s</string>
 
+    <!-- Errors -->
+    <string name="connectivity_error">Erro de conexão com a internet</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="category_elements_not_found">Elementos não encontrados</string>
+
 
 </resources>

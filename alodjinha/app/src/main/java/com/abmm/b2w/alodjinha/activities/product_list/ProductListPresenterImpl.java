@@ -12,7 +12,7 @@ import com.abmm.b2w.alodjinha.http_module.paging.OnLoadMoreListener;
 import com.abmm.b2w.alodjinha.http_module.paging.PagingDataManager;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
-import com.abmm.b2w.alodjinha.utils.Constants;
+import com.abmm.b2w.alodjinha.utils.Constants.Paging;
 
 import java.util.List;
 
@@ -67,13 +67,19 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
         return new Callback<Envelope<Product>>() {
             @Override
             public void onResponse(@NonNull Call<Envelope<Product>> call, @NonNull Response<Envelope<Product>> response) {
-                Envelope<Product> pagedResult = response.body();
-                updateLoadedInfo(pagedResult);
+                if (response.isSuccessful()) {
+                    Envelope<Product> pagedResult = response.body();
+                    updateLoadedInfo(pagedResult);
+                } else {
+
+                }
+                mView.releaseUi();
             }
 
             @Override
             public void onFailure(@NonNull Call<Envelope<Product>> call, @NonNull Throwable t) {
-
+                mView.showError();
+                mView.releaseUi();
             }
         };
     }
@@ -87,15 +93,20 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
     private void updateLoadedInfo(final Envelope<Product> pagedResult) {
         removeLastItem();
         listDataManager.appendNewItems(pagedResult.getData());
-        mView.getAdapter().setNewItems(forceReload);
 
-        listDataManager.updateForNextPage(pagedResult.getData().size());
-        forceReload = false;
+        if (listDataManager.getComponents().isEmpty()) {
+            mView.elementsNotFound();
+        } else {
+            mView.getAdapter().setNewItems(forceReload);
+
+            listDataManager.updateForNextPage(pagedResult.getData().size());
+            forceReload = false;
+        }
     }
 
     @Override
     public void onLoadMore() {
-        if (listDataManager.getComponents().size() <= listDataManager.getComponents().size() + Constants.Paging.DEFAULT_PAGE_SIZE) {
+        if (listDataManager.getComponents().size() <= listDataManager.getComponents().size() + Paging.DEFAULT_PAGE_SIZE) {
             mView.getAdapter().setNewItem(null);
             new Handler().post(new Runnable() {
                 @Override
@@ -116,5 +127,11 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
         ProductListAdapter getAdapter();
 
         RecyclerView getRecyclerView();
+
+        void elementsNotFound();
+
+        void showError();
+
+        void releaseUi();
     }
 }

@@ -1,4 +1,4 @@
-package com.abmm.b2w.alodjinha.activities.product_detailed;
+package com.abmm.b2w.alodjinha.activities.product_details;
 
 import android.os.Build;
 import android.support.annotation.NonNull;

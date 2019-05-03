@@ -38,7 +38,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/LodjinhaTheme.NoActionBar" />
         <activity
-            android:name=".activities.product_detailed.ProductDetailsActivity"
+            android:name=".activities.product_details.ProductDetailsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/LodjinhaTheme.NoActionBar" />

@@ -2,16 +2,17 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activities.product_detailed.ProductDetailsActivity">
+    tools:context=".activities.product_details.ProductDetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:fitsSystemWindows="true"
         android:theme="@style/LodjinhaTheme.AppBarOverlay">
 
@@ -28,12 +29,14 @@
                 android:id="@+id/product_details_toolbar_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="16dp"
                 android:contentDescription="@string/app_name" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/LodjinhaTheme.PopupOverlay" />
 

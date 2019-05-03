@@ -18,9 +18,9 @@
         <item name="android:textSize">30sp</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="LodjinhaTheme.ToolbarTheme">
+        <item name="colorControlNormal">@android:color/black</item>
+    </style>
 
     <style name="LodjinhaTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

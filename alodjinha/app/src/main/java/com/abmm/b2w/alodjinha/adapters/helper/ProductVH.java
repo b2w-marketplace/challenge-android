@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.abmm.b2w.alodjinha.LodjinhaApp;
 import com.abmm.b2w.alodjinha.R;
-import com.abmm.b2w.alodjinha.activities.product_detailed.ProductDetailsActivity;
+import com.abmm.b2w.alodjinha.activities.product_details.ProductDetailsActivity;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;

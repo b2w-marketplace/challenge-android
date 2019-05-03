@@ -2,7 +2,6 @@ package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.abmm.b2w.alodjinha.http_module.Envelope;
 import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
@@ -12,6 +11,7 @@ import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,15 +22,23 @@ public class MainPresenterImpl implements IMainPresenter {
 
     private final IMainView mainView;
 
-    private List<Category> categoryList;
     private List<Banner> bannerList;
+    private List<Category> categoryList;
     private List<Product> productList;
     private int currentBannerPosition;
 
-    private final ILodjinhaApi api = LodjinhaApiClient.buildApiClient();
+    private boolean bannersLoaded = false;
+    private boolean categoriesLoaded = false;
+    private boolean topSellersLoaded = false;
+
+    private final ILodjinhaApi api;
 
     MainPresenterImpl(IMainView mainView) {
         this.mainView = mainView;
+        this.api = LodjinhaApiClient.buildApiClient();
+        this.bannerList = new ArrayList<>();
+        this.categoryList = new ArrayList<>();
+        this.productList = new ArrayList<>();
     }
 
     @Override
@@ -113,6 +121,15 @@ public class MainPresenterImpl implements IMainPresenter {
         banner.setActiveON();
     }
 
+    private void hideLoading() {
+        if (bannersLoaded && categoriesLoaded && topSellersLoaded) {
+            mainView.releaseUi();
+            if (bannerList.isEmpty() || categoryList.isEmpty() || productList.isEmpty()) {
+                mainView.showError();
+            }
+        }
+    }
+
     private Callback<Envelope<Banner>> handleBannersCallback() {
         return new Callback<Envelope<Banner>>() {
             @Override
@@ -123,11 +140,15 @@ public class MainPresenterImpl implements IMainPresenter {
                 } else {
                     mainView.showError(response.code());
                 }
+                bannersLoaded = true;
+                hideLoading();
             }
 
             @Override
             public void onFailure(@NonNull Call<Envelope<Banner>> call, @NonNull Throwable t) {
-                Log.d("TAG", "deu pau!");
+                mainView.showError();
+                bannersLoaded = true;
+                hideLoading();
             }
         };
     }
@@ -142,11 +163,15 @@ public class MainPresenterImpl implements IMainPresenter {
                 } else {
                     mainView.showError(response.code());
                 }
+                categoriesLoaded = true;
+                hideLoading();
             }
 
             @Override
             public void onFailure(@NonNull Call<Envelope<Category>> call, @NonNull Throwable t) {
-
+                mainView.showError();
+                categoriesLoaded = true;
+                hideLoading();
             }
         };
     }
@@ -161,11 +186,15 @@ public class MainPresenterImpl implements IMainPresenter {
                 } else {
                     mainView.showError(response.code());
                 }
+                topSellersLoaded = true;
+                hideLoading();
             }
 
             @Override
             public void onFailure(@NonNull Call<Envelope<Product>> call, @NonNull Throwable t) {
-                // show snackbar
+                mainView.showError();
+                topSellersLoaded = true;
+                hideLoading();
             }
         };
     }
@@ -182,6 +211,10 @@ public class MainPresenterImpl implements IMainPresenter {
         void updateData(Banner banner);
 
         void showError(int code);
+
+        void showError();
+
+        void releaseUi();
     }
 
 }

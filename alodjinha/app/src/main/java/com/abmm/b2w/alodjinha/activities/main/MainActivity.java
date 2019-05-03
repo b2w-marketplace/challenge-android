@@ -31,12 +31,18 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     @BindView(R.id.main_topseller_list) RecyclerView mTopSellerRecyclerView;
 
     private IMainPresenter presenter;
-
     private BannerIndicatorAdapter mBannerAdapter;
 
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initUi() {
+        super.initUi();
+        presenter = new MainPresenterImpl(this);
+        mBannerImg.setOnTouchListener(getSwipeGesture());
     }
 
     @Override
@@ -47,6 +53,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
 
     @Override
     protected void makeRequests() {
+        blockUi();
         presenter.requestBanners();
         presenter.requestCategories();
         presenter.requestTopSellers();
@@ -85,13 +92,6 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     @Override
     public Context getContext() {
         return this;
-    }
-
-    @Override
-    protected void initUi() {
-        super.initUi();
-        presenter = new MainPresenterImpl(this);
-        mBannerImg.setOnTouchListener(getSwipeGesture());
     }
 
     @Override
