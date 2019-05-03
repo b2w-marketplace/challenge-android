@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/warmPurple</color>
+    <color name="colorPrimaryDark">@color/darkWarmPurple</color>
+    <color name="colorAccent">@color/tomato</color>
+
+    <color name="warmPurple">#5E2A84</color>
+    <color name="darkWarmPurple">#2F0056</color>
+    <color name="tomato">#F15025</color>
+    <color name="greyish">#AAAAAA</color>
+    <color name="dark">#2D3142</color>
+    <color name="greyishBrown">#4A4A4A</color>
+    <color name="white">#D5D5D5</color>
+    <color name="whiteTwo">#FCFCFC</color>
+</resources>
