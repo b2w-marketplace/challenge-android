@@ -1,9 +1,13 @@
 package com.abmm.b2w.alodjinha.activities.main;
 
 import android.content.Context;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abmm.b2w.alodjinha.R;
@@ -29,6 +33,9 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
     @BindView(R.id.main_banner_list) RecyclerView mBannerCarousel;
     @BindView(R.id.main_categories_list) RecyclerView mCategoriesRecyclerView;
     @BindView(R.id.main_topseller_list) RecyclerView mTopSellerRecyclerView;
+    @BindView(R.id.main_categories_title) TextView mCategoriesTxt;
+    @BindView(R.id.main_topseller_title) TextView mTopSellerTxt;
+    @BindView(R.id.main_banner_carview) CardView mBannerFrame;
 
     private IMainPresenter presenter;
     private BannerIndicatorAdapter mBannerAdapter;
@@ -43,6 +50,10 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
         super.initUi();
         presenter = new MainPresenterImpl(this);
         mBannerImg.setOnTouchListener(getSwipeGesture());
+
+        mCategoriesTxt.setVisibility(View.INVISIBLE);
+        mTopSellerTxt.setVisibility(View.INVISIBLE);
+        mBannerFrame.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
 
     @Override
     public void initBanners() {
+        mBannerFrame.setVisibility(View.VISIBLE);
         presenter.getBannerList().get(General.FIRST_POSITION).setActiveON();
         loadBannerImage(presenter.getBannerList().get(General.FIRST_POSITION).getPictUrl());
 
@@ -74,6 +86,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
 
     @Override
     public void initCategories() {
+        mCategoriesTxt.setVisibility(View.VISIBLE);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         CategoryAdapter adapter = new CategoryAdapter(presenter);
         mCategoriesRecyclerView.setLayoutManager(layoutManager);
@@ -82,6 +95,7 @@ public class MainActivity extends BaseNavDrawerActivity implements MainPresenter
 
     @Override
     public void initTopSeller() {
+        mTopSellerTxt.setVisibility(View.VISIBLE);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         TopSellerAdapter adapter = new TopSellerAdapter(presenter);
         mTopSellerRecyclerView.setLayoutManager(layoutManager);

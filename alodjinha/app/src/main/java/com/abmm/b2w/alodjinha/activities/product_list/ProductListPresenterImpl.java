@@ -55,6 +55,7 @@ public class ProductListPresenterImpl implements IProductListPresenter, OnLoadMo
             api.getProducts(offset, limit, mCategory.getId()).enqueue(handleProductsCallback());
         } else {
             removeLastItem();
+            mView.releaseUi();
         }
     }
 

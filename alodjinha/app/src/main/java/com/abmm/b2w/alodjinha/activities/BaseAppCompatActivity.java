@@ -21,7 +21,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) protected Toolbar toolbar;
     @BindView(R.id.root_layout) protected ViewGroup mRoot;
 
-    ProgressBarVH holder;
+    private ProgressBarVH holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

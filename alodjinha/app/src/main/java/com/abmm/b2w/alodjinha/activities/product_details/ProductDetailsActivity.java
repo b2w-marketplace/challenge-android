@@ -1,5 +1,6 @@
 package com.abmm.b2w.alodjinha.activities.product_details;
 
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -79,12 +80,16 @@ public class ProductDetailsActivity extends BaseAppCompatActivity {
                 }
 
                 if (scrollRange + verticalOffset == 0) {
-                    int transparent = ContextCompat.getColor(ProductDetailsActivity.this, android.R.color.transparent);
-                    mCtl.setExpandedTitleColor(transparent);
+                    int textColorTransparent = ContextCompat.getColor(ProductDetailsActivity.this, android.R.color.transparent);
+                    int arrowColor = ContextCompat.getColor(ProductDetailsActivity.this, android.R.color.white);
+                    toolbar.getNavigationIcon().setColorFilter(arrowColor, PorterDuff.Mode.SRC_ATOP);
+                    mCtl.setExpandedTitleColor(textColorTransparent);
                     isShow = true;
                 } else if (isShow) {
-                    int whiteColor = ContextCompat.getColor(ProductDetailsActivity.this, android.R.color.white);
-                    mCtl.setCollapsedTitleTextColor(whiteColor);
+                    int textColor = ContextCompat.getColor(ProductDetailsActivity.this, android.R.color.white);
+                    int arrowColor = ContextCompat.getColor(ProductDetailsActivity.this, R.color.dark);
+                    toolbar.getNavigationIcon().setColorFilter(arrowColor, PorterDuff.Mode.SRC_ATOP);
+                    mCtl.setCollapsedTitleTextColor(textColor);
                     isShow = false;
                 }
             }
