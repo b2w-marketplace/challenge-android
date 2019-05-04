@@ -1,4 +1,4 @@
-package com.mmart.sidershopping;
+package com.mmart.sidershopping.view.homepage;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,21 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.mmart.sidershopping.model.entity.Banner;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 
 public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
-    private String[] imageUrls;
+    private List<Banner> banners;
 
-    ViewPagerAdapter(Context context, String[] imageUrls) {
+    ViewPagerAdapter(Context context, List<Banner> banners) {
         this.context = context;
-        this.imageUrls = imageUrls;
+        this.banners = banners;
     }
 
     @Override
     public int getCount() {
-        return imageUrls.length;
+        return banners.size();
     }
 
     @Override
@@ -33,8 +36,10 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = new ImageView(context);
+
+        Banner banner = banners.get(position);
         Picasso.get()
-                .load(imageUrls[position])
+                .load(banner.getUlrImage())
                 .fit()
                 .centerCrop()
                 .into(imageView);

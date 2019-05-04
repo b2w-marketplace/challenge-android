@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/best_seller_image"
+        android:id="@+id/product_image"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_centerHorizontal="true"
@@ -16,40 +17,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/best_seller_name"
+        android:id="@+id/product_name"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Nome do Produto com uma descrição grandona"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/best_seller_image"
-        app:layout_constraintTop_toTopOf="@id/best_seller_image" />
+        app:layout_constraintStart_toEndOf="@id/product_image"
+        app:layout_constraintTop_toTopOf="@id/product_image" />
 
     <TextView
-        android:id="@+id/best_seller_price_until"
+        android:id="@+id/product_old_price"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="De: 9999,99 "
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/best_seller_name"
-        app:layout_constraintStart_toStartOf="@id/best_seller_name"
-        app:layout_constraintBottom_toBottomOf="@id/best_seller_image"
+        android:background="@drawable/strike"
         android:gravity="center"
-        />
+        android:textColor="#D8D8D8"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/product_image"
+        app:layout_constraintStart_toStartOf="@id/product_name"
+        app:layout_constraintTop_toBottomOf="@id/product_name"
+        tools:text="De: 9999,99 " />
 
     <TextView
-        android:id="@+id/best_seller_price_for"
+        android:id="@+id/product_new_price"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="Por 9999,98"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@id/best_seller_name"
-        app:layout_constraintBottom_toBottomOf="@id/best_seller_image"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        />
-
+        android:text="Por 9999,98"
+        android:textColor="#ff4b1e"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/product_image"
+        app:layout_constraintEnd_toEndOf="@id/product_name" />
 
 </android.support.constraint.ConstraintLayout>
