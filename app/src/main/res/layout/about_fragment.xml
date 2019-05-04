@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_about_horizontal_forty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/iv_about_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_sobre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/quadruple_grid"
+        app:layout_constraintBottom_toTopOf="@+id/gl_about_horizontal_forty"/>
+
+    <TextView
+        android:id="@+id/tv_about_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_match_constraints"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/tv_about_dev_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gl_about_horizontal_forty"
+        style="@style/LogoSobre"/>
+
+    <TextView
+        android:id="@+id/tv_about_dev_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_dev_name"
+        app:layout_constraintBottom_toTopOf="@+id/tv_about_dev_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/base_grid"
+        style="@style/NomeDesenvolvedor"/>
+
+    <TextView
+        android:id="@+id/tv_about_dev_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_dev_date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/double_grid"
+        style="@style/DataDesenvolvimento" />
+
+</android.support.constraint.ConstraintLayout>

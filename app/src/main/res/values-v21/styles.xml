@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="LogoSobre">
+        <item name="android:textSize">64sp</item>
+        <item name="android:letterSpacing">-0.094</item>
+        <item name="android:fontFamily">@font/pacifico</item>
+    </style>
+
+    <style name="NomeDesenvolvedor">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.019</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="DataDesenvolvimento">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">-0.019</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
     <style name="LogoMenu">
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">-0.037</item>

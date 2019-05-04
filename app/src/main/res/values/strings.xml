@@ -10,4 +10,10 @@
     <string name="drawer_home_about">Sobre o aplicativo</string>
     <string name="drawer_open_desc">Drawer aberto</string>
     <string name="drawer_close_desc">Drawer fechado</string>
+
+    <!-- About Screen -->
+    <string name="about_dev_name">Douglas Fukuhara</string>
+    <string name="about_dev_date">6 de maio de 2019</string>
+    <string name="about_toolbar_title">sobre</string>
+
 </resources>

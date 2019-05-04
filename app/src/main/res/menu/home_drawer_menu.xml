@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group
-        android:checkableBehavior="none">
-        <item
-            android:id="@+id/home_drawer_menu_home"
-            android:icon="@drawable/home_menu"
-            android:title="@string/drawer_home_option" />
-        <item
-            android:id="@+id/home_drawer_menu_about"
-            android:icon="@drawable/tag_menu"
-            android:title="@string/drawer_home_about" />
-    </group>
+    <item
+        android:id="@+id/home_drawer_menu_home"
+        android:icon="@drawable/home_menu"
+        android:title="@string/drawer_home_option" />
+    <item
+        android:id="@+id/home_drawer_menu_about"
+        android:icon="@drawable/tag_menu"
+        android:title="@string/drawer_home_about" />
 </menu>
