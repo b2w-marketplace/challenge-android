@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 import com.abmm.b2w.alodjinha.adapters.ProductListAdapter;
 import com.abmm.b2w.alodjinha.http_module.Envelope;
 import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
@@ -13,7 +14,6 @@ import com.abmm.b2w.alodjinha.http_module.paging.PagingDataManager;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.Paging;
-import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import java.util.List;
 

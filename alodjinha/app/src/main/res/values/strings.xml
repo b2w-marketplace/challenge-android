@@ -23,7 +23,7 @@
     <string name="product_from">De: %1$s</string>
     <string name="product_by">Por %1$s</string>
     <string name="product_reserved_successfully">Produto reservado com sucesso</string>
-
+    <string name="product_title">%1$s - %2$s</string>
 
     <!-- Errors -->
     <string name="connectivity_error">Erro de conexão com a internet</string>
@@ -34,6 +34,7 @@
     <string name="error_not_found">Não encontrado</string>
     <string name="error_unknown">Erro desconhecido</string>
     <string name="error_bad_request">Requisição inválida</string>
+    <string name="error_method_not_allowed">Método não permitido</string>
 
 
 </resources>

@@ -40,7 +40,7 @@
         android:text="@string/about_dev_name"
         android:textColor="@color/greyish_brown"
         android:textSize="14sp"
-        android:textStyle="bold"
+        app:fontFamily="sans-serif-medium"
         app:layout_constraintBottom_toTopOf="@+id/about_date_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,7 +53,7 @@
         android:text="@string/about_date"
         android:textColor="@color/greyish_brown"
         android:textSize="12sp"
-        android:textStyle="normal"
+        app:fontFamily="sans-serif-light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

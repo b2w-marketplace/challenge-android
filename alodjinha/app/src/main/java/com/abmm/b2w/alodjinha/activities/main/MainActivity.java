@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.abmm.b2w.alodjinha.R;
 import com.abmm.b2w.alodjinha.activities.BaseNavDrawerActivity;

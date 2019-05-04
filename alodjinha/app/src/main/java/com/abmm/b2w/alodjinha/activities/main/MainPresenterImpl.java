@@ -3,6 +3,7 @@ package com.abmm.b2w.alodjinha.activities.main;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 import com.abmm.b2w.alodjinha.http_module.Envelope;
 import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
 import com.abmm.b2w.alodjinha.http_module.LodjinhaApiClient;
@@ -10,7 +11,6 @@ import com.abmm.b2w.alodjinha.model.Banner;
 import com.abmm.b2w.alodjinha.model.Category;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.utils.Constants.General;
-import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import java.util.ArrayList;
 import java.util.List;

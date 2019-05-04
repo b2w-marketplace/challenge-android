@@ -44,7 +44,8 @@ public class ProductVH extends RecyclerView.ViewHolder {
 
     public void bind(Product element) {
         this.mProduct = element;
-        mDescriptionTxt.setText(element.getDescription());
+        String title = LodjinhaApp.getInstance().getString(R.string.product_title, element.getName(), element.getDescription());
+        mDescriptionTxt.setText(title);
 
         String originalPrice = element.getOriginalPriceFormatted();
         mOriginalPriceTxt.setText(originalPrice);

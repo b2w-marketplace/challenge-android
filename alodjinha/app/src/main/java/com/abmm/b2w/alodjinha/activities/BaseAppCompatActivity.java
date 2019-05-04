@@ -1,11 +1,14 @@
 package com.abmm.b2w.alodjinha.activities;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +56,16 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     protected abstract void initUi();
 
     protected void makeRequests() {}
+
+    protected Spanned getTextFromHtml(final String textResource) {
+        Spanned textFormatted;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            textFormatted = Html.fromHtml(textResource, Html.FROM_HTML_OPTION_USE_CSS_COLORS);
+        } else {
+            textFormatted = Html.fromHtml(textResource);
+        }
+        return textFormatted;
+    }
 
     /* Errors */
     @Override

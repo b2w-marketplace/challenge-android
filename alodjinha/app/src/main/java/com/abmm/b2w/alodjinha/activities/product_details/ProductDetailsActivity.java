@@ -1,14 +1,13 @@
 package com.abmm.b2w.alodjinha.activities.product_details;
 
 import android.content.DialogInterface;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.os.Build;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
 import android.widget.ImageView;
@@ -95,6 +94,7 @@ public class ProductDetailsActivity extends BaseAppCompatActivity implements Pro
 
     @Override
     protected void makeRequests() {
+        blockUi();
         presenter.requestProduct();
     }
 
@@ -111,13 +111,15 @@ public class ProductDetailsActivity extends BaseAppCompatActivity implements Pro
         String originalPrice = getString(R.string.product_from, product.getOriginalPriceFormatted());
         String sellingPrice = getString(R.string.product_by, product.getSellingPriceFormatted());
         Spanned description = getTextFromHtml(product.getDescription());
+        String category = product.getCategory().getName();
         String urlImg = product.getPictUrl();
 
         setImage(urlImg);
         mLongTitleTxt.setText(title);
         mOriginalPriceTxt.setText(originalPrice);
+        mOriginalPriceTxt.setPaintFlags(mOriginalPriceTxt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         mSellingPriceTxt.setText(sellingPrice);
-        mTitleTxt.setText(title);
+        mTitleTxt.setText(category);
         mDescriptionTxt.setText(description);
     }
 
@@ -128,16 +130,6 @@ public class ProductDetailsActivity extends BaseAppCompatActivity implements Pro
                         .placeholder(R.drawable.loading_banner_image)
                         .error(R.drawable.logo_menu))
                 .into(mPictureImg);
-    }
-
-    private Spanned getTextFromHtml(final String textResource) {
-        Spanned textFormatted;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            textFormatted = Html.fromHtml(textResource, Html.FROM_HTML_OPTION_USE_CSS_COLORS);
-        } else {
-            textFormatted = Html.fromHtml(textResource);
-        }
-        return textFormatted;
     }
 
     @Override

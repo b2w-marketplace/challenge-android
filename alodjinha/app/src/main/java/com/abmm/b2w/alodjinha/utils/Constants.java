@@ -17,7 +17,7 @@ public class Constants {
 
     public static class Paging {
         public static final int DEFAULT_FIRST_ELEMENT = 0;
-        public static final int DEFAULT_PAGE_SIZE = 3;
+        public static final int DEFAULT_PAGE_SIZE = 20; // amount of elements in each page
     }
 
     public static class Keys {

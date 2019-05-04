@@ -26,4 +26,13 @@
 
     <style name="LodjinhaTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="LodjinhaTheme.MenuItems">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MenuItems" parent="LodjinhaTheme">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-medium</item>
+    </style>
+
 </resources>

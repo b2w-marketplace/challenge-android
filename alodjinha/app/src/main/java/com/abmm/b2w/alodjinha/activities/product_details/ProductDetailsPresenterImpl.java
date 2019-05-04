@@ -4,12 +4,12 @@ import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 
 import com.abmm.b2w.alodjinha.R;
+import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 import com.abmm.b2w.alodjinha.http_module.ILodjinhaApi;
 import com.abmm.b2w.alodjinha.http_module.LodjinhaApiClient;
 import com.abmm.b2w.alodjinha.model.ChartMessage;
 import com.abmm.b2w.alodjinha.model.Product;
 import com.abmm.b2w.alodjinha.model.enums.Result;
-import com.abmm.b2w.alodjinha.activities.IBasePresenterView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
