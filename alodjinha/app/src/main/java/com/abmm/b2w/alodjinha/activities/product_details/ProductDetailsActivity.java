@@ -151,7 +151,9 @@ public class ProductDetailsActivity extends BaseAppCompatActivity implements Pro
         builder.setPositiveButton(android.R.string.ok, listener);
 
         AlertDialog dialog = builder.create();
-        dialog.show();
+        try {
+            dialog.show();
+        } catch (Exception ignored) {}
     }
 
     @Override
