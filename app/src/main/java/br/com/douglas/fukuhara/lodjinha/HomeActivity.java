@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void initFragmentOnTop(Bundle savedInstanceState) {
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             loadFragment(new HomeFragment(), HOME_FRAGMENT);
         } else {
             handleToolbarCustomization(getSupportFragmentManager().getFragments().get(CURRENT_FRAGMENT));
