@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="end">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/Theme.AppCompat"
+                app:layout_collapseMode="pin"
+                app:layout_constraintTop_toTopOf="parent" >
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/logo_navbar"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/pacifico_regular"
+                        android:text="@string/a_lojinha" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <ss.com.bannerslider.Slider
+                        android:id="@+id/bannerSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        app:slider_loopSlides="true"
+                        app:slider_indicatorSize="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0" app:layout_constraintTop_toTopOf="parent"/>
+                <ProgressBar
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarBanner" android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="@+id/bannerSlider" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+                <TextView
+                        android:text="@string/categorias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewCategoria"
+                        app:fontFamily="@font/roboto_bold" android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/bannerSlider"
+                        android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp"/>
+                <View
+                        android:id="@+id/dividerTop"
+                        android:layout_width="395dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCategoria"
+                        android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                />
+                <android.support.v7.widget.RecyclerView
+                        android:layout_width="0dp"
+                        android:layout_height="130dp"
+                        android:id="@+id/recyclerviewCategory"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/dividerTop"
+                        android:layout_marginTop="8dp"/>
+                <View
+                        android:id="@+id/dividerRecyclerCategory"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerviewCategory"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp"/>
+                <TextView
+                        android:text="Mais vendidos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewMoresSales"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerRecyclerCategory" android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp" app:fontFamily="@font/roboto_bold"/>
+                <View
+                        android:id="@+id/dividerProduto"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMoresSales"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="10dp"/>
+                <android.support.v7.widget.RecyclerView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerviewMoreSales"
+                        app:layout_constraintTop_toTopOf="@+id/dividerProduto"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                />
+                <ProgressBar
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarCategory"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toTopOf="@+id/recyclerviewCategory" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"/>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textViewEmpytMore"
+                        android:textAlignment="center"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarProdMore"
+                        app:layout_constraintEnd_toEndOf="@+id/recyclerviewMoreSales" android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp" android:visibility="gone"/>
+                <ProgressBar
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarProdMore"
+                        android:visibility="gone"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="@+id/recyclerviewMoreSales" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/menu_navigation"/>
+
+</android.support.v4.widget.DrawerLayout>

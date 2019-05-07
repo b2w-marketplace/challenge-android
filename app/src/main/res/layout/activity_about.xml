@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="end">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".about.AboutActivity">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/Theme.AppCompat"
+                app:layout_collapseMode="pin"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/logo_sobre"
+                android:id="@+id/imageViewLogo" android:layout_marginTop="64dp"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+        />
+        <TextView
+                android:text="@string/a_lojinha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTitle"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp" app:fontFamily="@font/pacifico_regular" android:textSize="64sp"/>
+        <TextView
+                android:text="@string/gustavo_novais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewName"
+                app:fontFamily="@font/roboto_medium" android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewData" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="16dp"/>
+        <TextView
+                android:text="@string/_17_de_abril_de_2019"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewData"
+                app:fontFamily="@font/roboto_light" android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="32dp"
+                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="16dp" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/menu_navigation"/>
+
+</android.support.v4.widget.DrawerLayout>

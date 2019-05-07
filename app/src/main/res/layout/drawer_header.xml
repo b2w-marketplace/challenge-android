@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/menu_pattern"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/image_view_avatar"
+        android:clickable="true"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="16dp"
+        android:padding="10dp"
+        android:src="@drawable/logo_navbar"
+        android:background="@drawable/bg_circle_tomato"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:id="@+id/label_drawer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="right|bottom"
+        android:fontFamily="@font/pacifico_regular"
+        android:text="@string/a_lojinha"
+        android:textSize="24sp" />
+</FrameLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/constraintLayoutContentProd"
+        android:clickable="true"
+        android:background="@drawable/select_button_transparet"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp" android:id="@+id/imageViewProductDesc" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="13dp" android:layout_marginStart="13dp"/>
+    <TextView
+            android:id="@+id/textViewDescr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toEndOf="@+id/imageViewProductDesc"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+            android:text="nome do produto com uma descricao grandona"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:fontFamily="@font/roboto_bold" android:textSize="17sp" android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewIndicator" android:layout_marginRight="16dp"/>
+    <TextView
+            android:text="De por"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDe"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewProductDesc"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProductDesc" android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" app:fontFamily="@font/roboto_medium" android:textSize="12sp"
+            android:textColor="@color/greyish"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/disclosure_indicator"
+            android:id="@+id/imageViewIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline2"
+            app:layout_constraintGuide_begin="50dp"
+            android:orientation="horizontal"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPor"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewIndicator"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/tomato"
+            android:textSize="20sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewDe"/>
+    <View
+            android:id="@+id/dividerItemCategory"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDe"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

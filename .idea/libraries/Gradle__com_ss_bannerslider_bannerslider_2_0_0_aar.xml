@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.ss.bannerslider:bannerslider:2.0.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bannerslider-2.0.0.aar/e1c4d84a5d7a3448d5fe5ff4199fed5b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bannerslider-2.0.0.aar/e1c4d84a5d7a3448d5fe5ff4199fed5b/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ss.bannerslider/bannerslider/2.0.0/8722f2f225394138137d47053dcf3c27231c1460/bannerslider-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
