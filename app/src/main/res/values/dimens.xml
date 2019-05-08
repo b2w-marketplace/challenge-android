@@ -5,6 +5,7 @@
     <dimen name="double_grid">16dp</dimen>
     <dimen name="quadruple_grid">32dp</dimen>
     <dimen name="height_match_constraints">0dp</dimen>
+    <dimen name="text_view_constrainted_width">0dp</dimen>
 
     <dimen name="home_logo_circled_shape_padding">10dp</dimen>
 

@@ -16,4 +16,8 @@
     <string name="about_dev_date">6 de maio de 2019</string>
     <string name="about_toolbar_title">sobre</string>
 
+    <!-- Home Screen -->
+    <string name="divider_categories">Categorias</string>
+    <string name="divider_best_sellers">Mais vendidos</string>
+
 </resources>
