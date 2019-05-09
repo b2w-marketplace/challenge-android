@@ -19,5 +19,15 @@
     <!-- Home Screen -->
     <string name="divider_categories">Categorias</string>
     <string name="divider_best_sellers">Mais vendidos</string>
+    <string name="best_seller_prev_price">" De: %1$s "</string>
+    <string name="best_seller_final_price">"Por %1$s"</string>
+
+    <!-- SnackBar Alert -->
+    <string name="snack_banner_server_error">Não foi possível carregar o banner devido:\n%1$s</string>
+    <string name="snack_banner_server_generic_error">Ocorreu um erro ao carregar o conteúdo do banner, tente novamente mais tarde.</string>
+    <string name="snack_category_server_error">Não foi possível carregar as categerias devido:\n%1$s</string>
+    <string name="snack_category_server_generic_error">Ocorreu um erro ao carregar as categorias, tente novamente mais tarde.</string>
+    <string name="snack_bestseller_server_error">Não foi possível carregar os produtos mais vendidos devido:\n%1$s</string>
+    <string name="snack_bestseller_server_generic_error">Ocorreu um erro ao carregar os produtos mais vendidos, tente novamente mais tarde.</string>
 
 </resources>

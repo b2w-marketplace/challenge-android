@@ -9,6 +9,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitImpl implements RestClient {
 
+    private static RetrofitImpl instance;
+
+    public static RetrofitImpl getInstance() {
+        if (instance == null) {
+            instance = new RetrofitImpl();
+        }
+        return instance;
+    }
+
     @Override
     public RestApi getApi() {
         Retrofit.Builder retrofitBuilder =  new Retrofit.Builder()

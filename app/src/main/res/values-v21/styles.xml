@@ -24,4 +24,5 @@
         <item name="android:letterSpacing">-0.037</item>
         <item name="android:fontFamily">@font/pacifico</item>
     </style>
+
 </resources>

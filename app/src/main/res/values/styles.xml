@@ -29,4 +29,20 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="DescricaoProduto">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="PrecoDe">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/greyish</item>
+    </style>
+
+    <style name="PrecoPor">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/tomato</item>
+    </style>
+
 </resources>

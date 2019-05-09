@@ -2,7 +2,7 @@ package br.com.douglas.fukuhara.lodjinha.network.vo;
 
 import com.google.gson.annotations.SerializedName;
 
-class CategoryDataVo {
+public class CategoryDataVo {
 
     @SerializedName("id")
     private Integer id;
