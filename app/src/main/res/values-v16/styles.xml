@@ -16,6 +16,11 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="MenuItem">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="LogoMenu">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/pacifico</item>
@@ -28,6 +33,12 @@
     <style name="DescricaoProduto">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="DescricaoProdutoBold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/dark</item>
     </style>
 

@@ -4,21 +4,35 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- IMPORTANT!!!!!! -->
+    <!--
+        As this is not a prod version, the feature android:usesCleartextTraffic="true" was
+        enabled so that Glide could download the images frrom some "CDNs" that perform
+        cleartext HTTP traffic (this security constraint was added in Android 8)
+      -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.ProductDetailActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

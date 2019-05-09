@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" >
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -25,11 +25,20 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="MenuItem">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="LogoMenu">
         <item name="android:textSize">24sp</item>
     </style>
 
     <style name="DescricaoProduto">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="DescricaoProdutoBold">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/dark</item>
     </style>

@@ -112,6 +112,9 @@ public class HomeFragment extends Fragment
     public void onBestSellerItemClick(ProductDataVo productDataVo) {
         Snackbar.make(getActivity().findViewById(android.R.id.content),
                 productDataVo.getNome(), Snackbar.LENGTH_LONG).show();
+
+
+        startActivity(ProductDetailActivity.newIntent(getContext(), productDataVo));
     }
 
     @Override
