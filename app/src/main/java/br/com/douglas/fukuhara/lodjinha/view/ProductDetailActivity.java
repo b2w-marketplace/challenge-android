@@ -2,8 +2,8 @@ package br.com.douglas.fukuhara.lodjinha.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
@@ -12,7 +12,7 @@ import br.com.douglas.fukuhara.lodjinha.network.vo.ProductDataVo;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
-    private static final String PRODUCT_BUNDLE_KEY = "product_bundle";
+    private static final String PRODUCT_BUNDLE_KEY = "product_bundle_key";
 
     public static Intent newIntent(Context context, ProductDataVo productDataVo) {
         Intent intent = new Intent(context, ProductDetailActivity.class);
@@ -27,7 +27,6 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 
         ProductDataVo productDataVo;
         Bundle bundle = getIntent().getExtras();

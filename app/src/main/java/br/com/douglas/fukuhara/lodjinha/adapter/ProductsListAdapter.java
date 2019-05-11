@@ -10,17 +10,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import br.com.douglas.fukuhara.lodjinha.R;
 import br.com.douglas.fukuhara.lodjinha.network.vo.ProductDataVo;
 
-public class HomeBestSellerAdapter extends RecyclerView.Adapter<HomeBestSellerAdapter.HomeBestSellerViewHolder> {
+public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapter.HomeBestSellerViewHolder> {
 
     private List<ProductDataVo> mBestSellerProductsList;
     private HomeBestSellerClickListener mListener;
 
-    public HomeBestSellerAdapter(List<ProductDataVo> bestSellerProductsList, HomeBestSellerClickListener listener) {
+    public ProductsListAdapter(List<ProductDataVo> bestSellerProductsList, HomeBestSellerClickListener listener) {
         mBestSellerProductsList = bestSellerProductsList;
         mListener = listener;
     }
@@ -44,6 +47,11 @@ public class HomeBestSellerAdapter extends RecyclerView.Adapter<HomeBestSellerAd
         return mBestSellerProductsList == null ? 0 : mBestSellerProductsList.size();
     }
 
+    public void updateDataSetContent(List<ProductDataVo> list) {
+        mBestSellerProductsList = list;
+        notifyDataSetChanged();
+    }
+
     public interface HomeBestSellerClickListener {
         void onBestSellerItemClick(ProductDataVo productDataVo);
     }
@@ -55,6 +63,7 @@ public class HomeBestSellerAdapter extends RecyclerView.Adapter<HomeBestSellerAd
         private TextView tvProductName;
         private TextView tvPrevPrice;
         private TextView tvFinalPrice;
+        private NumberFormat mNumberFormatter;
 
         public HomeBestSellerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,14 +74,18 @@ public class HomeBestSellerAdapter extends RecyclerView.Adapter<HomeBestSellerAd
             tvPrevPrice = itemView.findViewById(R.id.tv_best_seller_list_prev_price);
             tvFinalPrice = itemView.findViewById(R.id.tv_best_seller_list_final_price);
 
+            mNumberFormatter = NumberFormat.getInstance(new Locale("pt", "BR"));
+            mNumberFormatter.setRoundingMode(RoundingMode.HALF_UP);
+            mNumberFormatter.setMaximumFractionDigits(2);
+            mNumberFormatter.setMinimumFractionDigits(2);
+
             itemView.setOnClickListener(this);
         }
 
         public void onBind(ProductDataVo productDataVo) {
             String urlImagem = productDataVo.getUrlImagem();
             String productName = productDataVo.getNome();
-            String productPrecoDe = productDataVo.getPrecoDe().toString().replace(".",",");
-            String productPrecoPor = productDataVo.getPrecoPor().toString().replace(".",",");
+
             // TODO: Configure: fallback, onError, placeholder
             Glide
                     .with(mViewGroup)
@@ -80,6 +93,8 @@ public class HomeBestSellerAdapter extends RecyclerView.Adapter<HomeBestSellerAd
                     .into(ivProductImage);
 
             tvProductName.setText(productName);
+            String productPrecoDe = mNumberFormatter.format(productDataVo.getPrecoDe());
+            String productPrecoPor = mNumberFormatter.format(productDataVo.getPrecoPor());
             tvPrevPrice.setText(mViewGroup.getContext().getString(R.string.best_seller_prev_price, productPrecoDe));
             tvFinalPrice.setText(mViewGroup.getContext().getString(R.string.best_seller_final_price, productPrecoPor));
         }

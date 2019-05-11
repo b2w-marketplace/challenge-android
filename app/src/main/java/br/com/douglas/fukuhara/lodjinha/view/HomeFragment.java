@@ -17,7 +17,7 @@ import java.util.List;
 
 import br.com.douglas.fukuhara.lodjinha.R;
 import br.com.douglas.fukuhara.lodjinha.adapter.HomeBannerViewPagerAdapter;
-import br.com.douglas.fukuhara.lodjinha.adapter.HomeBestSellerAdapter;
+import br.com.douglas.fukuhara.lodjinha.adapter.ProductsListAdapter;
 import br.com.douglas.fukuhara.lodjinha.adapter.HomeCategoryAdapter;
 import br.com.douglas.fukuhara.lodjinha.interfaces.HomeContract;
 import br.com.douglas.fukuhara.lodjinha.network.RetrofitImpl;
@@ -87,8 +87,8 @@ public class HomeFragment extends Fragment
     }
 
     private void onCategoryItemClick(CategoryDataVo categoryDataVo) {
-        Snackbar.make(getActivity().findViewById(android.R.id.content),
-                categoryDataVo.getDescricao(), Snackbar.LENGTH_LONG).show();
+        startActivity(ProductsListByCategoryActivity
+                .newIntent(getContext(), categoryDataVo.getId(), categoryDataVo.getDescricao()));
     }
 
     @Override
@@ -103,17 +103,13 @@ public class HomeFragment extends Fragment
 
     @Override
     public void onBestSellerContentLoaded(List<ProductDataVo> listOfData) {
-        HomeBestSellerAdapter bestSellerAdapter = new HomeBestSellerAdapter(listOfData, this::onBestSellerItemClick);
+        ProductsListAdapter bestSellerAdapter = new ProductsListAdapter(listOfData, this::onBestSellerItemClick);
         mRvBestSellerList.addItemDecoration(
                 new DividerItemDecoration(mRvBestSellerList.getContext(), DividerItemDecoration.VERTICAL));
         mRvBestSellerList.setAdapter(bestSellerAdapter);
     }
 
     public void onBestSellerItemClick(ProductDataVo productDataVo) {
-        Snackbar.make(getActivity().findViewById(android.R.id.content),
-                productDataVo.getNome(), Snackbar.LENGTH_LONG).show();
-
-
         startActivity(ProductDetailActivity.newIntent(getContext(), productDataVo));
     }
 
