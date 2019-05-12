@@ -18,7 +18,17 @@
             app:layout_constraintBottom_toTopOf="@+id/tv_divider_category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+            <com.itsronald.widget.ViewPagerIndicator
+                android:id="@+id/view_pager_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                app:selectedDotColor="@color/tomato"
+                app:unselectedDotColor="@color/warmPurple"
+                android:background="@color/whiteTwo"
+                android:gravity="center_vertical"/>
+        </android.support.v4.view.ViewPager>
 
         <ProgressBar
             android:id="@+id/pb_loading_banner"
