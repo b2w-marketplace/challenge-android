@@ -28,6 +28,12 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void fetchContent() {
+        if (mView.get() != null) {
+            mView.get().showBannerLoading();
+            mView.get().showCategoryLoading();
+            mView.get().showBestSellerProductsLoading();
+        }
+
         mCompositeDisposable.add(
                 mRestClient.getApi().getBanner()
                     .compose(getObservableNetworkThread())
@@ -56,12 +62,14 @@ public class HomePresenter implements HomeContract.Presenter {
     private void onBannerSuccess(BannerVo bannerVo) {
         List<BannerDataVo> listOfData = bannerVo.getData();
         if (mView.get() != null) {
+            mView.get().hideBannerLoading();
             mView.get().onBannerContentLoaded(listOfData);
         }
     }
 
     private void onBannerFailed(Throwable throwable) {
         if (mView.get() != null) {
+            mView.get().hideBannerLoading();
             if (throwable.getMessage() == null || throwable.getMessage().isEmpty()) {
                 mView.get().onBannerContentFailedGenericError();
             } else {
@@ -73,12 +81,14 @@ public class HomePresenter implements HomeContract.Presenter {
     private void onCategorySuccess(CategoryVo categoryVo) {
         List<CategoryDataVo> listOfData = categoryVo.getData();
         if (mView.get() != null) {
+            mView.get().hideCategoryLoading();
             mView.get().onCategoryContentLoaded(listOfData);
         }
     }
 
     private void onCategoryFailed(Throwable throwable) {
         if (mView.get() != null) {
+            mView.get().hideCategoryLoading();
             if (throwable.getMessage() == null || throwable.getMessage().isEmpty()) {
                 mView.get().onCategoryContentFailedGenericError();
             } else {
@@ -90,12 +100,14 @@ public class HomePresenter implements HomeContract.Presenter {
     private void onBestSellerSuccess(ProductBestSellerVo productBestSellerVo) {
         List<ProductDataVo> listOfData = productBestSellerVo.getData();
         if (mView.get() != null) {
+            mView.get().hideBestSellerProductsLoading();
             mView.get().onBestSellerContentLoaded(listOfData);
         }
     }
 
     private void onBestSellerFailed(Throwable throwable) {
         if (mView.get() != null) {
+            mView.get().hideBestSellerProductsLoading();
             if (throwable.getMessage() == null || throwable.getMessage().isEmpty()) {
                 mView.get().onBestSellerContentFailedGenericError();
             } else {

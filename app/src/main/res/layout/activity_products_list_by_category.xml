@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/pb_loading_more_products"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible"
+        tools:listitem="@layout/best_seller_list_item"/>
 
     <ProgressBar
         android:id="@+id/pb_loading_more_products"

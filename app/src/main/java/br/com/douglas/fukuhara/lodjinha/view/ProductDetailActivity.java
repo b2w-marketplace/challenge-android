@@ -54,14 +54,14 @@ public class ProductDetailActivity extends AppCompatActivity
             getSupportActionBar().setTitle(productDataVo.getCategoria().getDescricao());
         }
 
-        setLayoutView();
+        setLayoutViews();
 
         mPresenter = new ProductDetailPresenter(productDataVo,
                 this, RetrofitImpl.getInstance());
         mPresenter.displayProductDetail();
     }
 
-    private void setLayoutView() {
+    private void setLayoutViews() {
         mIvProductImage = findViewById(R.id.iv_product_image);
         mTvProductTitle = findViewById(R.id.tv_product_title);
         mTvProductPrevPrice = findViewById(R.id.tv_product_prev_price);

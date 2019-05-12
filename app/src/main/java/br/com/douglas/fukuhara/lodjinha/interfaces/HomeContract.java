@@ -21,6 +21,12 @@ public interface HomeContract {
         void onBestSellerContentFailed(String message);
         void onBestSellerContentFailedGenericError();
 
+        void showBannerLoading();
+        void hideBannerLoading();
+        void showCategoryLoading();
+        void hideCategoryLoading();
+        void showBestSellerProductsLoading();
+        void hideBestSellerProductsLoading();
     }
 
     interface Presenter {

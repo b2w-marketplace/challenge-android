@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -33,24 +34,35 @@ public class HomeFragment extends Fragment
     private ViewPager mVpHomeBanner;
     private RecyclerView mRvCategoryList;
     private RecyclerView mRvBestSellerList;
+    private ProgressBar mPbLoadingBanner;
+    private ProgressBar mPbLoadingCategory;
+    private ProgressBar mPbLoadingBestSellerProducts;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View viewCreated = inflater.inflate(R.layout.home_fragment, container, false);
+
+        setLayoutViews(viewCreated);
 
         mPresenter = new HomePresenter(this, RetrofitImpl.getInstance());
         mPresenter.fetchContent();
 
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return viewCreated;
+    }
+
+    private void setLayoutViews(View viewCreated) {
+        mVpHomeBanner = viewCreated.findViewById(R.id.vp_home_banner);
+        mRvCategoryList = viewCreated.findViewById(R.id.rv_home_category);
+        mRvBestSellerList = viewCreated.findViewById(R.id.rv_home_best_sellers);
+        mPbLoadingBanner = viewCreated.findViewById(R.id.pb_loading_banner);
+        mPbLoadingCategory = viewCreated.findViewById(R.id.pb_loading_category);
+        mPbLoadingBestSellerProducts = viewCreated.findViewById(R.id.pb_loading_best_sellers_products);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        mVpHomeBanner = getView().findViewById(R.id.vp_home_banner);
-        mRvCategoryList = getView().findViewById(R.id.rv_home_category);
-        mRvBestSellerList = getView().findViewById(R.id.rv_home_best_sellers);
     }
 
     @Override
@@ -121,6 +133,36 @@ public class HomeFragment extends Fragment
     @Override
     public void onBestSellerContentFailedGenericError() {
         showSnackBarWithErrorMessage(getString(R.string.snack_bestseller_server_generic_error));
+    }
+
+    @Override
+    public void showBannerLoading() {
+        mPbLoadingBanner.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideBannerLoading() {
+        mPbLoadingBanner.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showCategoryLoading() {
+        mPbLoadingCategory.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideCategoryLoading() {
+        mPbLoadingCategory.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showBestSellerProductsLoading() {
+        mPbLoadingBestSellerProducts.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideBestSellerProductsLoading() {
+        mPbLoadingBestSellerProducts.setVisibility(View.GONE);
     }
 
     private void showSnackBarWithErrorMessage(String message) {
