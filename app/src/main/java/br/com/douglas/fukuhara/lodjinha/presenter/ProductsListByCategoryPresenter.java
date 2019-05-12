@@ -52,14 +52,16 @@ public class ProductsListByCategoryPresenter implements ProductsByListCategoryCo
         List<ProductDataVo> listOfData = productVo.getData();
 
         if (mView.get() != null) {
-            if (mCurrentOffest == 0) {
-                mListOfProducts = listOfData;
-            } else {
-                mListOfProducts.addAll(listOfData);
-            }
             mView.get().dismissLoader();
-            mView.get().showRecyclerViewContainer();
-            mView.get().displayListOfProducts(mListOfProducts);
+            if (listOfData != null && listOfData.size() > 0) {
+                if (mCurrentOffest == 0) {
+                    mListOfProducts = listOfData;
+                } else {
+                    mListOfProducts.addAll(listOfData);
+                }
+                mView.get().showRecyclerViewContainer();
+                mView.get().displayListOfProducts(mListOfProducts);
+            }
         }
         if (listOfData.size() < LIMIT_OF_DATA_RETRIEVED) {
             doesStillHavePossibleDataOnServer = false;
@@ -71,12 +73,17 @@ public class ProductsListByCategoryPresenter implements ProductsByListCategoryCo
     private void onProductListFetchError(Throwable throwable) {
         if (mView.get() != null) {
             mView.get().dismissLoader();
+
+            if (throwable.getMessage() == null || throwable.getMessage().isEmpty()) {
+                mView.get().onProductListFailedGenericError();
+            } else {
+                mView.get().onProductFetchFailed(throwable.getMessage());
+            }
         }
     }
 
     @Override
     public void disposeAll() {
         mCompositeDisposable.clear();
-
     }
 }

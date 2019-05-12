@@ -30,7 +30,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     @Override
     public void displayProductDetail() {
-        if (mView.get() != null && mModel != null) {
+        if (mView.get() != null) {
             if (mModel != null) {
                 NumberFormat numberFormatter = NumberFormat.getInstance(new Locale("pt", "BR"));
                 numberFormatter.setRoundingMode(RoundingMode.HALF_UP);
@@ -85,12 +85,17 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         if (mView.get() != null) {
             mView.get().setFabEnabled(true);
         }
-
     }
 
     private void onServerError(Throwable throwable) {
         if (mView.get() != null) {
             mView.get().setFabEnabled(true);
+
+            if (throwable.getMessage() == null || throwable.getMessage().isEmpty()) {
+                mView.get().showGenericFailureOnReservation();
+            } else {
+                mView.get().showFailureOnReservation(throwable.getMessage());
+            }
         }
     }
     @Override

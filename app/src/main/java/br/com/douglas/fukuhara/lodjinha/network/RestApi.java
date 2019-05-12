@@ -47,6 +47,11 @@ public interface RestApi {
     @GET(PRODUTO_MAIS_VENDIDO)
     Observable<ProductBestSellerVo> getProdutoMaisVendido();
 
+    /*
+        Esta API não foi utilizada pois estou passando a informação do produto para a tela de detalhes
+        utilizando o dado já obtido através de 'getProduto()', já que o mesmo retorna o mesmo obj que
+        'getProductId()' retornaria.
+     */
     @GET(PRODUTO + PRODUTO_ID)
     Observable<ProductDataVo> getProductId(@Path(PRODUTO_ID_PATH) String produtoId);
 

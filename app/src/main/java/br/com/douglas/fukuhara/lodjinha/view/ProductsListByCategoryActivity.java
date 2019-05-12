@@ -117,6 +117,16 @@ public class ProductsListByCategoryActivity extends AppCompatActivity
     }
 
     @Override
+    public void onProductListFailedGenericError() {
+
+    }
+
+    @Override
+    public void onProductFetchFailed(String message) {
+
+    }
+
+    @Override
     protected void onDestroy() {
         mPresenter.disposeAll();
         super.onDestroy();

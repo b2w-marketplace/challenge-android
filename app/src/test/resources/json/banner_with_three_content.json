@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "urlImagem": "urlImagem_1",
+      "linkUrl": "linkUrl_1"
+    },
+    {
+      "id": 2,
+      "urlImagem": "urlImagem_2",
+      "linkUrl": "linkUrl_2"
+    },
+    {
+      "id": 3,
+      "urlImagem": "urlImagem_3",
+      "linkUrl": "linkUrl_3"
+    }
+  ]
+}

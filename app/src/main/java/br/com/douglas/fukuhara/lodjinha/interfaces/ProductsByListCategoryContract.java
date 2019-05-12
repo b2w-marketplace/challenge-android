@@ -12,6 +12,8 @@ public interface ProductsByListCategoryContract {
         void showLoader();
         void dismissLoader();
         void showRecyclerViewContainer();
+        void onProductListFailedGenericError();
+        void onProductFetchFailed(String message);
     }
 
     interface Presenter {
