@@ -21,7 +21,7 @@ import br.com.douglas.fukuhara.lodjinha.network.vo.ProductDataVo;
 public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapter.HomeBestSellerViewHolder> {
 
     private List<ProductDataVo> mBestSellerProductsList;
-    private HomeBestSellerClickListener mListener;
+    private final HomeBestSellerClickListener mListener;
 
     public ProductsListAdapter(List<ProductDataVo> bestSellerProductsList, HomeBestSellerClickListener listener) {
         mBestSellerProductsList = bestSellerProductsList;
@@ -58,14 +58,14 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
 
     class HomeBestSellerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ViewGroup mViewGroup;
-        private ImageView ivProductImage;
-        private TextView tvProductName;
-        private TextView tvPrevPrice;
-        private TextView tvFinalPrice;
-        private NumberFormat mNumberFormatter;
+        private final ViewGroup mViewGroup;
+        private final ImageView ivProductImage;
+        private final TextView tvProductName;
+        private final TextView tvPrevPrice;
+        private final TextView tvFinalPrice;
+        private final NumberFormat mNumberFormatter;
 
-        public HomeBestSellerViewHolder(@NonNull View itemView) {
+        HomeBestSellerViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mViewGroup = (ViewGroup) itemView;
@@ -82,7 +82,7 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
             itemView.setOnClickListener(this);
         }
 
-        public void onBind(ProductDataVo productDataVo) {
+        void onBind(ProductDataVo productDataVo) {
             String urlImagem = productDataVo.getUrlImagem();
             String productName = productDataVo.getNome();
 

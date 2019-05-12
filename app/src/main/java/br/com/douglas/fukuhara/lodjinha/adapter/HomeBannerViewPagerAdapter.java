@@ -16,8 +16,8 @@ import br.com.douglas.fukuhara.lodjinha.network.vo.BannerDataVo;
 
 public class HomeBannerViewPagerAdapter extends PagerAdapter {
 
-    private List<BannerDataVo> mBannerItemsList;
-    private BannerClickListener mListener;
+    private final List<BannerDataVo> mBannerItemsList;
+    private final BannerClickListener mListener;
 
     public HomeBannerViewPagerAdapter(List<BannerDataVo> bannerItemsList, BannerClickListener listener) {
         mBannerItemsList = bannerItemsList;

@@ -17,8 +17,8 @@ import br.com.douglas.fukuhara.lodjinha.network.vo.CategoryDataVo;
 
 public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.HomeCategoryViewHolder> {
 
-    private List<CategoryDataVo> mCategoryList;
-    private CategoryListClickListener mListener;
+    private final List<CategoryDataVo> mCategoryList;
+    private final CategoryListClickListener mListener;
 
     public HomeCategoryAdapter(List<CategoryDataVo> categoryList, CategoryListClickListener listener) {
         mCategoryList = categoryList;
@@ -50,11 +50,11 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
     class HomeCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ViewGroup mViewGroup;
-        private ImageView ivCategoryImage;
-        private TextView tvCategoryName;
+        private final ViewGroup mViewGroup;
+        private final ImageView ivCategoryImage;
+        private final TextView tvCategoryName;
 
-        public HomeCategoryViewHolder(@NonNull View itemView) {
+        HomeCategoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mViewGroup = (ViewGroup) itemView;
@@ -64,7 +64,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             itemView.setOnClickListener(this);
         }
 
-        public void onBind(CategoryDataVo categoryDataVo) {
+        void onBind(CategoryDataVo categoryDataVo) {
             String urlImagem = categoryDataVo.getUrlImagem();
             // TODO: Configure: fallback, onError, placeholder
             Glide

@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/quadruple_grid"
-        app:layout_constraintBottom_toTopOf="@+id/gl_about_horizontal_forty"/>
+        app:layout_constraintBottom_toTopOf="@+id/gl_about_horizontal_forty"
+        android:contentDescription="@string/about_logo_image_desc"/>
 
     <TextView
         android:id="@+id/tv_about_app_name"

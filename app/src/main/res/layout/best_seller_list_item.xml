@@ -15,7 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/base_grid"
-        android:src="@drawable/disclosure_indicator"/>
+        android:src="@drawable/disclosure_indicator"
+        android:contentDescription="@string/product_list_image"/>
 
     <TextView
         android:id="@+id/tv_best_seller_list_prod_name"
@@ -64,6 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/base_grid"
-        android:src="@drawable/disclosure_indicator"/>
+        android:src="@drawable/disclosure_indicator"
+        android:contentDescription="@string/product_list_more_info"/>
 
 </android.support.constraint.ConstraintLayout>

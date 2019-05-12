@@ -16,9 +16,9 @@ public class ProductsListByCategoryPresenter implements ProductsByListCategoryCo
     private final int LIMIT_OF_DATA_RETRIEVED = 20;
     private int mCurrentOffest;
     private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
-    private WeakReference<ProductsByListCategoryContract.View> mView;
-    private RestClient mRestClient;
-    private Integer mCategoryId;
+    private final WeakReference<ProductsByListCategoryContract.View> mView;
+    private final RestClient mRestClient;
+    private final Integer mCategoryId;
     private boolean doesStillHavePossibleDataOnServer;
 
     private List<ProductDataVo> mListOfProducts;

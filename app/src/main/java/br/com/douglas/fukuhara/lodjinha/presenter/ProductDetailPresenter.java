@@ -17,10 +17,10 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     private final String SERVER_RESERVATION_SUCCESS_MESSAGE = "success";
 
-    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
-    private ProductDataVo mModel;
-    private WeakReference<ProductDetailContract.View> mView;
-    private RestClient mClient;
+    private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
+    private final ProductDataVo mModel;
+    private final WeakReference<ProductDetailContract.View> mView;
+    private final RestClient mClient;
 
     public ProductDetailPresenter(ProductDataVo model, ProductDetailContract.View view, RestClient client) {
         mModel = model;

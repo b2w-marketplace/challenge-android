@@ -26,6 +26,8 @@
                 style="@style/LogoMenu"
                 android:paddingLeft="@dimen/base_grid"
                 android:paddingStart="@dimen/base_grid"
+                android:paddingRight="@dimen/base_grid"
+                android:paddingEnd="@dimen/base_grid"
                 android:text="@string/app_name" />
         </android.support.v7.widget.Toolbar>
 

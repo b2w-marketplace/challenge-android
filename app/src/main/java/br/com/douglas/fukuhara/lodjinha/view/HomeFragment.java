@@ -61,11 +61,6 @@ public class HomeFragment extends Fragment
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         mPresenter.disposeAll();
@@ -121,7 +116,7 @@ public class HomeFragment extends Fragment
         mRvBestSellerList.setAdapter(bestSellerAdapter);
     }
 
-    public void onBestSellerItemClick(ProductDataVo productDataVo) {
+    private void onBestSellerItemClick(ProductDataVo productDataVo) {
         startActivity(ProductDetailActivity.newIntent(getContext(), productDataVo));
     }
 

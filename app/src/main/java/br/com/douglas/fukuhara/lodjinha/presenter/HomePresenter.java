@@ -18,8 +18,8 @@ import static br.com.douglas.fukuhara.lodjinha.network.NetworkUtils.getObservabl
 public class HomePresenter implements HomeContract.Presenter {
 
     private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
-    private WeakReference<HomeContract.View> mView;
-    private RestClient mRestClient;
+    private final WeakReference<HomeContract.View> mView;
+    private final RestClient mRestClient;
 
     public HomePresenter(HomeContract.View view, RestClient restClient) {
         mView = new WeakReference<>(view);

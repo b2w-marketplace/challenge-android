@@ -54,7 +54,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_divider_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rv_home_category"/>
+        app:layout_constraintBottom_toTopOf="@+id/barrier_up_for_category_rv"/>
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier_up_for_category_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="pb_loading_category,rv_home_category"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_home_category"
@@ -64,8 +71,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/divider_one"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/category_list_item"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ProgressBar
         android:id="@+id/pb_loading_category"
@@ -73,11 +79,11 @@
         android:layout_height="wrap_content"
         android:progressTint="@color/warmPurple"
         android:indeterminateTint="@color/warmPurple"
-        app:layout_constraintTop_toBottomOf="@+id/divider_one"
+        app:layout_constraintTop_toTopOf="@+id/rv_home_category"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/divider_two"
-        android:visibility="gone"
+        android:visibility="invisible"
         tools:visibility="visible" />
 
     <android.support.constraint.Barrier
