@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 
 import br.com.douglas.fukuhara.lodjinha.R;
@@ -77,7 +78,6 @@ public class ProductDetailActivity extends AppCompatActivity
         Glide
                 .with(this)
                 .load(urlImagem)
-                .placeholder(R.mipmap.image_placeholder)
                 .error(R.mipmap.image_placeholder_error)
                 .into(mIvProductImage);
         mTvProductTitle.setText(nome);
