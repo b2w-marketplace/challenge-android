@@ -90,6 +90,8 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
             Glide
                     .with(mViewGroup)
                     .load(urlImagem)
+                    .placeholder(R.mipmap.image_placeholder)
+                    .error(R.mipmap.image_placeholder_error)
                     .into(ivProductImage);
 
             tvProductName.setText(productName);

@@ -1,152 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:scrollbars="vertical"
+    android:fillViewport="true">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_home_banner"
-        android:elevation="4dp"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_match_constraints"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <ProgressBar
-        android:id="@+id/pb_loading_banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:indeterminateTint="@color/warmPurple"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_divider_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_divider_category"
-        style="@style/DescricaoProdutoBold"
-        android:layout_width="@dimen/text_view_constrainted_width"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/base_grid"
-        android:text="@string/divider_categories"
-        app:layout_constraintBottom_toTopOf="@+id/divider_one"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vp_home_banner" />
+        <ProgressBar
+            android:id="@+id/pb_loading_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tv_divider_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:indeterminateTint="@color/warmPurple"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
-    <View
-        android:id="@+id/divider_one"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/tv_divider_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/barrier_up_for_category_rv"/>
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier_top_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="vp_home_banner, pb_loading_banner"/>
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier_up_for_category_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="pb_loading_category,rv_home_category"/>
+        <TextView
+            android:id="@+id/tv_divider_category"
+            style="@style/DescricaoProdutoBold"
+            android:layout_width="@dimen/text_view_constrainted_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/base_grid"
+            android:text="@string/divider_categories"
+            app:layout_constraintBottom_toTopOf="@+id/divider_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier_top_banner" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_home_category"
-        app:layoutManager="android.support.v7.widget.GridLayoutManager"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/divider_one"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <View
+            android:id="@+id/divider_one"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tv_divider_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/barrier_up_for_category_rv"/>
 
-    <ProgressBar
-        android:id="@+id/pb_loading_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:progressTint="@color/warmPurple"
-        android:indeterminateTint="@color/warmPurple"
-        app:layout_constraintTop_toTopOf="@+id/rv_home_category"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/divider_two"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier_up_for_category_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="pb_loading_category,rv_home_category"/>
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier_for_category_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="pb_loading_category,rv_home_category"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_home_category"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/divider_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-    <View
-        android:id="@+id/divider_two"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_for_category_rv"
-        app:layout_constraintBottom_toTopOf="@+id/tv_divider_best_sellers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ProgressBar
+            android:id="@+id/pb_loading_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/warmPurple"
+            android:indeterminateTint="@color/warmPurple"
+            app:layout_constraintTop_toTopOf="@+id/rv_home_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/divider_two"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/tv_divider_best_sellers"
-        android:layout_width="@dimen/text_view_constrainted_width"
-        android:layout_height="wrap_content"
-        android:text="@string/divider_best_sellers"
-        android:layout_margin="@dimen/base_grid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_two"
-        app:layout_constraintBottom_toTopOf="@+id/divider_three"
-        style="@style/DescricaoProdutoBold" />
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier_for_category_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="pb_loading_category,rv_home_category"/>
 
-    <View
-        android:id="@+id/divider_three"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/tv_divider_best_sellers"
-        app:layout_constraintBottom_toTopOf="@+id/rv_home_best_sellers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/divider_two"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/barrier_for_category_rv"
+            app:layout_constraintBottom_toTopOf="@+id/tv_divider_best_sellers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/pb_loading_best_sellers_products"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/divider_three"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:indeterminateTint="@color/warmPurple"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        <TextView
+            android:id="@+id/tv_divider_best_sellers"
+            android:layout_width="@dimen/text_view_constrainted_width"
+            android:layout_height="wrap_content"
+            android:text="@string/divider_best_sellers"
+            android:layout_margin="@dimen/base_grid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_two"
+            app:layout_constraintBottom_toTopOf="@+id/divider_three"
+            style="@style/DescricaoProdutoBold" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_home_best_sellers"
-        app:layoutManager="android.support.v7.widget.GridLayoutManager"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_match_constraints"
-        app:layout_constraintTop_toBottomOf="@+id/divider_three"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/best_seller_list_item"/>
+        <View
+            android:id="@+id/divider_three"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/tv_divider_best_sellers"
+            app:layout_constraintBottom_toTopOf="@+id/rv_home_best_sellers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/pb_loading_best_sellers_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/divider_three"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:indeterminateTint="@color/warmPurple"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_home_best_sellers"
+            android:overScrollMode="never"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/divider_three"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/best_seller_list_item"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

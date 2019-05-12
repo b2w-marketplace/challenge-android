@@ -77,6 +77,8 @@ public class ProductDetailActivity extends AppCompatActivity
         Glide
                 .with(this)
                 .load(urlImagem)
+                .placeholder(R.mipmap.image_placeholder)
+                .error(R.mipmap.image_placeholder_error)
                 .into(mIvProductImage);
         mTvProductTitle.setText(nome);
         mTvProductPrevPrice.setText(getString(R.string.best_seller_prev_price, precoDe));

@@ -7,6 +7,7 @@
     <dimen name="height_match_constraints">0dp</dimen>
     <dimen name="text_view_constrainted_width">0dp</dimen>
 
+    <!-- dimensão usada para compensar o tamanho do FAB, para não causar overlap do texto com o botão -->
     <dimen name="bottom_margin_product_desc">72dp</dimen>
 
     <dimen name="home_logo_circled_shape_padding">10dp</dimen>

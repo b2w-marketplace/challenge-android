@@ -70,6 +70,8 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             Glide
                     .with(mViewGroup)
                     .load(urlImagem)
+                    .placeholder(R.mipmap.image_placeholder)
+                    .error(R.mipmap.image_placeholder_error)
                     .into(ivCategoryImage);
             tvCategoryName.setText(categoryDataVo.getDescricao());
         }
