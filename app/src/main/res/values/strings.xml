@@ -29,5 +29,8 @@
     <string name="snack_category_server_generic_error">Ocorreu um erro ao carregar as categorias, tente novamente mais tarde.</string>
     <string name="snack_bestseller_server_error">Não foi possível carregar os produtos mais vendidos devido:\n%1$s</string>
     <string name="snack_bestseller_server_generic_error">Ocorreu um erro ao carregar os produtos mais vendidos, tente novamente mais tarde.</string>
+    <string name="dialog_product_reservation_success">Produto reservado com sucesso</string>
+    <string name="dialog_ok_button">OK</string>
+    <string name="dialog_product_reservation_fail">Falha ao reservar o produto</string>
 
 </resources>

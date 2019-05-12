@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid
-        android:color="@color/colorPrimary"/>
-    <padding
-        android:bottom="@dimen/home_logo_circled_shape_padding"
-        android:top="@dimen/home_logo_circled_shape_padding"
-        android:left="@dimen/home_logo_circled_shape_padding"
-        android:right="@dimen/home_logo_circled_shape_padding"/>
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/white_selectable_item_background_circle" />
+</layer-list>

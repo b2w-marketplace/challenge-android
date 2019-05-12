@@ -7,9 +7,13 @@
     <dimen name="height_match_constraints">0dp</dimen>
     <dimen name="text_view_constrainted_width">0dp</dimen>
 
+    <dimen name="bottom_margin_product_desc">72dp</dimen>
+
     <dimen name="home_logo_circled_shape_padding">10dp</dimen>
 
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="fab_height">56dp</dimen>
     <dimen name="fab_width">56dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_z_trans">6dp</dimen>
 </resources>

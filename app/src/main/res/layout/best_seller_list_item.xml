@@ -30,13 +30,15 @@
 
     <TextView
         android:id="@+id/tv_best_seller_list_prev_price"
-        android:layout_width="@dimen/text_view_constrainted_width"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_best_seller_list_final_price"
         app:layout_constraintStart_toEndOf="@+id/iv_best_seller_list_image"
-        app:layout_constraintTop_toBottomOf="@+id/tv_best_seller_list_prod_name"
-        android:layout_margin="@dimen/base_grid"
+        app:layout_constraintEnd_toStartOf="@+id/tv_best_seller_list_final_price"
+        app:layout_constraintBottom_toTopOf="@+id/tv_best_seller_list_final_price"
+        android:layout_marginLeft="@dimen/base_grid"
+        android:layout_marginRight="@dimen/base_grid"
         style="@style/PrecoDe"
         android:foreground="@drawable/preco_de_strick_through"
         tools:text=" De: 9999,99 " />
@@ -46,9 +48,10 @@
         android:layout_width="@dimen/text_view_constrainted_width"
         android:layout_height="wrap_content"
         android:gravity="end"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_best_seller_list_prev_price"
-        app:layout_constraintEnd_toStartOf="@+id/iv_best_seller_list_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/tv_best_seller_list_prod_name"
         app:layout_constraintStart_toEndOf="@+id/tv_best_seller_list_prev_price"
+        app:layout_constraintEnd_toStartOf="@+id/iv_best_seller_list_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/base_grid"
         style="@style/PrecoPor"
         tools:text="Por: 9999,98" />

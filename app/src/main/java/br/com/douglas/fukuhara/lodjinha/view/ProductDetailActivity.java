@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import com.google.gson.Gson;
 
 import br.com.douglas.fukuhara.lodjinha.R;
 import br.com.douglas.fukuhara.lodjinha.interfaces.ProductDetailContract;
+import br.com.douglas.fukuhara.lodjinha.network.RetrofitImpl;
 import br.com.douglas.fukuhara.lodjinha.network.vo.ProductDataVo;
 import br.com.douglas.fukuhara.lodjinha.presenter.ProductDetailPresenter;
 
@@ -28,6 +31,7 @@ public class ProductDetailActivity extends AppCompatActivity
     private TextView mTvProductPrevPrice;
     private TextView mTvProductFinalPrice;
     private TextView mTvProductDesc;
+    private FloatingActionButton mFabReserve;
 
     public static Intent newIntent(Context context, ProductDataVo productDataVo) {
         Intent intent = new Intent(context, ProductDetailActivity.class);
@@ -52,7 +56,8 @@ public class ProductDetailActivity extends AppCompatActivity
 
         setLayoutView();
 
-        mPresenter = new ProductDetailPresenter(productDataVo, this);
+        mPresenter = new ProductDetailPresenter(productDataVo,
+                this, RetrofitImpl.getInstance());
         mPresenter.displayProductDetail();
     }
 
@@ -62,6 +67,9 @@ public class ProductDetailActivity extends AppCompatActivity
         mTvProductPrevPrice = findViewById(R.id.tv_product_prev_price);
         mTvProductFinalPrice = findViewById(R.id.tv_product_final_price);
         mTvProductDesc = findViewById(R.id.tv_product_description);
+        mFabReserve = findViewById(R.id.fab_product_reserve);
+
+        mFabReserve.setOnClickListener(v -> mPresenter.onReserveButtonPressed());
     }
 
     @Override
@@ -87,8 +95,44 @@ public class ProductDetailActivity extends AppCompatActivity
     }
 
     @Override
+    public void setFabEnabled(boolean enabled) {
+        mFabReserve.setEnabled(enabled);
+    }
+
+    @Override
+    public void showReservationSuccess() {
+        buildAlertDialog(getString(R.string.dialog_product_reservation_success));
+    }
+
+    @Override
+    public void showGenericFailureOnReservation() {
+        buildAlertDialog(getString(R.string.dialog_product_reservation_fail));
+    }
+
+    @Override
+    public void showFailureOnReservation(String serverMessage) {
+        buildAlertDialog(serverMessage);
+    }
+
+    private void buildAlertDialog(String stringMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+                .setMessage(stringMessage)
+                .setPositiveButton(R.string.dialog_ok_button, (dialog, which) -> mPresenter.onDialogConfirmationPressed() )
+                .setCancelable(false)
+                .create()
+                .show();
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.disposeAll();
+        super.onDestroy();
     }
 }
