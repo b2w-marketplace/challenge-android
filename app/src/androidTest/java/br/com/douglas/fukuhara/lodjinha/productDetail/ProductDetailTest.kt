@@ -103,7 +103,7 @@ class ProductDetailTest {
     }
 
     @Test
-    fun WhenClickingOnReserveButtonAndPositiveResponseIsReceivedThenInformItToUser() {
+    fun whenClickingOnReserveButtonAndPositiveResponseIsReceivedThenInformItToUser() {
         mActivityRule.launchActivity(mIntentId1)
         // Click on the Reserve Button
         onView(withId(R.id.fab_product_reserve)).perform(click())
@@ -119,7 +119,7 @@ class ProductDetailTest {
     }
 
     @Test
-    fun WhenClickingOnReserveButtonAndNegativeResponseIsReceivedThenInformItToUser() {
+    fun whenClickingOnReserveButtonAndNegativeResponseIsReceivedThenInformItToUser() {
         // SetUp of a Product that will receive a ResultCode 200 and Failure in reservation (with error message from server)
         mProductData = InstrumentedTestUtils.getObjFromJson(mTestContext, "product_detail_id_02.json", ProductDataVo::class.java)
         mIntentId2 = ProductDetailActivity.newIntent(mAppContext, mProductData)
@@ -139,7 +139,7 @@ class ProductDetailTest {
     }
 
     @Test
-    fun WhenClickingOnReserveButtonAndNegativeResponseIsWithoutMessageReceivedThenInformItToUser() {
+    fun whenClickingOnReserveButtonAndNegativeResponseIsWithoutMessageReceivedThenInformItToUser() {
         // SetUp of a Product that will receive a ResultCode 200 and Failure in reservation (without error message from server)
         mProductData = InstrumentedTestUtils.getObjFromJson(mTestContext, "product_detail_id_03.json", ProductDataVo::class.java)
         mIntentId3 = ProductDetailActivity.newIntent(mAppContext, mProductData)
@@ -159,7 +159,7 @@ class ProductDetailTest {
     }
 
     @Test
-    fun WhenClickingOnReserveButtonAndReceiveHttpErrorThenInformItToUser() {
+    fun whenClickingOnReserveButtonAndReceiveHttpErrorThenInformItToUser() {
         // SetUp of a Product that will receive a HttpError code 404
         mProductData = InstrumentedTestUtils.getObjFromJson(mTestContext, "product_detail_id_04.json", ProductDataVo::class.java)
         mIntentId4 = ProductDetailActivity.newIntent(mAppContext, mProductData)

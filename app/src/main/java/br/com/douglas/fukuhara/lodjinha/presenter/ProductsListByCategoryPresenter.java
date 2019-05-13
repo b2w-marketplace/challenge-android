@@ -63,7 +63,7 @@ public class ProductsListByCategoryPresenter implements ProductsByListCategoryCo
                 mView.get().displayListOfProducts(mListOfProducts);
             }
         }
-        if (listOfData.size() < LIMIT_OF_DATA_RETRIEVED) {
+        if (listOfData == null || listOfData.size() < LIMIT_OF_DATA_RETRIEVED) {
             doesStillHavePossibleDataOnServer = false;
         } else if (listOfData.size() == LIMIT_OF_DATA_RETRIEVED) {
             mCurrentOffest = mCurrentOffest + LIMIT_OF_DATA_RETRIEVED;

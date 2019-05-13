@@ -3,7 +3,6 @@ package br.com.douglas.fukuhara.lodjinha.presenter.helper
 import br.com.douglas.fukuhara.lodjinha.network.vo.ProductDataVo
 import br.com.douglas.fukuhara.lodjinha.network.vo.ResultVo
 import br.com.douglas.fukuhara.lodjinha.utils.TestUtils
-import io.reactivex.Observable
 
 object ProductDetailPresenterHelper {
 

@@ -8,7 +8,7 @@ object TestUtils {
     fun <T>fromJsonToObj(json: String, classType: Class<T>): T {
         val uri = this.javaClass.classLoader.getResource(json)
         val file = File(uri.path)
-        val jsonString: String = String(file.readBytes())
+        val jsonString = String(file.readBytes())
 
         return Gson().fromJson(jsonString, classType)
     }

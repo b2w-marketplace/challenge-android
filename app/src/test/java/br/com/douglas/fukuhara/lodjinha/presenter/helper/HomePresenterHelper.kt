@@ -4,7 +4,6 @@ import br.com.douglas.fukuhara.lodjinha.network.vo.BannerVo
 import br.com.douglas.fukuhara.lodjinha.network.vo.CategoryVo
 import br.com.douglas.fukuhara.lodjinha.network.vo.ProductBestSellerVo
 import br.com.douglas.fukuhara.lodjinha.utils.TestUtils
-import io.reactivex.Observable
 
 object HomePresenterHelper {
 
