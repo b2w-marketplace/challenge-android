@@ -82,7 +82,7 @@ public class ProductDetailActivity extends AppCompatActivity
                 .into(mIvProductImage);
         mTvProductTitle.setText(nome);
         mTvProductPrevPrice.setText(getString(R.string.best_seller_prev_price, precoDe));
-        mTvProductFinalPrice.setText(getString(R.string.best_seller_prev_price, precoPor));
+        mTvProductFinalPrice.setText(getString(R.string.best_seller_final_price, precoPor));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             mTvProductDesc.setText(Html.fromHtml(descricao, Html.FROM_HTML_MODE_COMPACT));

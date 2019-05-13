@@ -32,7 +32,7 @@ public class ProductsListByCategoryActivity extends AppCompatActivity
     private ProgressBar mProgressBar;
     private ProductsListAdapter mAdapter;
 
-    public static Intent newIntent(Context context, Integer categoryId, String categoryName) {
+    public static Intent newIntent(Context context, int categoryId, String categoryName) {
         Intent intent = new Intent(context, ProductsListByCategoryActivity.class);
         intent.putExtra(CATEGORY_ID_BUNDLE_KEY, categoryId);
         intent.putExtra(CATEGORY_NAME_BUNDLE_KEY, categoryName);

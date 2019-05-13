@@ -11,6 +11,8 @@ public class RetrofitImpl implements RestClient {
 
     private static RetrofitImpl instance;
 
+    private String BASE_URL = BuildConfig.REST_BASE_URL;
+
     public static RetrofitImpl getInstance() {
         if (instance == null) {
             instance = new RetrofitImpl();
@@ -21,7 +23,7 @@ public class RetrofitImpl implements RestClient {
     @Override
     public RestApi getApi() {
         Retrofit.Builder retrofitBuilder =  new Retrofit.Builder()
-                .baseUrl(BuildConfig.REST_BASE_URL)
+                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create());
 
@@ -38,5 +40,10 @@ public class RetrofitImpl implements RestClient {
                 .build();
 
         return retrofitClient.create(RestApi.class);
+    }
+
+    @Override
+    public void setBaseUrl(String baseUrl) {
+        BASE_URL = baseUrl;
     }
 }

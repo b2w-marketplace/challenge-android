@@ -32,7 +32,8 @@
         <activity
             android:name=".view.ProductDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.ProductsListByCategoryActivity"
+        <activity
+            android:name=".view.ProductsListByCategoryActivity"
             android:screenOrientation="portrait" />
     </application>
 
